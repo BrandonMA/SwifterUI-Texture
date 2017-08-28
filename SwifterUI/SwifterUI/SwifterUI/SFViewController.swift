@@ -52,13 +52,7 @@ open class SFViewController<SFNodeType>: ASViewController<ASDisplayNode>, SFColo
         self.SFNode = SFNode
         
         super.init(node: ASDisplayNode())
-        
-        self.statusBarStyle = colorStyle.getStatusBarStyle()
-        
-        self.SFNode.backgroundColor = colorStyle.getBackgroundColor()
-        
-        node.backgroundColor = self.SFNode.backgroundColor
-        
+                
         node.automaticallyManagesSubnodes = true
         
         node.addSubnode(self.SFNode)

@@ -13,7 +13,7 @@ open class SFDisplayNode: ASDisplayNode, SFColorStyleProtocol {
     
     // MARK: - Instance Properties
     
-    open var automaticallyAdjustsColorStyle: Bool
+    open var automaticallyAdjustsColorStyle: Bool = false
     
     // isLoading: If you used addLoadingNode, set true or false to show a FluidLoadingNode()
     open var isLoading = false

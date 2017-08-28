@@ -44,7 +44,7 @@ class FoodDetailNode: SFDisplayNode {
         layout.scrollDirection = .horizontal
         layout.itemSize = CGSize(width: 156, height: 156)
         layout.minimumLineSpacing = 24
-        layout.sectionInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 0)
+        layout.sectionInset = UIEdgeInsets(top: 16, left: 0, bottom: 16, right: 0)
         let node = ASCollectionNode(collectionViewLayout: layout)
         node.clipsToBounds = false
         return node
@@ -75,6 +75,15 @@ class FoodDetailNode: SFDisplayNode {
         button.shouldHaveBackgroundBlur = true
         return button
     }()
+    
+    init() {
+        super.init(automaticallyAdjustsColorStyle: false)
+        self.backgroundColor = UIColor.white
+    }
+    
+    public required init(automaticallyAdjustsColorStyle: Bool) {
+        fatalError("init(automaticallyAdjustsColorStyle:) has not been implemented")
+    }
     
     override func layout() {
         super.layout()

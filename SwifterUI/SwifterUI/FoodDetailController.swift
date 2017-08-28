@@ -11,7 +11,7 @@ import AsyncDisplayKit
 class FoodDetailController: SFViewController<FoodDetailNode>, ASCollectionDataSource {
     
     init() {
-        super.init(SFNode: FoodDetailNode(), automaticallyAdjustsColorStyle: false)
+        super.init(SFNode: FoodDetailNode() , automaticallyAdjustsColorStyle: false)
         self.SFNode.collectionNode.dataSource = self
         self.SFNode.closeButton.addTarget(self, action: #selector(closeButtonDidTouch), forControlEvents: ASControlNodeEvent.touchUpInside)
     }

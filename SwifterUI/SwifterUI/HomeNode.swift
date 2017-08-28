@@ -15,8 +15,9 @@ class HomeNode: ZipUpBaseNode {
         layout.scrollDirection = .horizontal
         layout.itemSize = CGSize(width: UIScreen.main.bounds.width - 68, height: UIScreen.main.bounds.width - 68)
         layout.minimumLineSpacing = 24
-        layout.sectionInset = UIEdgeInsets(top: 0, left: (UIScreen.main.bounds.width - (UIScreen.main.bounds.width - 68)) / 2, bottom: 0, right: 0)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: (UIScreen.main.bounds.width - (UIScreen.main.bounds.width - 68)) / 2, bottom: 0, right: (UIScreen.main.bounds.width - (UIScreen.main.bounds.width - 68)) / 2)
         let node = ASCollectionNode(collectionViewLayout: layout)
+        node.view.showsHorizontalScrollIndicator = false
         return node
     }()
     
