@@ -13,13 +13,13 @@ open class SFLoadingNode: SFDisplayNode {
     
     // MARK: - Instance Properties
     
-    // blurredNode: background node of FluidLoadingNode used to blur your current context while loading
+    // blurredNode: background node of SFDisplayNode used to blur your current context while loading
     public lazy var blurredNode: SFVisualEffectNode = {
         let visualNode = SFVisualEffectNode(automaticallyAdjustsColorStyle: self.automaticallyAdjustsColorStyle)
         return visualNode
     }()
     
-    // activityNode: FluidActivityNode use to show the user a loading animation while he waits
+    // activityNode: SFActivityNode use to show the user a loading animation while he waits
     public lazy var activityNode: SFActivityNode = {
         let node = SFActivityNode(automaticallyAdjustsColorStyle: self.automaticallyAdjustsColorStyle)
         return node
@@ -27,15 +27,11 @@ open class SFLoadingNode: SFDisplayNode {
         
     // MARK: - Initializers
     
-    // Required init to set automaticallyAdjustsColorStyle
-    // - Parameters:
-    //   automaticallyAdjustsColorStyle: Variable to know if a node should automatically update it's views or not
     public required init(automaticallyAdjustsColorStyle: Bool){
         super.init(automaticallyAdjustsColorStyle: automaticallyAdjustsColorStyle)
     }
     
-    // Initialize the node with a automaticallyAdjustsColorStyle set to true, this should be a convinience init
-    public convenience init() {
+    public convenience required init() {
         self.init(automaticallyAdjustsColorStyle: true)
     }
     
@@ -51,7 +47,6 @@ open class SFLoadingNode: SFDisplayNode {
         return ASOverlayLayoutSpec(child: blurredNode, overlay: activityNodeLayout)
     }
     
-    // updateColors: This method should update the UI based on the current colorStyle, every FluidNode and FluidNodeController that needs darkmode should implement this method to set the different colors.
     open override func updateColors() {
         if self.automaticallyAdjustsColorStyle == true {
             backgroundColor = UIColor.clear

@@ -20,10 +20,11 @@ extension ASDisplayNode {
         if flexBasis != 0 {
             separator.style.flexBasis = ASDimension(unit: ASDimensionUnit.points, value: flexBasis)
             separator.style.flexGrow = 0.0 // Disable flexGrow
-            separator.style.flexShrink = 1.0 // Enable flexShrink so the separator shrinks when space is needed
         } else {
             separator.style.flexGrow = 1.0 // Enable flexGrow so the separator expands when free space is available
         }
+        
+        separator.style.flexShrink = 1.0 // Enable flexShrink so the separator shrinks when space is needed
         
         return separator
     }

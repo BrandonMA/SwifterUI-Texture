@@ -8,16 +8,14 @@
 
 import AsyncDisplayKit
 
-open class SFImageNode: ASImageNode, SFColorStyleProtocol {
+open class SFImageNode: ASImageNode, SFDisplayNodeColorStyleProtocol {
     
-    // automaticallyAdjustsColorStyle: Variable to know if a node should automatically update it's views or not
+    // MARK: - Instance Properties
+    
     open var automaticallyAdjustsColorStyle: Bool
         
     // MARK: - Initializers
-    
-    // Required init to set automaticallyAdjustsColorStyle
-    // - Parameters:
-    //   automaticallyAdjustsColorStyle: Variable to know if a node should automatically update colors
+
     public required init(automaticallyAdjustsColorStyle: Bool) {
         self.automaticallyAdjustsColorStyle = automaticallyAdjustsColorStyle
         super.init()
@@ -27,12 +25,12 @@ open class SFImageNode: ASImageNode, SFColorStyleProtocol {
         self.backgroundColor = colorStyle.getTextFieldColor()
     }
     
-    // Initialize the node with a automaticallyAdjustsColorStyle set to true, this should be a convinience init
-    public convenience override init() {
+    public convenience override required init() {
         self.init(automaticallyAdjustsColorStyle: true)
     }
     
-    // updateColors: This method should update the UI based on the current colorStyle, every FluidNode and FluidNodeController that needs darkmode should implement this method to set the different colors.
+    // MARK: - Instance Methods
+    
     open func updateColors() {
         if self.automaticallyAdjustsColorStyle == true {
             self.backgroundColor = colorStyle.getTextFieldColor()

@@ -24,10 +24,6 @@ public class SFPageControlNode: SFDisplayNode {
     
     // MARK: - Initializers
     
-    // Initialize your SFViewController with a SFNode
-    // - Parameters:
-    //   SFNode: Node that containts your UI
-    //   automaticallyAdjustsColorStyle: Variable to know if a node should automatically update it's views or not
     public required init(automaticallyAdjustsColorStyle: Bool) {
         
         pageControl = UIPageControl()
@@ -46,7 +42,7 @@ public class SFPageControlNode: SFDisplayNode {
         self.currentPage = 0
     }
     
-    public convenience init() {
+    public convenience required init() {
         self.init(automaticallyAdjustsColorStyle: true)
     }
     

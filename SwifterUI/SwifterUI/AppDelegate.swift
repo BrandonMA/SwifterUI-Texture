@@ -19,11 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         
-//        window?.rootViewController = SFLoadingNodeExampleController()
+        window?.rootViewController = SFLoadingNodeExampleController()
         
 //        window?.rootViewController = UINavigationController(rootViewController: MeetupFeedController())
         
-        window?.rootViewController = LoginController()
         window?.makeKeyAndVisible()
         
         return true

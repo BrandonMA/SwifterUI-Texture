@@ -9,22 +9,18 @@
 import UIKit
 import AsyncDisplayKit
 
-open class SFActivityNode: ASDisplayNode, SFColorStyleProtocol {
+open class SFActivityNode: ASDisplayNode, SFDisplayNodeColorStyleProtocol {
     
     // MARK: - Instance Properties
     
     // activityIndicatorView: backing UIActivityIndicatorView wrapped inside an ASDisplayNode
     public let activityIndicatorView: UIActivityIndicatorView
         
-    // automaticallyAdjustsColorStyle: Variable to know if a node should automatically update it's views or not
     open var automaticallyAdjustsColorStyle: Bool
     
     // MARK: - Initializers
     
-    // Required init to set automaticallyAdjustsColorStyle
-    // - Parameters:
-    //   automaticallyAdjustsColorStyle: Variable to know if a node should automatically update it's views or not
-    public init(automaticallyAdjustsColorStyle: Bool) {
+    public required init(automaticallyAdjustsColorStyle: Bool) {
         
         self.automaticallyAdjustsColorStyle = automaticallyAdjustsColorStyle
         
@@ -48,8 +44,7 @@ open class SFActivityNode: ASDisplayNode, SFColorStyleProtocol {
         activityIndicatorView.hidesWhenStopped = true
     }
     
-    // Initialize the node with a automaticallyAdjustsColorStyle set to true, this should be a convinience init
-    public convenience override init() {
+    public convenience override required init() {
         self.init(automaticallyAdjustsColorStyle: true)
     }
     
@@ -59,7 +54,6 @@ open class SFActivityNode: ASDisplayNode, SFColorStyleProtocol {
         updateColors()
     }
     
-    // updateColors: This method should update the UI based on the current colorStyle, every FluidNode and FluidNodeController that needs darkmode should implement this method to set the different colors.
     open func updateColors() {
         if self.automaticallyAdjustsColorStyle == true {
             activityIndicatorView.activityIndicatorViewStyle = self.colorStyle.getActivityIndicatorStyle()

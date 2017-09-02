@@ -6,14 +6,11 @@
 //  Copyright © 2017 Brandon Maldonado Alonso. All rights reserved.
 //
 
-import UIKit
 import AsyncDisplayKit
 
-open class SFViewController<SFNodeType>: ASViewController<ASDisplayNode>, SFColorStyleProtocol where SFNodeType: SFDisplayNode {
+open class SFViewController<SFNodeType: SFColorStyleProtocol>: ASViewController<ASDisplayNode>, SFColorStyleProtocol where SFNodeType: ASDisplayNode {
     
     // MARK: - Instance Properties
-    
-    var presentationManager: SFPresentationManager<SFNodeType>? = nil
     
     // SFNode: Node that you are going to be using to build your UI
     public var SFNode: SFNodeType
@@ -30,7 +27,6 @@ open class SFViewController<SFNodeType>: ASViewController<ASDisplayNode>, SFColo
         return self.statusBarStyle
     }
     
-    // statusBarStyle: This enables preferredStatusBarStyle changes on the go, without needing to 
     open var statusBarStyle: UIStatusBarStyle = .default {
         didSet {
             self.setNeedsStatusBarAppearanceUpdate()
@@ -39,7 +35,6 @@ open class SFViewController<SFNodeType>: ASViewController<ASDisplayNode>, SFColo
     
     // automaticallyAdjustsLayoutInsets: This property enables automatic addition of Insets on reloadLayout()
     open var automaticallyAdjustsLayoutInsets: Bool = false
-    
     
     // MARK: - Initializers
     
@@ -63,10 +58,10 @@ open class SFViewController<SFNodeType>: ASViewController<ASDisplayNode>, SFColo
         
         handleColorStyleCheck()
         
-        if #available(iOS 11.0, *) {
-            UINavigationBar.appearance().prefersLargeTitles = true
-        }
-        
+//        if #available(iOS 11.0, *) {
+//            UINavigationBar.appearance().prefersLargeTitles = true
+//        }
+//        
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -87,39 +82,9 @@ open class SFViewController<SFNodeType>: ASViewController<ASDisplayNode>, SFColo
         self.view.endEditing(true)
     }
     
-    // handleColorStyleCheck: Update colors and start a listener
-    func handleColorStyleCheck() {
-        if automaticallyAdjustsColorStyle == true {
-            self.updateColors()
-            automaticallyAdjustsColorStyleHandler()
-        }
-    }
-    
-    // automaticallyAdjustsColorStyleHandler: Creates a new NotificationCenter observer that calls handleBrightnessChange whenever the brightness change
-    func automaticallyAdjustsColorStyleHandler() {
-        if self.automaticallyAdjustsColorStyle == true {
-            NotificationCenter.default.addObserver(self, selector: #selector(handleBrightnessChange), name: .UIScreenBrightnessDidChange, object: nil)
-        } else {
-            NotificationCenter.default.removeObserver(self)
-        }
-    }
-    
     // handleBrightnessChange: Because of the way protocols work, you need to declare an extra @objc function to call updateColors() because it is not an @objc and a notificion can't keep track of it
     @objc final func handleBrightnessChange() {
         updateColors()
-    }
-    
-    // showErrorAlert: Shows an alert with the alerts you added
-    // - Parameters:
-    //    title: Title of the alert you want to present
-    //    errorDescription: Description of what is happening
-    //    action: Action to perform once the user saw the alert
-    public func showErrorAlert(title: String, errorDescription: String, actions: [UIAlertAction]) {
-        let alert = UIAlertController(title: title, message: errorDescription, preferredStyle: .alert) // Create a new UIAlertController
-        actions.forEach { (action) in // Loop over all actions inside the array
-            alert.addAction(action) // Add the current action
-        }
-        self.present(alert, animated: true, completion: nil) // Present the alert to the user
     }
     
     // reloadLayout: This method fixes the bug when the navigationBar/tabBar covers your main node, it does that by adding UIEdgeInsets to your SFNode, your could disable it by disabling automaticallyAdjustsLayoutInsets
@@ -168,7 +133,6 @@ open class SFViewController<SFNodeType>: ASViewController<ASDisplayNode>, SFColo
         reloadLayout()
     }
     
-    // updateColors: Updates the colors to the corrects one
     public func updateColors() {
         
         if self.automaticallyAdjustsColorStyle == true {
@@ -196,14 +160,28 @@ open class SFViewController<SFNodeType>: ASViewController<ASDisplayNode>, SFColo
         
     }
     
-    // updateSubNodesColors: Updates SFNode's colorStyle and call updateColors(). Don't forget that SFNode is a subnode of your main node(the one that comes with ASViewController)
     public func updateSubNodesColors() {
         self.SFNode.updateColors()
     }
 }
 
-
-
+extension SFViewController: SFControllerProtocol {
+    
+    public func handleColorStyleCheck() {
+        if automaticallyAdjustsColorStyle == true {
+            self.updateColors()
+            automaticallyAdjustsColorStyleHandler()
+        }
+    }
+    
+    public func automaticallyAdjustsColorStyleHandler() {
+        if self.automaticallyAdjustsColorStyle == true {
+            NotificationCenter.default.addObserver(self, selector: #selector(handleBrightnessChange), name: .UIScreenBrightnessDidChange, object: nil)
+        } else {
+            NotificationCenter.default.removeObserver(self)
+        }
+    }
+}
 
 
 

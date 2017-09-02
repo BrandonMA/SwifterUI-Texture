@@ -100,17 +100,13 @@ open class SFSignUpNode: SFDisplayNode {
     
     // MARK: - Initializers
     
-    // Required init to set automaticallyAdjustsColorStyle
-    // - Parameters:
-    //   automaticallyAdjustsColorStyle: Variable to know if a node should automatically update it's views or not
     public required init(automaticallyAdjustsColorStyle: Bool){
         super.init(automaticallyAdjustsColorStyle: automaticallyAdjustsColorStyle)
         self.automaticallyAdjustsColorStyle = automaticallyAdjustsColorStyle
         self.cornerRadius = 16 // This is not going to be visible until the animation
     }
     
-    // Initialize the node with a automaticallyAdjustsColorStyle set to true, this should be a convinience init
-    public convenience init() {
+    public convenience required init() {
         self.init(automaticallyAdjustsColorStyle: true)
     }
     

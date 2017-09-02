@@ -12,6 +12,12 @@ open class SFTableNode: SFDisplayNode {
     
     // MARK: - Instance Properties
     
+    open override var backgroundColor: UIColor? {
+        didSet {
+            self.tableNode.backgroundColor = self.backgroundColor
+        }
+    }
+    
     // shouldHaveRefreshControl: Indicates if it should have a refresh control or not
     open var shouldHaveRefreshControl: Bool = false
     
@@ -21,6 +27,24 @@ open class SFTableNode: SFDisplayNode {
     // isFetching: Indicates if it's fetching data, if true then show a FluidActivityNode
     open var isFetching: Bool = false
     
+    open var separatorColor: UIColor = UIColor.clear {
+        didSet {
+            self.tableNode.view.separatorColor = self.separatorColor
+        }
+    }
+    
+    weak var dataSource: ASTableDataSource? {
+        didSet {
+            self.tableNode.dataSource = self.dataSource
+        }
+    }
+    
+    weak var delegate: ASTableDelegate? {
+        didSet {
+            self.tableNode.delegate = self.delegate
+        }
+    }
+    
     // MARK: - Initializers
     
     // Initialize your FluidTableNode with a custom style
@@ -28,7 +52,6 @@ open class SFTableNode: SFDisplayNode {
     //   style: Set style of your tableview
     public init(style: UITableViewStyle, automaticallyAdjustsColorStyle: Bool) {
         self.tableNode = ASTableNode(style: style)
-        self.tableNode.view.backgroundView = UIView() // This is used to eliminate a wierd bug with UISearchBar showing a gray background
         super.init(automaticallyAdjustsColorStyle: automaticallyAdjustsColorStyle)
     }
     
@@ -36,7 +59,7 @@ open class SFTableNode: SFDisplayNode {
         self.init(style: UITableViewStyle.plain, automaticallyAdjustsColorStyle: automaticallyAdjustsColorStyle)
     }
     
-    public convenience init() {
+    public convenience required init() {
         self.init(style: UITableViewStyle.plain, automaticallyAdjustsColorStyle: true)
     }
     
@@ -54,6 +77,7 @@ open class SFTableNode: SFDisplayNode {
             self.refreshControl = UIRefreshControl()
             self.tableNode.view.refreshControl = self.refreshControl
         }
+        self.tableNode.view.backgroundView = UIView() // This is used to eliminate a weird bug with UISearchBar showing a gray background
     }
     
     // layoutSpecThatFits: Layout all subnodes
@@ -65,14 +89,13 @@ open class SFTableNode: SFDisplayNode {
         return ASStackLayoutSpec(direction: ASStackLayoutDirection.vertical, spacing: 0, justifyContent: ASStackLayoutJustifyContent.start, alignItems: ASStackLayoutAlignItems.start, children: [tableNode])
     }
     
-    // updateColors: This method should update the UI based on the current colorStyle, every FluidNode and FluidNodeController that needs darkmode should implement this method to set the different colors.
-    // This method should be called after viewDidLoad if you are using a FluidTableNode
+    // This method should be called after viewDidLoad if you are using a SFTableNode
     open override func updateColors() {
         super.updateColors()
         updateSubNodesColors()
         self.refreshControl?.tintColor = self.colorStyle.getDetailColor()
         self.tableNode.backgroundColor = self.colorStyle.getAlternativeBackgroundColor()
-        self.tableNode.view.separatorColor = self.colorStyle.getSeparatorColor()
+        self.separatorColor = self.colorStyle.getSeparatorColor()
         
         // This is going to loop through every section inside the table node and reload it with the correct color style on the main thread
         for i in 0...self.tableNode.numberOfSections - 1 {

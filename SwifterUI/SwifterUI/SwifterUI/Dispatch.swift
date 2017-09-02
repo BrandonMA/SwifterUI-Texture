@@ -30,7 +30,7 @@ public enum DispatchLevel {
 }
 
 // Dispatch: Class with handy methods related with DispatchQueue
-public class Dispatch {
+public struct Dispatch {
     
     // MARK: - Static Methods
     

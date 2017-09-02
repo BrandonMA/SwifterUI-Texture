@@ -42,8 +42,8 @@ class SFLoginNodeController: SFViewController<SFLoginNode> {
     
     @objc fileprivate func signUpButtonDidTouch() {
         guard let signUpController = self.signUpController else { return }
-        self.presentationManager = SFPresentationManager(animation: .appleMusicLike)
-        signUpController.transitioningDelegate = self.presentationManager
+        let presentationManager: SFPresentationManager<SFLoginNode> = SFPresentationManager(animation: .appleMusicLike)
+        signUpController.transitioningDelegate = presentationManager
         signUpController.modalPresentationStyle = .custom
         present(signUpController, animated: true, completion: nil)
     }

@@ -18,9 +18,6 @@ open class SFVisualEffectNode: SFDisplayNode {
     
     // MARK: - Initializers
     
-    // Required init to set automaticallyAdjustsColorStyle
-    // - Parameters:
-    //   automaticallyAdjustsColorStyle: Variable to know if a node should automatically update colors
     public required init(automaticallyAdjustsColorStyle: Bool) {
         
         super.init(automaticallyAdjustsColorStyle: automaticallyAdjustsColorStyle)
@@ -36,8 +33,7 @@ open class SFVisualEffectNode: SFDisplayNode {
         }
     }
     
-    // Initialize the node with a automaticallyAdjustsColorStyle set to true, this should be a convinience init
-    public convenience init() {
+    public convenience required init() {
         self.init(automaticallyAdjustsColorStyle: true)
     }
     
@@ -46,17 +42,11 @@ open class SFVisualEffectNode: SFDisplayNode {
     //   effect: UIVisualEffect that is going to be used
     public convenience init(with effect: UIVisualEffect) {
         self.init(automaticallyAdjustsColorStyle: false)
-        blurredView.effect = effect
+        self.blurredView.effect = effect
     }
     
     // MARK: - Instance Methods
     
-    open override func didLoad() {
-        super.didLoad()
-        updateColors()
-    }
-    
-    // updateColors: This method should update the UI based on the current colorStyle, every FluidNode and FluidNodeController that needs darkmode should implement this method to set the different colors.
     open override func updateColors() {
         if self.automaticallyAdjustsColorStyle == true {
             self.blurredView.effect = self.colorStyle.getCorrectEffect()

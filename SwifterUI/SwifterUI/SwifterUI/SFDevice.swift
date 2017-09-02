@@ -6,7 +6,6 @@
 //  Copyright © 2017 Brandon Maldonado Alonso. All rights reserved.
 //
 
-import UIKit
 import AsyncDisplayKit
 
 // SFDevice: Represent the screen size of the iDevice
@@ -15,9 +14,6 @@ public enum SFDevice: String {
     case iphonePlus
     case ipad
 }
-
-
-
 
 
 

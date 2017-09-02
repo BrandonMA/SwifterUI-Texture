@@ -50,7 +50,13 @@ class SFLoadingNodeExample: SFDisplayNode {
         return searchbar
     }()
     
-    lazy var textField: SFTextField = SFTextField()
+    lazy var textField: SFTextField = {
+        let textField = SFTextField()
+        textField.aligment = .center
+        textField.placeholder = "placeholder"
+        textField.text = "prueba"
+        return textField
+    }()
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         

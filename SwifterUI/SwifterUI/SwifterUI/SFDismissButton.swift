@@ -11,11 +11,8 @@ import AsyncDisplayKit
 open class SFDismissButton: SFButtonNode {
     
     // MARK: - Initializers
-    
-    // Required init to set automaticallyAdjustsColorStyle
-    // - Parameters:
-    //   automaticallyAdjustsColorStyle: Variable to know if a node should automatically update it's views or not
-    override init(automaticallyAdjustsColorStyle: Bool) {
+
+    required public init(automaticallyAdjustsColorStyle: Bool) {
         super.init(automaticallyAdjustsColorStyle: automaticallyAdjustsColorStyle)
     }
     

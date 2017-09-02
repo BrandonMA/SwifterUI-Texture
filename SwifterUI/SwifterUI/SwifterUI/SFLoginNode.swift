@@ -148,16 +148,12 @@ open class SFLoginNode: SFDisplayNode {
     
     // MARK: - Initializers
     
-    // Required init to set automaticallyAdjustsColorStyle
-    // - Parameters:
-    //   automaticallyAdjustsColorStyle: Variable to know if a node should automatically update it's views or not
     public required init(automaticallyAdjustsColorStyle: Bool){
         super.init(automaticallyAdjustsColorStyle: automaticallyAdjustsColorStyle)
         self.automaticallyAdjustsColorStyle = automaticallyAdjustsColorStyle
     }
     
-    // Initialize the node with a automaticallyAdjustsColorStyle set to true, this should be a convinience init
-    public convenience init() {
+    public convenience required init() {
         self.init(automaticallyAdjustsColorStyle: true)
     }
     

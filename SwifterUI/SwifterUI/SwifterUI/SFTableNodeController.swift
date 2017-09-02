@@ -62,8 +62,8 @@ open class SFTableNodeController: SFViewController<SFTableNode>, ASTableDataSour
             searchController.hidesNavigationBarDuringPresentation = false
             
             if #available(iOS 11.0, *) {
-                self.navigationItem.largeTitleDisplayMode = .always
-                self.navigationItem.searchController = searchController
+//                self.navigationItem.largeTitleDisplayMode = .always
+//                self.navigationItem.searchController = searchController
                 self.navigationController?.definesPresentationContext = true
             } else {
                 SFNode.tableNode.view.tableHeaderView = searchController.searchBar

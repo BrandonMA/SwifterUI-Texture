@@ -17,9 +17,9 @@ public struct SFGradient {
     
     // MARK: - Initializers
     
-    // init: initialize a FluidGradient with multiple colors and a direction
+    // init: initialize a SFGradient with multiple colors and a direction
     // - Parameters:
-    //   colors: initialize a FluidGradient with the colors needed for your gradient
+    //   colors: colors for your gradient
     //   direction: indicates the direction of a gradient, vertical or horizontal
     public init(with colors: [CGColor], direction: SFGradientDirection) {
         self.colors = colors

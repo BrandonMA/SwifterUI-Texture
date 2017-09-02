@@ -12,10 +12,9 @@ public class SFDetailLabelNode: SFLabelNode {
     
     // MARK: - Instance Methods
     
-    // updateColors: This method should update the UI based on the current colorStyle, every FluidNode and FluidNodeController that needs darkmode should implement this method to set the different colors.
     override open func updateColors() {
         if self.automaticallyAdjustsColorStyle == true {
-            self.color = colorStyle.getDetailColor()
+            self.textColor = colorStyle.getDetailColor()
             updateSubNodesColors()
         }
     }
