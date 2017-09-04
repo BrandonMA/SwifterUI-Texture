@@ -9,12 +9,12 @@
 import UIKit
 import AsyncDisplayKit
 
-open class SFActivityNode: ASDisplayNode, SFDisplayNodeColorStyleProtocol {
+open class SFActivityNode: ASDisplayNode {
     
     // MARK: - Instance Properties
     
     // activityIndicatorView: backing UIActivityIndicatorView wrapped inside an ASDisplayNode
-    public let activityIndicatorView: UIActivityIndicatorView
+    open let activityIndicatorView: UIActivityIndicatorView
         
     open var automaticallyAdjustsColorStyle: Bool
     
@@ -54,13 +54,15 @@ open class SFActivityNode: ASDisplayNode, SFDisplayNodeColorStyleProtocol {
         updateColors()
     }
     
+}
+
+extension SFActivityNode: SFDisplayNodeColorStyleProtocol {
     open func updateColors() {
         if self.automaticallyAdjustsColorStyle == true {
             activityIndicatorView.activityIndicatorViewStyle = self.colorStyle.getActivityIndicatorStyle()
             updateSubNodesColors()
         }
     }
-    
 }
 
 

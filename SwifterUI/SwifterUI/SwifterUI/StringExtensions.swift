@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension String {
+public extension String {
     
     // index: return the index of the pattern that you passed, if the pattern is not inside the string then return nil
     // - Parameters:

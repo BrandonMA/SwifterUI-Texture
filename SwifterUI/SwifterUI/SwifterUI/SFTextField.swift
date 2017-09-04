@@ -15,7 +15,6 @@ open class SFTextField: SFDisplayNode {
     open var textColor: UIColor = UIColor.black {
         didSet {
             self.setAttributedText()
-            self.setTypingAttributes()
         }
     }
     
@@ -23,7 +22,6 @@ open class SFTextField: SFDisplayNode {
         didSet {
             self.setAttributedText()
             self.setPlaceHolder()
-            self.setTypingAttributes()
         }
     }
     
@@ -37,17 +35,18 @@ open class SFTextField: SFDisplayNode {
             }
         } set(newValue) {
             self.textField.text = newValue
-            self.setTypingAttributes()
+            self.setAttributedText()
         }
     }
-    
+        
     open var aligment: NSTextAlignment = .left {
         didSet {
             self.setAttributedText()
             self.setPlaceHolder()
-            self.setTypingAttributes()
         }
     }
+    
+    open var extraAttributes: [String : TextAttributes] = [:]
     
     // textField: Backing UITextField for your node
     open let textField: SFTextFieldView
@@ -59,7 +58,6 @@ open class SFTextField: SFDisplayNode {
     open var placeholder: String = "" {
         didSet {
             self.setPlaceHolder()
-            self.setTypingAttributes()
         }
     }
     
@@ -101,10 +99,7 @@ open class SFTextField: SFDisplayNode {
     open var clearButtonColor: UIColor = UIColor.black { didSet { self.textField.clearButtonColor = self.clearButtonColor } }
         
     // MARK: - Initializers
-    
-    // Required init to set automaticallyAdjustsColorStyle
-    // - Parameters:
-    //   automaticallyAdjustsColorStyle: Variable to know if a node should automatically update it's views or not
+
     public required init(automaticallyAdjustsColorStyle: Bool) {
 
         textField = SFTextFieldView() // Creates a new UITextField for your backing view
@@ -134,12 +129,20 @@ open class SFTextField: SFDisplayNode {
     
     // MARK: - Instance Methods
     
-    // updateColors: This method should update the UI based on the current colorStyle, every FluidNode and FluidNodeController that needs darkmode should implement this method to set the different colors.
+    open override func didLoad() {
+        setAttributedText()
+        setPlaceHolder()
+    }
+    
     open override func updateColors() {
         
         if self.automaticallyAdjustsColorStyle == true {
             
-            clearButtonColor = self.colorStyle.getDetailColor()
+            if #available(iOS 11.0, *) {
+                clearButtonColor = self.colorStyle.getDetailColor()
+            } else {
+                clearButtonColor = self.colorStyle.getDetailColor().withAlphaComponent(0.3)
+            }
             
             textField.backgroundColor = self.colorStyle.getTextFieldColor()
             
@@ -149,13 +152,9 @@ open class SFTextField: SFDisplayNode {
             
             placeholderColor = self.colorStyle.getPlaceholderColor()
             
-            textField.textColor = self.colorStyle.getMainColor()
+            self.textColor = self.colorStyle.getMainColor()
             
             updateSubNodesColors()
-            
-            self.setAttributedText()
-            self.setPlaceHolder()
-            self.setTypingAttributes()
         }
     }
 }
@@ -172,17 +171,7 @@ extension SFTextField {
                                                             NSFontAttributeName: self.font,
                                                             NSParagraphStyleAttributeName: paragraphStyle])
     }
-    
-    // setTypingAttributes: Set the typingAttributes
-    public func setTypingAttributes() {
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.alignment = self.aligment
-        self.textField.typingAttributes = [
-            NSForegroundColorAttributeName: self.textColor,
-            NSFontAttributeName: self.font,
-            NSParagraphStyleAttributeName: paragraphStyle]
-    }
-    
+
     // addLeftView: Add a view at the left side of your textField
     public func addLeftView() {
         
@@ -212,7 +201,6 @@ extension SFTextField {
     public func endEditing(force: Bool) {
         self.textField.endEditing(force)
     }
-    
 }
 
 extension SFTextField: SFTextContainer {
@@ -220,11 +208,11 @@ extension SFTextField: SFTextContainer {
     public func setAttributedText() {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = self.aligment
-        self.textField.attributedText = NSAttributedString(string: self.text,
-                                                           attributes: [
-                                                            NSForegroundColorAttributeName: self.textColor,
-                                                            NSFontAttributeName: self.font,
-                                                            NSParagraphStyleAttributeName: paragraphStyle])
+        self.textField.textColor = self.textColor
+        self.textField.defaultTextAttributes = [
+            NSForegroundColorAttributeName: self.textColor,
+            NSFontAttributeName: self.font,
+            NSParagraphStyleAttributeName: paragraphStyle]
     }
     
 }

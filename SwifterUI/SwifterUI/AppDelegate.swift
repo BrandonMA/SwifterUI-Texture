@@ -19,7 +19,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        window?.rootViewController = SFLoadingNodeExampleController()
+//        window?.rootViewController = SFLoadingNodeExampleController()
+        
+//        window?.rootViewController = GRadientController()
+        
+        window?.rootViewController = TextExampleController()
+        
+//        window?.rootViewController = SFLoginNodeController(automaticallyAdjustsColorStyle: true)
         
 //        window?.rootViewController = UINavigationController(rootViewController: MeetupFeedController())
         

@@ -9,24 +9,10 @@
 import AsyncDisplayKit
 
 public protocol SFDeviceProtocol {
+    
     // deviceType: Identifier to know if you are working on an ipad, iphone or iphone plus
     var deviceType: SFDevice { get }
-}
-
-extension SFDeviceProtocol where Self: ASDisplayNode {
     
-    public var deviceType: SFDevice {
-        get {
-            if self.asyncTraitCollection().horizontalSizeClass == .regular && self.asyncTraitCollection().verticalSizeClass == .regular {
-                return .ipad
-            } else {
-                if UIScreen.main.bounds.size.height >= 720 {
-                    return .iphonePlus
-                } else {
-                    return .iphone
-                }
-            }
-        }
-    }
-    
+    // isAnIphone: return true if it is an iphone or iphone plus
+    var isAnIphone: Bool { get }
 }

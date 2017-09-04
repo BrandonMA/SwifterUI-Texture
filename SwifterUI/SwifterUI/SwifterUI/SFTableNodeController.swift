@@ -73,7 +73,7 @@ open class SFTableNodeController: SFViewController<SFTableNode>, ASTableDataSour
     }
     
     // updateColors: Updates the colors to the corrects one
-    public override func updateColors() {
+    open override func updateColors() {
         super.updateColors()
         searchController.searchBar.barStyle = self.colorStyle.getSearchBarStyle()
         searchController.searchBar.tintColor = self.colorStyle.getInteractiveColor()

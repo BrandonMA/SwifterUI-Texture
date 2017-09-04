@@ -9,11 +9,15 @@
 import UIKit
 import AsyncDisplayKit
 
-open class SFCellNode: ASCellNode, SFDisplayNodeColorStyleProtocol {
+open class SFCellNode: ASCellNode, SFGradientProtocol, SFBlurredProtocol {
     
     // MARK: - Instance Properties
         
     open var automaticallyAdjustsColorStyle: Bool
+    
+    open var gradient: SFGradient?
+    
+    public var effect: UIVisualEffect?
     
     // MARK: - Initializers
     
@@ -32,12 +36,21 @@ open class SFCellNode: ASCellNode, SFDisplayNodeColorStyleProtocol {
     open override func didLoad() {
         updateColors()
     }
-    
+}
+
+extension SFCellNode: SFDisplayNodeColorStyleProtocol {
     open func updateColors() {
         if automaticallyAdjustsColorStyle == true {
             self.backgroundColor = self.colorStyle.getBackgroundColor()
             updateSubNodesColors()
         }
     }
-
 }
+
+
+
+
+
+
+
+

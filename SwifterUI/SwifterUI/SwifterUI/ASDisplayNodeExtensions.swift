@@ -9,7 +9,7 @@
 import UIKit
 import AsyncDisplayKit
 
-extension ASDisplayNode {
+public extension ASDisplayNode {
     
     // MARK: - Instance Methods
     
@@ -28,4 +28,26 @@ extension ASDisplayNode {
         
         return separator
     }
+}
+
+extension ASDisplayNode: SFDeviceProtocol {
+    
+    public var deviceType: SFDevice {
+        get {
+            if self.asyncTraitCollection().horizontalSizeClass == .regular && self.asyncTraitCollection().verticalSizeClass == .regular {
+                return .ipad
+            } else {
+                if UIScreen.main.bounds.size.height >= 720 {
+                    return .iphonePlus
+                } else {
+                    return .iphone
+                }
+            }
+        }
+    }
+    
+    public var isAnIphone: Bool {
+        return self.deviceType == .iphone || self.deviceType == .iphonePlus ? true : false
+    }
+    
 }

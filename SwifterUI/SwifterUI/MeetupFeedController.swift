@@ -57,10 +57,7 @@ class MeetupFeedController: SFTableNodeController {
         }
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(stopRefreshing))
-        
-        if #available(iOS 11.0, *) {
-            self.navigationItem.title = "Prueba"
-        }
+        self.navigationItem.title = "Prueba"
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -87,7 +84,6 @@ class MeetupFeedController: SFTableNodeController {
             
             cellNode.organizerAvatarImageNode.url = group.organizer.thumbUrl
             cellNode.organizerNameTextNode.text = group.organizer.name
-            
             cellNode.photoImageNode.url = group.photoUrl
             cellNode.locationLabelNode.text = "\(group.city!), \(group.country!)"
             cellNode.timeIntervalSincePost.text = group.timeInterval

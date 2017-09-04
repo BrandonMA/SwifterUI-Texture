@@ -132,18 +132,12 @@ open class SFLoginNode: SFDisplayNode {
     }()
     
     // newAccountLabel: Label at the left side of signUpButton
-    private lazy var newAccountLabel: SFLabelNode = {
+    open lazy var signUpButton: SFLabelNode = {
         let label = SFLabelNode(automaticallyAdjustsColorStyle: self.automaticallyAdjustsColorStyle)
-        label.text = LocalizedString.shared.getNewAccount()
+        label.text = LocalizedString.shared.getNewAccount() + " " + LocalizedString.shared.getSignUp()
         label.font = UIFont.systemFont(ofSize: 17)
+        label.extraAttributes[LocalizedString.shared.getSignUp()] = [SFTextAttributeName: SFTextType.button]
         return label
-    }()
-    
-    open lazy var signUpButton: SFButtonNode = {
-        let button: SFButtonNode = SFButtonNode(automaticallyAdjustsColorStyle: self.automaticallyAdjustsColorStyle)
-        button.text = LocalizedString.shared.getSignUp()
-        button.font = UIFont.systemFont(ofSize: 17)
-        return button
     }()
     
     // MARK: - Initializers
@@ -180,9 +174,7 @@ open class SFLoginNode: SFDisplayNode {
         if self.shouldHaveFacebookButton == true { buttonStack.children?.append(self.facebookButton) }
         if self.shouldHaveTwitterButton == true { buttonStack.children?.append(self.twitterButton) }
         
-        let signUpStack = ASStackLayoutSpec(direction: ASStackLayoutDirection.horizontal, spacing: 6, justifyContent: ASStackLayoutJustifyContent.center, alignItems: ASStackLayoutAlignItems.center, children: [newAccountLabel, signUpButton])
-        
-        let stackLayout = ASStackLayoutSpec(direction: ASStackLayoutDirection.vertical, spacing: 0, justifyContent: ASStackLayoutJustifyContent.center, alignItems: ASStackLayoutAlignItems.center, children: [logoImageNode, separators[0], titleLabelNode, separators[1], emailTextField, separators[2], passwordTextField, separators[3], signInButton, separators[4], buttonStack, separators[5], signUpStack])
+        let stackLayout = ASStackLayoutSpec(direction: ASStackLayoutDirection.vertical, spacing: 0, justifyContent: ASStackLayoutJustifyContent.center, alignItems: ASStackLayoutAlignItems.center, children: [logoImageNode, separators[0], titleLabelNode, separators[1], emailTextField, separators[2], passwordTextField, separators[3], signInButton, separators[4], buttonStack, separators[5], signUpButton])
         
         return addLoadingNode(to: ASInsetLayoutSpec(insets: UIEdgeInsets(top: deviceType == .iphone ? 52 : 64, left: deviceType == .ipad ? 128 : 16, bottom: 16, right: deviceType == .ipad ? 128 : 16), child: stackLayout))
     }

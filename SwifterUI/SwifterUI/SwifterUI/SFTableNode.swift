@@ -47,7 +47,7 @@ open class SFTableNode: SFDisplayNode {
     
     // MARK: - Initializers
     
-    // Initialize your FluidTableNode with a custom style
+    // Initialize your SFTableNode with a custom style
     // - Parameters:
     //   style: Set style of your tableview
     public init(style: UITableViewStyle, automaticallyAdjustsColorStyle: Bool) {

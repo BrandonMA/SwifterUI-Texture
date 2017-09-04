@@ -13,8 +13,6 @@ class MeetupFeedCellNode: SFCellNode {
     
     // MARK: Instance Properties
     
-    let organizerAvatarImageNodeDimension = ASDimension(unit: ASDimensionUnit.points, value: 34)
-    
     lazy var photoImageNode: ASNetworkImageNode = {
         let imageNode = ASNetworkImageNode()
         imageNode.contentMode = .scaleAspectFill
@@ -41,6 +39,8 @@ class MeetupFeedCellNode: SFCellNode {
     // MARK: Instance Methods
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+        
+        let organizerAvatarImageNodeDimension = ASDimension(unit: ASDimensionUnit.points, value: 34)
         
         organizerAvatarImageNode.style.preferredLayoutSize = ASLayoutSize(width: organizerAvatarImageNodeDimension, height: organizerAvatarImageNodeDimension)
         

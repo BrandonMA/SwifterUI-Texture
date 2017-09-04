@@ -9,7 +9,7 @@
 import UIKit
 import AsyncDisplayKit
 
-open class SFLabelNode: ASTextNode, SFDisplayNodeColorStyleProtocol {
+open class SFLabelNode: ASTextNode, SFGradientProtocol, SFDisplayNodeColorStyleProtocol {
     
     // MARK: - Instance Properties
     
@@ -21,7 +21,11 @@ open class SFLabelNode: ASTextNode, SFDisplayNodeColorStyleProtocol {
     
     open var aligment: NSTextAlignment = NSTextAlignment.left { didSet { setAttributedText() } }
     
+    open var extraAttributes: [String : TextAttributes] = [:] { didSet { setAttributedText() } }
+    
     open var automaticallyAdjustsColorStyle: Bool
+    
+    open var gradient: SFGradient?
     
     // MARK: - Initializers
 
@@ -42,7 +46,21 @@ open class SFLabelNode: ASTextNode, SFDisplayNodeColorStyleProtocol {
         if self.automaticallyAdjustsColorStyle == true {
             self.textColor = colorStyle.getMainColor()
             updateSubNodesColors()
+            
+            if extraAttributes.count != 0 {
+                for attributesDict in extraAttributes {
+                    guard var attributes = extraAttributes[attributesDict.key] else { return }
+                    if let type = attributes[SFTextAttributeName] as? SFTextType {
+                        if type == .button {
+                            attributes[NSForegroundColorAttributeName] = colorStyle.getInteractiveColor()
+                            extraAttributes[attributesDict.key] = attributes
+                        }
+                    }
+                }
+            }
+            
         }
+        
     }
     
 }
@@ -50,15 +68,8 @@ open class SFLabelNode: ASTextNode, SFDisplayNodeColorStyleProtocol {
 extension SFLabelNode: SFTextContainer {
     
     public final func setAttributedText() {
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.alignment = self.aligment
-        self.attributedText = NSAttributedString(string: self.text,
-                                                 attributes: [
-                                                    NSForegroundColorAttributeName: self.textColor,
-                                                    NSFontAttributeName: self.font,
-                                                    NSParagraphStyleAttributeName: paragraphStyle])
+        self.attributedText = self.mutableAttributedText
     }
-    
 }
 
 

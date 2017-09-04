@@ -13,9 +13,8 @@ open class SFViewController<SFNodeType: SFColorStyleProtocol>: ASViewController<
     // MARK: - Instance Properties
     
     // SFNode: Node that you are going to be using to build your UI
-    public var SFNode: SFNodeType
+    open var SFNode: SFNodeType
     
-    // automaticallyAdjustsColorStyle: This property enables automatic change between light and dark mode
     open var automaticallyAdjustsColorStyle: Bool = false {
         didSet {
             automaticallyAdjustsColorStyleHandler()
@@ -88,7 +87,7 @@ open class SFViewController<SFNodeType: SFColorStyleProtocol>: ASViewController<
     }
     
     // reloadLayout: This method fixes the bug when the navigationBar/tabBar covers your main node, it does that by adding UIEdgeInsets to your SFNode, your could disable it by disabling automaticallyAdjustsLayoutInsets
-    public func reloadLayout() {
+    open func reloadLayout() {
         
         var topMargin: CGFloat = 0
         
@@ -125,7 +124,6 @@ open class SFViewController<SFNodeType: SFColorStyleProtocol>: ASViewController<
             
             return layoutWithInset
         }
-        
     }
     
     // traitCollectionDidChange: Checks when the device rotates and reloadLayout()
@@ -133,7 +131,7 @@ open class SFViewController<SFNodeType: SFColorStyleProtocol>: ASViewController<
         reloadLayout()
     }
     
-    public func updateColors() {
+    open func updateColors() {
         
         if self.automaticallyAdjustsColorStyle == true {
             Dispatch.addAsyncTask(to: DispatchLevel.main) {
@@ -160,21 +158,21 @@ open class SFViewController<SFNodeType: SFColorStyleProtocol>: ASViewController<
         
     }
     
-    public func updateSubNodesColors() {
+    open func updateSubNodesColors() {
         self.SFNode.updateColors()
     }
 }
 
 extension SFViewController: SFControllerProtocol {
     
-    public func handleColorStyleCheck() {
+    open func handleColorStyleCheck() {
         if automaticallyAdjustsColorStyle == true {
             self.updateColors()
             automaticallyAdjustsColorStyleHandler()
         }
     }
     
-    public func automaticallyAdjustsColorStyleHandler() {
+    open func automaticallyAdjustsColorStyleHandler() {
         if self.automaticallyAdjustsColorStyle == true {
             NotificationCenter.default.addObserver(self, selector: #selector(handleBrightnessChange), name: .UIScreenBrightnessDidChange, object: nil)
         } else {

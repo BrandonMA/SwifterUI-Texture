@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UIImage {
+public extension UIImage {
     
     public func tint(color: UIColor, alpha: CGFloat) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(size, false, self.scale)

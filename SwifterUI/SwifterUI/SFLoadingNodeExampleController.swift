@@ -14,7 +14,7 @@ class SFLoadingNodeExampleController: SFViewController<SFLoadingNodeExample> {
     init() {
         super.init(SFNode: SFLoadingNodeExample(), automaticallyAdjustsColorStyle: true)
         
-        SFNode.backgroundNode.addTarget(self, action: #selector(backgroundNodeDidTap), forControlEvents: ASControlNodeEvent.touchUpInside)
+        SFNode.buttonNode.addTarget(self, action: #selector(backgroundNodeDidTap), forControlEvents: ASControlNodeEvent.touchUpInside)
         
     }
     
@@ -38,7 +38,7 @@ class SFLoadingNodeExampleController: SFViewController<SFLoadingNodeExample> {
 
 class SFLoadingNodeExample: SFDisplayNode {
     
-    lazy var backgroundNode: SFButtonNode = {
+    lazy var buttonNode: SFButtonNode = {
         let node = SFButtonNode()
         node.text = LocalizedString.shared.getStart()
         node.font = UIFont.systemFont(ofSize: 24)
@@ -52,15 +52,15 @@ class SFLoadingNodeExample: SFDisplayNode {
     
     lazy var textField: SFTextField = {
         let textField = SFTextField()
-        textField.aligment = .center
+        textField.aligment = .left
+        textField.leftPadding = 12
         textField.placeholder = "placeholder"
-        textField.text = "prueba"
         return textField
     }()
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         
-        let layout = ASStackLayoutSpec(direction: ASStackLayoutDirection.vertical, spacing: 0, justifyContent: ASStackLayoutJustifyContent.start, alignItems: ASStackLayoutAlignItems.center, children: [searchBar, textField, getStackSeparator(),backgroundNode, getStackSeparator()])
+        let layout = ASStackLayoutSpec(direction: ASStackLayoutDirection.vertical, spacing: 0, justifyContent: ASStackLayoutJustifyContent.start, alignItems: ASStackLayoutAlignItems.center, children: [searchBar, textField, getStackSeparator(),buttonNode, getStackSeparator()])
         
         return addLoadingNode(to: ASInsetLayoutSpec(insets: UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0), child: layout))
     }

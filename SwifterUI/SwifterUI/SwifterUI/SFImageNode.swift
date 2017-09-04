@@ -8,7 +8,7 @@
 
 import AsyncDisplayKit
 
-open class SFImageNode: ASImageNode, SFDisplayNodeColorStyleProtocol {
+open class SFImageNode: ASImageNode {
     
     // MARK: - Instance Properties
     
@@ -29,7 +29,9 @@ open class SFImageNode: ASImageNode, SFDisplayNodeColorStyleProtocol {
         self.init(automaticallyAdjustsColorStyle: true)
     }
     
-    // MARK: - Instance Methods
+}
+
+extension SFImageNode: SFDisplayNodeColorStyleProtocol {
     
     open func updateColors() {
         if self.automaticallyAdjustsColorStyle == true {
@@ -37,4 +39,10 @@ open class SFImageNode: ASImageNode, SFDisplayNodeColorStyleProtocol {
             updateSubNodesColors()
         }
     }
+    
 }
+
+
+
+
+

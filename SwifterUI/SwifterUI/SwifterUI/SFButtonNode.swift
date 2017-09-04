@@ -9,7 +9,7 @@
 import AsyncDisplayKit
 import UIKit
 
-open class SFButtonNode: ASButtonNode, SFDisplayNodeColorStyleProtocol {
+open class SFButtonNode: ASButtonNode, SFGradientProtocol, SFBlurredProtocol {
     
     // MARK: - Instance Properties
     
@@ -19,18 +19,15 @@ open class SFButtonNode: ASButtonNode, SFDisplayNodeColorStyleProtocol {
     
     open var text: String = "" { didSet { setAttributedText() } }
     
-    public var aligment: NSTextAlignment = .left { didSet { setAttributedText() } }
+    open var aligment: NSTextAlignment = .left { didSet { setAttributedText() } }
+    
+    open var extraAttributes: [String : TextAttributes] = [:]
     
     open var automaticallyAdjustsColorStyle: Bool
     
-    // gradient: Gradient to be used as background
-    open var gradient: SFGradient? { didSet {setGradient()} }
+    open var gradient: SFGradient?
     
-    private var gradientLayer: CAGradientLayer? = nil
-    
-    open var shouldHaveBackgroundBlur: Bool = false
-    
-    open var blurStyle: UIBlurEffectStyle = .extraLight
+    open var effect: UIVisualEffect?
     
     // MARK: - Initializers
     
@@ -49,36 +46,17 @@ open class SFButtonNode: ASButtonNode, SFDisplayNodeColorStyleProtocol {
     open override func layout() {
         super.layout()
         if self.gradient != nil { setGradient() }
-        if self.shouldHaveBackgroundBlur == true { addBackgroundBlur() }
+        if self.effect != nil { setEffect() }
     }
     
-    public func updateColors() {
+    
+}
+
+extension SFButtonNode: SFDisplayNodeColorStyleProtocol {
+    open func updateColors() {
         if self.automaticallyAdjustsColorStyle == true {
             self.textColor = colorStyle.getInteractiveColor()
             self.tintColor = colorStyle.getInteractiveColor()
-        }
-    }
-    
-    private func setGradient() {
-        if self.frame.width != 0 && self.frame.height != 0 {
-            guard let layer = gradient?.getGradientLayer(width: self.frame.width, height: self.frame.height) else { return }
-            
-            if let gradientLayer = gradientLayer {
-                self.layer.replaceSublayer(gradientLayer, with: layer)
-            } else {
-                self.layer.insertSublayer(layer, at: 0)
-            }
-            
-            self.gradientLayer = layer
-        }
-    }
-    
-    func addBackgroundBlur() {
-        if self.frame.width != 0 && self.frame.height != 0 {
-            let blur = UIVisualEffectView(effect: UIBlurEffect(style: self.blurStyle))
-            blur.frame = self.bounds
-            blur.isUserInteractionEnabled = false //This allows touches to forward to the button.
-            self.view.insertSubview(blur, at: 0)
         }
     }
 }

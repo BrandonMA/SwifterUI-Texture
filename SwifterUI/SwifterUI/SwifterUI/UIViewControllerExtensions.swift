@@ -8,7 +8,7 @@
 
 import AsyncDisplayKit
 
-extension UIViewController {
+public extension UIViewController {
     
     // showErrorAlert: Shows an alert with the alerts you added
     // - Parameters:

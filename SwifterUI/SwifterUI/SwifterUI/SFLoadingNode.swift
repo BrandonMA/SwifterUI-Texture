@@ -13,44 +13,49 @@ open class SFLoadingNode: SFDisplayNode {
     
     // MARK: - Instance Properties
     
-    // blurredNode: background node of SFDisplayNode used to blur your current context while loading
-    public lazy var blurredNode: SFVisualEffectNode = {
-        let visualNode = SFVisualEffectNode(automaticallyAdjustsColorStyle: self.automaticallyAdjustsColorStyle)
-        return visualNode
-    }()
+    open override var alpha: CGFloat {
+        didSet {
+            if alpha == 1.0 {
+                self.activityNode.activityIndicatorView.startAnimating()
+            } else {
+                self.activityNode.activityIndicatorView.stopAnimating()
+            }
+        }
+    }
     
     // activityNode: SFActivityNode use to show the user a loading animation while he waits
     public lazy var activityNode: SFActivityNode = {
         let node = SFActivityNode(automaticallyAdjustsColorStyle: self.automaticallyAdjustsColorStyle)
         return node
     }()
-        
-    // MARK: - Initializers
-    
-    public required init(automaticallyAdjustsColorStyle: Bool){
-        super.init(automaticallyAdjustsColorStyle: automaticallyAdjustsColorStyle)
-    }
-    
-    public convenience required init() {
-        self.init(automaticallyAdjustsColorStyle: true)
-    }
     
     // MARK: - Instance Methods
     
     // layoutSpecThatFits: Layout all subnodes
     override open func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         
-        blurredNode.style.preferredLayoutSize = ASLayoutSize(width: ASDimension(unit: ASDimensionUnit.fraction, value: 1), height: ASDimension(unit: ASDimensionUnit.fraction, value: 1))
-        
         let activityNodeLayout = ASCenterLayoutSpec(horizontalPosition: ASRelativeLayoutSpecPosition.center, verticalPosition: ASRelativeLayoutSpecPosition.center, sizingOption: ASRelativeLayoutSpecSizingOption.minimumSize, child: activityNode)
         
-        return ASOverlayLayoutSpec(child: blurredNode, overlay: activityNodeLayout)
+        return activityNodeLayout
     }
     
     open override func updateColors() {
         if self.automaticallyAdjustsColorStyle == true {
             backgroundColor = UIColor.clear
+            effect = self.colorStyle.getCorrectEffect()
             updateSubNodesColors()
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+

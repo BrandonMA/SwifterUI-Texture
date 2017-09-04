@@ -37,7 +37,7 @@ public extension SFDisplayNodeColorStyleProtocol where Self: ASDisplayNode {
                     
                     // Return to the main thread to make UI related changes
                     Dispatch.addAsyncTask(to: DispatchLevel.main, handler: {
-                        UIView.animate(withDuration: 0.4, animations: {
+                        UIView.animate(withDuration: 0.3, animations: {
                             subnode.updateColors()
                         })
                     })
@@ -46,3 +46,4 @@ public extension SFDisplayNodeColorStyleProtocol where Self: ASDisplayNode {
         }
     }
 }
+

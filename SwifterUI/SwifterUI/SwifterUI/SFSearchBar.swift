@@ -102,9 +102,8 @@ open class SFSearchBar: SFDisplayNode {
     open override func animateLayoutTransition(_ context: ASContextTransitioning) {
         
         for node in self.subnodes {
-            let frame = context.finalFrame(for: node)
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: UIViewAnimationOptions.curveEaseOut, animations: {
-                node.frame = frame
+                node.frame = context.finalFrame(for: node)
             }, completion: { (finished) in
                 context.completeTransition(finished)
             })
