@@ -47,7 +47,6 @@ open class SFDisplayNode: ASDisplayNode, SFGradientProtocol, SFBlurredProtocol {
     // - Parameters:
     //   layout: your custom layout where it's added the loadingNode
     open func addLoadingNode(to layout: ASLayoutSpec) -> ASLayoutSpec {
-        loadingNode.style.preferredSize = self.frame.size
         return ASOverlayLayoutSpec(child: layout, overlay: loadingNode)
     }
     
@@ -64,7 +63,7 @@ open class SFDisplayNode: ASDisplayNode, SFGradientProtocol, SFBlurredProtocol {
                 UIView.animate(withDuration: 0.3, animations: { self.loadingNode.alpha = self.isLoading == true ? 1.0 : 0.0 })
             } else {
                 node.frame = context.initialFrame(for: node)
-                UIView.animate(withDuration: 0.3, animations: {
+                UIView.animate(withDuration: 0.3, delay: 0, options: UIViewAnimationOptions.curveEaseOut, animations: {
                     node.frame = context.finalFrame(for: node)
                 }, completion: { (finished) in
                     context.completeTransition(finished)

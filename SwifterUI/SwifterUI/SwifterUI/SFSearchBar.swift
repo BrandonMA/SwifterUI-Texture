@@ -78,7 +78,6 @@ open class SFSearchBar: SFDisplayNode {
         return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16), child: stackLayout)
     }
     
-    // updateColors: This method should update the UI based on the current colorStyle, every FluidNode and FluidNodeController that needs darkmode should implement this method to set the different colors.
     open override func updateColors() {
         
         if self.automaticallyAdjustsColorStyle == true {
@@ -98,9 +97,7 @@ open class SFSearchBar: SFDisplayNode {
         delegate?.cancelButtonDidTouch?()
     }
     
-    // animateLayoutTransition: Animate all changes in layout, this is implemented for convenience and simple animations used on the library, override this for a different transition
     open override func animateLayoutTransition(_ context: ASContextTransitioning) {
-        
         for node in self.subnodes {
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: UIViewAnimationOptions.curveEaseOut, animations: {
                 node.frame = context.finalFrame(for: node)

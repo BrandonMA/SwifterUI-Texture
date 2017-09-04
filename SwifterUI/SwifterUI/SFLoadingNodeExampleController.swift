@@ -20,12 +20,12 @@ class SFLoadingNodeExampleController: SFViewController<SFLoadingNodeExample> {
     
     @objc func backgroundNodeDidTap() {
         self.SFNode.isLoading = true
-        self.SFNode.transitionLayout(withAnimation: true, shouldMeasureAsync: false, measurementCompletion: nil)
+        self.SFNode.transitionLayout(withAnimation: true, shouldMeasureAsync: true, measurementCompletion: nil)
         
         Dispatch.delay(by: 3.0, dispatchLevel: DispatchLevel.background) {
             Dispatch.addAsyncTask(to: DispatchLevel.main, handler: {
                 self.SFNode.isLoading = false
-                self.SFNode.transitionLayout(withAnimation: true, shouldMeasureAsync: false, measurementCompletion: nil)
+                self.SFNode.transitionLayout(withAnimation: true, shouldMeasureAsync: true, measurementCompletion: nil)
             })
         }
     }

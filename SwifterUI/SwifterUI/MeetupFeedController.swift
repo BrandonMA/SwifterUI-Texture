@@ -33,7 +33,7 @@ class MeetupFeedController: SFTableNodeController {
         
         self.meetUpFeedDataManager = MeetupFeedDataManager(meetupService: meetUpService, locationService: locationService)
         
-        self.SFNode.tableNode.allowsSelection = false
+        self.SFNode.allowsSelection = false
         
         self.meetUpFeedDataManager.searchForGroupNearby { (groups, error) in
             
@@ -47,7 +47,7 @@ class MeetupFeedController: SFTableNodeController {
                 let indexSet = IndexSet(integer: 0)
                                 
                 Dispatch.addAsyncTask(to: DispatchLevel.main, handler: {
-                    self.SFNode.tableNode.reloadSections(indexSet, with: UITableViewRowAnimation.fade)
+                    self.SFNode.reloadSections(indexSet, with: UITableViewRowAnimation.fade)
                     self.updateColors()
                 })
                 

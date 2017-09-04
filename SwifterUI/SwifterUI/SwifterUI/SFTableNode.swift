@@ -8,15 +8,11 @@
 
 import AsyncDisplayKit
 
-open class SFTableNode: SFDisplayNode {
+open class SFTableNode: ASTableNode, SFDisplayNodeColorStyleProtocol {
     
     // MARK: - Instance Properties
     
-    open override var backgroundColor: UIColor? {
-        didSet {
-            self.tableNode.backgroundColor = self.backgroundColor
-        }
-    }
+    public var automaticallyAdjustsColorStyle: Bool
     
     // shouldHaveRefreshControl: Indicates if it should have a refresh control or not
     open var shouldHaveRefreshControl: Bool = false
@@ -29,30 +25,18 @@ open class SFTableNode: SFDisplayNode {
     
     open var separatorColor: UIColor = UIColor.clear {
         didSet {
-            self.tableNode.view.separatorColor = self.separatorColor
+            self.view.separatorColor = self.separatorColor
         }
     }
-    
-    weak var dataSource: ASTableDataSource? {
-        didSet {
-            self.tableNode.dataSource = self.dataSource
-        }
-    }
-    
-    weak var delegate: ASTableDelegate? {
-        didSet {
-            self.tableNode.delegate = self.delegate
-        }
-    }
-    
+
     // MARK: - Initializers
     
     // Initialize your SFTableNode with a custom style
     // - Parameters:
     //   style: Set style of your tableview
     public init(style: UITableViewStyle, automaticallyAdjustsColorStyle: Bool) {
-        self.tableNode = ASTableNode(style: style)
-        super.init(automaticallyAdjustsColorStyle: automaticallyAdjustsColorStyle)
+        self.automaticallyAdjustsColorStyle = automaticallyAdjustsColorStyle
+        super.init(style: style)
     }
     
     public required convenience init(automaticallyAdjustsColorStyle: Bool) {
@@ -63,10 +47,6 @@ open class SFTableNode: SFDisplayNode {
         self.init(style: UITableViewStyle.plain, automaticallyAdjustsColorStyle: true)
     }
     
-    // MARK: - Subnodes
-    
-    // tableNode: This is an instance of a table node with some UI modifications for convenience
-    open var tableNode: ASTableNode
     
     // MARK: - Instance Methods
     
@@ -75,32 +55,23 @@ open class SFTableNode: SFDisplayNode {
         super.didLoad()
         if self.shouldHaveRefreshControl == true {
             self.refreshControl = UIRefreshControl()
-            self.tableNode.view.refreshControl = self.refreshControl
+            self.view.refreshControl = self.refreshControl
         }
-        self.tableNode.view.backgroundView = UIView() // This is used to eliminate a weird bug with UISearchBar showing a gray background
-    }
-    
-    // layoutSpecThatFits: Layout all subnodes
-    open override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-                
-        self.tableNode.style.width = ASDimension(unit: ASDimensionUnit.fraction, value: 1)
-        self.tableNode.style.height = ASDimension(unit: ASDimensionUnit.fraction, value: 1)
-        
-        return ASStackLayoutSpec(direction: ASStackLayoutDirection.vertical, spacing: 0, justifyContent: ASStackLayoutJustifyContent.start, alignItems: ASStackLayoutAlignItems.start, children: [tableNode])
+        self.view.backgroundView = UIView() // This is used to eliminate a weird bug with UISearchBar showing a gray background
     }
     
     // This method should be called after viewDidLoad if you are using a SFTableNode
-    open override func updateColors() {
-        super.updateColors()
+    open func updateColors() {
+        self.backgroundColor = self.colorStyle.getBackgroundColor()
         updateSubNodesColors()
         self.refreshControl?.tintColor = self.colorStyle.getDetailColor()
-        self.tableNode.backgroundColor = self.colorStyle.getAlternativeBackgroundColor()
+        self.backgroundColor = self.colorStyle.getAlternativeBackgroundColor()
         self.separatorColor = self.colorStyle.getSeparatorColor()
         
         // This is going to loop through every section inside the table node and reload it with the correct color style on the main thread
-        for i in 0...self.tableNode.numberOfSections - 1 {
+        for i in 0...self.numberOfSections - 1 {
             let indexSet = IndexSet(integer: i)
-            self.tableNode.reloadSections(indexSet, with: UITableViewRowAnimation.fade) // Reload all the sections with a fade animation
+            self.reloadSections(indexSet, with: UITableViewRowAnimation.fade) // Reload all the sections with a fade animation
         }
     }
     

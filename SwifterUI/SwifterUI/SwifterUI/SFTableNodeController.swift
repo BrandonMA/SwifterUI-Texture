@@ -32,9 +32,9 @@ open class SFTableNodeController: SFViewController<SFTableNode>, ASTableDataSour
         
         super.init(SFNode: SFTableNode, automaticallyAdjustsColorStyle: automaticallyAdjustsColorStyle)
         
-        self.SFNode.tableNode.delegate = self
+        self.SFNode.delegate = self
         
-        self.SFNode.tableNode.dataSource = self
+        self.SFNode.dataSource = self
         
         self.automaticallyAdjustsLayoutInsets = false
         
@@ -66,7 +66,7 @@ open class SFTableNodeController: SFViewController<SFTableNode>, ASTableDataSour
 //                self.navigationItem.searchController = searchController
                 self.navigationController?.definesPresentationContext = true
             } else {
-                SFNode.tableNode.view.tableHeaderView = searchController.searchBar
+                SFNode.view.tableHeaderView = searchController.searchBar
                 self.definesPresentationContext = true
             }
         }

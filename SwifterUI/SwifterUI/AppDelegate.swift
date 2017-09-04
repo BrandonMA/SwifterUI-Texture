@@ -23,11 +23,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 //        window?.rootViewController = GRadientController()
         
-        window?.rootViewController = TextExampleController()
+//        window?.rootViewController = TextExampleController()
         
 //        window?.rootViewController = SFLoginNodeController(automaticallyAdjustsColorStyle: true)
         
-//        window?.rootViewController = UINavigationController(rootViewController: MeetupFeedController())
+        window?.rootViewController = UINavigationController(rootViewController: MeetupFeedController())
         
         window?.makeKeyAndVisible()
         
