@@ -37,7 +37,7 @@ open class SFButtonNode: ASButtonNode, SFGradientProtocol, SFBlurredProtocol {
         self.clipsToBounds = true
     }
     
-    public convenience override required init() {
+    public convenience override init() {
         self.init(automaticallyAdjustsColorStyle: true)
     }
     

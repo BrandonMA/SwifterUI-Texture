@@ -1,14 +1,14 @@
 //
-//  SFTableNodeController.swift
+//  SFCollectionController.swift
 //  SwifterUI
 //
-//  Created by Brandon Maldonado Alonso on 17/05/17.
+//  Created by brandon maldonado alonso on 06/09/17.
 //  Copyright © 2017 Brandon Maldonado Alonso. All rights reserved.
 //
 
 import AsyncDisplayKit
 
-open class SFTableNodeController: SFViewController<SFTableNode>, ASTableDataSource, ASTableDelegate {
+open class SFCollectionController: SFViewController<SFCollectionNode>, ASCollectionDataSource, ASCollectionDelegate {
     
     // MARK: - Instance Properties
     
@@ -27,9 +27,9 @@ open class SFTableNodeController: SFViewController<SFTableNode>, ASTableDataSour
     // - Parameters:
     //   SFNode: Node that containts your UI
     //   automaticallyAdjustsColorStyle: Variable to know if a node should automatically update it's views or not
-    public init(SFTableNode: SFTableNode, automaticallyAdjustsColorStyle: Bool) {
+    public init(SFCollectionNode: SFCollectionNode, automaticallyAdjustsColorStyle: Bool) {
         
-        super.init(SFNode: SFTableNode, automaticallyAdjustsColorStyle: automaticallyAdjustsColorStyle)
+        super.init(SFNode: SFCollectionNode, automaticallyAdjustsColorStyle: automaticallyAdjustsColorStyle)
         
         self.SFNode.delegate = self
         
@@ -63,9 +63,6 @@ open class SFTableNodeController: SFViewController<SFTableNode>, ASTableDataSour
             
             if #available(iOS 11.0, *) {
                 self.navigationController?.definesPresentationContext = true
-            } else {
-                SFNode.view.tableHeaderView = searchController.searchBar
-                self.definesPresentationContext = true
             }
         }
     }
@@ -78,17 +75,39 @@ open class SFTableNodeController: SFViewController<SFTableNode>, ASTableDataSour
         searchController.searchBar.keyboardAppearance = self.colorStyle.getKeyboardAppearence()
     }
     
-    open func numberOfSections(in tableNode: ASTableNode) -> Int {
+    public func numberOfSections(in collectionNode: ASCollectionNode) -> Int {
         return 0
     }
     
-    open func tableNode(_ tableNode: ASTableNode, numberOfRowsInSection section: Int) -> Int {
+    public func collectionNode(_ collectionNode: ASCollectionNode, numberOfItemsInSection section: Int) -> Int {
         return 0
     }
     
-    open func tableNode(_ tableNode: ASTableNode, nodeBlockForRowAt indexPath: IndexPath) -> ASCellNodeBlock {
-        
+    public func collectionNode(_ collectionNode: ASCollectionNode, nodeBlockForItemAt indexPath: IndexPath) -> ASCellNodeBlock {
         return { SFCellNode() }
-        
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

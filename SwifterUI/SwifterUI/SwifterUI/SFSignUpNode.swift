@@ -21,8 +21,8 @@ open class SFSignUpNode: SFDisplayNode {
         return node
     }()
     
-    open lazy var profilePictureNode: SFImageNode = {
-        let node = SFImageNode(automaticallyAdjustsColorStyle: self.automaticallyAdjustsColorStyle)
+    open lazy var profilePictureNode: ASImageNode = {
+        let node = ASImageNode()
         node.contentMode = .scaleAspectFill
         node.cornerRadius = self.deviceType == .ipad ? 128 : 64
         return node
@@ -106,7 +106,7 @@ open class SFSignUpNode: SFDisplayNode {
         self.cornerRadius = 16 // This is not going to be visible until the animation
     }
     
-    public convenience required init() {
+    public convenience init() {
         self.init(automaticallyAdjustsColorStyle: true)
     }
     
@@ -135,6 +135,11 @@ open class SFSignUpNode: SFDisplayNode {
         let stackLayout = ASStackLayoutSpec(direction: ASStackLayoutDirection.vertical, spacing: deviceType == .ipad ? 32:16, justifyContent: ASStackLayoutJustifyContent.center, alignItems: ASStackLayoutAlignItems.center, children: [dismissButton, profilePictureNode, nameTextField, emailTextField, passwordTextField, signUpButton, getStackSeparator(), buttonStack])
         
         return addLoadingNode(to: ASInsetLayoutSpec(insets: UIEdgeInsets(top: deviceType == .iphone ? 12 : 16, left: deviceType == .ipad ? 128 : 16, bottom: 16, right: deviceType == .ipad ? 128 : 16), child: stackLayout))
+    }
+    
+    open override func updateColors() {
+        super.updateColors()
+        profilePictureNode.backgroundColor = self.colorStyle.getTextFieldColor()
     }
     
 }

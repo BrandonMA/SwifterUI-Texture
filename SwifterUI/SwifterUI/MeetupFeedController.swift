@@ -33,7 +33,7 @@ class MeetupFeedController: SFTableNodeController {
         
         self.meetUpFeedDataManager = MeetupFeedDataManager(meetupService: meetUpService, locationService: locationService)
         
-        self.SFNode.allowsSelection = false
+        self.SFNode.allowsSelection = true
         
         self.meetUpFeedDataManager.searchForGroupNearby { (groups, error) in
             
@@ -93,6 +93,17 @@ class MeetupFeedController: SFTableNodeController {
         }
         
         return block
+    }
+    
+    func tableNode(_ tableNode: ASTableNode, didSelectRowAt indexPath: IndexPath) {
+        tableNode.deselectRow(at: indexPath, animated: true)
+        var urls: [URL?] = []
+        groups.forEach { (group) in
+            urls.append(group.photoUrl)
+        }
+        let controller = SFMediaGalleryController(automaticallyAdjustsColorStyle: false, urls: urls)
+        controller.startItem = indexPath.row
+        self.navigationController?.pushViewController(controller, animated: true)
     }
     
     // MARK: Instance Methods

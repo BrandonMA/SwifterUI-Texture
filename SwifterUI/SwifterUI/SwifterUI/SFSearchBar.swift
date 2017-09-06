@@ -60,7 +60,7 @@ open class SFSearchBar: SFDisplayNode {
     }
     
     // Initialize the node with a automaticallyAdjustsColorStyle set to true, this should be a convinience init
-    public convenience required init() {
+    public convenience init() {
         self.init(automaticallyAdjustsColorStyle: true)
     }
     

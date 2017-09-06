@@ -68,9 +68,7 @@ open class AppleMusicLikePresentationController<SFPresentingNodeType>: SFPresent
     }
     
     override open func presentationTransitionWillBegin() {
-        
-        print(SFPresentingNodeType.description())
-        
+                
         UIView.animate(withDuration: 0.25) {
             self.presentingViewController.view.clipsToBounds = true
             self.presentingViewController.view.layer.cornerRadius = 16

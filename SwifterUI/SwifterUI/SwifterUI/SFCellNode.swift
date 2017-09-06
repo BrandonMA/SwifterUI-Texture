@@ -27,13 +27,14 @@ open class SFCellNode: ASCellNode, SFGradientProtocol, SFBlurredProtocol {
         automaticallyManagesSubnodes = true
     }
     
-    public convenience override required init() {
+    public convenience override init() {
         self.init(automaticallyAdjustsColorStyle: true)
     }
     
     // MARK: - Instance Methods
     
     open override func didLoad() {
+        super.didLoad()
         updateColors()
     }
 }

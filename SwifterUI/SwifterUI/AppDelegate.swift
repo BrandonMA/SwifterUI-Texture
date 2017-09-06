@@ -25,9 +25,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 //        window?.rootViewController = TextExampleController()
         
-//        window?.rootViewController = SFLoginNodeController(automaticallyAdjustsColorStyle: true)
+//        let loginController = SFLoginNodeController(automaticallyAdjustsColorStyle: true)
+//        loginController.signUpController = SFSignUpNodeController(automaticallyAdjustsColorStyle: true)
+//        window?.rootViewController = loginController
         
         window?.rootViewController = UINavigationController(rootViewController: MeetupFeedController())
+        
+//        window?.rootViewController = ImageExampleController()
+        
+//        window?.rootViewController = SFMediaGalleryController(automaticallyAdjustsColorStyle: true, images: [UIImage(named: "icon"), UIImage(named: "image")])
         
         window?.makeKeyAndVisible()
         

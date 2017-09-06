@@ -37,7 +37,7 @@ open class SFDisplayNode: ASDisplayNode, SFGradientProtocol, SFBlurredProtocol {
         automaticallyManagesSubnodes = true
     }
     
-    public override convenience required init() {
+    public override convenience init() {
         self.init(automaticallyAdjustsColorStyle: true)
     }
         
@@ -62,12 +62,12 @@ open class SFDisplayNode: ASDisplayNode, SFGradientProtocol, SFBlurredProtocol {
             if node == self.loadingNode {
                 UIView.animate(withDuration: 0.3, animations: { self.loadingNode.alpha = self.isLoading == true ? 1.0 : 0.0 })
             } else {
-                node.frame = context.initialFrame(for: node)
-                UIView.animate(withDuration: 0.3, delay: 0, options: UIViewAnimationOptions.curveEaseOut, animations: {
-                    node.frame = context.finalFrame(for: node)
-                }, completion: { (finished) in
-                    context.completeTransition(finished)
-                })
+//                node.frame = context.initialFrame(for: node)
+//                UIView.animate(withDuration: 0.3, delay: 0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+//                    node.frame = context.finalFrame(for: node)
+//                }, completion: { (finished) in
+//                    context.completeTransition(finished)
+//                })
             }
         }
         

@@ -8,9 +8,11 @@
 
 import AsyncDisplayKit
 
-open class SFViewController<SFNodeType: SFColorStyleProtocol>: ASViewController<ASDisplayNode>, SFColorStyleProtocol where SFNodeType: ASDisplayNode {
+open class SFViewController<SFNodeType: SFColorStyleProtocol>: ASViewController<ASDisplayNode> where SFNodeType: ASDisplayNode {
     
     // MARK: - Instance Properties
+    
+    public var currentColorStyle: SFColorStyle = .light
     
     // SFNode: Node that you are going to be using to build your UI
     open var SFNode: SFNodeType
@@ -35,6 +37,8 @@ open class SFViewController<SFNodeType: SFColorStyleProtocol>: ASViewController<
     // automaticallyAdjustsLayoutInsets: This property enables automatic addition of Insets on reloadLayout()
     open var automaticallyAdjustsLayoutInsets: Bool = false
     
+    public var imageAnimator: UIViewPropertyAnimator?
+    
     // MARK: - Initializers
     
     // Initialize your SFViewController with a SFNode
@@ -53,14 +57,15 @@ open class SFViewController<SFNodeType: SFColorStyleProtocol>: ASViewController<
         
         self.automaticallyAdjustsColorStyle = automaticallyAdjustsColorStyle
         
-        reloadLayout()
+        self.node.layoutSpecBlock = { constrainedSize in
+            
+            self.SFNode.style.preferredLayoutSize = ASLayoutSize(width: ASDimension(unit: ASDimensionUnit.points, value: constrainedSize.0.bounds.width), height: ASDimension(unit: ASDimensionUnit.points, value: constrainedSize.0.bounds.height))
+            
+            return ASCenterLayoutSpec(horizontalPosition: ASRelativeLayoutSpecPosition.start, verticalPosition: ASRelativeLayoutSpecPosition.start, sizingOption: ASRelativeLayoutSpecSizingOption.minimumSize, child: self.SFNode)
+        }
         
         handleColorStyleCheck()
         
-//        if #available(iOS 11.0, *) {
-//            UINavigationBar.appearance().prefersLargeTitles = true
-//        }
-//        
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -69,13 +74,6 @@ open class SFViewController<SFNodeType: SFColorStyleProtocol>: ASViewController<
     
     // MARK: - Instance Methods
     
-    open override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if self.automaticallyAdjustsColorStyle == true { // This is just to ensure that all colors have been updated, some async methods need this
-            updateColors()
-        }
-    }
-    
     // touchesBegan: If you tap anywhere inside a view hide the keyboard
     open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
@@ -83,56 +81,13 @@ open class SFViewController<SFNodeType: SFColorStyleProtocol>: ASViewController<
     
     // handleBrightnessChange: Because of the way protocols work, you need to declare an extra @objc function to call updateColors() because it is not an @objc and a notificion can't keep track of it
     @objc final func handleBrightnessChange() {
-        updateColors()
-    }
-    
-    // reloadLayout: This method fixes the bug when the navigationBar/tabBar covers your main node, it does that by adding UIEdgeInsets to your SFNode, your could disable it by disabling automaticallyAdjustsLayoutInsets
-    open func reloadLayout() {
-        
-        var topMargin: CGFloat = 0
-        
-        if automaticallyAdjustsLayoutInsets == true {
-            
-            // If navigation bar is hidden then don't do nothing
-            if navigationController?.navigationBar.isHidden == false {
-                
-                // If navigationController is not nill then a top margin would be added to prevent navigation bar from hiding the current node
-                topMargin = navigationController?.navigationBar.bounds.height ?? 0
-                
-                // If topMargin is not 0, then the navigation bar exist so you check if it's a regular size class or compact
-                if topMargin != 0 {
-                    
-                    // Regular Size Class show a status bar so this space must be added to the top inset
-                    if self.view.traitCollection.verticalSizeClass == UIUserInterfaceSizeClass.regular {
-                        topMargin += UIApplication.shared.statusBarFrame.height
-                    }
-                }
-                
-            }
-            
+        if currentColorStyle != self.colorStyle {
+            updateColors()
         }
-                        
-        // If tabBarController is not nill then a top margin would be added to prevent navigation bar from hiding the current node
-        let bottomMargin = tabBarController?.tabBar.bounds.height ?? 0
-        
-        // Add the margin inside a layoutSpecBlock
-        self.node.layoutSpecBlock = { constrainedSize in
-            
-            self.SFNode.style.preferredLayoutSize = ASLayoutSize(width: ASDimension(unit: ASDimensionUnit.points, value: constrainedSize.0.bounds.width), height: ASDimension(unit: ASDimensionUnit.points, value: constrainedSize.0.bounds.height))
-            
-            let layoutWithInset = ASInsetLayoutSpec(insets: UIEdgeInsets(top: topMargin, left: 0, bottom: bottomMargin, right: 0), child: self.SFNode)
-            
-            return layoutWithInset
-        }
-    }
-    
-    // traitCollectionDidChange: Checks when the device rotates and reloadLayout()
-    open override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        reloadLayout()
     }
     
     open func updateColors() {
-        
+        print("called")
         if self.automaticallyAdjustsColorStyle == true {
             Dispatch.addAsyncTask(to: DispatchLevel.main) {
                 
@@ -151,6 +106,8 @@ open class SFViewController<SFNodeType: SFColorStyleProtocol>: ASViewController<
                     self.navigationController?.navigationBar.tintColor = self.colorStyle.getInteractiveColor()
                     
                     self.setNeedsStatusBarAppearanceUpdate()
+                    
+                    self.currentColorStyle = self.colorStyle
                     
                 })
             }
@@ -180,6 +137,24 @@ extension SFViewController: SFControllerProtocol {
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

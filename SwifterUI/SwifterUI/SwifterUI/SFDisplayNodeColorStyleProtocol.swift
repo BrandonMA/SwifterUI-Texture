@@ -16,9 +16,6 @@ public protocol SFDisplayNodeColorStyleProtocol: SFColorStyleProtocol {
     // - Parameters:
     //   automaticallyAdjustsColorStyle: Variable to know if a node should automatically update colors
     init(automaticallyAdjustsColorStyle: Bool)
-    
-    init()
-    
 }
 
 public extension SFDisplayNodeColorStyleProtocol where Self: ASDisplayNode {

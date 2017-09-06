@@ -44,7 +44,7 @@ open class SFActivityNode: ASDisplayNode {
         activityIndicatorView.hidesWhenStopped = true
     }
     
-    public convenience override required init() {
+    public convenience override init() {
         self.init(automaticallyAdjustsColorStyle: true)
     }
     

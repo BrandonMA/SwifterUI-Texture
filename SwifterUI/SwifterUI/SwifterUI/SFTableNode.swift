@@ -20,9 +20,6 @@ open class SFTableNode: ASTableNode, SFDisplayNodeColorStyleProtocol {
     // refreshControl: UIRefreshControl added to your view.refreshControl, this is just for easier access
     open var refreshControl: UIRefreshControl?
     
-    // isFetching: Indicates if it's fetching data, if true then show a FluidActivityNode
-    open var isFetching: Bool = false
-    
     open var separatorColor: UIColor = UIColor.clear {
         didSet {
             self.view.separatorColor = self.separatorColor
@@ -43,10 +40,9 @@ open class SFTableNode: ASTableNode, SFDisplayNodeColorStyleProtocol {
         self.init(style: UITableViewStyle.plain, automaticallyAdjustsColorStyle: automaticallyAdjustsColorStyle)
     }
     
-    public convenience required init() {
+    public convenience init() {
         self.init(style: UITableViewStyle.plain, automaticallyAdjustsColorStyle: true)
     }
-    
     
     // MARK: - Instance Methods
     
@@ -62,16 +58,17 @@ open class SFTableNode: ASTableNode, SFDisplayNodeColorStyleProtocol {
     
     // This method should be called after viewDidLoad if you are using a SFTableNode
     open func updateColors() {
-        self.backgroundColor = self.colorStyle.getBackgroundColor()
-        updateSubNodesColors()
-        self.refreshControl?.tintColor = self.colorStyle.getDetailColor()
-        self.backgroundColor = self.colorStyle.getAlternativeBackgroundColor()
-        self.separatorColor = self.colorStyle.getSeparatorColor()
-        
-        // This is going to loop through every section inside the table node and reload it with the correct color style on the main thread
-        for i in 0...self.numberOfSections - 1 {
-            let indexSet = IndexSet(integer: i)
-            self.reloadSections(indexSet, with: UITableViewRowAnimation.fade) // Reload all the sections with a fade animation
+        if self.automaticallyAdjustsColorStyle == true {
+            updateSubNodesColors()
+            self.refreshControl?.tintColor = self.colorStyle.getDetailColor()
+            self.backgroundColor = self.colorStyle.getAlternativeBackgroundColor()
+            self.separatorColor = self.colorStyle.getSeparatorColor()
+            
+            // This is going to loop through every section inside the table node and reload it with the correct color style on the main thread
+            for i in 0...self.numberOfSections - 1 {
+                let indexSet = IndexSet(integer: i)
+                self.reloadSections(indexSet, with: UITableViewRowAnimation.fade) // Reload all the sections with a fade animation
+            }
         }
     }
     

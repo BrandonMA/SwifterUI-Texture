@@ -36,7 +36,7 @@ open class SFLabelNode: ASTextNode, SFGradientProtocol, SFDisplayNodeColorStyleP
         setAttributedText()
     }
     
-    public convenience override required init() {
+    public convenience override init() {
         self.init(automaticallyAdjustsColorStyle: true)
     }
     

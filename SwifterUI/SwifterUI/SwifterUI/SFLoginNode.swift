@@ -147,7 +147,7 @@ open class SFLoginNode: SFDisplayNode {
         self.automaticallyAdjustsColorStyle = automaticallyAdjustsColorStyle
     }
     
-    public convenience required init() {
+    public convenience init() {
         self.init(automaticallyAdjustsColorStyle: true)
     }
     

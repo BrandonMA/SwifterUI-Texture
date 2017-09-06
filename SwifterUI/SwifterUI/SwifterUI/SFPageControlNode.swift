@@ -42,7 +42,7 @@ public class SFPageControlNode: SFDisplayNode {
         self.currentPage = 0
     }
     
-    public convenience required init() {
+    public convenience init() {
         self.init(automaticallyAdjustsColorStyle: true)
     }
     
