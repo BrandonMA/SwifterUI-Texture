@@ -33,8 +33,8 @@ open class SFCellNode: ASCellNode, SFGradientProtocol, SFBlurredProtocol {
     
     // MARK: - Instance Methods
     
-    open override func didLoad() {
-        super.didLoad()
+    open override func layout() {
+        super.layout()
         updateColors()
     }
 }

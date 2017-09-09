@@ -9,10 +9,7 @@
 import AsyncDisplayKit
 
 public protocol SFControllerProtocol: SFColorStyleProtocol {
-    
-    // currentColorStyle: Save the current color style
-    var currentColorStyle: SFColorStyle { get set }
-    
+        
     // statusBarStyle: This enables preferredStatusBarStyle changes on the go, without needing to
     var statusBarStyle: UIStatusBarStyle { get set }
         

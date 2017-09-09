@@ -12,7 +12,7 @@ open class SFViewController<SFNodeType: SFColorStyleProtocol>: ASViewController<
     
     // MARK: - Instance Properties
     
-    public var currentColorStyle: SFColorStyle = .light
+    public var currentColorStyle: SFColorStyle? = nil
     
     // SFNode: Node that you are going to be using to build your UI
     open var SFNode: SFNodeType
@@ -81,37 +81,37 @@ open class SFViewController<SFNodeType: SFColorStyleProtocol>: ASViewController<
     
     // handleBrightnessChange: Because of the way protocols work, you need to declare an extra @objc function to call updateColors() because it is not an @objc and a notificion can't keep track of it
     @objc final func handleBrightnessChange() {
-        if currentColorStyle != self.colorStyle {
-            updateColors()
-        }
+        updateColors()
     }
     
     open func updateColors() {
-        print("called")
-        if self.automaticallyAdjustsColorStyle == true {
-            Dispatch.addAsyncTask(to: DispatchLevel.main) {
-                
-                UIView.animate(withDuration: 0.3, animations: {
+        if currentColorStyle != self.colorStyle || self.currentColorStyle == nil {
+            if self.automaticallyAdjustsColorStyle == true {
+                Dispatch.addAsyncTask(to: DispatchLevel.main) {
                     
-                    self.statusBarStyle = self.colorStyle.getStatusBarStyle()
-                    
-                    // This is called first so your SFNode(a subnode of your main node) is updated first, then all it's subnodes.
-                    self.updateSubNodesColors()
-                    
-                    // Once your SFNode is updated your main node(the one that comes with ASViewController) changes it's color to the correct one. This is make at the end because the main node should never be visible.
-                    self.node.backgroundColor = self.SFNode.backgroundColor
-                    
-                    self.navigationController?.navigationBar.barStyle = self.colorStyle.getNavigationBarStyle()
-                    
-                    self.navigationController?.navigationBar.tintColor = self.colorStyle.getInteractiveColor()
-                    
-                    self.setNeedsStatusBarAppearanceUpdate()
-                    
-                    self.currentColorStyle = self.colorStyle
-                    
-                })
+                    UIView.animate(withDuration: 0.3, animations: {
+                        
+                        self.statusBarStyle = self.colorStyle.getStatusBarStyle()
+                        
+                        // This is called first so your SFNode(a subnode of your main node) is updated first, then all it's subnodes.
+                        self.updateSubNodesColors()
+                        
+                        // Once your SFNode is updated your main node(the one that comes with ASViewController) changes it's color to the correct one. This is make at the end because the main node should never be visible.
+                        self.node.backgroundColor = self.SFNode.backgroundColor
+                        
+                        self.navigationController?.navigationBar.barStyle = self.colorStyle.getNavigationBarStyle()
+                        
+                        self.navigationController?.navigationBar.tintColor = self.colorStyle.getInteractiveColor()
+                        
+                        self.setNeedsStatusBarAppearanceUpdate()
+                        
+                        self.currentColorStyle = self.colorStyle
+                        
+                    })
+                }
             }
         }
+        
         
     }
     

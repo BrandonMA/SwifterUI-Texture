@@ -66,8 +66,10 @@ open class SFTableNode: ASTableNode, SFDisplayNodeColorStyleProtocol {
             
             // This is going to loop through every section inside the table node and reload it with the correct color style on the main thread
             for i in 0...self.numberOfSections - 1 {
-                let indexSet = IndexSet(integer: i)
-                self.reloadSections(indexSet, with: UITableViewRowAnimation.fade) // Reload all the sections with a fade animation
+                for j in 0...self.numberOfRows(inSection: i) {
+                    guard let cell = self.nodeForRow(at: IndexPath(row: j, section: i)) as? SFCellNode else { return }
+                    cell.updateColors()
+                }
             }
         }
     }

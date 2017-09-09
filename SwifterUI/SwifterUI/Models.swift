@@ -56,7 +56,7 @@ final class MeetupService {
         guard let url = URL(string: "\(baseUrl)find/groups?&lat=\(latitude)&lon=\(longitude)&page=10&key=\(APIKEY)") else {
             fatalError()
         }
-        
+        print(url)
         session.dataTask(with: url) { (data, response, error) in
             
             Dispatch.addAsyncTask(to: DispatchLevel.main, handler: { 
@@ -103,7 +103,7 @@ final class MeetupFeedDataManager {
         
         guard let keyPhoto = entry["key_photo"] as? JSON else { return nil }
         
-        guard let photoUrl = keyPhoto["photo_link"] as? String else { return nil }
+        guard let photoUrl = keyPhoto["highres_link"] as? String else { return nil }
         
         guard let organizerJSON = entry["organizer"] as? JSON else { return nil }
         

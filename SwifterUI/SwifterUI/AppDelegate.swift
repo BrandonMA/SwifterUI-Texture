@@ -14,7 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         window = UIWindow(frame: UIScreen.main.bounds)
@@ -30,10 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        window?.rootViewController = loginController
         
         window?.rootViewController = UINavigationController(rootViewController: MeetupFeedController())
-        
-//        window?.rootViewController = ImageExampleController()
-        
-//        window?.rootViewController = SFMediaGalleryController(automaticallyAdjustsColorStyle: true, images: [UIImage(named: "icon"), UIImage(named: "image")])
         
         window?.makeKeyAndVisible()
         

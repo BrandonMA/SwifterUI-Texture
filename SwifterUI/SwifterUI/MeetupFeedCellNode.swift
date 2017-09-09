@@ -15,7 +15,7 @@ class MeetupFeedCellNode: SFCellNode {
     
     lazy var photoImageNode: ASNetworkImageNode = {
         let imageNode = ASNetworkImageNode()
-        imageNode.contentMode = .scaleAspectFill
+        imageNode.contentMode = .scaleAspectFit
         return imageNode
     }()
     
