@@ -87,6 +87,7 @@ class MeetupFeedController: SFTableNodeController {
             cellNode.organizerNameTextNode.text = group.organizer.name
             cellNode.photoImageNode.url = group.photoUrl
             cellNode.locationLabelNode.text = "\(group.city!), \(group.country!)"
+            cellNode.locationLabelNode.extraAttributes["\(group.city!), \(group.country!)"] = [SFTextAttributeName: SFTextType.button]
             cellNode.timeIntervalSincePost.text = group.timeInterval
             
             return cellNode

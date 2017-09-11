@@ -42,6 +42,11 @@ open class SFLabelNode: ASTextNode, SFGradientProtocol, SFDisplayNodeColorStyleP
     
     // MARK: - Instance Methods
     
+    open override func didLoad() {
+        super.didLoad()
+        updateColors()
+    }
+    
     open func updateColors() {
         if self.automaticallyAdjustsColorStyle == true {
             self.textColor = colorStyle.getMainColor()
@@ -67,7 +72,7 @@ open class SFLabelNode: ASTextNode, SFGradientProtocol, SFDisplayNodeColorStyleP
 
 extension SFLabelNode: SFTextContainer {
     
-    public final func setAttributedText() {
+    open func setAttributedText() {
         self.attributedText = self.mutableAttributedText
     }
 }

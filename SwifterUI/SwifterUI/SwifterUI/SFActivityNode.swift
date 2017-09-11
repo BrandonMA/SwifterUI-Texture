@@ -9,7 +9,7 @@
 import UIKit
 import AsyncDisplayKit
 
-open class SFActivityNode: ASDisplayNode {
+open class SFActivityNode: ASDisplayNode, SFDisplayNodeColorStyleProtocol {
     
     // MARK: - Instance Properties
     
@@ -51,20 +51,18 @@ open class SFActivityNode: ASDisplayNode {
     // MARK: - Instance Methods
     
     open override func didLoad() {
+        super.didLoad()
         updateColors()
     }
     
-}
-
-extension SFActivityNode: SFDisplayNodeColorStyleProtocol {
     open func updateColors() {
         if self.automaticallyAdjustsColorStyle == true {
             activityIndicatorView.activityIndicatorViewStyle = self.colorStyle.getActivityIndicatorStyle()
             updateSubNodesColors()
         }
     }
+    
 }
-
 
 
 

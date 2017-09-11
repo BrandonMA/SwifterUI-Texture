@@ -52,7 +52,7 @@ open class SFTableNodeController: SFViewController<SFTableNode>, ASTableDataSour
     }
     
     // handleSearchController: Check if it should have a searchController or not
-    func handleSearchController() {
+    open func handleSearchController() {
         if shouldHaveSearchBar == true {
             if let controller = self.resultsController {
                 searchController = UISearchController(searchResultsController: controller)
@@ -77,6 +77,8 @@ open class SFTableNodeController: SFViewController<SFTableNode>, ASTableDataSour
         searchController.searchBar.tintColor = self.colorStyle.getInteractiveColor()
         searchController.searchBar.keyboardAppearance = self.colorStyle.getKeyboardAppearence()
     }
+    
+    // MARK: - ASTableDataSource
     
     open func numberOfSections(in tableNode: ASTableNode) -> Int {
         return 0

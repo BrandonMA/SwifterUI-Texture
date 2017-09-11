@@ -17,7 +17,7 @@ open class SFDismissButton: SFButtonNode {
     }
     
     // MARK: - Instance Methods
-    
+
     override open func updateColors() {
         if self.automaticallyAdjustsColorStyle == true {
             SFAssets.imageOfArrowDown.tint(color: self.colorStyle.getDetailColor(), alpha: 1, handler: { (image) in

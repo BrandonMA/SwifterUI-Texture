@@ -10,7 +10,7 @@ import UIKit
 
 open class SFTextFieldView: UITextField {
     
-    var clearButtonColor: UIColor = UIColor.clear {
+    open var clearButtonColor: UIColor = UIColor.clear {
         didSet {
             layoutSubviews()
         }

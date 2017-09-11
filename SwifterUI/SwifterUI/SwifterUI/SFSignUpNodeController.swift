@@ -9,13 +9,13 @@
 import UIKit
 import AsyncDisplayKit
 
-class SFSignUpNodeController: SFViewController<SFSignUpNode>, AppleMusicLikeDismissProtocol {
+open class SFSignUpNodeController: SFViewController<SFSignUpNode>, AppleMusicLikeDismissProtocol {
 
-    var initialPoint: CGFloat = 0
+    public var initialPoint: CGFloat = 0
     
     // MARK: - Instance Properties
     
-    public override var shouldAutorotate: Bool {
+    open override var shouldAutorotate: Bool {
         return false
     }
     
@@ -35,7 +35,7 @@ class SFSignUpNodeController: SFViewController<SFSignUpNode>, AppleMusicLikeDism
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override open func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(didDragged(sender:)))
@@ -44,7 +44,7 @@ class SFSignUpNodeController: SFViewController<SFSignUpNode>, AppleMusicLikeDism
     
     // MARK: - Instance Methods
     
-    @objc func didDragged(sender: UIPanGestureRecognizer) {
+    @objc open func didDragged(sender: UIPanGestureRecognizer) {
         self.dismiss(with: sender)
     }
     

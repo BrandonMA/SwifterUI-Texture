@@ -47,5 +47,7 @@
 		<string>en</string>
 		<string>Spanish</string>
 	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Escoger una foto</string>
 </dict>
 </plist>

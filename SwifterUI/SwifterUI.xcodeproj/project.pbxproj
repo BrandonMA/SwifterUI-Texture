@@ -10,6 +10,7 @@
 		38DA73C369B48DD7AF3979D6 /* Pods_SwifterUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BBCD62DDBC8D77D25901F55 /* Pods_SwifterUI.framework */; };
 		4202F7BC1F48FFF70009BD33 /* SFDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4202F7BB1F48FFF70009BD33 /* SFDevice.swift */; };
 		4202F7BE1F4900000009BD33 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4202F7BD1F4900000009BD33 /* UIColorExtensions.swift */; };
+		4204F28F1F65ACEE003D9D86 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4204F28E1F65ACEE003D9D86 /* Message.swift */; };
 		420620091F5B74CA006C0C01 /* SFBlurredProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420620081F5B74CA006C0C01 /* SFBlurredProtocol.swift */; };
 		42095E581F5B74FF00909BEB /* SFGradientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42095E571F5B74FF00909BEB /* SFGradientProtocol.swift */; };
 		4212E5721F4A2625006FD5A9 /* SFPresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4212E5711F4A2625006FD5A9 /* SFPresentationManager.swift */; };
@@ -19,6 +20,7 @@
 		421C2A111F24AA610099762A /* SFLoginNodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421C2A101F24AA610099762A /* SFLoginNodeController.swift */; };
 		421C2A151F24AAA10099762A /* SFLoginNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421C2A141F24AAA10099762A /* SFLoginNode.swift */; };
 		421C2A181F24B4240099762A /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421C2A171F24B4240099762A /* LocalizedString.swift */; };
+		424059AF1F65EE0C00B98776 /* ASCollectionNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424059AE1F65EE0C00B98776 /* ASCollectionNodeExtensions.swift */; };
 		424A5E621F5B067200EFBFB3 /* SFTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424A5E611F5B067100EFBFB3 /* SFTextFieldView.swift */; };
 		424A5E641F5B068300EFBFB3 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424A5E631F5B068300EFBFB3 /* UIViewControllerExtensions.swift */; };
 		424A5E661F5B068D00EFBFB3 /* SFDisplayNodeColorStyleProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424A5E651F5B068D00EFBFB3 /* SFDisplayNodeColorStyleProtocol.swift */; };
@@ -29,8 +31,11 @@
 		42A680031F54B3E100EDBAAE /* SFPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A680021F54B3E100EDBAAE /* SFPresentationController.swift */; };
 		42A680051F54B3F300EDBAAE /* SFDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A680041F54B3F200EDBAAE /* SFDismissButton.swift */; };
 		42A680071F54B40600EDBAAE /* SFPageControlNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A680061F54B40600EDBAAE /* SFPageControlNode.swift */; };
+		42B50AE81F65D044003E3E1A /* SFChatNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B50AE71F65D044003E3E1A /* SFChatNode.swift */; };
+		42B708991F6624150012DFCD /* SFChatBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B708981F6624150012DFCD /* SFChatBar.swift */; };
+		42B7089B1F6624390012DFCD /* SFChatContainerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7089A1F6624390012DFCD /* SFChatContainerNode.swift */; };
 		42BFCB661F6048D7003B75CC /* SFCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BFCB651F6048D7003B75CC /* SFCollectionController.swift */; };
-		42C54AE31F5D8C0E00A6F1AA /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C54AE21F5D8C0E00A6F1AA /* StringExtension.swift */; };
+		42CDF99A1F65830000B41DC6 /* SFChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CDF9991F65830000B41DC6 /* SFChatController.swift */; };
 		42CEA6F71F4B503100310E64 /* AppleMusicLikeAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CEA6F61F4B503100310E64 /* AppleMusicLikeAnimations.swift */; };
 		42D1307A1F54B31A00BCA109 /* SFTextContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D130791F54B31A00BCA109 /* SFTextContainer.swift */; };
 		42D5838F1F5CDB840057EF02 /* TextExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D5838E1F5CDB840057EF02 /* TextExample.swift */; };
@@ -38,10 +43,10 @@
 		42D9D66D1F20CF1E00918013 /* SFButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D9D66C1F20CF1E00918013 /* SFButtonNode.swift */; };
 		42D9D6711F20D26E00918013 /* SFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D9D6701F20D26E00918013 /* SFTextField.swift */; };
 		42D9D6731F20D39F00918013 /* SFSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D9D6721F20D39F00918013 /* SFSearchBar.swift */; };
-		42D9D6771F20D5CA00918013 /* SFYoutubeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D9D6761F20D5CA00918013 /* SFYoutubeNode.swift */; };
 		42D9D67A1F20D6C500918013 /* SFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D9D6791F20D6C500918013 /* SFViewController.swift */; };
 		42D9D67C1F20D80400918013 /* SFTableNodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D9D67B1F20D80400918013 /* SFTableNodeController.swift */; };
 		42DED2F31F4A1C370093F89C /* SFSignUpNodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DED2F21F4A1C370093F89C /* SFSignUpNodeController.swift */; };
+		42DFF0381F64BB8D005B6076 /* SFChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DFF0371F64BB8C005B6076 /* SFChatCell.swift */; };
 		42E3EA321F604323008596E2 /* SFCollectionNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E3EA311F604323008596E2 /* SFCollectionNode.swift */; };
 		42F0F5CE1F1F4939003DE859 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F0F5CD1F1F4939003DE859 /* AppDelegate.swift */; };
 		42F0F5D01F1F4939003DE859 /* SFLoadingNodeExampleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F0F5CF1F1F4939003DE859 /* SFLoadingNodeExampleController.swift */; };
@@ -93,6 +98,7 @@
 		21611C7ED58EA05FC395F942 /* Pods-SwifterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwifterUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwifterUITests/Pods-SwifterUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4202F7BB1F48FFF70009BD33 /* SFDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFDevice.swift; path = SwifterUI/SFDevice.swift; sourceTree = "<group>"; };
 		4202F7BD1F4900000009BD33 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorExtensions.swift; path = SwifterUI/UIColorExtensions.swift; sourceTree = "<group>"; };
+		4204F28E1F65ACEE003D9D86 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Message.swift; path = SwifterUI/Message.swift; sourceTree = "<group>"; };
 		420620081F5B74CA006C0C01 /* SFBlurredProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFBlurredProtocol.swift; path = SwifterUI/SFBlurredProtocol.swift; sourceTree = "<group>"; };
 		42095E571F5B74FF00909BEB /* SFGradientProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFGradientProtocol.swift; path = SwifterUI/SFGradientProtocol.swift; sourceTree = "<group>"; };
 		4212E5711F4A2625006FD5A9 /* SFPresentationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFPresentationManager.swift; path = SwifterUI/SFPresentationManager.swift; sourceTree = "<group>"; };
@@ -103,6 +109,7 @@
 		421C2A141F24AAA10099762A /* SFLoginNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFLoginNode.swift; path = SwifterUI/SFLoginNode.swift; sourceTree = "<group>"; };
 		421C2A171F24B4240099762A /* LocalizedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocalizedString.swift; path = SwifterUI/LocalizedString.swift; sourceTree = "<group>"; };
 		421C2A1E1F2533200099762A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		424059AE1F65EE0C00B98776 /* ASCollectionNodeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ASCollectionNodeExtensions.swift; path = SwifterUI/ASCollectionNodeExtensions.swift; sourceTree = "<group>"; };
 		424A5E611F5B067100EFBFB3 /* SFTextFieldView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFTextFieldView.swift; path = SwifterUI/SFTextFieldView.swift; sourceTree = "<group>"; };
 		424A5E631F5B068300EFBFB3 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewControllerExtensions.swift; path = SwifterUI/UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		424A5E651F5B068D00EFBFB3 /* SFDisplayNodeColorStyleProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFDisplayNodeColorStyleProtocol.swift; path = SwifterUI/SFDisplayNodeColorStyleProtocol.swift; sourceTree = "<group>"; };
@@ -113,8 +120,11 @@
 		42A680021F54B3E100EDBAAE /* SFPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFPresentationController.swift; path = SwifterUI/SFPresentationController.swift; sourceTree = "<group>"; };
 		42A680041F54B3F200EDBAAE /* SFDismissButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFDismissButton.swift; path = SwifterUI/SFDismissButton.swift; sourceTree = "<group>"; };
 		42A680061F54B40600EDBAAE /* SFPageControlNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFPageControlNode.swift; path = SwifterUI/SFPageControlNode.swift; sourceTree = "<group>"; };
+		42B50AE71F65D044003E3E1A /* SFChatNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFChatNode.swift; path = SwifterUI/SFChatNode.swift; sourceTree = "<group>"; };
+		42B708981F6624150012DFCD /* SFChatBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFChatBar.swift; path = SwifterUI/SFChatBar.swift; sourceTree = "<group>"; };
+		42B7089A1F6624390012DFCD /* SFChatContainerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFChatContainerNode.swift; path = SwifterUI/SFChatContainerNode.swift; sourceTree = "<group>"; };
 		42BFCB651F6048D7003B75CC /* SFCollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFCollectionController.swift; path = SwifterUI/SFCollectionController.swift; sourceTree = "<group>"; };
-		42C54AE21F5D8C0E00A6F1AA /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringExtension.swift; path = SwifterUI/StringExtension.swift; sourceTree = "<group>"; };
+		42CDF9991F65830000B41DC6 /* SFChatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFChatController.swift; path = SwifterUI/SFChatController.swift; sourceTree = "<group>"; };
 		42CEA6F61F4B503100310E64 /* AppleMusicLikeAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppleMusicLikeAnimations.swift; path = SwifterUI/AppleMusicLikeAnimations.swift; sourceTree = "<group>"; };
 		42D130791F54B31A00BCA109 /* SFTextContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFTextContainer.swift; path = SwifterUI/SFTextContainer.swift; sourceTree = "<group>"; };
 		42D5838E1F5CDB840057EF02 /* TextExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextExample.swift; sourceTree = "<group>"; };
@@ -122,10 +132,10 @@
 		42D9D66C1F20CF1E00918013 /* SFButtonNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFButtonNode.swift; path = SwifterUI/SFButtonNode.swift; sourceTree = "<group>"; };
 		42D9D6701F20D26E00918013 /* SFTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFTextField.swift; path = SwifterUI/SFTextField.swift; sourceTree = "<group>"; };
 		42D9D6721F20D39F00918013 /* SFSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFSearchBar.swift; path = SwifterUI/SFSearchBar.swift; sourceTree = "<group>"; };
-		42D9D6761F20D5CA00918013 /* SFYoutubeNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFYoutubeNode.swift; path = SwifterUI/SFYoutubeNode.swift; sourceTree = "<group>"; };
 		42D9D6791F20D6C500918013 /* SFViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFViewController.swift; path = SwifterUI/SFViewController.swift; sourceTree = "<group>"; };
 		42D9D67B1F20D80400918013 /* SFTableNodeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFTableNodeController.swift; path = SwifterUI/SFTableNodeController.swift; sourceTree = "<group>"; };
 		42DED2F21F4A1C370093F89C /* SFSignUpNodeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFSignUpNodeController.swift; path = SwifterUI/SFSignUpNodeController.swift; sourceTree = "<group>"; };
+		42DFF0371F64BB8C005B6076 /* SFChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFChatCell.swift; path = SwifterUI/SFChatCell.swift; sourceTree = "<group>"; };
 		42E3EA311F604323008596E2 /* SFCollectionNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFCollectionNode.swift; path = SwifterUI/SFCollectionNode.swift; sourceTree = "<group>"; };
 		42F0F5CA1F1F4939003DE859 /* SwifterUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwifterUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42F0F5CD1F1F4939003DE859 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -211,6 +221,26 @@
 			name = SFTableNodeControllerExample;
 			sourceTree = "<group>";
 		};
+		42B7089C1F66244E0012DFCD /* ChatKit */ = {
+			isa = PBXGroup;
+			children = (
+				42B50AE71F65D044003E3E1A /* SFChatNode.swift */,
+				42B708981F6624150012DFCD /* SFChatBar.swift */,
+				42B7089A1F6624390012DFCD /* SFChatContainerNode.swift */,
+				42DFF0371F64BB8C005B6076 /* SFChatCell.swift */,
+			);
+			name = ChatKit;
+			sourceTree = "<group>";
+		};
+		42B7089E1F6624750012DFCD /* LoginKit */ = {
+			isa = PBXGroup;
+			children = (
+				421C2A141F24AAA10099762A /* SFLoginNode.swift */,
+				429B186D1F4A02CE006BE483 /* SFSignUpNode.swift */,
+			);
+			name = LoginKit;
+			sourceTree = "<group>";
+		};
 		42CEA6F81F4B504F00310E64 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
@@ -238,6 +268,7 @@
 				42F0F6091F1F7A0F003DE859 /* Dispatch.swift */,
 				42F0F5FC1F1F7979003DE859 /* SFAssets.swift */,
 				4202F7BB1F48FFF70009BD33 /* SFDevice.swift */,
+				4204F28E1F65ACEE003D9D86 /* Message.swift */,
 				42CEA6F91F4B509200310E64 /* SFGradient */,
 			);
 			name = Models;
@@ -265,6 +296,7 @@
 				42BFCB651F6048D7003B75CC /* SFCollectionController.swift */,
 				421C2A101F24AA610099762A /* SFLoginNodeController.swift */,
 				42DED2F21F4A1C370093F89C /* SFSignUpNodeController.swift */,
+				42CDF9991F65830000B41DC6 /* SFChatController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -355,7 +387,7 @@
 				42F0F6031F1F79DA003DE859 /* UIFontExtensions.swift */,
 				42F0F6041F1F79DA003DE859 /* UIImageExtensions.swift */,
 				4202F7BD1F4900000009BD33 /* UIColorExtensions.swift */,
-				42C54AE21F5D8C0E00A6F1AA /* StringExtension.swift */,
+				424059AE1F65EE0C00B98776 /* ASCollectionNodeExtensions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -377,9 +409,8 @@
 				421BA3F41F570A21008E176D /* SFTextField */,
 				42D9D6721F20D39F00918013 /* SFSearchBar.swift */,
 				42A680061F54B40600EDBAAE /* SFPageControlNode.swift */,
-				42D9D6761F20D5CA00918013 /* SFYoutubeNode.swift */,
-				421C2A141F24AAA10099762A /* SFLoginNode.swift */,
-				429B186D1F4A02CE006BE483 /* SFSignUpNode.swift */,
+				42B7089E1F6624750012DFCD /* LoginKit */,
+				42B7089C1F66244E0012DFCD /* ChatKit */,
 			);
 			name = Nodes;
 			sourceTree = "<group>";
@@ -713,14 +744,16 @@
 				42D9D66D1F20CF1E00918013 /* SFButtonNode.swift in Sources */,
 				42F0F60A1F1F7A0F003DE859 /* Dispatch.swift in Sources */,
 				42D5838F1F5CDB840057EF02 /* TextExample.swift in Sources */,
+				42B708991F6624150012DFCD /* SFChatBar.swift in Sources */,
 				42BFCB661F6048D7003B75CC /* SFCollectionController.swift in Sources */,
 				42F0F6191F1F95D1003DE859 /* SFTableNode.swift in Sources */,
 				42D9D67A1F20D6C500918013 /* SFViewController.swift in Sources */,
 				424A5E621F5B067200EFBFB3 /* SFTextFieldView.swift in Sources */,
+				42B50AE81F65D044003E3E1A /* SFChatNode.swift in Sources */,
 				42DED2F31F4A1C370093F89C /* SFSignUpNodeController.swift in Sources */,
 				421C2A0D1F249A850099762A /* MeetupFeedCellNode.swift in Sources */,
-				42D9D6771F20D5CA00918013 /* SFYoutubeNode.swift in Sources */,
 				42D9D6711F20D26E00918013 /* SFTextField.swift in Sources */,
+				4204F28F1F65ACEE003D9D86 /* Message.swift in Sources */,
 				42F0F5D01F1F4939003DE859 /* SFLoadingNodeExampleController.swift in Sources */,
 				42D9D6731F20D39F00918013 /* SFSearchBar.swift in Sources */,
 				42D1307A1F54B31A00BCA109 /* SFTextContainer.swift in Sources */,
@@ -737,8 +770,10 @@
 				42A680071F54B40600EDBAAE /* SFPageControlNode.swift in Sources */,
 				42095E581F5B74FF00909BEB /* SFGradientProtocol.swift in Sources */,
 				42CEA6F71F4B503100310E64 /* AppleMusicLikeAnimations.swift in Sources */,
+				42B7089B1F6624390012DFCD /* SFChatContainerNode.swift in Sources */,
 				425B57EF1F5B5E2400E28FAA /* GradientExample.swift in Sources */,
 				42F0F6071F1F79DA003DE859 /* UIFontExtensions.swift in Sources */,
+				424059AF1F65EE0C00B98776 /* ASCollectionNodeExtensions.swift in Sources */,
 				42F0F6061F1F79DA003DE859 /* StringExtensions.swift in Sources */,
 				424A5E661F5B068D00EFBFB3 /* SFDisplayNodeColorStyleProtocol.swift in Sources */,
 				421C2A151F24AAA10099762A /* SFLoginNode.swift in Sources */,
@@ -753,10 +788,11 @@
 				421C2A0E1F249A850099762A /* Models.swift in Sources */,
 				424A5E641F5B068300EFBFB3 /* UIViewControllerExtensions.swift in Sources */,
 				42F0F5FD1F1F7979003DE859 /* SFAssets.swift in Sources */,
+				42CDF99A1F65830000B41DC6 /* SFChatController.swift in Sources */,
 				42F0F60E1F1F7A73003DE859 /* SFGradientDirection.swift in Sources */,
 				421C2A0C1F249A850099762A /* MeetupFeedController.swift in Sources */,
+				42DFF0381F64BB8D005B6076 /* SFChatCell.swift in Sources */,
 				42F0F6151F1F8114003DE859 /* SFDisplayNode.swift in Sources */,
-				42C54AE31F5D8C0E00A6F1AA /* StringExtension.swift in Sources */,
 				4202F7BC1F48FFF70009BD33 /* SFDevice.swift in Sources */,
 				42F0F5CE1F1F4939003DE859 /* AppDelegate.swift in Sources */,
 				424A5E681F5B069400EFBFB3 /* SFControllerProtocol.swift in Sources */,

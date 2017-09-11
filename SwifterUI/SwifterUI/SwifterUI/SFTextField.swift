@@ -130,6 +130,7 @@ open class SFTextField: SFDisplayNode {
     // MARK: - Instance Methods
     
     open override func didLoad() {
+        super.didLoad()
         setAttributedText()
         setPlaceHolder()
     }
@@ -162,7 +163,7 @@ open class SFTextField: SFDisplayNode {
 extension SFTextField {
     
     // setPlaceHolder: Set the NSAttributedString for the placeholder automatically
-    public func setPlaceHolder() {
+    open func setPlaceHolder() {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = self.aligment
         self.textField.attributedPlaceholder = NSAttributedString(string: self.placeholder,
@@ -173,7 +174,7 @@ extension SFTextField {
     }
 
     // addLeftView: Add a view at the left side of your textField
-    public func addLeftView() {
+    open func addLeftView() {
         
         let totalPadding: CGFloat = lefImage != nil ? self.leftPadding + self.leftViewSize.width + self.leftPadding : self.leftPadding
         
@@ -186,7 +187,7 @@ extension SFTextField {
     }
     
     // addRightView: Add a view at the right side of your textField
-    public func addRightView() {
+    open func addRightView() {
         
         let totalPadding: CGFloat = rightImage != nil ? self.rightPadding + self.rightViewSize.width + self.rightPadding : self.rightPadding
         
@@ -198,14 +199,14 @@ extension SFTextField {
     }
     
     // endEditing: Convenience method to access the textField's one
-    public func endEditing(force: Bool) {
+    open func endEditing(force: Bool) {
         self.textField.endEditing(force)
     }
 }
 
 extension SFTextField: SFTextContainer {
     
-    public func setAttributedText() {
+    open func setAttributedText() {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = self.aligment
         self.textField.textColor = self.textColor

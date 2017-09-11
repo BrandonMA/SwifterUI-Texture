@@ -6,10 +6,9 @@
 //  Copyright © 2017 Brandon Maldonado Alonso. All rights reserved.
 //
 
-import UIKit
 import AsyncDisplayKit
 
-open class SFCellNode: ASCellNode, SFGradientProtocol, SFBlurredProtocol {
+open class SFCellNode: ASCellNode, SFGradientProtocol, SFBlurredProtocol, SFDisplayNodeColorStyleProtocol {
     
     // MARK: - Instance Properties
         
@@ -17,7 +16,7 @@ open class SFCellNode: ASCellNode, SFGradientProtocol, SFBlurredProtocol {
     
     open var gradient: SFGradient?
     
-    public var effect: UIVisualEffect?
+    open var effect: UIVisualEffect?
     
     // MARK: - Initializers
     
@@ -33,20 +32,25 @@ open class SFCellNode: ASCellNode, SFGradientProtocol, SFBlurredProtocol {
     
     // MARK: - Instance Methods
     
+    open override func didLoad() {
+        super.didLoad()
+        updateColors()
+    }
+    
     open override func layout() {
         super.layout()
         updateColors()
     }
-}
-
-extension SFCellNode: SFDisplayNodeColorStyleProtocol {
+    
     open func updateColors() {
         if automaticallyAdjustsColorStyle == true {
             self.backgroundColor = self.colorStyle.getBackgroundColor()
             updateSubNodesColors()
         }
     }
+
 }
+
 
 
 

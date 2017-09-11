@@ -28,7 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        loginController.signUpController = SFSignUpNodeController(automaticallyAdjustsColorStyle: true)
 //        window?.rootViewController = loginController
         
-        window?.rootViewController = UINavigationController(rootViewController: MeetupFeedController())
+//        window?.rootViewController = UINavigationController(rootViewController: MeetupFeedController())
+        
+        window?.rootViewController = UINavigationController(rootViewController: SFChatController(automaticallyAdjustsColorStyle: true))
         
         window?.makeKeyAndVisible()
         
@@ -60,4 +62,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
+
+
+
+
+
+
+
 

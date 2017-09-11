@@ -52,7 +52,7 @@ open class SFCollectionController: SFViewController<SFCollectionNode>, ASCollect
     }
     
     // handleSearchController: Check if it should have a searchController or not
-    func handleSearchController() {
+    open func handleSearchController() {
         if shouldHaveSearchBar == true {
             if let controller = self.resultsController {
                 searchController = UISearchController(searchResultsController: controller)
@@ -75,15 +75,17 @@ open class SFCollectionController: SFViewController<SFCollectionNode>, ASCollect
         searchController.searchBar.keyboardAppearance = self.colorStyle.getKeyboardAppearence()
     }
     
-    public func numberOfSections(in collectionNode: ASCollectionNode) -> Int {
+    // MARK: - ASCollectionDataSource
+    
+    open func numberOfSections(in collectionNode: ASCollectionNode) -> Int {
         return 0
     }
     
-    public func collectionNode(_ collectionNode: ASCollectionNode, numberOfItemsInSection section: Int) -> Int {
+    open func collectionNode(_ collectionNode: ASCollectionNode, numberOfItemsInSection section: Int) -> Int {
         return 0
     }
     
-    public func collectionNode(_ collectionNode: ASCollectionNode, nodeBlockForItemAt indexPath: IndexPath) -> ASCellNodeBlock {
+    open func collectionNode(_ collectionNode: ASCollectionNode, nodeBlockForItemAt indexPath: IndexPath) -> ASCellNodeBlock {
         return { SFCellNode() }
     }
 }

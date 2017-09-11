@@ -92,4 +92,10 @@ public extension String {
         self = newString
     }
     
+    public func nsRange(of string: String) -> NSRange {
+        let text = self as NSString
+        return text.range(of: string)
+    }
+
+    
 }

@@ -12,9 +12,9 @@ public class SFPageControlNode: SFDisplayNode {
     
     // MARK: - Instance Properties
     
-    let pageControl: UIPageControl
+    open let pageControl: UIPageControl
     
-    var currentPage: Int = 0 {
+    open var currentPage: Int = 0 {
         didSet {
             UIView.animate(withDuration: 0.2) {
                 self.pageControl.currentPage = self.currentPage
@@ -47,8 +47,8 @@ public class SFPageControlNode: SFDisplayNode {
     }
     
     // MARK: - Instance Methods
-    
-    override public func updateColors() {
+
+    override open func updateColors() {
         if self.automaticallyAdjustsColorStyle == true {
             self.pageControl.currentPageIndicatorTintColor = self.colorStyle.getBackgroundColor()
             self.pageControl.pageIndicatorTintColor = self.colorStyle.getBackgroundColor().withAlphaComponent(0.30)

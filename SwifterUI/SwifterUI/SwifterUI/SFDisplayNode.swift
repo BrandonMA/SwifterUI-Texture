@@ -6,10 +6,9 @@
 //  Copyright © 2017 Brandon Maldonado Alonso. All rights reserved.
 //
 
-import UIKit
 import AsyncDisplayKit
 
-open class SFDisplayNode: ASDisplayNode, SFGradientProtocol, SFBlurredProtocol {
+open class SFDisplayNode: ASDisplayNode, SFGradientProtocol, SFBlurredProtocol, SFDisplayNodeColorStyleProtocol {
     
     // MARK: - Instance Properties
     
@@ -22,7 +21,7 @@ open class SFDisplayNode: ASDisplayNode, SFGradientProtocol, SFBlurredProtocol {
     // isLoading: If you used addLoadingNode, set true or false to show a FluidLoadingNode()
     open var isLoading = false
     
-    lazy var loadingNode: SFLoadingNode = {
+    open lazy var loadingNode: SFLoadingNode = {
         let node = SFLoadingNode()
         node.updateColors()
         node.alpha = 0.0
@@ -43,6 +42,11 @@ open class SFDisplayNode: ASDisplayNode, SFGradientProtocol, SFBlurredProtocol {
         
     // MARK: - Instance Methods
     
+    open override func didLoad() {
+        super.didLoad()
+        updateColors()
+    }
+    
     // addLoadingNode: Adds a loadingNode to your custom layout
     // - Parameters:
     //   layout: your custom layout where it's added the loadingNode
@@ -57,24 +61,20 @@ open class SFDisplayNode: ASDisplayNode, SFGradientProtocol, SFBlurredProtocol {
     }
 
     open override func animateLayoutTransition(_ context: ASContextTransitioning) {
-        
         for node in self.subnodes {
             if node == self.loadingNode {
                 UIView.animate(withDuration: 0.3, animations: { self.loadingNode.alpha = self.isLoading == true ? 1.0 : 0.0 })
             } else {
-//                node.frame = context.initialFrame(for: node)
-//                UIView.animate(withDuration: 0.3, animations: {
-//                    node.frame = context.finalFrame(for: node)
-//                }, completion: { (finished) in
-//                    context.completeTransition(finished)
-//                })
+                node.frame = context.initialFrame(for: node)
+                UIView.animate(withDuration: 0.3, animations: {
+                    node.frame = context.finalFrame(for: node)
+                }, completion: { (finished) in
+                    context.completeTransition(finished)
+                })
             }
         }
-        
     }
-}
-
-extension SFDisplayNode: SFDisplayNodeColorStyleProtocol {
+    
     open func updateColors() {
         if self.automaticallyAdjustsColorStyle == true {
             self.backgroundColor = self.colorStyle.getBackgroundColor()
@@ -83,7 +83,6 @@ extension SFDisplayNode: SFDisplayNodeColorStyleProtocol {
         }
     }
 }
-
 
 
 

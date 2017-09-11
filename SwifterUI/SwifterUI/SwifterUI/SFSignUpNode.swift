@@ -16,7 +16,7 @@ open class SFSignUpNode: SFDisplayNode {
     open var shouldHaveTwitterButton: Bool = true
     open var shouldHaveGoogleButton: Bool = true
         
-    lazy var dismissButton: SFDismissButton = {
+    open lazy var dismissButton: SFDismissButton = {
         let node = SFDismissButton(automaticallyAdjustsColorStyle: self.automaticallyAdjustsColorStyle)
         return node
     }()
@@ -68,7 +68,7 @@ open class SFSignUpNode: SFDisplayNode {
         return button
     }()
     
-    public lazy var facebookButton: ASButtonNode = {
+    open lazy var facebookButton: ASButtonNode = {
         let button = SFButtonNode(automaticallyAdjustsColorStyle: false)
         SFAssets.imageOfFacebookIcon.tint(color: UIColor.white, alpha: 1.0, handler: { (image) in
             button.setImage(image, for: UIControlState.normal)
@@ -78,7 +78,7 @@ open class SFSignUpNode: SFDisplayNode {
         return button
     }()
     
-    public lazy var googleButton: ASButtonNode = {
+    open lazy var googleButton: ASButtonNode = {
         let button = SFButtonNode(automaticallyAdjustsColorStyle: false)
         button.setImage(SFAssets.imageOfGoogleIcon, for: .normal)
         button.backgroundColor = UIColor.white
@@ -88,7 +88,7 @@ open class SFSignUpNode: SFDisplayNode {
         return button
     }()
     
-    public lazy var twitterButton: ASButtonNode = {
+    open lazy var twitterButton: ASButtonNode = {
         let button = SFButtonNode(automaticallyAdjustsColorStyle: false)
         SFAssets.imageOfTwitterIcon.tint(color: UIColor.white, alpha: 1.0, handler: { (image) in
             button.setImage(image, for: UIControlState.normal)
@@ -138,8 +138,10 @@ open class SFSignUpNode: SFDisplayNode {
     }
     
     open override func updateColors() {
-        super.updateColors()
-        profilePictureNode.backgroundColor = self.colorStyle.getTextFieldColor()
+        if self.automaticallyAdjustsColorStyle == true {
+            super.updateColors()
+            profilePictureNode.backgroundColor = self.colorStyle.getTextFieldColor()
+        }
     }
     
 }

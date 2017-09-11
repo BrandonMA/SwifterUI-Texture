@@ -6,7 +6,6 @@
 //  Copyright © 2017 Brandon Maldonado Alonso. All rights reserved.
 //
 
-import UIKit
 import AsyncDisplayKit
 
 // This enum defines the different color styles providede by SwifterUI and some convenience methods to get colors
@@ -37,6 +36,14 @@ public enum SFColorStyle: Int {
     public func getAlternativeBackgroundColor() -> UIColor {
         switch self {
         case .light: return SFAssets.white
+        case .dark: return SFAssets.alternativeBlack
+        }
+    }
+    
+    // getAlternativeBackgroundColor: return an alternative background color for things like FluidTableNode where a FluidCellNode is white
+    public func getAlternativeMainColors() -> UIColor {
+        switch self {
+        case .light: return SFAssets.alternativeWhite
         case .dark: return SFAssets.alternativeBlack
         }
     }

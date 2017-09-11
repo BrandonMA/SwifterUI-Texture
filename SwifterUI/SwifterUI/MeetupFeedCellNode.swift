@@ -29,9 +29,10 @@ class MeetupFeedCellNode: SFCellNode {
     
     lazy var organizerNameTextNode: SFLabelNode = SFLabelNode()
     
-    lazy var locationLabelNode: SFButtonNode = {
-        let button = SFButtonNode()
-        return button
+    lazy var locationLabelNode: SFLabelNode = {
+        let label = SFLabelNode()
+        label.aligment = .left
+        return label
     }()
     
     lazy var timeIntervalSincePost: SFDetailLabelNode = SFDetailLabelNode()
@@ -46,6 +47,7 @@ class MeetupFeedCellNode: SFCellNode {
         
         organizerNameTextNode.style.flexShrink = 1.0
         locationLabelNode.style.flexShrink = 1.0
+        locationLabelNode.style.width = ASDimension(unit: ASDimensionUnit.points, value: 200)
         
         let headerTextNodesLayout = ASStackLayoutSpec(direction: ASStackLayoutDirection.vertical, spacing: 4, justifyContent: ASStackLayoutJustifyContent.start, alignItems: ASStackLayoutAlignItems.start, children: [organizerNameTextNode, locationLabelNode])
         

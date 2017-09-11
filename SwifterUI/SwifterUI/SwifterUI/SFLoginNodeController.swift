@@ -13,11 +13,11 @@ class SFLoginNodeController: SFViewController<SFLoginNode> {
     
     // MARK: - Instance Properties
     
-    public override var shouldAutorotate: Bool {
+    open override var shouldAutorotate: Bool {
         return false
     }
     
-    var signUpController: SFSignUpNodeController? = nil
+    open var signUpController: SFSignUpNodeController? = nil
     
     // MARK: - Initializers
     
@@ -40,7 +40,7 @@ class SFLoginNodeController: SFViewController<SFLoginNode> {
     @objc open func signInButtonDidTouch() {
     }
     
-    @objc fileprivate func signUpButtonDidTouch() {
+    @objc open func signUpButtonDidTouch() {
         guard let signUpController = self.signUpController else { return }
         let presentationManager: SFPresentationManager<SFLoginNode> = SFPresentationManager(animation: .appleMusicLike)
         signUpController.transitioningDelegate = presentationManager

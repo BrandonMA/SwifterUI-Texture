@@ -12,7 +12,7 @@ open class SFTableNode: ASTableNode, SFDisplayNodeColorStyleProtocol {
     
     // MARK: - Instance Properties
     
-    public var automaticallyAdjustsColorStyle: Bool
+    open var automaticallyAdjustsColorStyle: Bool
     
     // shouldHaveRefreshControl: Indicates if it should have a refresh control or not
     open var shouldHaveRefreshControl: Bool = false
@@ -49,6 +49,7 @@ open class SFTableNode: ASTableNode, SFDisplayNodeColorStyleProtocol {
     // didLoad: Called when your view is already loaded and ready to display
     open override func didLoad() {
         super.didLoad()
+        updateColors()
         if self.shouldHaveRefreshControl == true {
             self.refreshControl = UIRefreshControl()
             self.view.refreshControl = self.refreshControl

@@ -79,6 +79,16 @@ struct LocalizedString {
         let text: LocalizedDictionary = ["en" : "Sign Up", "es" : "Crear Cuenta"]
         return text[getBestMatchedLanguage()] ?? "Sign Up"
     }
+    
+    func getType() -> String {
+        let text: LocalizedDictionary = ["en" : "Type", "es" : "Escribe"]
+        return text[getBestMatchedLanguage()] ?? "Type"
+    }
+    
+    func getSend() -> String {
+        let text: LocalizedDictionary = ["en" : "Send", "es" : "Enviar"]
+        return text[getBestMatchedLanguage()] ?? "Send"
+    }
 }
 
 

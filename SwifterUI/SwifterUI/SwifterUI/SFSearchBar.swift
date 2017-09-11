@@ -27,8 +27,8 @@ open class SFSearchBar: SFDisplayNode {
     // delegate: Delegate that keeps track of the changes inside the searchBar
     open weak var delegate: SFSearchBarDelegate?
     
-    // cancelButtonIsVisible: Indicates if the cancel button is visible or not
-    open var cancelButtonIsVisible: Bool = false
+    // cancelButtonShouldBeVisible: Indicates if the cancel button is visible or not
+    open var cancelButtonShouldBeVisible: Bool = false
         
     // textField: Main part of the searchBar, it is where the user writes what he wants to search
     open lazy var textField: SFTextField = {
@@ -40,7 +40,7 @@ open class SFSearchBar: SFDisplayNode {
     }()
     
     // cancelButton: Cancel button used to stop searching
-    public lazy var cancelButton: SFButtonNode = {
+    open lazy var cancelButton: SFButtonNode = {
         let button = SFButtonNode()
         button.font = UIFont.systemFont(ofSize: 17)
         button.text = LocalizedString.shared.getCancel()
@@ -69,7 +69,7 @@ open class SFSearchBar: SFDisplayNode {
     // layoutSpecThatFits: Layout all subnodes
     open override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         
-        textField.style.flexBasis = self.cancelButtonIsVisible == true ? ASDimension(unit: ASDimensionUnit.points, value: constrainedSize.max.width - 126) : ASDimension(unit: ASDimensionUnit.points, value: constrainedSize.max.width - 32) // If cancel button is visible then textField should be smaller, if not then make it bigger
+        textField.style.flexBasis = self.cancelButtonShouldBeVisible == true ? ASDimension(unit: ASDimensionUnit.points, value: constrainedSize.max.width - 126) : ASDimension(unit: ASDimensionUnit.points, value: constrainedSize.max.width - 32) // If cancel button is visible then textField should be smaller, if not then make it bigger
         
         textField.style.height = ASDimension(unit: ASDimensionUnit.points, value: 40)
         
@@ -113,7 +113,7 @@ extension SFSearchBar: UITextFieldDelegate {
     
     open func textFieldDidBeginEditing(_ textField: UITextField) {
         
-        self.cancelButtonIsVisible = true
+        self.cancelButtonShouldBeVisible = true
         self.transitionLayout(withAnimation: true, shouldMeasureAsync: false)
         
         delegate?.textFieldDidBeginEditing?(textField)
@@ -121,7 +121,7 @@ extension SFSearchBar: UITextFieldDelegate {
     
     open func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         
-        self.cancelButtonIsVisible = false
+        self.cancelButtonShouldBeVisible = false
         self.transitionLayout(withAnimation: true, shouldMeasureAsync: true)
         
         if let delegate = delegate {
@@ -134,7 +134,7 @@ extension SFSearchBar: UITextFieldDelegate {
     
     open func textFieldDidEndEditing(_ textField: UITextField) {
         
-        self.cancelButtonIsVisible = true
+        self.cancelButtonShouldBeVisible = true
         self.transitionLayout(withAnimation: true, shouldMeasureAsync: true)
         
         delegate?.textFieldDidEndEditing?(textField)
@@ -142,7 +142,7 @@ extension SFSearchBar: UITextFieldDelegate {
     
     open func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
         
-        self.cancelButtonIsVisible = false
+        self.cancelButtonShouldBeVisible = false
         self.transitionLayout(withAnimation: true, shouldMeasureAsync: true)
         
         delegate?.textFieldDidEndEditing?(textField, reason: reason)

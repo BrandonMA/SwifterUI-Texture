@@ -24,12 +24,17 @@ open class SFLoadingNode: SFDisplayNode {
     }
     
     // activityNode: SFActivityNode use to show the user a loading animation while he waits
-    public lazy var activityNode: SFActivityNode = {
+    open lazy var activityNode: SFActivityNode = {
         let node = SFActivityNode(automaticallyAdjustsColorStyle: self.automaticallyAdjustsColorStyle)
         return node
     }()
     
     // MARK: - Instance Methods
+    
+    open override func didLoad() {
+        super.didLoad()
+        updateColors()
+    }
     
     // layoutSpecThatFits: Layout all subnodes
     override open func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {

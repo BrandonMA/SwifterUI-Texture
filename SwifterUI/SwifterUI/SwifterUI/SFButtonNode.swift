@@ -9,7 +9,7 @@
 import AsyncDisplayKit
 import UIKit
 
-open class SFButtonNode: ASButtonNode, SFGradientProtocol, SFBlurredProtocol {
+open class SFButtonNode: ASButtonNode, SFGradientProtocol, SFBlurredProtocol, SFDisplayNodeColorStyleProtocol {
     
     // MARK: - Instance Properties
     
@@ -43,22 +43,24 @@ open class SFButtonNode: ASButtonNode, SFGradientProtocol, SFBlurredProtocol {
     
     // MARK: - Instance Methods
     
+    open override func didLoad() {
+        super.didLoad()
+        updateColors()
+    }
+    
     open override func layout() {
         super.layout()
         if self.gradient != nil { setGradient() }
         if self.effect != nil { setEffect() }
     }
     
-    
-}
-
-extension SFButtonNode: SFDisplayNodeColorStyleProtocol {
     open func updateColors() {
         if self.automaticallyAdjustsColorStyle == true {
             self.textColor = colorStyle.getInteractiveColor()
             self.tintColor = colorStyle.getInteractiveColor()
         }
     }
+    
 }
 
 extension SFButtonNode: SFTextContainer {
@@ -80,7 +82,6 @@ extension SFButtonNode: SFTextContainer {
                                                     NSFontAttributeName: self.font,
                                                     NSParagraphStyleAttributeName: paragraphStyle]), for: UIControlState.highlighted)
     }
-    
 }
 
 

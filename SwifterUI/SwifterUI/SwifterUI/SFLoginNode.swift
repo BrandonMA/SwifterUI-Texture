@@ -6,7 +6,6 @@
 //  Copyright © 2017 Brandon Maldonado Alonso. All rights reserved.
 //
 
-import UIKit
 import AsyncDisplayKit
 
 open class SFLoginNode: SFDisplayNode {
@@ -101,7 +100,7 @@ open class SFLoginNode: SFDisplayNode {
         return button
     }()
     
-    public lazy var googleButton: ASButtonNode = {
+    open lazy var googleButton: ASButtonNode = {
         let button = SFButtonNode(automaticallyAdjustsColorStyle: false)
         button.setImage(SFAssets.imageOfGoogleIcon, for: .normal)
         button.backgroundColor = UIColor.white
@@ -111,7 +110,7 @@ open class SFLoginNode: SFDisplayNode {
         return button
     }()
     
-    public lazy var facebookButton: ASButtonNode = {
+    open lazy var facebookButton: ASButtonNode = {
         let button = SFButtonNode(automaticallyAdjustsColorStyle: false)
         SFAssets.imageOfFacebookIcon.tint(color: UIColor.white, alpha: 1.0, handler: { (image) in
             button.setImage(image, for: UIControlState.normal)
@@ -121,7 +120,7 @@ open class SFLoginNode: SFDisplayNode {
         return button
     }()
     
-    public lazy var twitterButton: ASButtonNode = {
+    open lazy var twitterButton: ASButtonNode = {
         let button = SFButtonNode(automaticallyAdjustsColorStyle: false)
         SFAssets.imageOfTwitterIcon.tint(color: UIColor.white, alpha: 1.0, handler: { (image) in
             button.setImage(image, for: UIControlState.normal)
