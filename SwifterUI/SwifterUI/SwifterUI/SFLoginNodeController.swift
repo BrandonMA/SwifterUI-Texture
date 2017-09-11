@@ -9,7 +9,7 @@
 import UIKit
 import AsyncDisplayKit
 
-class SFLoginNodeController: SFViewController<SFLoginNode> {
+open class SFLoginNodeController: SFViewController<SFLoginNode> {
     
     // MARK: - Instance Properties
     
