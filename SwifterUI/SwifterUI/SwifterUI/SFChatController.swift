@@ -17,19 +17,18 @@ open class SFChatController: SFViewController<SFChatNode>, ASCollectionDataSourc
     
     // MARK: - Initializers
     
-    required public init(automaticallyAdjustsColorStyle: Bool) {
+    public override init(SFNode: SFChatNode, automaticallyAdjustsColorStyle: Bool) {
+        super.init(SFNode: SFNode, automaticallyAdjustsColorStyle: automaticallyAdjustsColorStyle)
         
-        super.init(SFNode: SFChatNode(automaticallyAdjustsColorStyle: automaticallyAdjustsColorStyle), automaticallyAdjustsColorStyle: automaticallyAdjustsColorStyle)
-
         SFNode.collectionNode.dataSource = self
-        
         SFNode.bottomBar.textField.textField.delegate = self
-        
         SFNode.bottomBar.imageButton.addTarget(self, action: #selector(imageButtonDidTouch), forControlEvents: ASControlNodeEvent.touchUpInside)
-        
         SFNode.collectionNode.view.keyboardDismissMode = .interactive
-        
         SFNode.bottomBar.sendButton.addTarget(self, action: #selector(sendButtonDidTouch), forControlEvents: ASControlNodeEvent.touchUpInside)
+    }
+    
+    required convenience public init(automaticallyAdjustsColorStyle: Bool) {
+        self.init(SFNode: SFChatNode(automaticallyAdjustsColorStyle: automaticallyAdjustsColorStyle), automaticallyAdjustsColorStyle: automaticallyAdjustsColorStyle)
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -70,7 +69,7 @@ open class SFChatController: SFViewController<SFChatNode>, ASCollectionDataSourc
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         imagePickerController.allowsEditing = true
-        imagePickerController.mediaTypes = [kUTTypeImage as String, kUTTypeMovie as String]
+        imagePickerController.mediaTypes = [kUTTypeImage as String]
         present(imagePickerController, animated: true, completion: nil)
     }
     
