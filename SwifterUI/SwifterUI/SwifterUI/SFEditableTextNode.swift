@@ -1,17 +1,14 @@
 //
-//  SFLabelNode.swift
+//  SFEditableTextNode.swift
 //  SwifterUI
 //
-//  Created by Brandon Maldonado Alonso on 15/05/17.
+//  Created by brandon maldonado alonso on 22/09/17.
 //  Copyright © 2017 Brandon Maldonado Alonso. All rights reserved.
 //
 
-import UIKit
 import AsyncDisplayKit
 
-open class SFLabelNode: ASTextNode, SFGradientProtocol, SFDisplayNodeColorStyle, SFTextDisplayer {
-    
-    // MARK: - Instance Properties
+class SFEditableTextNode: ASEditableTextNode, SFGradientProtocol, SFDisplayNodeColorStyle, SFTextDisplayer {
     
     open var textColor: UIColor = UIColor.clear { didSet { setAttributedText() } }
     
@@ -28,12 +25,14 @@ open class SFLabelNode: ASTextNode, SFGradientProtocol, SFDisplayNodeColorStyle,
     open var gradient: SFGradient?
     
     // MARK: - Initializers
-
+    
     public required init(automaticallyAdjustsColorStyle: Bool) {
         self.automaticallyAdjustsColorStyle = automaticallyAdjustsColorStyle
-        super.init()
+        super.init(textKitComponents: ASTextKitComponents(attributedSeedString: nil, textContainerSize: CGSize.zero), placeholderTextKitComponents: ASTextKitComponents(attributedSeedString: nil, textContainerSize: CGSize.zero))
         automaticallyManagesSubnodes = true
         setAttributedText()
+        self.textView.isEditable = false
+        self.textView.isSelectable = false
     }
     
     public convenience override init() {
@@ -51,20 +50,9 @@ open class SFLabelNode: ASTextNode, SFGradientProtocol, SFDisplayNodeColorStyle,
         if self.automaticallyAdjustsColorStyle == true {
             self.textColor = colorStyle.getMainColor()
             updateSubNodesColors()
+            self.textView.indicatorStyle = colorStyle.getScrollIndicatorStyle()
             updateTextColor()
         }
     }
-    
 }
-
-
-
-
-
-
-
-
-
-
-
 

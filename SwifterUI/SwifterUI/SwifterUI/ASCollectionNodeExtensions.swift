@@ -9,18 +9,17 @@
 import AsyncDisplayKit
 
 public extension ASCollectionNode {
-    public func scrollDown(inSection section: Int) {
+    
+    public func scrollDown(section: Int) {
         if self.numberOfItems(inSection: section) > 0 {
             self.scrollToItem(at: IndexPath(item: numberOfItems(inSection: section) - 1, section: section), at: UICollectionViewScrollPosition.bottom, animated: true)
         }
     }
     
-    public func insertLastItem(inSection section: Int) {
+    public func insertLastItem(section: Int) {
         if self.numberOfItems(inSection: section) > 0 {
-            print("bigger")
             self.insertItems(at: [IndexPath(item: self.numberOfItems(inSection: section), section: section)])
         } else {
-            print("smaller")
             self.insertItems(at: [IndexPath(item: 0, section: section)])
         }
     }

@@ -12,6 +12,7 @@ open class SFSignUpNode: SFDisplayNode {
     
     // MARK: - Instance Properties
     
+    open var shouldHaveProfilePicture: Bool = true
     open var shouldHaveFacebookButton: Bool = true
     open var shouldHaveTwitterButton: Bool = true
     open var shouldHaveGoogleButton: Bool = true
@@ -132,7 +133,18 @@ open class SFSignUpNode: SFDisplayNode {
         if self.shouldHaveFacebookButton == true { buttonStack.children?.append(self.facebookButton) }
         if self.shouldHaveTwitterButton == true { buttonStack.children?.append(self.twitterButton) }
         
-        let stackLayout = ASStackLayoutSpec(direction: ASStackLayoutDirection.vertical, spacing: deviceType == .ipad ? 32:16, justifyContent: ASStackLayoutJustifyContent.center, alignItems: ASStackLayoutAlignItems.center, children: [dismissButton, profilePictureNode, nameTextField, emailTextField, passwordTextField, signUpButton, getStackSeparator(), buttonStack])
+        let stackLayout = ASStackLayoutSpec(direction: ASStackLayoutDirection.vertical, spacing: deviceType == .ipad ? 32:16, justifyContent: ASStackLayoutJustifyContent.center, alignItems: ASStackLayoutAlignItems.center, children: [dismissButton])
+        
+        if self.shouldHaveProfilePicture == true {
+            stackLayout.children?.append(profilePictureNode)
+        }
+        
+        stackLayout.children?.append(nameTextField)
+        stackLayout.children?.append(emailTextField)
+        stackLayout.children?.append(passwordTextField)
+        stackLayout.children?.append(signUpButton)
+        stackLayout.children?.append(getStackSeparator())
+        stackLayout.children?.append(buttonStack)
         
         return addLoadingNode(to: ASInsetLayoutSpec(insets: UIEdgeInsets(top: deviceType == .iphone ? 12 : 16, left: deviceType == .ipad ? 128 : 16, bottom: 16, right: deviceType == .ipad ? 128 : 16), child: stackLayout))
     }

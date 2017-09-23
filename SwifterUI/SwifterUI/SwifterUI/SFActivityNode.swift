@@ -9,7 +9,7 @@
 import UIKit
 import AsyncDisplayKit
 
-open class SFActivityNode: ASDisplayNode, SFDisplayNodeColorStyleProtocol {
+open class SFActivityNode: ASDisplayNode, SFDisplayNodeColorStyle {
     
     // MARK: - Instance Properties
     

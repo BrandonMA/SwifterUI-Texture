@@ -10,14 +10,16 @@ import AsyncDisplayKit
 
 class TextExampleNode: SFDisplayNode {
     
-    lazy var label: SFLabelNode = {
-        let node = SFLabelNode(automaticallyAdjustsColorStyle: true)
-        node.text = "kittens courtesy placekitten.com 😸"
-        node.extraAttributes["placekitten.com"] = [NSUnderlineStyleAttributeName: (NSUnderlineStyle.styleSingle.rawValue | NSUnderlineStyle.patternDashDot.rawValue), SFTextAttributeName: SFTextType.button]
+    lazy var label: SFEditableTextNode = {
+        let node = SFEditableTextNode(automaticallyAdjustsColorStyle: true)
+        node.text = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+        node.extraAttributes["placekitten.com"] = [NSUnderlineStyleAttributeName: (NSUnderlineStyle.styleSingle.rawValue | NSUnderlineStyle.patternDashDot.rawValue), SFTextTypeName: SFTextType.button]
         return node
     }()
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+        label.style.height = ASDimension(unit: ASDimensionUnit.points, value: 100)
+        label.style.width = ASDimension(unit: ASDimensionUnit.fraction, value: 1/2)
         let stack = ASStackLayoutSpec(direction: ASStackLayoutDirection.vertical, spacing: 16, justifyContent: ASStackLayoutJustifyContent.center, alignItems: ASStackLayoutAlignItems.center, children: [label])
         return stack
     }

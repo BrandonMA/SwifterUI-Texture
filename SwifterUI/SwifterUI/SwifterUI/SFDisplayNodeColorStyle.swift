@@ -8,7 +8,7 @@
 
 import AsyncDisplayKit
 
-public protocol SFDisplayNodeColorStyleProtocol: SFColorStyleProtocol {
+public protocol SFDisplayNodeColorStyle: SFColorStyleProtocol {
     
     // MARK: - Initializers
     
@@ -18,7 +18,7 @@ public protocol SFDisplayNodeColorStyleProtocol: SFColorStyleProtocol {
     init(automaticallyAdjustsColorStyle: Bool)
 }
 
-public extension SFDisplayNodeColorStyleProtocol where Self: ASDisplayNode {
+public extension SFDisplayNodeColorStyle where Self: ASDisplayNode {
     
     // MARK: - Instance Methods
     
@@ -30,7 +30,7 @@ public extension SFDisplayNodeColorStyleProtocol where Self: ASDisplayNode {
             
             for subnode in self.subnodes {
                 
-                if let subnode = subnode as? SFDisplayNodeColorStyleProtocol {
+                if let subnode = subnode as? SFDisplayNodeColorStyle {
                     
                     // Return to the main thread to make UI related changes
                     Dispatch.addAsyncTask(to: DispatchLevel.main, handler: {

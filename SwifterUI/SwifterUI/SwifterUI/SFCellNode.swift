@@ -8,7 +8,7 @@
 
 import AsyncDisplayKit
 
-open class SFCellNode: ASCellNode, SFGradientProtocol, SFBlurredProtocol, SFDisplayNodeColorStyleProtocol {
+open class SFCellNode: ASCellNode, SFGradientProtocol, SFBlurredNode, SFDisplayNodeColorStyle {
     
     // MARK: - Instance Properties
         

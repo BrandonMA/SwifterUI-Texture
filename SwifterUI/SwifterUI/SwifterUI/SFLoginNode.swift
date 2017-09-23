@@ -135,7 +135,7 @@ open class SFLoginNode: SFDisplayNode {
         let label = SFLabelNode(automaticallyAdjustsColorStyle: self.automaticallyAdjustsColorStyle)
         label.text = LocalizedString.shared.getNewAccount() + " " + LocalizedString.shared.getSignUp()
         label.font = UIFont.systemFont(ofSize: 17)
-        label.extraAttributes[LocalizedString.shared.getSignUp()] = [SFTextAttributeName: SFTextType.button]
+        label.extraAttributes[LocalizedString.shared.getSignUp()] = [SFTextTypeName: SFTextType.button]
         return label
     }()
     

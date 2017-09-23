@@ -8,7 +8,7 @@
 
 import AsyncDisplayKit
 
-open class SFDisplayNode: ASDisplayNode, SFGradientProtocol, SFBlurredProtocol, SFDisplayNodeColorStyleProtocol {
+open class SFDisplayNode: ASDisplayNode, SFGradientProtocol, SFBlurredNode, SFDisplayNodeColorStyle {
     
     // MARK: - Instance Properties
     
@@ -18,7 +18,7 @@ open class SFDisplayNode: ASDisplayNode, SFGradientProtocol, SFBlurredProtocol, 
     
     open var effect: UIVisualEffect?
     
-    // isLoading: If you used addLoadingNode, set true or false to show a FluidLoadingNode()
+    // isLoading: If you used addLoadingNode, set true or false to show a SFLoadingNode()
     open var isLoading = false
     
     open lazy var loadingNode: SFLoadingNode = {

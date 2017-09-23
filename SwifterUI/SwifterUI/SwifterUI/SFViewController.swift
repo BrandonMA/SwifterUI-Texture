@@ -114,7 +114,7 @@ open class SFViewController<SFNodeType: SFColorStyleProtocol>: ASViewController<
     }
 }
 
-extension SFViewController: SFControllerProtocol {
+extension SFViewController: SFColorController {
     
     open func handleColorStyleCheck() {
         if automaticallyAdjustsColorStyle == true {

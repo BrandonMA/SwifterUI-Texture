@@ -11,7 +11,7 @@
 		4202F7BC1F48FFF70009BD33 /* SFDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4202F7BB1F48FFF70009BD33 /* SFDevice.swift */; };
 		4202F7BE1F4900000009BD33 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4202F7BD1F4900000009BD33 /* UIColorExtensions.swift */; };
 		4204F28F1F65ACEE003D9D86 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4204F28E1F65ACEE003D9D86 /* Message.swift */; };
-		420620091F5B74CA006C0C01 /* SFBlurredProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420620081F5B74CA006C0C01 /* SFBlurredProtocol.swift */; };
+		420620091F5B74CA006C0C01 /* SFBlurredNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420620081F5B74CA006C0C01 /* SFBlurredNode.swift */; };
 		42095E581F5B74FF00909BEB /* SFGradientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42095E571F5B74FF00909BEB /* SFGradientProtocol.swift */; };
 		4212E5721F4A2625006FD5A9 /* SFPresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4212E5711F4A2625006FD5A9 /* SFPresentationManager.swift */; };
 		421C2A0C1F249A850099762A /* MeetupFeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421C2A091F249A850099762A /* MeetupFeedController.swift */; };
@@ -23,11 +23,13 @@
 		424059AF1F65EE0C00B98776 /* ASCollectionNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424059AE1F65EE0C00B98776 /* ASCollectionNodeExtensions.swift */; };
 		424A5E621F5B067200EFBFB3 /* SFTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424A5E611F5B067100EFBFB3 /* SFTextFieldView.swift */; };
 		424A5E641F5B068300EFBFB3 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424A5E631F5B068300EFBFB3 /* UIViewControllerExtensions.swift */; };
-		424A5E661F5B068D00EFBFB3 /* SFDisplayNodeColorStyleProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424A5E651F5B068D00EFBFB3 /* SFDisplayNodeColorStyleProtocol.swift */; };
-		424A5E681F5B069400EFBFB3 /* SFControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424A5E671F5B069400EFBFB3 /* SFControllerProtocol.swift */; };
+		424A5E661F5B068D00EFBFB3 /* SFDisplayNodeColorStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424A5E651F5B068D00EFBFB3 /* SFDisplayNodeColorStyle.swift */; };
+		424A5E681F5B069400EFBFB3 /* SFColorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424A5E671F5B069400EFBFB3 /* SFColorController.swift */; };
 		424A5E6A1F5B069B00EFBFB3 /* SFDeviceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424A5E691F5B069B00EFBFB3 /* SFDeviceProtocol.swift */; };
 		425B57EF1F5B5E2400E28FAA /* GradientExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425B57EE1F5B5E2400E28FAA /* GradientExample.swift */; };
+		426CC2AA1F75D413002A9FC3 /* SFEditableTextNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426CC2A91F75D413002A9FC3 /* SFEditableTextNode.swift */; };
 		429B186E1F4A02CE006BE483 /* SFSignUpNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429B186D1F4A02CE006BE483 /* SFSignUpNode.swift */; };
+		42A2B9921F72D733002DFE77 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A2B9911F72D733002DFE77 /* UIViewExtension.swift */; };
 		42A680031F54B3E100EDBAAE /* SFPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A680021F54B3E100EDBAAE /* SFPresentationController.swift */; };
 		42A680051F54B3F300EDBAAE /* SFDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A680041F54B3F200EDBAAE /* SFDismissButton.swift */; };
 		42A680071F54B40600EDBAAE /* SFPageControlNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A680061F54B40600EDBAAE /* SFPageControlNode.swift */; };
@@ -48,6 +50,7 @@
 		42DED2F31F4A1C370093F89C /* SFSignUpNodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DED2F21F4A1C370093F89C /* SFSignUpNodeController.swift */; };
 		42DFF0381F64BB8D005B6076 /* SFChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DFF0371F64BB8C005B6076 /* SFChatCell.swift */; };
 		42E3EA321F604323008596E2 /* SFCollectionNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E3EA311F604323008596E2 /* SFCollectionNode.swift */; };
+		42E554911F76A91D00355D63 /* SFTextDisplayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E554901F76A91D00355D63 /* SFTextDisplayer.swift */; };
 		42F0F5CE1F1F4939003DE859 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F0F5CD1F1F4939003DE859 /* AppDelegate.swift */; };
 		42F0F5D01F1F4939003DE859 /* SFLoadingNodeExampleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F0F5CF1F1F4939003DE859 /* SFLoadingNodeExampleController.swift */; };
 		42F0F5D51F1F4939003DE859 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42F0F5D41F1F4939003DE859 /* Assets.xcassets */; };
@@ -99,7 +102,7 @@
 		4202F7BB1F48FFF70009BD33 /* SFDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFDevice.swift; path = SwifterUI/SFDevice.swift; sourceTree = "<group>"; };
 		4202F7BD1F4900000009BD33 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorExtensions.swift; path = SwifterUI/UIColorExtensions.swift; sourceTree = "<group>"; };
 		4204F28E1F65ACEE003D9D86 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Message.swift; path = SwifterUI/Message.swift; sourceTree = "<group>"; };
-		420620081F5B74CA006C0C01 /* SFBlurredProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFBlurredProtocol.swift; path = SwifterUI/SFBlurredProtocol.swift; sourceTree = "<group>"; };
+		420620081F5B74CA006C0C01 /* SFBlurredNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFBlurredNode.swift; path = SwifterUI/SFBlurredNode.swift; sourceTree = "<group>"; };
 		42095E571F5B74FF00909BEB /* SFGradientProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFGradientProtocol.swift; path = SwifterUI/SFGradientProtocol.swift; sourceTree = "<group>"; };
 		4212E5711F4A2625006FD5A9 /* SFPresentationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFPresentationManager.swift; path = SwifterUI/SFPresentationManager.swift; sourceTree = "<group>"; };
 		421C2A091F249A850099762A /* MeetupFeedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetupFeedController.swift; sourceTree = "<group>"; };
@@ -112,11 +115,13 @@
 		424059AE1F65EE0C00B98776 /* ASCollectionNodeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ASCollectionNodeExtensions.swift; path = SwifterUI/ASCollectionNodeExtensions.swift; sourceTree = "<group>"; };
 		424A5E611F5B067100EFBFB3 /* SFTextFieldView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFTextFieldView.swift; path = SwifterUI/SFTextFieldView.swift; sourceTree = "<group>"; };
 		424A5E631F5B068300EFBFB3 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewControllerExtensions.swift; path = SwifterUI/UIViewControllerExtensions.swift; sourceTree = "<group>"; };
-		424A5E651F5B068D00EFBFB3 /* SFDisplayNodeColorStyleProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFDisplayNodeColorStyleProtocol.swift; path = SwifterUI/SFDisplayNodeColorStyleProtocol.swift; sourceTree = "<group>"; };
-		424A5E671F5B069400EFBFB3 /* SFControllerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFControllerProtocol.swift; path = SwifterUI/SFControllerProtocol.swift; sourceTree = "<group>"; };
+		424A5E651F5B068D00EFBFB3 /* SFDisplayNodeColorStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFDisplayNodeColorStyle.swift; path = SwifterUI/SFDisplayNodeColorStyle.swift; sourceTree = "<group>"; };
+		424A5E671F5B069400EFBFB3 /* SFColorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFColorController.swift; path = SwifterUI/SFColorController.swift; sourceTree = "<group>"; };
 		424A5E691F5B069B00EFBFB3 /* SFDeviceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFDeviceProtocol.swift; path = SwifterUI/SFDeviceProtocol.swift; sourceTree = "<group>"; };
 		425B57EE1F5B5E2400E28FAA /* GradientExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientExample.swift; sourceTree = "<group>"; };
+		426CC2A91F75D413002A9FC3 /* SFEditableTextNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFEditableTextNode.swift; path = SwifterUI/SFEditableTextNode.swift; sourceTree = "<group>"; };
 		429B186D1F4A02CE006BE483 /* SFSignUpNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFSignUpNode.swift; path = SwifterUI/SFSignUpNode.swift; sourceTree = "<group>"; };
+		42A2B9911F72D733002DFE77 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIViewExtension.swift; path = SwifterUI/UIViewExtension.swift; sourceTree = "<group>"; };
 		42A680021F54B3E100EDBAAE /* SFPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFPresentationController.swift; path = SwifterUI/SFPresentationController.swift; sourceTree = "<group>"; };
 		42A680041F54B3F200EDBAAE /* SFDismissButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFDismissButton.swift; path = SwifterUI/SFDismissButton.swift; sourceTree = "<group>"; };
 		42A680061F54B40600EDBAAE /* SFPageControlNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFPageControlNode.swift; path = SwifterUI/SFPageControlNode.swift; sourceTree = "<group>"; };
@@ -137,6 +142,7 @@
 		42DED2F21F4A1C370093F89C /* SFSignUpNodeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFSignUpNodeController.swift; path = SwifterUI/SFSignUpNodeController.swift; sourceTree = "<group>"; };
 		42DFF0371F64BB8C005B6076 /* SFChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFChatCell.swift; path = SwifterUI/SFChatCell.swift; sourceTree = "<group>"; };
 		42E3EA311F604323008596E2 /* SFCollectionNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFCollectionNode.swift; path = SwifterUI/SFCollectionNode.swift; sourceTree = "<group>"; };
+		42E554901F76A91D00355D63 /* SFTextDisplayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFTextDisplayer.swift; path = SwifterUI/SFTextDisplayer.swift; sourceTree = "<group>"; };
 		42F0F5CA1F1F4939003DE859 /* SwifterUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwifterUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42F0F5CD1F1F4939003DE859 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42F0F5CF1F1F4939003DE859 /* SFLoadingNodeExampleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFLoadingNodeExampleController.swift; sourceTree = "<group>"; };
@@ -278,12 +284,13 @@
 			isa = PBXGroup;
 			children = (
 				42F0F6111F1F7FE0003DE859 /* SFColorStyleProtocol.swift */,
-				424A5E671F5B069400EFBFB3 /* SFControllerProtocol.swift */,
-				424A5E651F5B068D00EFBFB3 /* SFDisplayNodeColorStyleProtocol.swift */,
+				424A5E671F5B069400EFBFB3 /* SFColorController.swift */,
+				424A5E651F5B068D00EFBFB3 /* SFDisplayNodeColorStyle.swift */,
 				42D130791F54B31A00BCA109 /* SFTextContainer.swift */,
+				42E554901F76A91D00355D63 /* SFTextDisplayer.swift */,
 				424A5E691F5B069B00EFBFB3 /* SFDeviceProtocol.swift */,
 				42095E571F5B74FF00909BEB /* SFGradientProtocol.swift */,
-				420620081F5B74CA006C0C01 /* SFBlurredProtocol.swift */,
+				420620081F5B74CA006C0C01 /* SFBlurredNode.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -382,6 +389,7 @@
 			isa = PBXGroup;
 			children = (
 				42F0F6011F1F79DA003DE859 /* ASDisplayNodeExtensions.swift */,
+				42A2B9911F72D733002DFE77 /* UIViewExtension.swift */,
 				424A5E631F5B068300EFBFB3 /* UIViewControllerExtensions.swift */,
 				42F0F6021F1F79DA003DE859 /* StringExtensions.swift */,
 				42F0F6031F1F79DA003DE859 /* UIFontExtensions.swift */,
@@ -403,9 +411,10 @@
 				42F0F6241F1FA405003DE859 /* SFActivityNode.swift */,
 				42D9D66A1F20CECB00918013 /* SFLoadingNode.swift */,
 				42F0F61C1F1F97E3003DE859 /* SFLabelNode.swift */,
+				426CC2A91F75D413002A9FC3 /* SFEditableTextNode.swift */,
+				42A680041F54B3F200EDBAAE /* SFDismissButton.swift */,
 				42F0F6201F1F9F7D003DE859 /* SFDetailLabelNode.swift */,
 				42D9D66C1F20CF1E00918013 /* SFButtonNode.swift */,
-				42A680041F54B3F200EDBAAE /* SFDismissButton.swift */,
 				421BA3F41F570A21008E176D /* SFTextField */,
 				42D9D6721F20D39F00918013 /* SFSearchBar.swift */,
 				42A680061F54B40600EDBAAE /* SFPageControlNode.swift */,
@@ -751,6 +760,7 @@
 				424A5E621F5B067200EFBFB3 /* SFTextFieldView.swift in Sources */,
 				42B50AE81F65D044003E3E1A /* SFChatNode.swift in Sources */,
 				42DED2F31F4A1C370093F89C /* SFSignUpNodeController.swift in Sources */,
+				42E554911F76A91D00355D63 /* SFTextDisplayer.swift in Sources */,
 				421C2A0D1F249A850099762A /* MeetupFeedCellNode.swift in Sources */,
 				42D9D6711F20D26E00918013 /* SFTextField.swift in Sources */,
 				4204F28F1F65ACEE003D9D86 /* Message.swift in Sources */,
@@ -760,7 +770,7 @@
 				42F0F6121F1F7FE0003DE859 /* SFColorStyleProtocol.swift in Sources */,
 				429B186E1F4A02CE006BE483 /* SFSignUpNode.swift in Sources */,
 				42F0F6211F1F9F7D003DE859 /* SFDetailLabelNode.swift in Sources */,
-				420620091F5B74CA006C0C01 /* SFBlurredProtocol.swift in Sources */,
+				420620091F5B74CA006C0C01 /* SFBlurredNode.swift in Sources */,
 				42F0F6081F1F79DA003DE859 /* UIImageExtensions.swift in Sources */,
 				421C2A181F24B4240099762A /* LocalizedString.swift in Sources */,
 				42F0F60C1F1F7A50003DE859 /* SFGradient.swift in Sources */,
@@ -768,6 +778,7 @@
 				42F0F61D1F1F97E3003DE859 /* SFLabelNode.swift in Sources */,
 				421C2A111F24AA610099762A /* SFLoginNodeController.swift in Sources */,
 				42A680071F54B40600EDBAAE /* SFPageControlNode.swift in Sources */,
+				42A2B9921F72D733002DFE77 /* UIViewExtension.swift in Sources */,
 				42095E581F5B74FF00909BEB /* SFGradientProtocol.swift in Sources */,
 				42CEA6F71F4B503100310E64 /* AppleMusicLikeAnimations.swift in Sources */,
 				42B7089B1F6624390012DFCD /* SFChatContainerNode.swift in Sources */,
@@ -775,7 +786,7 @@
 				42F0F6071F1F79DA003DE859 /* UIFontExtensions.swift in Sources */,
 				424059AF1F65EE0C00B98776 /* ASCollectionNodeExtensions.swift in Sources */,
 				42F0F6061F1F79DA003DE859 /* StringExtensions.swift in Sources */,
-				424A5E661F5B068D00EFBFB3 /* SFDisplayNodeColorStyleProtocol.swift in Sources */,
+				424A5E661F5B068D00EFBFB3 /* SFDisplayNodeColorStyle.swift in Sources */,
 				421C2A151F24AAA10099762A /* SFLoginNode.swift in Sources */,
 				42D9D66B1F20CECB00918013 /* SFLoadingNode.swift in Sources */,
 				42F0F61B1F1F96C1003DE859 /* SFCellNode.swift in Sources */,
@@ -790,12 +801,13 @@
 				42F0F5FD1F1F7979003DE859 /* SFAssets.swift in Sources */,
 				42CDF99A1F65830000B41DC6 /* SFChatController.swift in Sources */,
 				42F0F60E1F1F7A73003DE859 /* SFGradientDirection.swift in Sources */,
+				426CC2AA1F75D413002A9FC3 /* SFEditableTextNode.swift in Sources */,
 				421C2A0C1F249A850099762A /* MeetupFeedController.swift in Sources */,
 				42DFF0381F64BB8D005B6076 /* SFChatCell.swift in Sources */,
 				42F0F6151F1F8114003DE859 /* SFDisplayNode.swift in Sources */,
 				4202F7BC1F48FFF70009BD33 /* SFDevice.swift in Sources */,
 				42F0F5CE1F1F4939003DE859 /* AppDelegate.swift in Sources */,
-				424A5E681F5B069400EFBFB3 /* SFControllerProtocol.swift in Sources */,
+				424A5E681F5B069400EFBFB3 /* SFColorController.swift in Sources */,
 				42F0F6251F1FA405003DE859 /* SFActivityNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

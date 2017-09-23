@@ -144,7 +144,12 @@ public enum SFColorStyle: Int {
         }
     }
     
-    
+    public func getScrollIndicatorStyle() -> UIScrollViewIndicatorStyle {
+        switch self {
+        case .light: return UIScrollViewIndicatorStyle.black
+        case .dark: return UIScrollViewIndicatorStyle.white
+        }
+    }
 }
 
 

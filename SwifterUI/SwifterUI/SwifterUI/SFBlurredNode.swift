@@ -8,7 +8,7 @@
 
 import AsyncDisplayKit
 
-public protocol SFBlurredProtocol {
+public protocol SFBlurredNode {
     
     // effect: UIVisualEffect that is going to be used as background
     var effect: UIVisualEffect? { get set }
@@ -16,7 +16,7 @@ public protocol SFBlurredProtocol {
     func setEffect()
 }
 
-extension SFBlurredProtocol where Self: ASDisplayNode {
+extension SFBlurredNode where Self: ASDisplayNode {
     
     // Please add if self.setEffect != nil { setEffect() } to layout() function so this is called, if you don't do this the effect is going to have an incorrect size
     public func setEffect() {

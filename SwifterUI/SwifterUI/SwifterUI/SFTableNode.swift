@@ -8,7 +8,7 @@
 
 import AsyncDisplayKit
 
-open class SFTableNode: ASTableNode, SFDisplayNodeColorStyleProtocol {
+open class SFTableNode: ASTableNode, SFDisplayNodeColorStyle {
     
     // MARK: - Instance Properties
     

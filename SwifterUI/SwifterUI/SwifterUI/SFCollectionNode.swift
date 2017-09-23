@@ -8,7 +8,7 @@
 
 import AsyncDisplayKit
 
-open class SFCollectionNode: ASCollectionNode, SFDisplayNodeColorStyleProtocol {
+open class SFCollectionNode: ASCollectionNode, SFDisplayNodeColorStyle {
     
     open var automaticallyAdjustsColorStyle: Bool
     

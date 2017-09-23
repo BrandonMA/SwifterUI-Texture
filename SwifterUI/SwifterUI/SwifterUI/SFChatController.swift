@@ -44,14 +44,14 @@ open class SFChatController: SFViewController<SFChatNode>, ASCollectionDataSourc
 
     open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.SFNode.collectionNode.scrollDown(inSection: 0)
+        self.SFNode.collectionNode.scrollDown(section: 0)
         registerForKeyboardNotifications()
     }
     
     open func keyboardWillShow(notification: NSNotification) {
         updateKeyboardHeight(notification: notification)
         self.SFNode.transitionLayout(withAnimation: true, shouldMeasureAsync: false, measurementCompletion: nil)
-        self.SFNode.collectionNode.scrollDown(inSection: 0)
+        self.SFNode.collectionNode.scrollDown(section: 0)
     }
     
     open func keyboardWillHide(notification: NSNotification) {
@@ -163,15 +163,15 @@ extension SFChatController {
         let message = SFMessage(image: nil, text: message)
         self.messages.append(message)
         self.SFNode.bottomBar.textField.text = ""
-        self.SFNode.collectionNode.insertLastItem(inSection: 0)
-        self.SFNode.collectionNode.scrollDown(inSection: 0)
+        self.SFNode.collectionNode.insertLastItem(section: 0)
+        self.SFNode.collectionNode.scrollDown(section: 0)
     }
     
     open func send(image: UIImage?) {
         let message = SFMessage(image: image, text: nil)
         self.messages.append(message)
-        self.SFNode.collectionNode.insertLastItem(inSection: 0)
-        self.SFNode.collectionNode.scrollDown(inSection: 0)
+        self.SFNode.collectionNode.insertLastItem(section: 0)
+        self.SFNode.collectionNode.scrollDown(section: 0)
     }
 }
 

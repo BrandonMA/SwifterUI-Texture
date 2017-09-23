@@ -6,17 +6,17 @@
 //  Copyright © 2017 Brandon Maldonado Alonso. All rights reserved.
 //
 
-import UIKit
+import AsyncDisplayKit
 
 public typealias TextAttributes = [String: Any]
 
-public let SFTextAttributeName = "SFTextAttributeName"
+public let SFTextTypeName = "SFTextTypeName"
 public enum SFTextType: String {
     case button
     case text
 }
 
-public protocol SFTextContainer {
+public protocol SFTextContainer: class {
     
     // MARK: - Instance Properties
     
@@ -70,8 +70,6 @@ extension SFTextContainer {
     }
     
 }
-
-
 
 
 

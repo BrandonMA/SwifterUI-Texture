@@ -23,7 +23,7 @@ open class SFChatBar: SFDisplayNode {
     }()
     
     open lazy var sendButton: SFButtonNode = {
-        let button = SFButtonNode()
+        let button = SFButtonNode(automaticallyAdjustsColorStyle: self.automaticallyAdjustsColorStyle)
         button.text = LocalizedString.shared.getSend()
         button.font = UIFont.boldSystemFont(ofSize: 17)
         return button

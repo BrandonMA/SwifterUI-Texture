@@ -8,7 +8,7 @@
 
 import AsyncDisplayKit
 
-public protocol SFControllerProtocol: SFColorStyleProtocol {
+public protocol SFColorController: SFColorStyleProtocol {
         
     // statusBarStyle: This enables preferredStatusBarStyle changes on the go, without needing to
     var statusBarStyle: UIStatusBarStyle { get set }
