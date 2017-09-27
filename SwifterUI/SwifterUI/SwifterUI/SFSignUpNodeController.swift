@@ -9,7 +9,7 @@
 import UIKit
 import AsyncDisplayKit
 
-open class SFSignUpNodeController: SFViewController<SFSignUpNode>, AppleMusicLikeDismissProtocol {
+open class SFSignUpNodeController: SFViewController<SFSignUpNode>, SFAppleMusicLikeDismissProtocol {
 
     public var initialPoint: CGFloat = 0
     

@@ -28,7 +28,20 @@ open class SFViewController<SFNodeType: SFColorStyleProtocol>: ASViewController<
         return self.statusBarStyle
     }
     
+    // prefersStatusBarHidden: Override the preferred status bar hidden with a dynamic way of set it
+    open override var prefersStatusBarHidden: Bool {
+        return self.statusBarIsHidden
+    }
+    
+    // statusBarStyle: Dynamic way to change preferredStatusBarStyle, use this instead of override preferredStatusBarStyle
     open var statusBarStyle: UIStatusBarStyle = .default {
+        didSet {
+            self.setNeedsStatusBarAppearanceUpdate()
+        }
+    }
+    
+    // statusBarIsHidden: Dynamic way to change prefersStatusBarHidden, use this instead of override prefersStatusBarHidden
+    open var statusBarIsHidden: Bool = false {
         didSet {
             self.setNeedsStatusBarAppearanceUpdate()
         }

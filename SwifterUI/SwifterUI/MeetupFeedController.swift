@@ -9,7 +9,7 @@
 import UIKit
 import AsyncDisplayKit
 
-class MeetupFeedController: SFTableNodeController {
+class MeetupFeedController: SFTableNodeController, UINavigationControllerDelegate{
     
     // MARK: Instance Properties
 
@@ -17,8 +17,7 @@ class MeetupFeedController: SFTableNodeController {
     let locationService = LocationService()
     var meetUpFeedDataManager: MeetupFeedDataManager!
     var groups: [Group] = []
-    
-    
+        
     // MARK: Initializers
     
     init() {
@@ -33,8 +32,10 @@ class MeetupFeedController: SFTableNodeController {
         
         self.meetUpFeedDataManager = MeetupFeedDataManager(meetupService: meetUpService, locationService: locationService)
         
-        self.SFNode.allowsSelection = false
+        self.SFNode.allowsSelection = true
         self.SFNode.isUserInteractionEnabled = true
+        
+        
         
         self.meetUpFeedDataManager.searchForGroupNearby { (groups, error) in
             
@@ -61,11 +62,27 @@ class MeetupFeedController: SFTableNodeController {
         self.navigationItem.title = "Prueba"
     }
     
+    override func viewDidLoad() {
+        self.navigationController?.delegate = self
+    }
+    
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: Data Source
+    // MARK: - UINavigationControllerDelegate
+    
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        if operation == .push {
+            return SFZoomInTransition()
+        } else if operation == .pop {
+            return SFZoomOutTransition()
+        } else {
+            return nil
+        }
+    }
+    
+    // MARK: - ASTableDataSource
     
     override func numberOfSections(in tableNode: ASTableNode) -> Int {
         return 1
@@ -89,7 +106,7 @@ class MeetupFeedController: SFTableNodeController {
             cellNode.locationLabelNode.text = "\(group.city!), \(group.country!)"
             cellNode.locationLabelNode.extraAttributes["\(group.city!), \(group.country!)"] = [SFTextTypeName: SFTextType.button]
             cellNode.timeIntervalSincePost.text = group.timeInterval
-            
+            cellNode.selectionStyle = .none
             return cellNode
             
         }
@@ -97,7 +114,15 @@ class MeetupFeedController: SFTableNodeController {
         return block
     }
     
-    // MARK: Instance Methods
+    func tableNode(_ tableNode: ASTableNode, didSelectRowAt indexPath: IndexPath) {
+        guard let node = tableNode.nodeForRow(at: indexPath) as? MeetupFeedCellNode else { return }
+        if let image = node.photoImageNode.image {
+            let controller = SFImageZoomNodeController(withImage: image, automaticallyAdjustsColorStyle: true)
+            navigationController?.pushViewController(controller, animated: true)
+        }
+    }
+    
+    // MARK: - Instance Methods
     
     @objc func stopRefreshing() {
         self.SFNode.endRefreshing()

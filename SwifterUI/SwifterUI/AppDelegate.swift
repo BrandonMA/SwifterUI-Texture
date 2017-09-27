@@ -20,17 +20,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 //        window?.rootViewController = SFLoadingNodeExampleController()
         
-//        window?.rootViewController = GRadientController()
+//        window?.rootViewController = GradientController()
         
-        window?.rootViewController = TextExampleController()
+//        window?.rootViewController = TextExampleController()
         
 //        let loginController = SFLoginNodeController(automaticallyAdjustsColorStyle: true)
 //        loginController.signUpController = SFSignUpNodeController(automaticallyAdjustsColorStyle: true)
 //        window?.rootViewController = loginController
         
-//        window?.rootViewController = UINavigationController(rootViewController: MeetupFeedController())
+        window?.rootViewController = UINavigationController(rootViewController: MeetupFeedController())
         
 //        window?.rootViewController = UINavigationController(rootViewController: SFChatController(automaticallyAdjustsColorStyle: true))
+        
+//        window?.rootViewController = UINavigationController(rootViewController: ImageController())
+        
+//        window?.rootViewController = SFImageZoomNodeController(withImage: UIImage(), automaticallyAdjustsColorStyle: true)
         
         window?.makeKeyAndVisible()
         

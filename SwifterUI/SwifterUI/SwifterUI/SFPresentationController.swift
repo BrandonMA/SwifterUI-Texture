@@ -11,15 +11,21 @@ import AsyncDisplayKit
 
 open class SFPresentationController<SFPresentingNodeType>: UIPresentationController where SFPresentingNodeType: SFDisplayNode {
     
+    // MARK: - Instance Properties
+    
     open var automaticallyAdjustsColorStyle: Bool = false {
         didSet {
             automaticallyAdjustsColorStyleHandler()
         }
     }
     
+    // MARK: - Initializers
+    
     public init(presented: UIViewController, presenting: UIViewController?) {
         super.init(presentedViewController: presented, presenting: presenting)
     }
+    
+    // MARK: - Instance Methods
     
     open func updateColors() {
         

@@ -8,14 +8,38 @@
 
 import AsyncDisplayKit
 
-class GRadientController: SFViewController<SFDisplayNode> {
+class GradientNode: SFDisplayNode {
+    
+    var animator: SFAnimator? = nil
+    
+    lazy var middleNode: SFDisplayNode = {
+        let node = SFDisplayNode(automaticallyAdjustsColorStyle: false)
+        node.backgroundColor = UIColor.white
+        self.animator = SFAnimator(with: node.view, animation: .zoomIn)
+        return node
+    }()
+    
+    override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+        middleNode.style.preferredLayoutSize = ASLayoutSize(width: ASDimension(unit: ASDimensionUnit.points, value: 200), height: ASDimension(unit: ASDimensionUnit.points, value: 200))
+        let layout = ASRelativeLayoutSpec(horizontalPosition: ASRelativeLayoutSpecPosition.center, verticalPosition: ASRelativeLayoutSpecPosition.center, sizingOption: ASRelativeLayoutSpecSizingOption.minimumSize, child: middleNode)
+        return layout
+    }
+    
+}
+
+class GradientController: SFViewController<GradientNode> {
     
     init() {
-        super.init(SFNode: SFDisplayNode(), automaticallyAdjustsColorStyle: false)
+        super.init(SFNode: GradientNode(), automaticallyAdjustsColorStyle: false)
         let red = UIColor(hex: "FF0000").cgColor
         let blue = UIColor(hex: "0000FF").cgColor
         self.SFNode.gradient = SFGradient(with: [red, blue], direction: .vertical)
         self.SFNode.clipsToBounds = true
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.SFNode.animator?.delay = 1.0
+        self.SFNode.animator?.startAnimation()
     }
     
     required public init?(coder aDecoder: NSCoder) {

@@ -9,7 +9,7 @@
 import UIKit
 import AsyncDisplayKit
 
-public protocol AppleMusicLikeDismissProtocol: class {
+public protocol SFAppleMusicLikeDismissProtocol: class {
     
     // MARK: - Instance Properties
     
@@ -23,7 +23,7 @@ public protocol AppleMusicLikeDismissProtocol: class {
     
 }
 
-extension AppleMusicLikeDismissProtocol where Self: UIViewController {
+extension SFAppleMusicLikeDismissProtocol where Self: UIViewController {
 
     public func dismiss(with gesture: UIPanGestureRecognizer) {
 
@@ -44,7 +44,7 @@ extension AppleMusicLikeDismissProtocol where Self: UIViewController {
 
         } else if gesture.state == .ended {
             if self.view.frame.origin.y < 120 { // if self.view is less than 120 then take it back to the correct place
-                UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+                UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 0, options: [], animations: {
                     self.view.frame.origin.y = 30
                 }, completion: nil)
             } else { // if not then dismiss it
@@ -55,7 +55,7 @@ extension AppleMusicLikeDismissProtocol where Self: UIViewController {
 
 }
 
-open class AppleMusicLikePresentationController<SFPresentingNodeType>: SFPresentationController<SFPresentingNodeType> where SFPresentingNodeType: SFDisplayNode {
+open class SFAppleMusicLikePresentationController<SFPresentingNodeType>: SFPresentationController<SFPresentingNodeType> where SFPresentingNodeType: SFDisplayNode {
     
     // MARK: - Instance Methods
     
