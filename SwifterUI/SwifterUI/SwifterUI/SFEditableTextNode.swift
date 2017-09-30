@@ -8,7 +8,7 @@
 
 import AsyncDisplayKit
 
-class SFEditableTextNode: ASEditableTextNode, SFGradientProtocol, SFDisplayNodeColorStyle, SFTextDisplayer {
+open class SFEditableTextNode: ASEditableTextNode, SFGradientNode, SFDisplayNodeColorStyle, SFTextDisplayer, SFAnimatable {
     
     open var textColor: UIColor = UIColor.clear { didSet { setAttributedText() } }
     
@@ -24,6 +24,8 @@ class SFEditableTextNode: ASEditableTextNode, SFGradientProtocol, SFDisplayNodeC
     
     open var gradient: SFGradient?
     
+    open var animator: SFAnimator = SFAnimator()
+    
     // MARK: - Initializers
     
     public required init(automaticallyAdjustsColorStyle: Bool) {
@@ -33,6 +35,7 @@ class SFEditableTextNode: ASEditableTextNode, SFGradientProtocol, SFDisplayNodeC
         setAttributedText()
         self.textView.isEditable = false
         self.textView.isSelectable = false
+        self.animator.view = self.view
     }
     
     public convenience override init() {

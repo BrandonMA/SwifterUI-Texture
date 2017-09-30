@@ -9,7 +9,7 @@
 import AsyncDisplayKit
 import UIKit
 
-open class SFButtonNode: ASButtonNode, SFGradientProtocol, SFBlurredNode, SFDisplayNodeColorStyle {
+open class SFButtonNode: ASButtonNode, SFGradientNode, SFBlurredNode, SFDisplayNodeColorStyle, SFAnimatable {
     
     // MARK: - Instance Properties
     
@@ -29,12 +29,15 @@ open class SFButtonNode: ASButtonNode, SFGradientProtocol, SFBlurredNode, SFDisp
     
     open var effect: UIVisualEffect?
     
+    open var animator: SFAnimator = SFAnimator()
+    
     // MARK: - Initializers
     
     public required init(automaticallyAdjustsColorStyle: Bool) {
         self.automaticallyAdjustsColorStyle = automaticallyAdjustsColorStyle
         super.init()
         self.clipsToBounds = true
+        self.animator.view = self.view
     }
     
     public convenience override init() {

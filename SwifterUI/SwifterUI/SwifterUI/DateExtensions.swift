@@ -9,7 +9,7 @@
 import Foundation
 
 extension Date {
-    static func today(with format: String) -> String {
+    public static func today(with format: String) -> String {
         let date = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = format

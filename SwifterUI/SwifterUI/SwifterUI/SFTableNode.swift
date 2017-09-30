@@ -8,7 +8,7 @@
 
 import AsyncDisplayKit
 
-open class SFTableNode: ASTableNode, SFDisplayNodeColorStyle {
+open class SFTableNode: ASTableNode, SFDisplayNodeColorStyle, SFAnimatable {
     
     // MARK: - Instance Properties
     
@@ -25,6 +25,8 @@ open class SFTableNode: ASTableNode, SFDisplayNodeColorStyle {
             self.view.separatorColor = self.separatorColor
         }
     }
+    
+    open var animator: SFAnimator = SFAnimator()
 
     // MARK: - Initializers
     
@@ -34,6 +36,7 @@ open class SFTableNode: ASTableNode, SFDisplayNodeColorStyle {
     public init(style: UITableViewStyle, automaticallyAdjustsColorStyle: Bool) {
         self.automaticallyAdjustsColorStyle = automaticallyAdjustsColorStyle
         super.init(style: style)
+        self.animator.view = self.view
     }
     
     public required convenience init(automaticallyAdjustsColorStyle: Bool) {

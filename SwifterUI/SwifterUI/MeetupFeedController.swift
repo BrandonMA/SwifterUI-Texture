@@ -73,13 +73,7 @@ class MeetupFeedController: SFTableNodeController, UINavigationControllerDelegat
     // MARK: - UINavigationControllerDelegate
     
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        if operation == .push {
-            return SFZoomInTransition()
-        } else if operation == .pop {
-            return SFZoomOutTransition()
-        } else {
-            return nil
-        }
+        return SFZoomTransition(operation: operation)
     }
     
     // MARK: - ASTableDataSource

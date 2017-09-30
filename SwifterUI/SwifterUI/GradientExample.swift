@@ -10,8 +10,6 @@ import AsyncDisplayKit
 
 class GradientNode: SFDisplayNode {
     
-    var animator: SFAnimator? = nil
-    
     lazy var middleNode: SFDisplayNode = {
         let node = SFDisplayNode(automaticallyAdjustsColorStyle: false)
         node.backgroundColor = UIColor.white
@@ -20,7 +18,7 @@ class GradientNode: SFDisplayNode {
     }()
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-        middleNode.style.preferredLayoutSize = ASLayoutSize(width: ASDimension(unit: ASDimensionUnit.points, value: 200), height: ASDimension(unit: ASDimensionUnit.points, value: 200))
+        middleNode.style.preferredLayoutSize = ASLayoutSize(width: ASDimension(unit: ASDimensionUnit.points, value: 100), height: ASDimension(unit: ASDimensionUnit.points, value: 100))
         let layout = ASRelativeLayoutSpec(horizontalPosition: ASRelativeLayoutSpecPosition.center, verticalPosition: ASRelativeLayoutSpecPosition.center, sizingOption: ASRelativeLayoutSpecSizingOption.minimumSize, child: middleNode)
         return layout
     }
@@ -38,8 +36,9 @@ class GradientController: SFViewController<GradientNode> {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.SFNode.animator?.delay = 1.0
-        self.SFNode.animator?.startAnimation()
+        self.SFNode.middleNode.animator.delay = 1.0
+        self.SFNode.middleNode.animator.animation = .scaleIn
+        self.SFNode.middleNode.animator.startAnimation()
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -47,3 +46,17 @@ class GradientController: SFViewController<GradientNode> {
     }
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

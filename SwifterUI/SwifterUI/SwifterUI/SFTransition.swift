@@ -8,20 +8,37 @@
 
 import AsyncDisplayKit
 
-class SFTransition: NSObject, UIViewControllerAnimatedTransitioning {
+open class SFTransition: NSObject, UIViewControllerAnimatedTransitioning {
     
-    var animator: SFAnimator
+    open var animator: SFAnimator
+    open var operation: UINavigationControllerOperation
     
-    init(animator: SFAnimator) {
+    public init(animator: SFAnimator, operation: UINavigationControllerOperation) {
         self.animator = animator
+        self.operation = operation
         super.init()
     }
     
-    func transitionDuration(using context: UIViewControllerContextTransitioning?) -> TimeInterval {
+    open func transitionDuration(using context: UIViewControllerContextTransitioning?) -> TimeInterval {
         return animator.duration
     }
     
-    func animateTransition(using context: UIViewControllerContextTransitioning) {
+    open func animateTransition(using context: UIViewControllerContextTransitioning) {
+        guard let animationVC = self.operation == .push ? context.viewController(forKey: UITransitionContextViewControllerKey.to) : context.viewController(forKey: UITransitionContextViewControllerKey.from) else { return }
+        guard let toVC = context.viewController(forKey: UITransitionContextViewControllerKey.to) else { return }
         
+        context.containerView.addSubview(toVC.view)
+        animator.view = animationVC.view
+        
+        if self.operation == .pop {
+            context.containerView.sendSubview(toBack: toVC.view)
+        }
+        
+        let completionBlock: (Bool) -> Void = { finished in
+            context.completeTransition(finished)
+        }
+        
+        animator.animationCompletion = completionBlock
+        animator.startAnimation()
     }
 }

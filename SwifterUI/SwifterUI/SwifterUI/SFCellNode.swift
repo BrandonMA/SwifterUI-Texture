@@ -8,7 +8,7 @@
 
 import AsyncDisplayKit
 
-open class SFCellNode: ASCellNode, SFGradientProtocol, SFBlurredNode, SFDisplayNodeColorStyle {
+open class SFCellNode: ASCellNode, SFGradientNode, SFBlurredNode, SFDisplayNodeColorStyle, SFAnimatable {
     
     // MARK: - Instance Properties
         
@@ -18,12 +18,15 @@ open class SFCellNode: ASCellNode, SFGradientProtocol, SFBlurredNode, SFDisplayN
     
     open var effect: UIVisualEffect?
     
+    open var animator: SFAnimator = SFAnimator()
+    
     // MARK: - Initializers
     
     public required init(automaticallyAdjustsColorStyle: Bool) {
         self.automaticallyAdjustsColorStyle = automaticallyAdjustsColorStyle
         super.init()
         automaticallyManagesSubnodes = true
+        self.animator.view = self.view
     }
     
     public convenience override init() {

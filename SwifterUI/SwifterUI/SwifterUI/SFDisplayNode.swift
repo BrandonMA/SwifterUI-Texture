@@ -8,7 +8,7 @@
 
 import AsyncDisplayKit
 
-open class SFDisplayNode: ASDisplayNode, SFGradientProtocol, SFBlurredNode, SFDisplayNodeColorStyle {
+open class SFDisplayNode: ASDisplayNode, SFGradientNode, SFBlurredNode, SFDisplayNodeColorStyle, SFAnimatable {
     
     // MARK: - Instance Properties
     
@@ -17,7 +17,7 @@ open class SFDisplayNode: ASDisplayNode, SFGradientProtocol, SFBlurredNode, SFDi
     open var gradient: SFGradient? { didSet { self.setGradient() } }
     
     open var effect: UIVisualEffect?
-    
+        
     // isLoading: If you used addLoadingNode, set true or false to show a SFLoadingNode()
     open var isLoading = false
     
@@ -28,12 +28,15 @@ open class SFDisplayNode: ASDisplayNode, SFGradientProtocol, SFBlurredNode, SFDi
         return node
     }()
     
+    open var animator: SFAnimator = SFAnimator()
+    
     // MARK: - Initializers
     
     public required init(automaticallyAdjustsColorStyle: Bool) {
         self.automaticallyAdjustsColorStyle = automaticallyAdjustsColorStyle
         super.init()
         automaticallyManagesSubnodes = true
+        self.animator.view = self.view
     }
     
     public override convenience init() {

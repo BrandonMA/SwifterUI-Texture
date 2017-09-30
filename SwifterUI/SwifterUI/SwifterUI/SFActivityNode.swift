@@ -9,7 +9,7 @@
 import UIKit
 import AsyncDisplayKit
 
-open class SFActivityNode: ASDisplayNode, SFDisplayNodeColorStyle {
+open class SFActivityNode: ASDisplayNode, SFDisplayNodeColorStyle, SFAnimatable {
     
     // MARK: - Instance Properties
     
@@ -17,6 +17,8 @@ open class SFActivityNode: ASDisplayNode, SFDisplayNodeColorStyle {
     open let activityIndicatorView: UIActivityIndicatorView
         
     open var automaticallyAdjustsColorStyle: Bool
+    
+    open var animator: SFAnimator = SFAnimator()
     
     // MARK: - Initializers
     
@@ -42,6 +44,8 @@ open class SFActivityNode: ASDisplayNode, SFDisplayNodeColorStyle {
         
         activityIndicatorView.startAnimating() // Start animating the activityIndicatorView
         activityIndicatorView.hidesWhenStopped = true
+        
+        self.animator.view = self.view
     }
     
     public convenience override init() {

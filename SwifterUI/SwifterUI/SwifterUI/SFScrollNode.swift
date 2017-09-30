@@ -8,11 +8,13 @@
 
 import AsyncDisplayKit
 
-open class SFScrollNode: ASScrollNode, SFDisplayNodeColorStyle {
+open class SFScrollNode: ASScrollNode, SFDisplayNodeColorStyle, SFAnimatable {
     
     // MARK: - Instance Properties
     
     open var automaticallyAdjustsColorStyle: Bool
+    
+    open var animator: SFAnimator = SFAnimator()
     
     // MARK: - Initializers
     
@@ -21,6 +23,7 @@ open class SFScrollNode: ASScrollNode, SFDisplayNodeColorStyle {
         super.init()
         automaticallyManagesSubnodes = true
         automaticallyManagesContentSize = true
+        self.animator.view = self.view
     }
     
     public override convenience init() {

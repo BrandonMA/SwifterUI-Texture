@@ -8,18 +8,27 @@
 
 import AsyncDisplayKit
 
-open class SFCollectionNode: ASCollectionNode, SFDisplayNodeColorStyle {
+open class SFCollectionNode: ASCollectionNode, SFDisplayNodeColorStyle, SFAnimatable {
+    
+    // MARK: - Instance Properties
     
     open var automaticallyAdjustsColorStyle: Bool
+    
+    open var animator: SFAnimator = SFAnimator()
+    
+    // MARK: - Initializers
     
     public init(automaticallyAdjustsColorStyle: Bool, collectionViewLayout: UICollectionViewLayout) {
         self.automaticallyAdjustsColorStyle = automaticallyAdjustsColorStyle
         super.init(collectionViewLayout: collectionViewLayout)
+        self.animator.view = self.view
     }
     
     public convenience required init(automaticallyAdjustsColorStyle: Bool) {
         self.init(automaticallyAdjustsColorStyle: automaticallyAdjustsColorStyle, collectionViewLayout: UICollectionViewFlowLayout())
     }
+    
+    // MARK: - Instance Methods
     
     open override func didLoad() {
         super.didLoad()

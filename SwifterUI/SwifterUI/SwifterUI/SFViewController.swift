@@ -8,7 +8,7 @@
 
 import AsyncDisplayKit
 
-open class SFViewController<SFNodeType: SFColorStyleProtocol>: ASViewController<ASDisplayNode> where SFNodeType: ASDisplayNode {
+open class SFViewController<SFNodeType: SFColorStyleProtocol>: ASViewController<ASDisplayNode>  where SFNodeType: ASDisplayNode {
     
     // MARK: - Instance Properties
     

@@ -8,7 +8,7 @@
 
 import AsyncDisplayKit
 
-public protocol SFGradientProtocol {
+public protocol SFGradientNode {
     
     // gradient: Gradient to be used as background
     var gradient: SFGradient? { get set }
@@ -17,7 +17,7 @@ public protocol SFGradientProtocol {
     
 }
 
-extension SFGradientProtocol where Self: ASDisplayNode {
+extension SFGradientNode where Self: ASDisplayNode {
     
     // Please add if self.gradient != nil { setGradient() } to layout() function so this is called, if you don't do this the gradient is going to have an incorrect size
     public func setGradient() {

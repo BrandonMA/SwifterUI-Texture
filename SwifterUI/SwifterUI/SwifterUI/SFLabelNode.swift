@@ -9,7 +9,7 @@
 import UIKit
 import AsyncDisplayKit
 
-open class SFLabelNode: ASTextNode, SFGradientProtocol, SFDisplayNodeColorStyle, SFTextDisplayer {
+open class SFLabelNode: ASTextNode, SFGradientNode, SFDisplayNodeColorStyle, SFTextDisplayer, SFAnimatable {
     
     // MARK: - Instance Properties
     
@@ -27,6 +27,8 @@ open class SFLabelNode: ASTextNode, SFGradientProtocol, SFDisplayNodeColorStyle,
     
     open var gradient: SFGradient?
     
+    open var animator: SFAnimator = SFAnimator()
+    
     // MARK: - Initializers
 
     public required init(automaticallyAdjustsColorStyle: Bool) {
@@ -34,6 +36,7 @@ open class SFLabelNode: ASTextNode, SFGradientProtocol, SFDisplayNodeColorStyle,
         super.init()
         automaticallyManagesSubnodes = true
         setAttributedText()
+        self.animator.view = self.view
     }
     
     public convenience override init() {
