@@ -12,7 +12,8 @@ Pod::Spec.new do |s|
  
   s.ios.deployment_target = '11.0'
   s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.0' }
-  s.source_files = 'SwifterUI/SwifterUI/SwifterUI/*.swift'
+  s.source_files = "SwifterUI", "SwifterUI", "SwifterUI/*"
+  #'SwifterUI/SwifterUI/SwifterUI/*.swift'
   s.dependency 'Texture'
  
 end
