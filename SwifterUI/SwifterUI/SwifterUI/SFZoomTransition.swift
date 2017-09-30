@@ -11,6 +11,5 @@ import AsyncDisplayKit
 open class SFZoomTransition: SFTransition {
     public init(operation: UINavigationControllerOperation) {
         super.init(animator: SFAnimator(animation: .zoomIn), operation: operation)
-        if operation == .pop { animator.reversed = true }
     }
 }

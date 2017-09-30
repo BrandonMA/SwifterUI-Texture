@@ -48,13 +48,13 @@ open class SFChatController: SFViewController<SFChatNode>, ASCollectionDataSourc
         registerForKeyboardNotifications()
     }
     
-    open func keyboardWillShow(notification: NSNotification) {
+    @objc open func keyboardWillShow(notification: NSNotification) {
         updateKeyboardHeight(notification: notification)
         self.SFNode.transitionLayout(withAnimation: true, shouldMeasureAsync: false, measurementCompletion: nil)
         self.SFNode.collectionNode.scrollDown(section: 0)
     }
     
-    open func keyboardWillHide(notification: NSNotification) {
+    @objc open func keyboardWillHide(notification: NSNotification) {
         updateKeyboardHeight(notification: notification)
         self.SFNode.transitionLayout(withAnimation: true, shouldMeasureAsync: true, measurementCompletion: nil)
     }

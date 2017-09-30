@@ -36,7 +36,6 @@ open class SFDisplayNode: ASDisplayNode, SFGradientNode, SFBlurredNode, SFDispla
         self.automaticallyAdjustsColorStyle = automaticallyAdjustsColorStyle
         super.init()
         automaticallyManagesSubnodes = true
-        self.animator.view = self.view
     }
     
     public override convenience init() {
@@ -48,6 +47,7 @@ open class SFDisplayNode: ASDisplayNode, SFGradientNode, SFBlurredNode, SFDispla
     open override func didLoad() {
         super.didLoad()
         updateColors()
+        self.animator.view = self.view
     }
     
     // addLoadingNode: Adds a loadingNode to your custom layout

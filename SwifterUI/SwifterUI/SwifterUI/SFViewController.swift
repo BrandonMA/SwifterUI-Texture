@@ -8,7 +8,7 @@
 
 import AsyncDisplayKit
 
-open class SFViewController<SFNodeType: SFColorStyleProtocol>: ASViewController<ASDisplayNode>  where SFNodeType: ASDisplayNode {
+open class SFViewController<SFNodeType: SFColorStyleProtocol>: ASViewController<ASDisplayNode> where SFNodeType: ASDisplayNode {
     
     // MARK: - Instance Properties
     
@@ -68,9 +68,8 @@ open class SFViewController<SFNodeType: SFColorStyleProtocol>: ASViewController<
         
         self.automaticallyAdjustsColorStyle = automaticallyAdjustsColorStyle
         
-        self.node.layoutSpecBlock = { constrainedSize in
-            
-            self.SFNode.style.preferredLayoutSize = ASLayoutSize(width: ASDimension(unit: ASDimensionUnit.points, value: constrainedSize.0.bounds.width), height: ASDimension(unit: ASDimensionUnit.points, value: constrainedSize.0.bounds.height))
+        self.node.layoutSpecBlock = { node, constrainedSize in
+            self.SFNode.style.preferredLayoutSize = ASLayoutSize(width: ASDimension(unit: ASDimensionUnit.points, value: constrainedSize.max.width), height: ASDimension(unit: ASDimensionUnit.points, value: constrainedSize.max.height))
             
             return ASCenterLayoutSpec(horizontalPosition: ASRelativeLayoutSpecPosition.start, verticalPosition: ASRelativeLayoutSpecPosition.start, sizingOption: ASRelativeLayoutSpecSizingOption.minimumSize, child: self.SFNode)
         }

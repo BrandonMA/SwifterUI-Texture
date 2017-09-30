@@ -26,7 +26,6 @@ open class SFCellNode: ASCellNode, SFGradientNode, SFBlurredNode, SFDisplayNodeC
         self.automaticallyAdjustsColorStyle = automaticallyAdjustsColorStyle
         super.init()
         automaticallyManagesSubnodes = true
-        self.animator.view = self.view
     }
     
     public convenience override init() {
@@ -38,6 +37,7 @@ open class SFCellNode: ASCellNode, SFGradientNode, SFBlurredNode, SFDisplayNodeC
     open override func didLoad() {
         super.didLoad()
         updateColors()
+        self.animator.view = self.view
     }
     
     open override func layout() {

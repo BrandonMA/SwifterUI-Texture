@@ -23,7 +23,6 @@ open class SFScrollNode: ASScrollNode, SFDisplayNodeColorStyle, SFAnimatable {
         super.init()
         automaticallyManagesSubnodes = true
         automaticallyManagesContentSize = true
-        self.animator.view = self.view
     }
     
     public override convenience init() {
@@ -35,6 +34,7 @@ open class SFScrollNode: ASScrollNode, SFDisplayNodeColorStyle, SFAnimatable {
     open override func didLoad() {
         super.didLoad()
         updateColors()
+        self.animator.view = self.view
     }
     
     open func updateColors() {

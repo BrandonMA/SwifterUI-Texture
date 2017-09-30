@@ -98,7 +98,7 @@ class MeetupFeedController: SFTableNodeController, UINavigationControllerDelegat
             cellNode.organizerNameTextNode.text = group.organizer.name
             cellNode.photoImageNode.url = group.photoUrl
             cellNode.locationLabelNode.text = "\(group.city!), \(group.country!)"
-            cellNode.locationLabelNode.extraAttributes["\(group.city!), \(group.country!)"] = [SFTextTypeName: SFTextType.button]
+            cellNode.locationLabelNode.textTypeAttributes["\(group.city!), \(group.country!)"] = [SFTextTypeName: SFTextType.button]
             cellNode.timeIntervalSincePost.text = group.timeInterval
             cellNode.selectionStyle = .none
             return cellNode

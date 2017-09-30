@@ -16,13 +16,11 @@ extension SFTextDisplayer where Self: SFDisplayNodeColorStyle {
     
     public func updateTextColor() {
         // If extraAttributes are bigger than 0 then check for each attribute inside the array
-        if extraAttributes.count != 0 {
-            for var attributes in extraAttributes {
-                // If the current value of the array(that is another array) contain SFTextTypeName and is SFTextType
-                if let type = attributes.value[SFTextTypeName] as? SFTextType {
+        if textTypeAttributes.count != 0 {
+            for var attributes in self.textTypeAttributes {
+                if let type = attributes.value[SFTextTypeName] {
                     if type == .button {
-                        attributes.value[NSForegroundColorAttributeName] = colorStyle.getInteractiveColor()
-                        extraAttributes[attributes.key] = attributes.value
+                        extraAttributes[attributes.key] = [NSAttributedStringKey.foregroundColor : colorStyle.getInteractiveColor()]
                     }
                 }
             }

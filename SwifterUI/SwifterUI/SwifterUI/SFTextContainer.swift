@@ -8,7 +8,9 @@
 
 import AsyncDisplayKit
 
-public typealias TextAttributes = [String: Any]
+public typealias SFTextAttributes = [NSAttributedStringKey: Any]
+
+public typealias SFTextTypeIdentifier = [String: SFTextType]
 
 public let SFTextTypeName = "SFTextTypeName"
 public enum SFTextType: String {
@@ -35,7 +37,9 @@ public protocol SFTextContainer: class {
     // aligment: Text aligment of your label
     var aligment: NSTextAlignment { get set }
     
-    var extraAttributes: [String : TextAttributes] { get set }
+    var extraAttributes: [String : SFTextAttributes] { get set }
+    
+    var textTypeAttributes: [String: SFTextTypeIdentifier] { get set }
     
     // setAttributedText: Set the attributes of your label node under the hood whenever you update one of it's three properties
     func setAttributedText()
@@ -53,9 +57,9 @@ extension SFTextContainer {
             paragraphStyle.alignment = self.aligment
             let string = NSMutableAttributedString(string: self.text,
                                                               attributes: [
-                                                                NSForegroundColorAttributeName: self.textColor,
-                                                                NSFontAttributeName: self.font,
-                                                                NSParagraphStyleAttributeName: paragraphStyle])
+                                                                NSAttributedStringKey.foregroundColor: self.textColor,
+                                                                NSAttributedStringKey.font: self.font,
+                                                                NSAttributedStringKey.paragraphStyle: paragraphStyle])
             addExtraAttributes(to: string)
             return string
         }

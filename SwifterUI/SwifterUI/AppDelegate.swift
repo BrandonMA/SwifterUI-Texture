@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 //        window?.rootViewController = SFLoadingNodeExampleController()
         
-        window?.rootViewController = GradientController()
+//        window?.rootViewController = GradientController()
         
 //        window?.rootViewController = TextExampleController()
         
@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        loginController.signUpController = SFSignUpNodeController(automaticallyAdjustsColorStyle: true)
 //        window?.rootViewController = loginController
         
-//        window?.rootViewController = UINavigationController(rootViewController: MeetupFeedController())
+        window?.rootViewController = UINavigationController(rootViewController: MeetupFeedController())
         
 //        window?.rootViewController = UINavigationController(rootViewController: SFChatController(automaticallyAdjustsColorStyle: true))
         

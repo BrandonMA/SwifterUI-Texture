@@ -21,7 +21,9 @@ open class SFButtonNode: ASButtonNode, SFGradientNode, SFBlurredNode, SFDisplayN
     
     open var aligment: NSTextAlignment = .left { didSet { setAttributedText() } }
     
-    open var extraAttributes: [String : TextAttributes] = [:]
+    open var extraAttributes: [String : SFTextAttributes] = [:]
+    
+    public var textTypeAttributes: [String : SFTextTypeIdentifier] = [:] { didSet { setAttributedText() } }
     
     open var automaticallyAdjustsColorStyle: Bool
     
@@ -37,7 +39,6 @@ open class SFButtonNode: ASButtonNode, SFGradientNode, SFBlurredNode, SFDisplayN
         self.automaticallyAdjustsColorStyle = automaticallyAdjustsColorStyle
         super.init()
         self.clipsToBounds = true
-        self.animator.view = self.view
     }
     
     public convenience override init() {
@@ -49,6 +50,7 @@ open class SFButtonNode: ASButtonNode, SFGradientNode, SFBlurredNode, SFDisplayN
     open override func didLoad() {
         super.didLoad()
         updateColors()
+        self.animator.view = self.view
     }
     
     open override func layout() {
@@ -75,15 +77,15 @@ extension SFButtonNode: SFTextContainer {
         
         self.setAttributedTitle(NSAttributedString(string: self.text,
                                                    attributes: [
-                                                    NSForegroundColorAttributeName: self.textColor,
-                                                    NSFontAttributeName: self.font,
-                                                    NSParagraphStyleAttributeName: paragraphStyle]), for: UIControlState.normal)
+                                                    NSAttributedStringKey.foregroundColor: self.textColor,
+                                                    NSAttributedStringKey.font: self.font,
+                                                    NSAttributedStringKey.paragraphStyle: paragraphStyle]), for: UIControlState.normal)
         
         self.setAttributedTitle(NSAttributedString(string: self.text,
                                                    attributes: [
-                                                    NSForegroundColorAttributeName: self.textColor.withAlphaComponent(0.2),
-                                                    NSFontAttributeName: self.font,
-                                                    NSParagraphStyleAttributeName: paragraphStyle]), for: UIControlState.highlighted)
+                                                    NSAttributedStringKey.foregroundColor: self.textColor.withAlphaComponent(0.2),
+                                                    NSAttributedStringKey.font: self.font,
+                                                    NSAttributedStringKey.paragraphStyle: paragraphStyle]), for: UIControlState.highlighted)
     }
 }
 

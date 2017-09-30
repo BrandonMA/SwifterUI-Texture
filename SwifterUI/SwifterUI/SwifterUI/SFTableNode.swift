@@ -36,7 +36,6 @@ open class SFTableNode: ASTableNode, SFDisplayNodeColorStyle, SFAnimatable {
     public init(style: UITableViewStyle, automaticallyAdjustsColorStyle: Bool) {
         self.automaticallyAdjustsColorStyle = automaticallyAdjustsColorStyle
         super.init(style: style)
-        self.animator.view = self.view
     }
     
     public required convenience init(automaticallyAdjustsColorStyle: Bool) {
@@ -58,6 +57,7 @@ open class SFTableNode: ASTableNode, SFDisplayNodeColorStyle, SFAnimatable {
             self.view.refreshControl = self.refreshControl
         }
         self.view.backgroundView = UIView() // This is used to eliminate a weird bug with UISearchBar showing a gray background
+        self.animator.view = self.view
     }
     
     // This method should be called after viewDidLoad if you are using a SFTableNode

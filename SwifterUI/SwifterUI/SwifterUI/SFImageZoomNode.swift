@@ -56,7 +56,7 @@ open class SFImageZoomNode: SFScrollNode {
         updateConstraintsForSize(size)
     }
     
-    open func handleDoubleTapZoom(sender: UITapGestureRecognizer) {
+    @objc open func handleDoubleTapZoom(sender: UITapGestureRecognizer) {
         
         if self.view.zoomScale != self.view.minimumZoomScale {
             self.view.setZoomScale(self.view.minimumZoomScale, animated: true)

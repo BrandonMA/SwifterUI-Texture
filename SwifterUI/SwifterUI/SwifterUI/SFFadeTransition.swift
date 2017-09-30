@@ -11,6 +11,5 @@ import AsyncDisplayKit
 open class SFFadeTransition: SFTransition {
     public init(operation: UINavigationControllerOperation) {
         super.init(animator: SFAnimator(animation: .fadeIn), operation: operation)
-        if operation == .pop { animator.reversed = true }
     }
 }

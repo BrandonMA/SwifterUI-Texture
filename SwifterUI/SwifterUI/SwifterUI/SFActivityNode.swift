@@ -45,7 +45,6 @@ open class SFActivityNode: ASDisplayNode, SFDisplayNodeColorStyle, SFAnimatable 
         activityIndicatorView.startAnimating() // Start animating the activityIndicatorView
         activityIndicatorView.hidesWhenStopped = true
         
-        self.animator.view = self.view
     }
     
     public convenience override init() {
@@ -57,6 +56,7 @@ open class SFActivityNode: ASDisplayNode, SFDisplayNodeColorStyle, SFAnimatable 
     open override func didLoad() {
         super.didLoad()
         updateColors()
+        self.animator.view = self.view
     }
     
     open func updateColors() {

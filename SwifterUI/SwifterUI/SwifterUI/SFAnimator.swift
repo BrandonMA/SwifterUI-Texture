@@ -10,12 +10,12 @@ import AsyncDisplayKit
 
 open class SFAnimator {
     
-    open var view: UIView {
+    open weak var view: UIView? = nil {
         didSet {
             self.loadAnimationPresets()
         }
     }
-    open var animation: SFAnimationType  {
+    open var animation: SFAnimationType = .none {
         didSet {
             self.loadAnimationPresets()
         }
@@ -33,7 +33,7 @@ open class SFAnimator {
     open var rotate: CGFloat = 0
     open var initialAlpha: CGFloat = 1.0 {
         didSet {
-            self.view.alpha = self.initialAlpha
+            self.view?.alpha = self.initialAlpha
         }
     }
     open var finalAlpha: CGFloat = 1.0
@@ -53,22 +53,10 @@ open class SFAnimator {
         }
     }
     
-    public init(with view: UIView, animation: SFAnimationType) {
+    public init(with view: UIView? = nil, animation: SFAnimationType = .none) {
         self.view = view
         self.animation = animation
         loadAnimationPresets()
-    }
-    
-    public convenience init(wit view: UIView) {
-        self.init(with: view, animation: SFAnimationType.none)
-    }
-    
-    public convenience init(animation: SFAnimationType) {
-        self.init(with: UIView(), animation: animation)
-    }
-    
-    public convenience init() {
-        self.init(with: UIView(), animation: SFAnimationType.none)
     }
     
     // loadAnimationPresets: Set the predefined values for each animation for convenience, in case that you don't define view at init, this will override any changes to all properties
@@ -110,22 +98,23 @@ open class SFAnimator {
 extension SFAnimator {
     
     open func zoomOrScale() {
-        self.initialFrame = self.view.frame
-        self.view.center = CGPoint(x: initialFrame.size.width / 2, y: initialFrame.size.height / 2)
+        guard let view = self.view else { return }
+        self.initialFrame = view.frame
+        view.center = CGPoint(x: initialFrame.size.width / 2, y: initialFrame.size.height / 2)
         
         if self.animation == .zoomIn || self.animation == .scaleIn {
-            self.view.transform = CGAffineTransform(scaleX: self.scaleX, y: self.scaleY)
+            view.transform = CGAffineTransform(scaleX: self.scaleX, y: self.scaleY)
         }
         
         UIView.animate(withDuration: self.duration, delay: self.delay, usingSpringWithDamping: self.damping, initialSpringVelocity: self.velocity, options: self.animationOptions, animations: {
             
-            self.view.alpha = self.finalAlpha
-            self.view.center = CGPoint(x: self.initialFrame.size.width / 2, y: self.initialFrame.size.height / 2)
+            view.alpha = self.finalAlpha
+            view.center = CGPoint(x: self.initialFrame.size.width / 2, y: self.initialFrame.size.height / 2)
             
             if self.animation == .zoomIn || self.animation == .scaleIn {
-                self.view.transform = .identity
+                view.transform = .identity
             } else if self.animation == .zoomOut || self.animation == .scaleOut {
-                self.view.transform = CGAffineTransform(scaleX: self.scaleX, y: self.scaleY)
+                view.transform = CGAffineTransform(scaleX: self.scaleX, y: self.scaleY)
             }
             
         }, completion: { finished in
@@ -135,7 +124,7 @@ extension SFAnimator {
     
     open func fade() {
         UIView.animate(withDuration: self.duration, animations: {
-            self.view.alpha = self.finalAlpha
+            self.view?.alpha = self.finalAlpha
         }) { (finished) in
             self.animationCompletion(finished)
         }

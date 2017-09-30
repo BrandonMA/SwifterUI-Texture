@@ -21,7 +21,9 @@ open class SFLabelNode: ASTextNode, SFGradientNode, SFDisplayNodeColorStyle, SFT
     
     open var aligment: NSTextAlignment = NSTextAlignment.left { didSet { setAttributedText() } }
     
-    open var extraAttributes: [String : TextAttributes] = [:] { didSet { setAttributedText() } }
+    open var extraAttributes: [String : SFTextAttributes] = [:] { didSet { setAttributedText() } }
+    
+    public var textTypeAttributes: [String : SFTextTypeIdentifier] = [:] { didSet { setAttributedText() } }
     
     open var automaticallyAdjustsColorStyle: Bool
     
@@ -36,7 +38,6 @@ open class SFLabelNode: ASTextNode, SFGradientNode, SFDisplayNodeColorStyle, SFT
         super.init()
         automaticallyManagesSubnodes = true
         setAttributedText()
-        self.animator.view = self.view
     }
     
     public convenience override init() {
@@ -48,6 +49,7 @@ open class SFLabelNode: ASTextNode, SFGradientNode, SFDisplayNodeColorStyle, SFT
     open override func didLoad() {
         super.didLoad()
         updateColors()
+        self.animator.view = self.view
     }
     
     open func updateColors() {

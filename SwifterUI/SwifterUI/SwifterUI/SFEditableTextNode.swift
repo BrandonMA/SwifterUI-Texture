@@ -18,7 +18,9 @@ open class SFEditableTextNode: ASEditableTextNode, SFGradientNode, SFDisplayNode
     
     open var aligment: NSTextAlignment = NSTextAlignment.left { didSet { setAttributedText() } }
     
-    open var extraAttributes: [String : TextAttributes] = [:] { didSet { setAttributedText() } }
+    open var extraAttributes: [String : SFTextAttributes] = [:] { didSet { setAttributedText() } }
+    
+    public var textTypeAttributes: [String : SFTextTypeIdentifier] = [:] { didSet { setAttributedText() } }
     
     open var automaticallyAdjustsColorStyle: Bool
     
@@ -35,7 +37,6 @@ open class SFEditableTextNode: ASEditableTextNode, SFGradientNode, SFDisplayNode
         setAttributedText()
         self.textView.isEditable = false
         self.textView.isSelectable = false
-        self.animator.view = self.view
     }
     
     public convenience override init() {
@@ -47,6 +48,7 @@ open class SFEditableTextNode: ASEditableTextNode, SFGradientNode, SFDisplayNode
     open override func didLoad() {
         super.didLoad()
         updateColors()
+        self.animator.view = self.view
     }
     
     open func updateColors() {

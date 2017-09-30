@@ -37,7 +37,9 @@
 #import "PINRemoteImageProcessorTask.h"
 #import "PINRemoteImageTask.h"
 #import "PINRemoteLock.h"
+#import "PINRequestRetryStrategy.h"
 #import "PINResume.h"
+#import "PINSpeedRecorder.h"
 #import "PINURLSessionManager.h"
 #import "PINCache+PINRemoteImageCaching.h"
 

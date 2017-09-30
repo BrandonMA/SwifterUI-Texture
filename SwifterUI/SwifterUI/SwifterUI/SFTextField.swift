@@ -46,7 +46,9 @@ open class SFTextField: SFDisplayNode {
         }
     }
     
-    open var extraAttributes: [String : TextAttributes] = [:]
+    open var extraAttributes: [String : SFTextAttributes] = [:] { didSet { setAttributedText() } }
+    
+    public var textTypeAttributes: [String : SFTextTypeIdentifier] = [:] { didSet { setAttributedText() } }
     
     // textField: Backing UITextField for your node
     open let textField: SFTextFieldView
@@ -168,9 +170,9 @@ extension SFTextField {
         paragraphStyle.alignment = self.aligment
         self.textField.attributedPlaceholder = NSAttributedString(string: self.placeholder,
                                                            attributes: [
-                                                            NSForegroundColorAttributeName: self.placeholderColor,
-                                                            NSFontAttributeName: self.font,
-                                                            NSParagraphStyleAttributeName: paragraphStyle])
+                                                            NSAttributedStringKey.foregroundColor: self.placeholderColor,
+                                                            NSAttributedStringKey.font: self.font,
+                                                            NSAttributedStringKey.paragraphStyle: paragraphStyle])
     }
 
     // addLeftView: Add a view at the left side of your textField
@@ -211,9 +213,9 @@ extension SFTextField: SFTextContainer {
         paragraphStyle.alignment = self.aligment
         self.textField.textColor = self.textColor
         self.textField.defaultTextAttributes = [
-            NSForegroundColorAttributeName: self.textColor,
-            NSFontAttributeName: self.font,
-            NSParagraphStyleAttributeName: paragraphStyle]
+            NSAttributedStringKey.foregroundColor.rawValue: self.textColor,
+            NSAttributedStringKey.font.rawValue: self.font,
+            NSAttributedStringKey.paragraphStyle.rawValue: paragraphStyle]
     }
     
 }

@@ -21,7 +21,6 @@ open class SFCollectionNode: ASCollectionNode, SFDisplayNodeColorStyle, SFAnimat
     public init(automaticallyAdjustsColorStyle: Bool, collectionViewLayout: UICollectionViewLayout) {
         self.automaticallyAdjustsColorStyle = automaticallyAdjustsColorStyle
         super.init(collectionViewLayout: collectionViewLayout)
-        self.animator.view = self.view
     }
     
     public convenience required init(automaticallyAdjustsColorStyle: Bool) {
@@ -33,6 +32,7 @@ open class SFCollectionNode: ASCollectionNode, SFDisplayNodeColorStyle, SFAnimat
     open override func didLoad() {
         super.didLoad()
         updateColors()
+        self.animator.view = self.view
     }
     
     open func updateColors() {
