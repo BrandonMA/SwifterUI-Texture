@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'SwifterUI'
-  s.version          = '0.2.3.2'
+  s.version          = '0.2.3.3'
   s.summary          = 'UI Library made with Texture'
  
   s.description      = 'This is a UI Library made with Texture to improve development process'
@@ -14,5 +14,6 @@ Pod::Spec.new do |s|
   s.source_files = 'SwifterUI/SwifterUI/SwifterUI/*.swift'
   s.dependency 'Texture'
   s.dependency 'YouTubePlayer'
+  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '3.2' }
  
 end
