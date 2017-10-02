@@ -50,7 +50,6 @@ open class SFVideoPlayer: SFDisplayNode {
     }
     
     open func layoutVideoView() {
-        self.animator.animation = .zoomIn
         guard let videoView = self.videoView != nil ? self.videoView : self.youtubeView else { return }
         videoView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(videoView)
@@ -60,7 +59,6 @@ open class SFVideoPlayer: SFDisplayNode {
             videoView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
             videoView.leftAnchor.constraint(equalTo: self.view.leftAnchor)
             ])
-        self.animator.startAnimation()
     }
     
     open func load(youtubeURL url: URL) {

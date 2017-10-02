@@ -34,20 +34,15 @@ class VideoPlayerControllerExample: SFViewController<VideoPlayerNodeExample> {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        self.SFNode.videoNode.animator.animation = .scaleIn
         Dispatch.delay(by: 1.0, dispatchLevel: DispatchLevel.background) {
             guard let path = Bundle.main.path(forResource: "video", ofType:"mp4") else { return }
             self.SFNode.videoNode.load(videoURL: URL(fileURLWithPath: path), parentController: self)
-            
+            self.SFNode.videoNode.animator.startAnimation()
 //            guard let youtubeURL = URL(string: "https://www.youtube.com/watch?v=iTcq6L-PaDQ") else { return }
 //            self.SFNode.videoNode.load(youtubeURL: youtubeURL)
         }
     }
-    
-    override func viewDidLoad() {
-        
-
-    }
-        
 }
 
 

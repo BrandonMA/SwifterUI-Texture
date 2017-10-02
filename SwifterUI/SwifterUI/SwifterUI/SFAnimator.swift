@@ -85,11 +85,13 @@ open class SFAnimator {
     }
     
     open func startAnimation() {
-        switch self.animation {
-        case .zoomIn, .zoomOut: zoomOrScale()
-        case .scaleIn, .scaleOut: zoomOrScale()
-        case .fadeIn, .fadeOut: fade()
-        default: return
+        Dispatch.addAsyncTask(to: DispatchLevel.main) {
+            switch self.animation {
+            case .zoomIn, .zoomOut: self.zoomOrScale()
+            case .scaleIn, .scaleOut: self.zoomOrScale()
+            case .fadeIn, .fadeOut: self.fade()
+            default: return
+            }
         }
     }
 }
