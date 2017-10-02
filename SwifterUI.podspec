@@ -1,9 +1,9 @@
 Pod::Spec.new do |s|
   s.name             = 'SwifterUI'
-  s.version          = '0.2.3.1'
+  s.version          = '0.2.3.2'
   s.summary          = 'UI Library made with Texture'
  
-  s.description      = 'This is a UI Library'
+  s.description      = 'This is a UI Library made with Texture to improve development process'
  
   s.homepage         = 'https://github.com/BrandonMA/SwifterUI'
   s.license          = { :type => 'Apache-2.0', :file => 'LICENSE' }
