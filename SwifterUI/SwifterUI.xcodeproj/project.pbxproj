@@ -54,6 +54,9 @@
 		42D9D67C1F20D80400918013 /* SFTableNodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D9D67B1F20D80400918013 /* SFTableNodeController.swift */; };
 		42DC289A1F76B9FA00896D87 /* SFImageNodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DC28991F76B9FA00896D87 /* SFImageNodeController.swift */; };
 		42DC289C1F76BC1E00896D87 /* SFScrollNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DC289B1F76BC1E00896D87 /* SFScrollNode.swift */; };
+		42DDDE901F81D852004F776C /* VideoPlayerExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DDDE8F1F81D852004F776C /* VideoPlayerExample.swift */; };
+		42DDDE921F81DB83004F776C /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 42DDDE911F81DB83004F776C /* video.mp4 */; };
+		42DDDE941F81E26E004F776C /* SFVideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DDDE931F81E26E004F776C /* SFVideoPlayer.swift */; };
 		42DED2F31F4A1C370093F89C /* SFSignUpNodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DED2F21F4A1C370093F89C /* SFSignUpNodeController.swift */; };
 		42DFF0381F64BB8D005B6076 /* SFChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DFF0371F64BB8C005B6076 /* SFChatCell.swift */; };
 		42E3EA321F604323008596E2 /* SFCollectionNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E3EA311F604323008596E2 /* SFCollectionNode.swift */; };
@@ -156,6 +159,9 @@
 		42D9D67B1F20D80400918013 /* SFTableNodeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFTableNodeController.swift; path = SwifterUI/SFTableNodeController.swift; sourceTree = "<group>"; };
 		42DC28991F76B9FA00896D87 /* SFImageNodeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFImageNodeController.swift; path = SwifterUI/SFImageNodeController.swift; sourceTree = "<group>"; };
 		42DC289B1F76BC1E00896D87 /* SFScrollNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFScrollNode.swift; path = SwifterUI/SFScrollNode.swift; sourceTree = "<group>"; };
+		42DDDE8F1F81D852004F776C /* VideoPlayerExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerExample.swift; sourceTree = "<group>"; };
+		42DDDE911F81DB83004F776C /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.mp4; sourceTree = "<group>"; };
+		42DDDE931F81E26E004F776C /* SFVideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFVideoPlayer.swift; path = SwifterUI/SFVideoPlayer.swift; sourceTree = "<group>"; };
 		42DED2F21F4A1C370093F89C /* SFSignUpNodeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFSignUpNodeController.swift; path = SwifterUI/SFSignUpNodeController.swift; sourceTree = "<group>"; };
 		42DFF0371F64BB8C005B6076 /* SFChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFChatCell.swift; path = SwifterUI/SFChatCell.swift; sourceTree = "<group>"; };
 		42E3EA311F604323008596E2 /* SFCollectionNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFCollectionNode.swift; path = SwifterUI/SFCollectionNode.swift; sourceTree = "<group>"; };
@@ -345,6 +351,7 @@
 			children = (
 				429C3AB61F819F8900A22E78 /* Foursquare Example */,
 				421C2A0F1F249A880099762A /* Meetup Example */,
+				42DDDE8F1F81D852004F776C /* VideoPlayerExample.swift */,
 			);
 			name = Examples;
 			sourceTree = "<group>";
@@ -352,6 +359,7 @@
 		42F0F5C11F1F4939003DE859 = {
 			isa = PBXGroup;
 			children = (
+				42DDDE911F81DB83004F776C /* video.mp4 */,
 				42F0F5CC1F1F4939003DE859 /* SwifterUI */,
 				42F0F5E11F1F4939003DE859 /* SwifterUITests */,
 				42F0F5EC1F1F4939003DE859 /* SwifterUIUITests */,
@@ -448,6 +456,7 @@
 				42D9D66C1F20CF1E00918013 /* SFButtonNode.swift */,
 				42A680041F54B3F200EDBAAE /* SFDismissButton.swift */,
 				425AA3631F79C6370060AC8C /* SFImageZoomNode.swift */,
+				42DDDE931F81E26E004F776C /* SFVideoPlayer.swift */,
 				421BA3F41F570A21008E176D /* SFTextField */,
 				42D9D6721F20D39F00918013 /* SFSearchBar.swift */,
 				42A680061F54B40600EDBAAE /* SFPageControlNode.swift */,
@@ -622,6 +631,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42DDDE921F81DB83004F776C /* video.mp4 in Resources */,
 				42F0F5D81F1F4939003DE859 /* LaunchScreen.storyboard in Resources */,
 				42F0F5D51F1F4939003DE859 /* Assets.xcassets in Resources */,
 			);
@@ -736,6 +746,7 @@
 				"${BUILT_PRODUCTS_DIR}/PINOperation/PINOperation.framework",
 				"${BUILT_PRODUCTS_DIR}/PINRemoteImage/PINRemoteImage.framework",
 				"${BUILT_PRODUCTS_DIR}/Texture/AsyncDisplayKit.framework",
+				"${BUILT_PRODUCTS_DIR}/YouTubePlayer/YouTubePlayer.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -743,6 +754,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINOperation.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINRemoteImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AsyncDisplayKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YouTubePlayer.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -815,6 +827,7 @@
 				42BFCB661F6048D7003B75CC /* SFCollectionController.swift in Sources */,
 				42F0F6191F1F95D1003DE859 /* SFTableNode.swift in Sources */,
 				42D9D67A1F20D6C500918013 /* SFViewController.swift in Sources */,
+				42DDDE941F81E26E004F776C /* SFVideoPlayer.swift in Sources */,
 				424A5E621F5B067200EFBFB3 /* SFTextFieldView.swift in Sources */,
 				42B50AE81F65D044003E3E1A /* SFChatNode.swift in Sources */,
 				42DED2F31F4A1C370093F89C /* SFSignUpNodeController.swift in Sources */,
@@ -854,6 +867,7 @@
 				42D9D66B1F20CECB00918013 /* SFLoadingNode.swift in Sources */,
 				42F0F61B1F1F96C1003DE859 /* SFCellNode.swift in Sources */,
 				42D9D67C1F20D80400918013 /* SFTableNodeController.swift in Sources */,
+				42DDDE901F81D852004F776C /* VideoPlayerExample.swift in Sources */,
 				424A5E6A1F5B069B00EFBFB3 /* SFDeviceProtocol.swift in Sources */,
 				42F0F6171F1F8309003DE859 /* SFBackgroundDisplayNode.swift in Sources */,
 				4202F7BE1F4900000009BD33 /* UIColorExtensions.swift in Sources */,

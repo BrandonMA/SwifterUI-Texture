@@ -8,6 +8,7 @@ target 'SwifterUI' do
   # Pods for SwifterUI
 
   pod 'Texture'
+  pod 'YouTubePlayer'
 
   target 'SwifterUITests' do
     inherit! :search_paths
