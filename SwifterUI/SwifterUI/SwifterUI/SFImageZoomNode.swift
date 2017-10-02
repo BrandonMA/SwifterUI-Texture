@@ -30,12 +30,17 @@ open class SFImageZoomNode: SFScrollNode {
     
     public required init(automaticallyAdjustsColorStyle: Bool) {
         super.init(automaticallyAdjustsColorStyle: automaticallyAdjustsColorStyle)
+    }
+    
+    open override func didLoad() {
+        super.didLoad()
         automaticallyManagesContentSize = false
         self.view.showsHorizontalScrollIndicator = false
         self.view.showsVerticalScrollIndicator = false
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTapZoom(sender:)))
         tapGestureRecognizer.numberOfTapsRequired = 2
         self.view.addGestureRecognizer(tapGestureRecognizer)
+        self.view.contentInsetAdjustmentBehavior = .never
     }
     
     // MARK: - Instance Methods

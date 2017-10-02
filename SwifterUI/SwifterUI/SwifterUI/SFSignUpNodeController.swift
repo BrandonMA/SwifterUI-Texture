@@ -44,6 +44,10 @@ open class SFSignUpNodeController: SFViewController<SFSignUpNode>, SFAppleMusicL
     
     // MARK: - Instance Methods
     
+    open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     @objc open func didDragged(sender: UIPanGestureRecognizer) {
         self.dismiss(with: sender)
     }

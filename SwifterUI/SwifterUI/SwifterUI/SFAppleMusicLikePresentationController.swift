@@ -92,7 +92,7 @@ open class SFAppleMusicLikePresentationController<SFPresentingNodeType>: SFPrese
         if let controller = self.presentingViewController as? SFViewController<SFPresentingNodeType> {
             if self.automaticallyAdjustsColorStyle == true {
                 controller.automaticallyAdjustsColorStyle = true
-                controller.forceUpdateColors()
+                controller.updateColors()
             }
         }
         

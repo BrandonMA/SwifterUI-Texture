@@ -18,23 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         
-//        window?.rootViewController = SFLoadingNodeExampleController()
-        
-//        window?.rootViewController = GradientController()
-        
-//        window?.rootViewController = TextExampleController()
-        
 //        let loginController = SFLoginNodeController(automaticallyAdjustsColorStyle: true)
 //        loginController.signUpController = SFSignUpNodeController(automaticallyAdjustsColorStyle: true)
 //        window?.rootViewController = loginController
         
-        window?.rootViewController = UINavigationController(rootViewController: MeetupFeedController())
+        window?.rootViewController = ASNavigationController(rootViewController: MeetupFeedController())
         
-//        window?.rootViewController = UINavigationController(rootViewController: SFChatController(automaticallyAdjustsColorStyle: true))
-        
-//        window?.rootViewController = UINavigationController(rootViewController: ImageController())
-        
-//        window?.rootViewController = SFImageZoomNodeController(withImage: UIImage(), automaticallyAdjustsColorStyle: true)
+//        window?.rootViewController = FoursquareViewController()
         
         window?.makeKeyAndVisible()
         

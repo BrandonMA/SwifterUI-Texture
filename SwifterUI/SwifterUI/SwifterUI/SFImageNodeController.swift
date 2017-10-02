@@ -16,7 +16,6 @@ class SFImageZoomNodeController: SFViewController<SFImageZoomNode>, UIScrollView
         super.init(SFNode: SFImageZoomNode(automaticallyAdjustsColorStyle: automaticallyAdjustsColorStyle), automaticallyAdjustsColorStyle: automaticallyAdjustsColorStyle)
         SFNode.view.delegate = self
         SFNode.image = image
-        self.automaticallyAdjustsScrollViewInsets = false
     }
     
     required init?(coder aDecoder: NSCoder) {

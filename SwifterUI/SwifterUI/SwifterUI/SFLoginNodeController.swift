@@ -37,6 +37,10 @@ open class SFLoginNodeController: SFViewController<SFLoginNode> {
     
     // MARK: - Instance Methods
     
+    open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     @objc open func signInButtonDidTouch() {
     }
     

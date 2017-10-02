@@ -35,8 +35,6 @@ class MeetupFeedController: SFTableNodeController, UINavigationControllerDelegat
         self.SFNode.allowsSelection = true
         self.SFNode.isUserInteractionEnabled = true
         
-        
-        
         self.meetUpFeedDataManager.searchForGroupNearby { (groups, error) in
             
             if let error = error {
@@ -49,7 +47,7 @@ class MeetupFeedController: SFTableNodeController, UINavigationControllerDelegat
                 let indexSet = IndexSet(integer: 0)
                                 
                 Dispatch.addAsyncTask(to: DispatchLevel.main, handler: {
-                    self.SFNode.reloadSections(indexSet, with: UITableViewRowAnimation.fade)
+                    self.SFNode.reloadSections(indexSet, with: UITableViewRowAnimation.right)
                     self.updateColors()
                 })
                 
@@ -63,6 +61,7 @@ class MeetupFeedController: SFTableNodeController, UINavigationControllerDelegat
     }
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         self.navigationController?.delegate = self
     }
     
@@ -91,9 +90,7 @@ class MeetupFeedController: SFTableNodeController, UINavigationControllerDelegat
         let group = groups[indexPath.row]
         
         let block: () -> ASCellNode = {
-            
             let cellNode = MeetupFeedCellNode(automaticallyAdjustsColorStyle: self.automaticallyAdjustsColorStyle)
-            
             cellNode.organizerAvatarImageNode.url = group.organizer.thumbUrl
             cellNode.organizerNameTextNode.text = group.organizer.name
             cellNode.photoImageNode.url = group.photoUrl
@@ -102,7 +99,6 @@ class MeetupFeedController: SFTableNodeController, UINavigationControllerDelegat
             cellNode.timeIntervalSincePost.text = group.timeInterval
             cellNode.selectionStyle = .none
             return cellNode
-            
         }
         
         return block

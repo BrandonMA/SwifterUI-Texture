@@ -86,9 +86,9 @@ public extension String {
     //   string: String that you want to insert
     //   index: Index where you want to insert the string
     public mutating func insert(string: String, at index: Index) {
-        var newString = substring(to: index)
+        var newString = String(self[..<index])
         newString.append(string)
-        newString.append(substring(from: index))
+        newString.append(String(self[index...]))
         self = newString
     }
     

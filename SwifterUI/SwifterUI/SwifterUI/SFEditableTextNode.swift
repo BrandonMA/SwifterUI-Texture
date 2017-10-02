@@ -22,7 +22,7 @@ open class SFEditableTextNode: ASEditableTextNode, SFGradientNode, SFDisplayNode
     
     public var textTypeAttributes: [String : SFTextTypeIdentifier] = [:] { didSet { setAttributedText() } }
     
-    open var automaticallyAdjustsColorStyle: Bool
+    open var automaticallyAdjustsColorStyle: Bool = true
     
     open var gradient: SFGradient?
     
@@ -33,12 +33,9 @@ open class SFEditableTextNode: ASEditableTextNode, SFGradientNode, SFDisplayNode
     public required init(automaticallyAdjustsColorStyle: Bool) {
         self.automaticallyAdjustsColorStyle = automaticallyAdjustsColorStyle
         super.init(textKitComponents: ASTextKitComponents(attributedSeedString: nil, textContainerSize: CGSize.zero), placeholderTextKitComponents: ASTextKitComponents(attributedSeedString: nil, textContainerSize: CGSize.zero))
-        automaticallyManagesSubnodes = true
-        setAttributedText()
-        self.textView.isEditable = false
-        self.textView.isSelectable = false
+        
     }
-    
+
     public convenience override init() {
         self.init(automaticallyAdjustsColorStyle: true)
     }
@@ -48,6 +45,10 @@ open class SFEditableTextNode: ASEditableTextNode, SFGradientNode, SFDisplayNode
     open override func didLoad() {
         super.didLoad()
         updateColors()
+        automaticallyManagesSubnodes = true
+        setAttributedText()
+        self.textView.isEditable = false
+        self.textView.isSelectable = false
         self.animator.view = self.view
     }
     

@@ -49,5 +49,9 @@
 	</array>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Escoger una foto</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Tu ubicación es necesaria para buscar lugares cerca de ti</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Tu ubicación es necesaria para buscar lugares cerca de ti</string>
 </dict>
 </plist>

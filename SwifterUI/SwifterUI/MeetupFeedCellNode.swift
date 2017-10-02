@@ -16,6 +16,7 @@ class MeetupFeedCellNode: SFCellNode {
     lazy var photoImageNode: ASNetworkImageNode = {
         let imageNode = ASNetworkImageNode()
         imageNode.contentMode = .scaleAspectFit
+        imageNode.isLayerBacked = true
         return imageNode
     }()
     
@@ -24,6 +25,7 @@ class MeetupFeedCellNode: SFCellNode {
         imageNode.contentMode = .scaleAspectFill
         imageNode.cornerRadius = 17
         imageNode.clipsToBounds = true
+        imageNode.isLayerBacked = true
         return imageNode
     }()
     
@@ -32,10 +34,15 @@ class MeetupFeedCellNode: SFCellNode {
     lazy var locationLabelNode: SFLabelNode = {
         let label = SFLabelNode()
         label.aligment = .left
+        label.isLayerBacked = true
         return label
     }()
     
-    lazy var timeIntervalSincePost: SFDetailLabelNode = SFDetailLabelNode()
+    lazy var timeIntervalSincePost: SFDetailLabelNode = {
+        let label = SFDetailLabelNode()
+        label.isLayerBacked = true
+        return label
+    }()
     
     // MARK: Instance Methods
     

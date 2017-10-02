@@ -44,7 +44,6 @@ open class SFCollectionNode: ASCollectionNode, SFDisplayNodeColorStyle, SFAnimat
             for i in 0...self.numberOfSections - 1 {
                 for j in 0...self.numberOfItems(inSection: i) {
                     guard let cell = self.nodeForItem(at: IndexPath(row: j, section: i)) as? SFCellNode else { return }
-                    print("called")
                     cell.updateColors()
                 }
             }

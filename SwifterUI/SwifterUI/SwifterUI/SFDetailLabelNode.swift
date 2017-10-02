@@ -14,7 +14,7 @@ public class SFDetailLabelNode: SFLabelNode {
     
     override open func updateColors() {
         if self.automaticallyAdjustsColorStyle == true {
-            self.textColor = colorStyle.getDetailColor()
+            self.textColor = colorStyle.getInteractiveColor()
             updateSubNodesColors()
         }
     }
