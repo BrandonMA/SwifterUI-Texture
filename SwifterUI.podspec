@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'SwifterUI'
-  s.version          = '0.2.3.3'
+  s.version          = '0.2.3.4'
   s.summary          = 'UI Library made with Texture'
  
   s.description      = 'This is a UI Library made with Texture to improve development process'
