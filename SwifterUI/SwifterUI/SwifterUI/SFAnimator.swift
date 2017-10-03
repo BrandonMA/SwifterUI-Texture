@@ -49,6 +49,10 @@ open class SFAnimator {
             case .scaleOut: self.animation = .scaleIn
             case .fadeIn: self.animation = .fadeOut
             case .fadeOut: self.animation = .fadeIn
+            case .slideInTop: self.animation = .slideOutTop
+            case .slideInRight: self.animation = .slideOutRight
+            case .slideInBottom: self.animation = .slideOutBottom
+            case .slideInLeft: self.animation = .slideOutLeft
             default: return
             }
         }
@@ -81,11 +85,11 @@ open class SFAnimator {
             duration = 0.6
         case .slideInRight, .slideInLeft, .slideInTop, .slideInBottom, .slideOutRight, .slideOutLeft, .slideOutTop, .slideOutBottom:
             guard let node = self.node else {
-                print("View does not exist")
+                print("node does not exist")
                 return
             }
             guard let superview = node.supernode else {
-                print("Superview does not exist")
+                print("supernode does not exist")
                 return
             }
             initialFrame = node.frame
@@ -101,7 +105,6 @@ open class SFAnimator {
                 finalFrame.origin.y = self.animation == .slideOutTop ? 0 - finalFrame.size.height : superview.bounds.height + finalFrame.size.height
             }
             node.frame = initialFrame
-            
         default: return
         }
     }
@@ -112,8 +115,7 @@ open class SFAnimator {
             case .zoomIn, .zoomOut: self.zoomOrScale()
             case .scaleIn, .scaleOut: self.zoomOrScale()
             case .fadeIn, .fadeOut: self.fade()
-            case .slideInRight, .slideInLeft, .slideInTop, .slideInBottom: self.slide()
-            case .slideOutRight, .slideOutLeft, .slideOutTop, .slideOutBottom: self.slide()
+            case .slideInRight, .slideInLeft, .slideInTop, .slideInBottom, .slideOutRight, .slideOutLeft, .slideOutTop, .slideOutBottom: self.slide()
             default: return
             }
         }
@@ -134,7 +136,7 @@ extension SFAnimator {
             node.alpha = self.finalAlpha
             node.view.center = CGPoint(x: self.initialFrame.size.width / 2, y: self.initialFrame.size.height / 2)
             if self.animation == .zoomIn || self.animation == .scaleIn {
-                node.view.transform = .identity
+                node.view.transform = CGAffineTransform(scaleX: 1, y: 1)
             } else if self.animation == .zoomOut || self.animation == .scaleOut {
                 node.view.transform = CGAffineTransform(scaleX: self.scaleX, y: self.scaleY)
             }
