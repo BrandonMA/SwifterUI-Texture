@@ -17,6 +17,7 @@ open class SFAnimator {
     }
     open var animation: SFAnimationType = .none {
         didSet {
+            self.animationCompletion = {_ in }
             self.loadAnimationPresets()
         }
     }
