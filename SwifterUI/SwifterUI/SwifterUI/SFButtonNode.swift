@@ -50,7 +50,7 @@ open class SFButtonNode: ASButtonNode, SFGradientNode, SFBlurredNode, SFDisplayN
     open override func didLoad() {
         super.didLoad()
         updateColors()
-        self.animator.view = self.view
+        isAnimationReady()
     }
     
     open override func layout() {

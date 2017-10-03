@@ -6,8 +6,16 @@
 //  Copyright © 2017 Brandon Maldonado Alonso. All rights reserved.
 //
 
-import Foundation
+import AsyncDisplayKit
 
 public protocol SFAnimatable {
     var animator: SFAnimator { get set }
+}
+
+public extension SFAnimatable where Self: ASDisplayNode {
+    public func isAnimationReady() {
+        if self.isLayerBacked == false {
+            self.animator.view = self.view
+        }
+    }
 }

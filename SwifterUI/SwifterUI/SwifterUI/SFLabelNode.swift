@@ -49,10 +49,7 @@ open class SFLabelNode: ASTextNode, SFGradientNode, SFDisplayNodeColorStyle, SFT
     open override func didLoad() {
         super.didLoad()
         updateColors()
-        
-        if self.isLayerBacked == false {
-            self.animator.view = self.view
-        }
+        isAnimationReady()
     }
     
     open func updateColors() {

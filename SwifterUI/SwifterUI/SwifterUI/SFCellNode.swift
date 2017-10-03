@@ -37,7 +37,7 @@ open class SFCellNode: ASCellNode, SFGradientNode, SFBlurredNode, SFDisplayNodeC
     open override func didLoad() {
         super.didLoad()
         updateColors()
-        self.animator.view = self.view
+        isAnimationReady()
     }
     
     open override func layout() {

@@ -47,10 +47,7 @@ open class SFDisplayNode: ASDisplayNode, SFGradientNode, SFBlurredNode, SFDispla
         super.didLoad()
         updateColors()
         automaticallyManagesSubnodes = true
-        
-        if self.isLayerBacked == false {
-            self.animator.view = self.view
-        }
+        isAnimationReady()
     }
     
     // addLoadingNode: Adds a loadingNode to your custom layout
