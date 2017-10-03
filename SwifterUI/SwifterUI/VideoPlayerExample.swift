@@ -51,13 +51,21 @@ class VideoPlayerControllerExample: SFViewController<VideoPlayerNodeExample> {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.SFNode.bottomButton.animator.animation = .slideInBottom
-        
+        self.SFNode.videoNode.animator.animation = .scaleIn
+        self.SFNode.bottomButton.animator.animation = .slideOutRight
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.SFNode.bottomButton.animator.startAnimation()
+        
+        self.SFNode.videoNode.animator.delay = 0.3
+        self.SFNode.videoNode.animator.startAnimation()
+        
+        Dispatch.delay(by: 2.0, dispatchLevel: DispatchLevel.main) {
+            self.SFNode.bottomButton.animator.delay = 0
+            self.SFNode.bottomButton.animator.startAnimation()
+        }
+        
         
     }
 }

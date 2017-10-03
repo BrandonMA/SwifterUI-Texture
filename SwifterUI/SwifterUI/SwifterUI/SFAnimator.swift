@@ -10,7 +10,7 @@ import AsyncDisplayKit
 
 open class SFAnimator {
     
-    open weak var view: UIView? = nil {
+    open weak var node: ASDisplayNode? = nil {
         didSet {
             self.loadAnimationPresets()
         }
@@ -33,7 +33,7 @@ open class SFAnimator {
     open var rotate: CGFloat = 0
     open var initialAlpha: CGFloat = 1.0 {
         didSet {
-            self.view?.alpha = self.initialAlpha
+            self.node?.alpha = self.initialAlpha
         }
     }
     open var finalAlpha: CGFloat = 1.0
@@ -53,8 +53,8 @@ open class SFAnimator {
         }
     }
     
-    public init(with view: UIView? = nil, animation: SFAnimationType = .none) {
-        self.view = view
+    public init(with node: ASDisplayNode? = nil, animation: SFAnimationType = .none) {
+        self.node = node
         self.animation = animation
         loadAnimationPresets()
     }
@@ -78,40 +78,28 @@ open class SFAnimator {
             initialAlpha = self.animation == .fadeIn ? 0.0 : 1.0
             finalAlpha = self.animation == .fadeIn ? 1.0 : 0.0
             duration = 0.6
-        case .slideInRight, .slideInLeft, .slideInTop, .slideInBottom:
-            guard let view = self.view else {
+        case .slideInRight, .slideInLeft, .slideInTop, .slideInBottom, .slideOutRight, .slideOutLeft, .slideOutTop, .slideOutBottom:
+            guard let node = self.node else {
                 print("View does not exist")
                 return
             }
-            guard let superview = view.superview else {
+            guard let superview = node.supernode else {
                 print("Superview does not exist")
                 return
             }
-            initialFrame = view.frame
-            finalFrame = view.frame
+            initialFrame = node.frame
+            finalFrame = node.frame
             if self.animation == .slideInRight || self.animation == .slideInLeft {
-                initialFrame.origin.x = self.animation == .slideInRight ? superview.frame.width + initialFrame.size.width : 0 - initialFrame.size.width
+                initialFrame.origin.x = self.animation == .slideInRight ? superview.bounds.width + initialFrame.size.width : 0 - initialFrame.size.width
             } else  if self.animation == .slideInTop || self.animation == .slideInBottom {
-                initialFrame.origin.y = self.animation == .slideInTop ? 0 - initialFrame.size.height : superview.frame.height + initialFrame.size.height
+                initialFrame.origin.y = self.animation == .slideInTop ? 0 - initialFrame.size.height : superview.bounds.height + initialFrame.size.height
             }
-            view.frame = initialFrame
-        case .slideOutRight, .slideOutLeft, .slideOutTop, .slideOutBottom:
-            guard let view = self.view else {
-                print("View does not exist")
-                return
-            }
-            guard let superview = view.superview else {
-                print("Superview does not exist")
-                return
-            }
-            self.initialFrame = view.frame
-            self.finalFrame = view.frame
             if self.animation == .slideOutRight || self.animation == .slideOutLeft {
-                finalFrame.origin.x = self.animation == .slideOutRight ? superview.frame.width + finalFrame.size.width : 0 - finalFrame.size.width
+                finalFrame.origin.x = self.animation == .slideOutRight ? superview.bounds.width + finalFrame.size.width : 0 - finalFrame.size.width
             } else if self.animation == .slideOutTop || self.animation == .slideOutBottom {
-                finalFrame.origin.y = self.animation == .slideOutTop ? 0 - finalFrame.size.height : superview.frame.height + finalFrame.size.height
+                finalFrame.origin.y = self.animation == .slideOutTop ? 0 - finalFrame.size.height : superview.bounds.height + finalFrame.size.height
             }
-            view.frame = initialFrame
+            node.frame = initialFrame
             
         default: return
         }
@@ -123,8 +111,8 @@ open class SFAnimator {
             case .zoomIn, .zoomOut: self.zoomOrScale()
             case .scaleIn, .scaleOut: self.zoomOrScale()
             case .fadeIn, .fadeOut: self.fade()
-            case .slideInRight, .slideInLeft, .slideInTop, .slideInBottom: self.slideIn()
-            case .slideOutRight, .slideOutLeft, .slideOutTop, .slideOutBottom: self.slideOut()
+            case .slideInRight, .slideInLeft, .slideInTop, .slideInBottom: self.slide()
+            case .slideOutRight, .slideOutLeft, .slideOutTop, .slideOutBottom: self.slide()
             default: return
             }
         }
@@ -135,19 +123,19 @@ open class SFAnimator {
 extension SFAnimator {
     
     open func zoomOrScale() {
-        guard let view = self.view else { return }
-        self.initialFrame = view.frame
-        view.center = CGPoint(x: initialFrame.size.width / 2, y: initialFrame.size.height / 2)
+        guard let node = self.node else { return }
+        self.initialFrame = node.frame
+        node.view.center = CGPoint(x: initialFrame.size.width / 2, y: initialFrame.size.height / 2)
         if self.animation == .zoomIn || self.animation == .scaleIn {
-            view.transform = CGAffineTransform(scaleX: self.scaleX, y: self.scaleY)
+            node.view.transform = CGAffineTransform(scaleX: self.scaleX, y: self.scaleY)
         }
         UIView.animate(withDuration: self.duration, delay: self.delay, usingSpringWithDamping: self.damping, initialSpringVelocity: self.velocity, options: self.animationOptions, animations: {
-            view.alpha = self.finalAlpha
-            view.center = CGPoint(x: self.initialFrame.size.width / 2, y: self.initialFrame.size.height / 2)
+            node.alpha = self.finalAlpha
+            node.view.center = CGPoint(x: self.initialFrame.size.width / 2, y: self.initialFrame.size.height / 2)
             if self.animation == .zoomIn || self.animation == .scaleIn {
-                view.transform = .identity
+                node.view.transform = .identity
             } else if self.animation == .zoomOut || self.animation == .scaleOut {
-                view.transform = CGAffineTransform(scaleX: self.scaleX, y: self.scaleY)
+                node.view.transform = CGAffineTransform(scaleX: self.scaleX, y: self.scaleY)
             }
             
         }, completion: { finished in
@@ -157,28 +145,18 @@ extension SFAnimator {
     
     open func fade() {
         UIView.animate(withDuration: self.duration, animations: {
-            self.view?.alpha = self.finalAlpha
+            self.node?.alpha = self.finalAlpha
         }) { (finished) in
             self.animationCompletion(finished)
         }
     }
     
-    open func slideIn() {
-        guard let view = self.view else { return }
-        view.frame = initialFrame
+    open func slide() {
+        guard let node = self.node else { return }
+        node.frame = initialFrame
         UIView.animate(withDuration: self.duration, delay: self.delay, usingSpringWithDamping: self.damping, initialSpringVelocity: self.velocity, options: self.animationOptions, animations: {
-            view.alpha = self.finalAlpha
-            view.frame = self.finalFrame
-        }, completion: { finished in
-            self.animationCompletion(finished)
-        })
-    }
-    
-    open func slideOut() {
-        guard let view = self.view else { return }
-        UIView.animate(withDuration: self.duration, delay: self.delay, usingSpringWithDamping: self.damping, initialSpringVelocity: self.velocity, options: self.animationOptions, animations: {
-            view.alpha = self.finalAlpha
-            view.frame = self.finalFrame
+            node.alpha = self.finalAlpha
+            node.frame = self.finalFrame
         }, completion: { finished in
             self.animationCompletion(finished)
         })

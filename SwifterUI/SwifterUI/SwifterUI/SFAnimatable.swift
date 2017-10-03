@@ -15,7 +15,7 @@ public protocol SFAnimatable {
 public extension SFAnimatable where Self: ASDisplayNode {
     public func isAnimationReady() {
         if self.isLayerBacked == false {
-            self.animator.view = self.view
+            self.animator.node = self
         }
     }
 }
