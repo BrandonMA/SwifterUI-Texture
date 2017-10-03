@@ -12,8 +12,17 @@ public struct SFGradient {
     
     // MARK: - Instance Properties
     
-    public let colors: [CGColor]
-    public let direction: SFGradientDirection
+    public var colors: [CGColor]
+    public var direction: SFGradientDirection
+    public var inverted: Bool = false {
+        didSet {
+            var newColors: [CGColor] = []
+            self.colors.forEach { (color) in
+                newColors.insert(color, at: 0)
+            }
+            self.colors = newColors
+        }
+    }
     
     // MARK: - Initializers
     

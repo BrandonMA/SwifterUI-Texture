@@ -59,6 +59,7 @@ open class SFLoginNode: SFDisplayNode {
         imageNode.clipsToBounds = true
         imageNode.contentMode = .scaleAspectFit
         imageNode.backgroundColor = UIColor.clear
+        imageNode.isLayerBacked = true
         return imageNode
     }()
     
@@ -67,6 +68,7 @@ open class SFLoginNode: SFDisplayNode {
         let label = SFLabelNode(automaticallyAdjustsColorStyle: self.automaticallyAdjustsColorStyle)
         let size: CGFloat = self.deviceType == .iphone ? 28 : 34
         label.font = UIFont.boldSystemFont(ofSize: size)
+        label.isLayerBacked = true
         label.isLayerBacked = true
         return label
     }()

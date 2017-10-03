@@ -21,7 +21,7 @@ open class SFAnimator {
         }
     }
     open var delay: TimeInterval = 0
-    open var duration: TimeInterval = 0
+    open var duration: TimeInterval = 1
     open var damping: CGFloat = 1
     open var velocity: CGFloat = 0
     open var repeatCount: Float = 0
@@ -67,19 +67,39 @@ open class SFAnimator {
             finalAlpha = self.animation == .zoomIn ? 1.0 : 0.0
             scaleX = 1.5
             scaleY = 1.5
-            damping = 1
             duration = 0.6
         case .scaleIn, .scaleOut:
             initialAlpha = self.animation == .scaleIn ? 0.0 : 1.0
             finalAlpha = self.animation == .scaleIn ? 1.0 : 0.0
             scaleX = 0.1
             scaleY = 0.1
-            damping = 1
             duration = 0.6
         case .fadeIn, .fadeOut:
             initialAlpha = self.animation == .fadeIn ? 0.0 : 1.0
             finalAlpha = self.animation == .fadeIn ? 1.0 : 0.0
             duration = 0.6
+        case .slideInRight, .slideInLeft, .slideInTop, .slideInBottom:
+            guard let view = self.view else { return }
+            guard let superview = view.superview else { return }
+            initialFrame = view.frame
+            finalFrame = view.frame
+            if self.animation == .slideInRight || self.animation == .slideInLeft {
+                initialFrame.origin.x = self.animation == .slideInRight ? superview.frame.width + initialFrame.size.width : 0 - initialFrame.size.width
+            } else  if self.animation == .slideInTop || self.animation == .slideInBottom {
+                initialFrame.origin.y = self.animation == .slideInTop ? 0 - initialFrame.size.height : superview.frame.height + initialFrame.size.height
+            }
+        case .slideOutRight, .slideOutLeft, .slideOutTop, .slideOutBottom:
+            guard let view = self.view else { return }
+            guard let superview = view.superview else { return }
+            self.initialFrame = view.frame
+            self.finalFrame = view.frame
+            if self.animation == .slideOutRight || self.animation == .slideOutLeft {
+                finalFrame.origin.x = self.animation == .slideOutRight ? superview.frame.width + finalFrame.size.width : 0 - finalFrame.size.width
+                print(finalFrame.origin.x)
+            } else if self.animation == .slideOutTop || self.animation == .slideOutBottom {
+                finalFrame.origin.y = self.animation == .slideOutTop ? 0 - finalFrame.size.height : superview.frame.height + finalFrame.size.height
+            }
+            
         default: return
         }
     }
@@ -90,6 +110,8 @@ open class SFAnimator {
             case .zoomIn, .zoomOut: self.zoomOrScale()
             case .scaleIn, .scaleOut: self.zoomOrScale()
             case .fadeIn, .fadeOut: self.fade()
+            case .slideInRight, .slideInLeft, .slideInTop, .slideInBottom: self.slideIn()
+            case .slideOutRight, .slideOutLeft, .slideOutTop, .slideOutBottom: self.slideOut()
             default: return
             }
         }
@@ -109,7 +131,6 @@ extension SFAnimator {
         }
         
         UIView.animate(withDuration: self.duration, delay: self.delay, usingSpringWithDamping: self.damping, initialSpringVelocity: self.velocity, options: self.animationOptions, animations: {
-            
             view.alpha = self.finalAlpha
             view.center = CGPoint(x: self.initialFrame.size.width / 2, y: self.initialFrame.size.height / 2)
             
@@ -131,6 +152,29 @@ extension SFAnimator {
             self.animationCompletion(finished)
         }
     }
+    
+    open func slideIn() {
+        guard let view = self.view else { return }
+        view.frame = initialFrame
+        UIView.animate(withDuration: self.duration, delay: self.delay, usingSpringWithDamping: self.damping, initialSpringVelocity: self.velocity, options: self.animationOptions, animations: {
+            view.alpha = self.finalAlpha
+            view.frame = self.finalFrame
+        }, completion: { finished in
+            self.animationCompletion(finished)
+        })
+    }
+    
+    open func slideOut() {
+        guard let view = self.view else { return }
+        view.frame = initialFrame
+        UIView.animate(withDuration: self.duration, delay: self.delay, usingSpringWithDamping: self.damping, initialSpringVelocity: self.velocity, options: self.animationOptions, animations: {
+            view.alpha = self.finalAlpha
+            view.frame = self.finalFrame
+        }, completion: { finished in
+            self.animationCompletion(finished)
+        })
+    }
+    
 }
 
 

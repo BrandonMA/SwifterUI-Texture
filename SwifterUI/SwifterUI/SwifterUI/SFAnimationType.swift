@@ -15,5 +15,13 @@ public enum SFAnimationType: String {
     case scaleOut
     case fadeIn
     case fadeOut
+    case slideInRight
+    case slideInLeft
+    case slideInTop
+    case slideInBottom
+    case slideOutRight
+    case slideOutLeft
+    case slideOutTop
+    case slideOutBottom
     case none
 }

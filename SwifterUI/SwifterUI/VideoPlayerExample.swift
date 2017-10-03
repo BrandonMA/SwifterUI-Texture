@@ -32,15 +32,18 @@ class VideoPlayerControllerExample: SFViewController<VideoPlayerNodeExample> {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        guard let path = Bundle.main.path(forResource: "video", ofType:"mp4") else { return }
+        self.SFNode.videoNode.load(videoURL: URL(fileURLWithPath: path), parentController: self)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.SFNode.videoNode.animator.animation = .scaleIn
-        Dispatch.delay(by: 1.0, dispatchLevel: DispatchLevel.background) {
-            guard let path = Bundle.main.path(forResource: "video", ofType:"mp4") else { return }
-            self.SFNode.videoNode.load(videoURL: URL(fileURLWithPath: path), parentController: self)
+        
+        self.SFNode.videoNode.animator.animation = .slideOutTop
+        Dispatch.delay(by: 3.0, dispatchLevel: DispatchLevel.background) {
             self.SFNode.videoNode.animator.startAnimation()
-//            guard let youtubeURL = URL(string: "https://www.youtube.com/watch?v=iTcq6L-PaDQ") else { return }
-//            self.SFNode.videoNode.load(youtubeURL: youtubeURL)
         }
     }
 }
