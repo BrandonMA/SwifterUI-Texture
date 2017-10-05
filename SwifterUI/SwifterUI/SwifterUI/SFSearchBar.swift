@@ -34,7 +34,7 @@ open class SFSearchBar: SFDisplayNode {
     open lazy var textField: SFTextField = {
         let node = SFTextField()
         node.placeholder = LocalizedString.shared.getSearch()
-        node.leftPadding = 10
+        node.leftPadding = 14
         node.style.flexGrow = 1.0
         return node
     }()

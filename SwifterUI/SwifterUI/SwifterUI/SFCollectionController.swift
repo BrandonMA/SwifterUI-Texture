@@ -23,9 +23,7 @@ open class SFCollectionController: SFViewController<SFCollectionNode>, ASCollect
         self.SFNode.delegate = self
         
         self.SFNode.dataSource = self
-        
-        self.automaticallyAdjustsLayoutInsets = false
-        
+                
         self.node.backgroundColor = self.SFNode.backgroundColor
     }
     

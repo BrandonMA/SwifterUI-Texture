@@ -24,6 +24,12 @@ open class SFViewController<SFNodeType: SFColorStyleProtocol>: ASViewController<
         }
     }
     
+    open var automaticallyTintNavigationBar: Bool = false {
+        didSet {
+            automaticallyAdjustsColorStyleHandler()
+        }
+    }
+    
     // preferredStatusBarStyle: Override the preferred status bar style with an colorStyle's getStatusBarStyle method that automatically return the correct statusbarstyle
     open override var preferredStatusBarStyle: UIStatusBarStyle {
         return self.statusBarStyle
@@ -47,9 +53,6 @@ open class SFViewController<SFNodeType: SFColorStyleProtocol>: ASViewController<
             self.setNeedsStatusBarAppearanceUpdate()
         }
     }
-    
-    // automaticallyAdjustsLayoutInsets: This property enables automatic addition of Insets on reloadLayout()
-    open var automaticallyAdjustsLayoutInsets: Bool = false
     
     // shouldHaveSearchBar: Indicates if it should have a search bar available or not
     open var shouldHaveSearchBar: Bool = false
@@ -77,6 +80,8 @@ open class SFViewController<SFNodeType: SFColorStyleProtocol>: ASViewController<
         node.addSubnode(self.SFNode)
         
         self.automaticallyAdjustsColorStyle = automaticallyAdjustsColorStyle
+        
+        self.automaticallyTintNavigationBar = automaticallyAdjustsColorStyle
         
         self.node.layoutSpecBlock = { node, constrainedSize in
             self.SFNode.style.preferredLayoutSize = ASLayoutSize(width: ASDimension(unit: ASDimensionUnit.points, value: constrainedSize.max.width), height: ASDimension(unit: ASDimensionUnit.points, value: constrainedSize.max.height))
@@ -130,18 +135,19 @@ open class SFViewController<SFNodeType: SFColorStyleProtocol>: ASViewController<
         if self.automaticallyAdjustsColorStyle == true {
             Dispatch.addAsyncTask(to: DispatchLevel.main) {
                 UIView.animate(withDuration: 0.3, animations: {
-                    self.statusBarStyle = self.colorStyle.getStatusBarStyle()
-                    
+                   
                     // This is called first so your SFNode(a subnode of your main node) is updated first, then all it's subnodes.
                     self.updateSubNodesColors()
                     
                     // Once your SFNode is updated your main node(the one that comes with ASViewController) changes it's color to the correct one. This is make at the end because the main node should never be visible.
                     self.node.backgroundColor = self.SFNode.backgroundColor
                     
-                    self.navigationController?.navigationBar.barStyle = self.colorStyle.getNavigationBarStyle()
+                    if self.automaticallyTintNavigationBar == true {
+                        self.navigationController?.navigationBar.barStyle = self.colorStyle.getNavigationBarStyle()
+                        self.navigationController?.navigationBar.tintColor = self.colorStyle.getInteractiveColor()
+                    }
                     
-                    self.navigationController?.navigationBar.tintColor = self.colorStyle.getInteractiveColor()
-                    
+                    self.statusBarStyle = self.colorStyle.getStatusBarStyle()
                     self.setNeedsStatusBarAppearanceUpdate()
                     
                     self.currentColorStyle = self.colorStyle

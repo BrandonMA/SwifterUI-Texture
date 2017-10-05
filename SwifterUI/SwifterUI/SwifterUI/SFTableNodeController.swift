@@ -24,8 +24,6 @@ open class SFTableNodeController: SFViewController<SFTableNode>, ASTableDataSour
         
         self.SFNode.dataSource = self
         
-        self.automaticallyAdjustsLayoutInsets = false
-        
         self.node.backgroundColor = self.SFNode.backgroundColor
     }
     

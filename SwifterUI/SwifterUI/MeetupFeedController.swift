@@ -29,7 +29,7 @@ class MeetupFeedController: SFTableNodeController, UINavigationControllerDelegat
         super.init(SFTableNode: newNode, automaticallyAdjustsColorStyle: true)
         
         self.shouldHaveSearchBar = true
-        
+                
         self.meetUpFeedDataManager = MeetupFeedDataManager(meetupService: meetUpService, locationService: locationService)
         
         self.SFNode.allowsSelection = true
@@ -47,7 +47,7 @@ class MeetupFeedController: SFTableNodeController, UINavigationControllerDelegat
                 let indexSet = IndexSet(integer: 0)
                                 
                 Dispatch.addAsyncTask(to: DispatchLevel.main, handler: {
-                    self.SFNode.reloadSections(indexSet, with: UITableViewRowAnimation.right)
+                    self.SFNode.reloadSections(indexSet, with: UITableViewRowAnimation.middle)
                     self.updateColors()
                 })
                 

@@ -17,6 +17,11 @@ class FoursquareNode: SFDisplayNode {
         return mapNode
     }()
     
+    lazy var searchBar: SFSearchBar = {
+        let searchBar = SFSearchBar(automaticallyAdjustsColorStyle: self.automaticallyAdjustsColorStyle)
+        return searchBar
+    }()
+    
     lazy var tableNode: SFTableNode = {
         let tableNode = SFTableNode(automaticallyAdjustsColorStyle: self.automaticallyAdjustsColorStyle)
         tableNode.allowsSelection = false
@@ -27,7 +32,7 @@ class FoursquareNode: SFDisplayNode {
         tableNode.style.width = ASDimension(unit: ASDimensionUnit.fraction, value: 1)
         tableNode.style.flexGrow = 1.0
         let ratioLayout = ASRatioLayoutSpec(ratio: 9/16, child: mapNode)
-        let stackLayout = ASStackLayoutSpec(direction: ASStackLayoutDirection.vertical, spacing: 0, justifyContent: ASStackLayoutJustifyContent.start, alignItems: ASStackLayoutAlignItems.start, children: [ratioLayout, tableNode])
+        let stackLayout = ASStackLayoutSpec(direction: ASStackLayoutDirection.vertical, spacing: 0, justifyContent: ASStackLayoutJustifyContent.start, alignItems: ASStackLayoutAlignItems.start, children: [ratioLayout, searchBar, tableNode])
         return stackLayout
     }
 }
@@ -80,6 +85,15 @@ class FoursquareViewController: SFViewController<FoursquareNode>, CLLocationMana
         locationManager.startUpdatingLocation()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.SFNode.searchBar.animator.animation = .scaleIn
+        self.SFNode.searchBar.animator.delay = 0.3
+        self.SFNode.searchBar.animator.damping = 0.7
+        self.SFNode.searchBar.animator.startAnimation()
+    }
+    
     func updateBaseString(with coordinate: CLLocationCoordinate2D) {
         self.baseString += "ll=\(coordinate.latitude),\(coordinate.longitude)"
         self.baseString += "&client_id=\(clientID)&client_secret=\(clientSecret)&v=\(Date.today(with: "YYYYMMDD"))"
@@ -102,14 +116,18 @@ class FoursquareViewController: SFViewController<FoursquareNode>, CLLocationMana
                 
                 if let responseDict = jsonObject["response"] as? [String: Any] {
                     if let venuesDict = responseDict["venues"] as? [[String: Any]] {
+                        var annotations: [MKPointAnnotation] = []
                         venuesDict.forEach({ (finalDict) in
                             let venue = Venue(with: finalDict)
                             self.venues.append(venue)
-                            Dispatch.addAsyncTask(to: DispatchLevel.main, handler: {
-                                let annotation = MKPointAnnotation()
-                                annotation.coordinate = CLLocationCoordinate2D(latitude: venue.location.lat, longitude: venue.location.lng)
-                                self.SFNode.mapNode.annotations.append(annotation)
-                            })
+                            let annotation = MKPointAnnotation()
+                            annotation.coordinate = CLLocationCoordinate2D(latitude: venue.location.lat, longitude: venue.location.lng)
+                            annotations.append(annotation)
+                        })
+                        
+                        Dispatch.addAsyncTask(to: DispatchLevel.main, handler: {
+                            self.SFNode.tableNode.reloadSections(IndexSet(integer: 0), with: UITableViewRowAnimation.fade)
+                            self.SFNode.mapNode.annotations = annotations
                         })
                     }
                 }
@@ -117,10 +135,6 @@ class FoursquareViewController: SFViewController<FoursquareNode>, CLLocationMana
             } catch let error {
                 print(error.localizedDescription)
             }
-            
-            Dispatch.addAsyncTask(to: DispatchLevel.main, handler: {
-                self.SFNode.tableNode.reloadSections(IndexSet(integer: 0), with: UITableViewRowAnimation.right)
-            })
             
         }
         task.resume()

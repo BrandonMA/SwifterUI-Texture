@@ -99,6 +99,13 @@ open class SFTextField: SFDisplayNode {
     
     // clearButtonColor: Color of the clearbutton, to see implementation check textField's clearButtonColor properties
     open var clearButtonColor: UIColor = UIColor.black { didSet { self.textField.clearButtonColor = self.clearButtonColor } }
+    
+    // keyboardType: Set textField's keyboard type
+    open var keyboardType: UIKeyboardType = UIKeyboardType.default {
+        didSet {
+            self.textField.keyboardType = self.keyboardType
+        }
+    }
         
     // MARK: - Initializers
 
