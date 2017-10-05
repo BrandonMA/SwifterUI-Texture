@@ -27,6 +27,13 @@ public extension ASDisplayNode {
         
         return separator
     }
+    
+    public func addShadow(color: UIColor, offSet: CGSize, radius: CGFloat, opacity: CGFloat) {
+        self.shadowColor = color.cgColor
+        self.shadowOffset = offSet
+        self.shadowRadius = radius
+        self.shadowOpacity = opacity
+    }
 }
 
 extension ASDisplayNode: SFDeviceProtocol {

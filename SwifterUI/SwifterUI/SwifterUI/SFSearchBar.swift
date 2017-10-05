@@ -57,6 +57,7 @@ open class SFSearchBar: SFDisplayNode {
         self.style.preferredLayoutSize = ASLayoutSize(width: ASDimension(unit: ASDimensionUnit.fraction, value: 1), height: ASDimension(unit: ASDimensionUnit.points, value: 56)) // Set a default size for all searchBars
         textField.textField.delegate = self
         cancelButton.addTarget(self, action: #selector(cancelButtonDidTouch), forControlEvents: ASControlNodeEvent.touchUpInside)
+        self.clipsToBounds = true
     }
     
     // Initialize the node with a automaticallyAdjustsColorStyle set to true, this should be a convinience init
