@@ -76,7 +76,7 @@ open class SFSearchBar: SFDisplayNode {
         
         let stackLayout = ASStackLayoutSpec(direction: ASStackLayoutDirection.horizontal, spacing: 16, justifyContent: ASStackLayoutJustifyContent.start, alignItems: ASStackLayoutAlignItems.center, children: [textField, cancelButton])
         
-        return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16), child: stackLayout)
+        return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 8, left: 16, bottom: 16, right: 16), child: stackLayout)
     }
     
     open override func updateColors() {
