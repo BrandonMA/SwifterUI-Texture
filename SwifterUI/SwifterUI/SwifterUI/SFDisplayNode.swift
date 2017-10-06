@@ -16,7 +16,7 @@ open class SFDisplayNode: ASDisplayNode, SFGradientNode, SFBlurredNode, SFDispla
     
     open var gradient: SFGradient? { didSet { self.setGradient() } }
     
-    open var effect: UIVisualEffect?
+    open var effect: UIVisualEffect? { didSet { self.setEffect() } }
         
     // isLoading: If you used addLoadingNode, set true or false to show a SFLoadingNode()
     open var isLoading = false
@@ -55,6 +55,21 @@ open class SFDisplayNode: ASDisplayNode, SFGradientNode, SFBlurredNode, SFDispla
     //   layout: your custom layout where it's added the loadingNode
     open func addLoadingNode(to layout: ASLayoutSpec) -> ASLayoutSpec {
         return ASOverlayLayoutSpec(child: layout, overlay: loadingNode)
+    }
+    
+    open func startLoading() {
+        handle(loading: true)
+    }
+    
+    open func stopLoading() {
+        handle(loading: false)
+    }
+    
+    private func handle(loading: Bool) {
+        self.isLoading = loading
+        Dispatch.addAsyncTask(to: DispatchLevel.main) {
+            self.transitionLayout(withAnimation: true, shouldMeasureAsync: false, measurementCompletion: nil)
+        }
     }
     
     open override func layout() {

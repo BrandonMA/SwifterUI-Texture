@@ -25,6 +25,12 @@ extension SFBlurredNode where Self: ASDisplayNode {
                 let effectView = UIVisualEffectView(effect: effect)
                 effectView.frame = self.bounds
                 effectView.isUserInteractionEnabled = false
+                
+                for subview in self.view.subviews {
+                    if subview.isKind(of: UIVisualEffectView.self) {
+                        subview.removeFromSuperview()
+                    }
+                }
                 self.view.insertSubview(effectView, at: 0)
             }
         }

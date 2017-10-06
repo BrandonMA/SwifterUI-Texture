@@ -31,11 +31,6 @@ open class SFLoadingNode: SFDisplayNode {
     
     // MARK: - Instance Methods
     
-    open override func didLoad() {
-        super.didLoad()
-        updateColors()
-    }
-    
     // layoutSpecThatFits: Layout all subnodes
     override open func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         

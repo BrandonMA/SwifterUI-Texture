@@ -27,7 +27,10 @@ class VideoPlayerNodeExample: SFDisplayNode {
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         let ratioLayout = ASRatioLayoutSpec(ratio: 9/16, child: videoNode)
         bottomButton.style.preferredLayoutSize = ASLayoutSize(width: ASDimension(unit: ASDimensionUnit.points, value: 300), height: ASDimension(unit: ASDimensionUnit.points, value: 44))
-        return ASStackLayoutSpec(direction: ASStackLayoutDirection.vertical, spacing: 24, justifyContent: ASStackLayoutJustifyContent.center, alignItems: ASStackLayoutAlignItems.center, children: [ratioLayout, bottomButton])
+        
+        let stack = ASStackLayoutSpec(direction: ASStackLayoutDirection.vertical, spacing: 24, justifyContent: ASStackLayoutJustifyContent.center, alignItems: ASStackLayoutAlignItems.center, children: [ratioLayout, bottomButton])
+        
+        return addLoadingNode(to: stack)
     }
     
 }
@@ -62,6 +65,10 @@ class VideoPlayerControllerExample: SFViewController<VideoPlayerNodeExample> {
         self.SFNode.videoNode.animator.startAnimation()
         self.SFNode.bottomButton.animator.delay = 0.3
         self.SFNode.bottomButton.animator.startAnimation()
+        
+        Dispatch.delay(by: 2.0, dispatchLevel: DispatchLevel.background) {
+            self.SFNode.startLoading()
+        }
         
         
     }
