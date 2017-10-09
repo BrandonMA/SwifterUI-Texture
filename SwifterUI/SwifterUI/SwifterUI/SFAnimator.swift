@@ -38,7 +38,7 @@ open class SFAnimator {
         }
     }
     open var finalAlpha: CGFloat = 1.0
-    open var animationOptions: UIViewAnimationOptions = []
+    open var animationOptions: UIViewAnimationOptions = [UIViewAnimationOptions.allowUserInteraction]
     open var animationCompletion: (Bool) -> Void = {_ in }
     open var reversed: Bool = false {
         didSet {

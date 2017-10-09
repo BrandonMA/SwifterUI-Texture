@@ -106,7 +106,7 @@ class MeetupFeedController: SFTableNodeController, UINavigationControllerDelegat
     
     func tableNode(_ tableNode: ASTableNode, willDisplayRowWith node: ASCellNode) {
         guard let node = node as? MeetupFeedCellNode else { return }
-        node.animator.animation = .slideInLeft
+        node.animator.animation = .scaleIn
         node.animator.startAnimation()
     }
     
