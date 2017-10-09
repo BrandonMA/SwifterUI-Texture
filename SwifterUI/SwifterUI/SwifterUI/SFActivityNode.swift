@@ -18,7 +18,7 @@ open class SFActivityNode: ASDisplayNode, SFDisplayNodeColorStyle, SFAnimatable 
         
     open var automaticallyAdjustsColorStyle: Bool
     
-    open var animator: SFAnimator = SFAnimator()
+    open lazy var animator: SFAnimator = SFAnimator(with: self, animation: SFAnimationType.none)
     
     // MARK: - Initializers
     
@@ -56,7 +56,6 @@ open class SFActivityNode: ASDisplayNode, SFDisplayNodeColorStyle, SFAnimatable 
     open override func didLoad() {
         super.didLoad()
         updateColors()
-        isAnimationReady()
     }
     
     open func updateColors() {

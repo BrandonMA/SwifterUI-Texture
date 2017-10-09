@@ -11,9 +11,3 @@ import AsyncDisplayKit
 public protocol SFAnimatable {
     var animator: SFAnimator { get set }
 }
-
-public extension SFAnimatable where Self: ASDisplayNode {
-    public func isAnimationReady() {
-        self.animator.node = self
-    }
-}

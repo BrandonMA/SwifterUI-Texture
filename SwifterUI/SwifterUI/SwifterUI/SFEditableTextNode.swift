@@ -26,7 +26,7 @@ open class SFEditableTextNode: ASEditableTextNode, SFGradientNode, SFDisplayNode
     
     open var gradient: SFGradient?
     
-    open var animator: SFAnimator = SFAnimator()
+    open lazy var animator: SFAnimator = SFAnimator(with: self, animation: SFAnimationType.none)
     
     // MARK: - Initializers
     
@@ -49,7 +49,6 @@ open class SFEditableTextNode: ASEditableTextNode, SFGradientNode, SFDisplayNode
         setAttributedText()
         self.textView.isEditable = false
         self.textView.isSelectable = false
-        isAnimationReady()
     }
     
     open func updateColors() {

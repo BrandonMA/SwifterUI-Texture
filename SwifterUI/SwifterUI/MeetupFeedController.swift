@@ -47,7 +47,7 @@ class MeetupFeedController: SFTableNodeController, UINavigationControllerDelegat
                 let indexSet = IndexSet(integer: 0)
                                 
                 Dispatch.addAsyncTask(to: DispatchLevel.main, handler: {
-                    self.SFNode.reloadSections(indexSet, with: UITableViewRowAnimation.middle)
+                    self.SFNode.reloadSections(indexSet, with: UITableViewRowAnimation.automatic)
                     self.updateColors()
                 })
                 
@@ -102,6 +102,12 @@ class MeetupFeedController: SFTableNodeController, UINavigationControllerDelegat
         }
         
         return block
+    }
+    
+    func tableNode(_ tableNode: ASTableNode, willDisplayRowWith node: ASCellNode) {
+        guard let node = node as? MeetupFeedCellNode else { return }
+        node.animator.animation = .slideInLeft
+        node.animator.startAnimation()
     }
     
     func tableNode(_ tableNode: ASTableNode, didSelectRowAt indexPath: IndexPath) {

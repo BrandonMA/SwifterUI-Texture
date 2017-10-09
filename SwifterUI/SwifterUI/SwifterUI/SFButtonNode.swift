@@ -31,7 +31,7 @@ open class SFButtonNode: ASButtonNode, SFGradientNode, SFBlurredNode, SFDisplayN
     
     open var effect: UIVisualEffect?
     
-    open var animator: SFAnimator = SFAnimator()
+    open lazy var animator: SFAnimator = SFAnimator(with: self, animation: SFAnimationType.none)
     
     // MARK: - Initializers
     
@@ -50,7 +50,6 @@ open class SFButtonNode: ASButtonNode, SFGradientNode, SFBlurredNode, SFDisplayN
     open override func didLoad() {
         super.didLoad()
         updateColors()
-        isAnimationReady()
     }
     
     open override func layout() {

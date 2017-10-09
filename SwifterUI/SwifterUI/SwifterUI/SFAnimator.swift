@@ -88,22 +88,24 @@ open class SFAnimator {
                 print("node does not exist")
                 return
             }
-            guard let superview = node.supernode else {
-                print("supernode does not exist")
-                return
-            }
+            
+            let maxWidth = node.supernode?.bounds.width ?? UIScreen.main.bounds.width
+            let maxHeight = node.supernode?.bounds.height ?? UIScreen.main.bounds.height
+            
             initialFrame = node.frame
             finalFrame = node.frame
+            
             if self.animation == .slideInRight || self.animation == .slideInLeft {
-                initialFrame.origin.x = self.animation == .slideInRight ? superview.bounds.width + initialFrame.size.width : 0 - initialFrame.size.width
+                initialFrame.origin.x = self.animation == .slideInRight ? maxWidth + initialFrame.size.width : 0 - initialFrame.size.width
             } else  if self.animation == .slideInTop || self.animation == .slideInBottom {
-                initialFrame.origin.y = self.animation == .slideInTop ? 0 - initialFrame.size.height : superview.bounds.height + initialFrame.size.height
+                initialFrame.origin.y = self.animation == .slideInTop ? 0 - initialFrame.size.height : maxHeight + initialFrame.size.height
             }
             if self.animation == .slideOutRight || self.animation == .slideOutLeft {
-                finalFrame.origin.x = self.animation == .slideOutRight ? superview.bounds.width + finalFrame.size.width : 0 - finalFrame.size.width
+                finalFrame.origin.x = self.animation == .slideOutRight ? maxWidth + finalFrame.size.width : 0 - finalFrame.size.width
             } else if self.animation == .slideOutTop || self.animation == .slideOutBottom {
-                finalFrame.origin.y = self.animation == .slideOutTop ? 0 - finalFrame.size.height : superview.bounds.height + finalFrame.size.height
+                finalFrame.origin.y = self.animation == .slideOutTop ? 0 - finalFrame.size.height : maxHeight + finalFrame.size.height
             }
+            
             node.frame = initialFrame
         default: return
         }

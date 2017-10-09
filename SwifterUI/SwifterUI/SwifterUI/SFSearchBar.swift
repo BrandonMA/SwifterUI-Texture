@@ -72,11 +72,11 @@ open class SFSearchBar: SFDisplayNode {
         
         textField.style.flexBasis = self.cancelButtonShouldBeVisible == true ? ASDimension(unit: ASDimensionUnit.points, value: constrainedSize.max.width - 126) : ASDimension(unit: ASDimensionUnit.points, value: constrainedSize.max.width - 32) // If cancel button is visible then textField should be smaller, if not then make it bigger
         
-        textField.style.height = ASDimension(unit: ASDimensionUnit.points, value: 40)
+        textField.style.height = ASDimension(unit: ASDimensionUnit.points, value: 44)
         
         let stackLayout = ASStackLayoutSpec(direction: ASStackLayoutDirection.horizontal, spacing: 16, justifyContent: ASStackLayoutJustifyContent.start, alignItems: ASStackLayoutAlignItems.center, children: [textField, cancelButton])
         
-        return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 8, left: 16, bottom: 16, right: 16), child: stackLayout)
+        return stackLayout
     }
     
     open override func updateColors() {

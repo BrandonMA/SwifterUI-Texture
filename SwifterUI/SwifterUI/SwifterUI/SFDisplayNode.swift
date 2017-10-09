@@ -28,7 +28,7 @@ open class SFDisplayNode: ASDisplayNode, SFGradientNode, SFBlurredNode, SFDispla
         return node
     }()
     
-    open var animator: SFAnimator = SFAnimator()
+    open lazy var animator: SFAnimator = SFAnimator(with: self)
     
     // MARK: - Initializers
     
@@ -36,7 +36,7 @@ open class SFDisplayNode: ASDisplayNode, SFGradientNode, SFBlurredNode, SFDispla
         self.automaticallyAdjustsColorStyle = automaticallyAdjustsColorStyle
         super.init()
     }
-    
+
     public override convenience init() {
         self.init(automaticallyAdjustsColorStyle: true)
     }
@@ -47,7 +47,6 @@ open class SFDisplayNode: ASDisplayNode, SFGradientNode, SFBlurredNode, SFDispla
         super.didLoad()
         updateColors()
         automaticallyManagesSubnodes = true
-        isAnimationReady()
     }
     
     // addLoadingNode: Adds a loadingNode to your custom layout

@@ -18,7 +18,7 @@ open class SFCellNode: ASCellNode, SFGradientNode, SFBlurredNode, SFDisplayNodeC
     
     open var effect: UIVisualEffect?
     
-    open var animator: SFAnimator = SFAnimator()
+    open lazy var animator: SFAnimator = SFAnimator(with: self, animation: SFAnimationType.none)
     
     // MARK: - Initializers
     
@@ -37,7 +37,6 @@ open class SFCellNode: ASCellNode, SFGradientNode, SFBlurredNode, SFDisplayNodeC
     open override func didLoad() {
         super.didLoad()
         updateColors()
-        isAnimationReady()
     }
     
     open override func layout() {

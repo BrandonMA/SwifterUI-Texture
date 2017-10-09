@@ -30,7 +30,7 @@ class VideoPlayerNodeExample: SFDisplayNode {
         
         let stack = ASStackLayoutSpec(direction: ASStackLayoutDirection.vertical, spacing: 24, justifyContent: ASStackLayoutJustifyContent.center, alignItems: ASStackLayoutAlignItems.center, children: [ratioLayout, bottomButton])
         
-        return addLoadingNode(to: stack)
+        return stack
     }
     
 }
@@ -54,23 +54,17 @@ class VideoPlayerControllerExample: SFViewController<VideoPlayerNodeExample> {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         self.SFNode.videoNode.animator.animation = .scaleIn
         self.SFNode.bottomButton.animator.animation = .slideInBottom
+        self.SFNode.videoNode.animator.delay = 0.3
+        self.SFNode.bottomButton.animator.delay = 0.3
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        self.SFNode.videoNode.animator.delay = 0.3
         self.SFNode.videoNode.animator.startAnimation()
-        self.SFNode.bottomButton.animator.delay = 0.3
-        self.SFNode.bottomButton.animator.startAnimation()
-        
-        Dispatch.delay(by: 2.0, dispatchLevel: DispatchLevel.background) {
-            self.SFNode.startLoading()
-        }
-        
-        
+         self.SFNode.bottomButton.animator.startAnimation()
     }
 }
 
