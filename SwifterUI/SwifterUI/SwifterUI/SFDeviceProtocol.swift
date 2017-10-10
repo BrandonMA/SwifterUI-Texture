@@ -10,6 +10,8 @@ import AsyncDisplayKit
 
 public protocol SFDeviceProtocol {
     
+    // MARK: - Instance Properties
+    
     // deviceType: Identifier to know if you are working on an ipad, iphone or iphone plus
     var deviceType: SFDevice { get }
     

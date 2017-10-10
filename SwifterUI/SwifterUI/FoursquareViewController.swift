@@ -47,8 +47,8 @@ class FoursquareCell: SFCellNode {
         return label
     }()
     
-    lazy var subtitleLabel: SFDetailLabelNode = {
-        let label = SFDetailLabelNode(automaticallyAdjustsColorStyle: self.automaticallyAdjustsColorStyle)
+    lazy var subtitleLabel: SFLabelNode = {
+        let label = SFLabelNode(automaticallyAdjustsColorStyle: self.automaticallyAdjustsColorStyle)
         label.isLayerBacked = true
         return label
     }()

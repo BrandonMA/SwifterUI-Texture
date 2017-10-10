@@ -10,6 +10,8 @@ import UIKit
 
 public extension UIImage {
     
+    // MARK: - Instance Methods
+    
     public func tint(color: UIColor, alpha: CGFloat) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(size, false, self.scale)
         guard let context = UIGraphicsGetCurrentContext() else { return nil }

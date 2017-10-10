@@ -12,8 +12,6 @@ open class SFTableNode: ASTableNode, SFDisplayNodeColorStyle, SFAnimatable {
     
     // MARK: - Instance Properties
     
-    open var automaticallyAdjustsColorStyle: Bool
-    
     // shouldHaveRefreshControl: Indicates if it should have a refresh control or not
     open var shouldHaveRefreshControl: Bool = false
     
@@ -25,6 +23,14 @@ open class SFTableNode: ASTableNode, SFDisplayNodeColorStyle, SFAnimatable {
             self.view.separatorColor = self.separatorColor
         }
     }
+    
+    // MARK: - SFDisplayNodeColorStyle
+    
+    open var automaticallyAdjustsColorStyle: Bool
+    
+    open var shouldHaveAlternativeColors: Bool = false
+    
+    // MARK - SFAnimatable
     
     open lazy var animator: SFAnimator = SFAnimator(with: self, animation: SFAnimationType.none)
 
@@ -59,12 +65,19 @@ open class SFTableNode: ASTableNode, SFDisplayNodeColorStyle, SFAnimatable {
         self.view.backgroundView = UIView() // This is used to eliminate a weird bug with UISearchBar showing a gray background
     }
     
+    // endRefreshing: Calls refreshControl's endRefreshing method
+    open func endRefreshing() {
+        self.refreshControl?.endRefreshing()
+    }
+    
+    // MARK: - SFDisplayNodeColorStyle
+    
     // This method should be called after viewDidLoad if you are using a SFTableNode
     open func updateColors() {
         if self.automaticallyAdjustsColorStyle == true {
             updateSubNodesColors()
             self.refreshControl?.tintColor = self.colorStyle.getDetailColor()
-            self.backgroundColor = self.colorStyle.getBackgroundColor()
+            self.backgroundColor = self.shouldHaveAlternativeColors == false ? self.colorStyle.getBackgroundColor() : self.colorStyle.getAlternativeBackgroundColor()
             self.separatorColor = self.colorStyle.getSeparatorColor()
             
             // This is going to loop through every section inside the table node and reload it with the correct color style on the main thread
@@ -75,11 +88,6 @@ open class SFTableNode: ASTableNode, SFDisplayNodeColorStyle, SFAnimatable {
                 }
             }
         }
-    }
-    
-    // endRefreshing: Calls refreshControl's endRefreshing method
-    open func endRefreshing() {
-        self.refreshControl?.endRefreshing()
     }
 }
 

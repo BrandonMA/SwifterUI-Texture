@@ -10,14 +10,20 @@ import AsyncDisplayKit
 
 public protocol SFGradientNode {
     
+    // MARK: - Instance Properties
+    
     // gradient: Gradient to be used as background
     var gradient: SFGradient? { get set }
+    
+    // MARK: Instance Methods
     
     func setGradient()
     
 }
 
 extension SFGradientNode where Self: ASDisplayNode {
+    
+    // MARK: - Instance Methods
     
     // Please add if self.gradient != nil { setGradient() } to layout() function so this is called, if you don't do this the gradient is going to have an incorrect size
     public func setGradient() {

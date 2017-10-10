@@ -38,8 +38,9 @@ class MeetupFeedCellNode: SFCellNode {
         return label
     }()
     
-    lazy var timeIntervalSincePost: SFDetailLabelNode = {
-        let label = SFDetailLabelNode()
+    lazy var timeIntervalSincePost: SFLabelNode = {
+        let label = SFLabelNode()
+        label.shouldHaveAlternativeColors = true
         label.isLayerBacked = true
         return label
     }()

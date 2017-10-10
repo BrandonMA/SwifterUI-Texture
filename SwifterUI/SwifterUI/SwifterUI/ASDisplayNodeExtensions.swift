@@ -38,6 +38,8 @@ public extension ASDisplayNode {
 
 extension ASDisplayNode: SFDeviceProtocol {
     
+    // MARK: - Instance Properties
+    
     public var deviceType: SFDevice {
         get {
             if self.asyncTraitCollection().horizontalSizeClass == .regular && self.asyncTraitCollection().verticalSizeClass == .regular {

@@ -9,5 +9,8 @@
 import AsyncDisplayKit
 
 public protocol SFAnimatable {
+    
+    // MARK: - Instance Properties
+    
     var animator: SFAnimator { get set }
 }

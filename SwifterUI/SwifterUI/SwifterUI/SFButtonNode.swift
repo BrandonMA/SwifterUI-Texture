@@ -13,23 +13,35 @@ open class SFButtonNode: ASButtonNode, SFGradientNode, SFBlurredNode, SFDisplayN
     
     // MARK: - Instance Properties
     
+    // MARK: - SFDisplayNodeColorStyle
+    
+    open var automaticallyAdjustsColorStyle: Bool
+    
+    open var shouldHaveAlternativeColors: Bool = false
+    
+    // MARK: - SFTextDisplayer
+    
     open var textColor: UIColor = UIColor.clear { didSet { setAttributedText() } }
     
     open var font: UIFont = UIFont.systemFont() { didSet { setAttributedText() } }
     
     open var text: String = "" { didSet { setAttributedText() } }
     
-    open var aligment: NSTextAlignment = .left { didSet { setAttributedText() } }
+    open var aligment: NSTextAlignment = NSTextAlignment.left { didSet { setAttributedText() } }
     
-    open var extraAttributes: [String : SFTextAttributes] = [:]
+    open var extraAttributes: [String : SFTextAttributes] = [:] { didSet { setAttributedText() } }
     
     public var textTypeAttributes: [String : SFTextTypeIdentifier] = [:] { didSet { setAttributedText() } }
     
-    open var automaticallyAdjustsColorStyle: Bool
+    // MARK: - SFGradientNode
     
     open var gradient: SFGradient?
     
-    open var effect: UIVisualEffect?
+    // MARK: - SFBlurredNode
+    
+    open var effect: UIVisualEffect? { didSet { self.setEffect() } }
+    
+    // MARK: - SFAnimatable
     
     open lazy var animator: SFAnimator = SFAnimator(with: self, animation: SFAnimationType.none)
     
@@ -58,10 +70,19 @@ open class SFButtonNode: ASButtonNode, SFGradientNode, SFBlurredNode, SFDisplayN
         if self.effect != nil { setEffect() }
     }
     
+    // MARK: - SFDisplayNodeColorStyle
+    
     open func updateColors() {
         if self.automaticallyAdjustsColorStyle == true {
-            self.textColor = colorStyle.getInteractiveColor()
-            self.tintColor = colorStyle.getInteractiveColor()
+            if self.shouldHaveAlternativeColors == true {
+                self.textColor = colorStyle.getInteractiveColor()
+                self.tintColor = colorStyle.getInteractiveColor()
+                self.backgroundColor = UIColor.clear
+            } else {
+                self.textColor = colorStyle.getMainColor()
+                self.tintColor = colorStyle.getMainColor()
+                self.backgroundColor = colorStyle.getBackgroundColor()
+            }
         }
     }
     

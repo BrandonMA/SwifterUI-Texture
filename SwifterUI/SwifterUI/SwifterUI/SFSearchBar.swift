@@ -79,6 +79,15 @@ open class SFSearchBar: SFDisplayNode {
         return stackLayout
     }
     
+    // cancelButtonDidTouch: Executes whenever the user tap the cancel button
+    @objc open func cancelButtonDidTouch() {
+        textField.textField.text = ""
+        textField.endEditing(force: true)
+        delegate?.cancelButtonDidTouch?()
+    }
+    
+    // MARK: - SFDisplayNodeColorStyle
+    
     open override func updateColors() {
         if self.automaticallyAdjustsColorStyle == true {
             backgroundColor = UIColor.clear
@@ -86,13 +95,6 @@ open class SFSearchBar: SFDisplayNode {
             updateSubNodesColors()
         }
     }
-    
-    // cancelButtonDidTouch: Executes whenever the user tap the cancel button
-    @objc open func cancelButtonDidTouch() {
-        textField.textField.text = ""
-        textField.endEditing(force: true)
-        delegate?.cancelButtonDidTouch?()
-    }    
 }
 
 // MARK: FluidSearchBar Extension for UITextFieldDelegate

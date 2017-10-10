@@ -14,9 +14,14 @@ public enum SFMessageSenderType {
 }
 
 public struct SFMessage {
+    
+    // MARK: - Instance Properties
+    
     public var image: UIImage? = nil
     public var text: String? = nil
     public var sender: SFMessageSenderType = .me
+    
+    // MARK: - Initializers
     
     public init(image: UIImage?, text: String?, sender: SFMessageSenderType = .me) {
         self.image = image

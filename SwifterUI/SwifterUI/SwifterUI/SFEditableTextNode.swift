@@ -10,6 +10,16 @@ import AsyncDisplayKit
 
 open class SFEditableTextNode: ASEditableTextNode, SFGradientNode, SFDisplayNodeColorStyle, SFTextDisplayer, SFAnimatable {
     
+    // MARK: - Instance Properties
+    
+    // MARK: - SFDisplayNodeColorStyle
+    
+    open var automaticallyAdjustsColorStyle: Bool
+    
+    open var shouldHaveAlternativeColors: Bool = false
+    
+    // MARK: - SFTextDisplayer
+    
     open var textColor: UIColor = UIColor.clear { didSet { setAttributedText() } }
     
     open var font: UIFont = UIFont.systemFont() { didSet { setAttributedText() } }
@@ -22,9 +32,11 @@ open class SFEditableTextNode: ASEditableTextNode, SFGradientNode, SFDisplayNode
     
     public var textTypeAttributes: [String : SFTextTypeIdentifier] = [:] { didSet { setAttributedText() } }
     
-    open var automaticallyAdjustsColorStyle: Bool = true
+    // MARK: - SFGradientNode
     
     open var gradient: SFGradient?
+    
+    // MARK: - SFAnimatable
     
     open lazy var animator: SFAnimator = SFAnimator(with: self, animation: SFAnimationType.none)
     
@@ -51,9 +63,11 @@ open class SFEditableTextNode: ASEditableTextNode, SFGradientNode, SFDisplayNode
         self.textView.isSelectable = false
     }
     
+    // MARK: - SFDisplayNodeColorStyle
+    
     open func updateColors() {
         if self.automaticallyAdjustsColorStyle == true {
-            self.textColor = colorStyle.getMainColor()
+            self.textColor = self.shouldHaveAlternativeColors == false ? colorStyle.getMainColor() : colorStyle.getPlaceholderColor()
             updateSubNodesColors()
             self.textView.indicatorStyle = colorStyle.getScrollIndicatorStyle()
             updateTextColor()

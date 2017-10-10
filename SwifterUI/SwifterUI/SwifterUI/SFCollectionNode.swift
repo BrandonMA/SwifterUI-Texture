@@ -12,7 +12,13 @@ open class SFCollectionNode: ASCollectionNode, SFDisplayNodeColorStyle, SFAnimat
     
     // MARK: - Instance Properties
     
-    open var automaticallyAdjustsColorStyle: Bool
+    // MARK: - SFDisplayNodeColorStyle
+    
+    open var automaticallyAdjustsColorStyle: Bool = false
+    
+    open var shouldHaveAlternativeColors: Bool = false
+    
+    // MARK: - SFAnimatable
     
     open lazy var animator: SFAnimator = SFAnimator(with: self, animation: SFAnimationType.none)
     
@@ -34,10 +40,12 @@ open class SFCollectionNode: ASCollectionNode, SFDisplayNodeColorStyle, SFAnimat
         updateColors()
     }
     
+    // MARK: - SFDisplayNodeColorStyle
+    
     open func updateColors() {
         if self.automaticallyAdjustsColorStyle == true {
             updateSubNodesColors()
-            self.backgroundColor = self.colorStyle.getBackgroundColor()
+            self.backgroundColor = self.shouldHaveAlternativeColors == false ? self.colorStyle.getBackgroundColor() : self.colorStyle.getAlternativeBackgroundColor()
             
             // This is going to loop through every section inside the table node and reload it with the correct color style on the main thread
             for i in 0...self.numberOfSections - 1 {

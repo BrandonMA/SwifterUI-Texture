@@ -10,6 +10,11 @@ import AsyncDisplayKit
 
 public protocol SFDisplayNodeColorStyle: SFColorStyleProtocol {
     
+    // MARK: - Instance Properties
+    
+    // shouldHaveAlternativeColors: Indicates whether it should use getAlternativeBackgroundColor or getBackgroundColor
+    var shouldHaveAlternativeColors: Bool { get set }
+    
     // MARK: - Initializers
     
     // Required init to set automaticallyAdjustsColorStyle

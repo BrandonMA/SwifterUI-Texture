@@ -13,6 +13,14 @@ open class SFLabelNode: ASTextNode, SFGradientNode, SFDisplayNodeColorStyle, SFT
     
     // MARK: - Instance Properties
     
+    // MARK: - SFDisplayNodeColorStyle
+    
+    open var automaticallyAdjustsColorStyle: Bool
+    
+    open var shouldHaveAlternativeColors: Bool = false
+    
+    // MARK: - SFTextDisplayer
+    
     open var textColor: UIColor = UIColor.clear { didSet { setAttributedText() } }
     
     open var font: UIFont = UIFont.systemFont() { didSet { setAttributedText() } }
@@ -25,9 +33,11 @@ open class SFLabelNode: ASTextNode, SFGradientNode, SFDisplayNodeColorStyle, SFT
     
     public var textTypeAttributes: [String : SFTextTypeIdentifier] = [:] { didSet { setAttributedText() } }
     
-    open var automaticallyAdjustsColorStyle: Bool
+    // MARK: - SFGradientNode
     
     open var gradient: SFGradient?
+    
+    // MARK: - SFAnimatable
     
     open lazy var animator: SFAnimator = SFAnimator(with: self, animation: SFAnimationType.none)
     
@@ -51,9 +61,11 @@ open class SFLabelNode: ASTextNode, SFGradientNode, SFDisplayNodeColorStyle, SFT
         updateColors()
     }
     
+    // MARK: - SFDisplayNodeColorStyle
+    
     open func updateColors() {
         if self.automaticallyAdjustsColorStyle == true {
-            self.textColor = colorStyle.getMainColor()
+            self.textColor = self.shouldHaveAlternativeColors == false ? colorStyle.getMainColor() : colorStyle.getPlaceholderColor()
             updateSubNodesColors()
             updateTextColor()
         }

@@ -10,6 +10,8 @@ import UIKit
 
 public extension String {
     
+    // MARK: - Instance Methods
+    
     // index: return the index of the pattern that you passed, if the pattern is not inside the string then return nil
     // - Parameters:
     //   pattern: String that you want to know in which index it is

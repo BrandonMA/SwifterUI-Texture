@@ -41,6 +41,8 @@ public protocol SFTextContainer: class {
     
     var textTypeAttributes: [String: SFTextTypeIdentifier] { get set }
     
+    // MARK: - Instance Methods
+    
     // setAttributedText: Set the attributes of your label node under the hood whenever you update one of it's three properties
     func setAttributedText()
     
@@ -50,6 +52,8 @@ public protocol SFTextContainer: class {
 }
 
 extension SFTextContainer {
+    
+    // MARK: - Instance Properties
     
     public var mutableAttributedText: NSMutableAttributedString {
         get {
@@ -64,6 +68,8 @@ extension SFTextContainer {
             return string
         }
     }
+    
+    // MARK: - Instance Methods
     
     public func addExtraAttributes(to string: NSMutableAttributedString) {
         if self.extraAttributes.count != 0 {

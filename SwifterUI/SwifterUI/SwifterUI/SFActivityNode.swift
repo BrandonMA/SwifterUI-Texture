@@ -15,8 +15,14 @@ open class SFActivityNode: ASDisplayNode, SFDisplayNodeColorStyle, SFAnimatable 
     
     // activityIndicatorView: backing UIActivityIndicatorView wrapped inside an ASDisplayNode
     open let activityIndicatorView: UIActivityIndicatorView
-        
+    
+    // MARK: - SFDisplayNodeColorStyle
+    
     open var automaticallyAdjustsColorStyle: Bool
+    
+    open var shouldHaveAlternativeColors: Bool = false
+    
+    // MARK: - SFAnimatable
     
     open lazy var animator: SFAnimator = SFAnimator(with: self, animation: SFAnimationType.none)
     
@@ -44,7 +50,6 @@ open class SFActivityNode: ASDisplayNode, SFDisplayNodeColorStyle, SFAnimatable 
         
         activityIndicatorView.startAnimating() // Start animating the activityIndicatorView
         activityIndicatorView.hidesWhenStopped = true
-        
     }
     
     public convenience override init() {
@@ -57,6 +62,8 @@ open class SFActivityNode: ASDisplayNode, SFDisplayNodeColorStyle, SFAnimatable 
         super.didLoad()
         updateColors()
     }
+    
+    // MARK: - SFDisplayNodeColorStyle
     
     open func updateColors() {
         if self.automaticallyAdjustsColorStyle == true {

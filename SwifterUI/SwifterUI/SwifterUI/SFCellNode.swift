@@ -11,12 +11,22 @@ import AsyncDisplayKit
 open class SFCellNode: ASCellNode, SFGradientNode, SFBlurredNode, SFDisplayNodeColorStyle, SFAnimatable {
     
     // MARK: - Instance Properties
+    
+    // MARK: - SFDisplayNodeColorStyle
         
     open var automaticallyAdjustsColorStyle: Bool
     
+    open var shouldHaveAlternativeColors: Bool = false
+    
+    // MARK: - SFGradientNode
+    
     open var gradient: SFGradient?
     
+    // MARK: - SFBlurredNode
+    
     open var effect: UIVisualEffect?
+    
+    // MARK: - SFAnimatable
     
     open lazy var animator: SFAnimator = SFAnimator(with: self, animation: SFAnimationType.none)
     
@@ -44,9 +54,15 @@ open class SFCellNode: ASCellNode, SFGradientNode, SFBlurredNode, SFDisplayNodeC
         updateColors()
     }
     
+    // MARK: - SFDisplayNodeColorStyle
+    
     open func updateColors() {
         if automaticallyAdjustsColorStyle == true {
-            self.backgroundColor = self.colorStyle.getAlternativeBackgroundColor()
+            if self.effect != nil {
+                self.backgroundColor = UIColor.clear
+            } else {
+                self.backgroundColor = self.shouldHaveAlternativeColors == false ? self.colorStyle.getBackgroundColor() : self.colorStyle.getAlternativeBackgroundColor()
+            }
             updateSubNodesColors()
         }
     }

@@ -12,6 +12,65 @@ open class SFTextField: SFDisplayNode {
     
     // MARK: - Instance Properties
     
+    // textField: Backing UITextField for your node
+    open let textField: SFTextFieldView
+    
+    // textFieldTintColor: Tint color used in your textField
+    open var textFieldTintColor: UIColor = SFAssets.blue { didSet { textField.tintColor = self.textFieldTintColor } }
+    
+    // placeholder: Text that is showed before the user types anything, by default it is clear by default
+    open var placeholder: String = "" {
+        didSet {
+            self.setPlaceHolder()
+        }
+    }
+    
+    // placeholderColor: Color of your placeholder
+    open var placeholderColor: UIColor = UIColor.clear {
+        didSet {
+            self.setPlaceHolder()
+        }
+    }
+    
+    // isSecureTextEntry: Property for textFields that are used for passwords, it is false by default
+    open var isSecureTextEntry: Bool = false { didSet { textField.isSecureTextEntry = self.isSecureTextEntry } }
+    
+    // leftPadding: Left space added before your placeholder and the text that is typed by the user, by default it's 0
+    open var leftPadding: CGFloat = 0.0 { didSet { addLeftView() } }
+    
+    // lefImage: Left image used in your textField, by default it is nil
+    open var lefImage: UIImage? = nil { didSet { addLeftView() } }
+    
+    // leftViewMode: Defines when the left view should be visible
+    open var leftViewMode: UITextFieldViewMode =  UITextFieldViewMode.always { didSet { addLeftView() } }
+    
+    // leftViewMode: Set the size of the left view
+    open var leftViewSize: CGSize = CGSize(width: 14, height: 14) { didSet { addLeftView() } }
+    
+    // rightPadding: Right space added after your placeholder and the text that is typed by the user, by default it's 0
+    open var rightPadding: CGFloat = 0.0 { didSet { addRightView() } }
+    
+    // rightImage: Right image used in your textField, by default it is nil
+    open var rightImage: UIImage? = nil { didSet { addRightView() } }
+    
+    // rightViewMode: Defines when the right view should be visible
+    open var rightViewMode: UITextFieldViewMode = UITextFieldViewMode.unlessEditing { didSet { addRightView() } }
+    
+    // rightViewMode: Set the size of the right view
+    open var rightViewSize: CGSize = CGSize(width: 14, height: 14) { didSet { addRightView() } }
+    
+    // clearButtonColor: Color of the clearbutton, to see implementation check textField's clearButtonColor properties
+    open var clearButtonColor: UIColor = UIColor.black { didSet { self.textField.clearButtonColor = self.clearButtonColor } }
+    
+    // keyboardType: Set textField's keyboard type
+    open var keyboardType: UIKeyboardType = UIKeyboardType.default {
+        didSet {
+            self.textField.keyboardType = self.keyboardType
+        }
+    }
+    
+    // MARK: - SFTextContainer
+    
     open var textColor: UIColor = UIColor.black {
         didSet {
             self.setAttributedText()
@@ -50,65 +109,6 @@ open class SFTextField: SFDisplayNode {
     
     public var textTypeAttributes: [String : SFTextTypeIdentifier] = [:] { didSet { setAttributedText() } }
     
-    // textField: Backing UITextField for your node
-    open let textField: SFTextFieldView
-    
-    // textFieldTintColor: Tint color used in your textField
-    open var textFieldTintColor: UIColor = SFAssets.blue { didSet { textField.tintColor = self.textFieldTintColor } }
-    
-    // placeholder: Text that is showed before the user types anything, by default it is clear by default
-    open var placeholder: String = "" {
-        didSet {
-            self.setPlaceHolder()
-        }
-    }
-    
-    // placeholderColor: Color of your placeholder
-    open var placeholderColor: UIColor = UIColor.clear {
-        didSet {
-            self.setPlaceHolder()
-        }
-    }
-    
-    // isSecureTextEntry: Property for textFields that are used for passwords, it is false by default
-    open var isSecureTextEntry: Bool = false { didSet { textField.isSecureTextEntry = self.isSecureTextEntry } }
-
-    // leftPadding: Left space added before your placeholder and the text that is typed by the user, by default it's 0
-    open var leftPadding: CGFloat = 0.0 { didSet { addLeftView() } }
-    
-    // lefImage: Left image used in your textField, by default it is nil
-    open var lefImage: UIImage? = nil { didSet { addLeftView() } }
-    
-    // leftViewMode: Defines when the left view should be visible
-    open var leftViewMode: UITextFieldViewMode =  UITextFieldViewMode.always { didSet { addLeftView() } }
-    
-    // leftViewMode: Set the size of the left view
-    open var leftViewSize: CGSize = CGSize(width: 14, height: 14) { didSet { addLeftView() } }
-    
-    // rightPadding: Right space added after your placeholder and the text that is typed by the user, by default it's 0
-    open var rightPadding: CGFloat = 0.0 { didSet { addRightView() } }
-    
-    // rightImage: Right image used in your textField, by default it is nil
-    open var rightImage: UIImage? = nil { didSet { addRightView() } }
-    
-    // rightViewMode: Defines when the right view should be visible
-    open var rightViewMode: UITextFieldViewMode = UITextFieldViewMode.unlessEditing { didSet { addRightView() } }
-    
-    // rightViewMode: Set the size of the right view
-    open var rightViewSize: CGSize = CGSize(width: 14, height: 14) { didSet { addRightView() } }
-    
-    // clearButtonColor: Color of the clearbutton, to see implementation check textField's clearButtonColor properties
-    open var clearButtonColor: UIColor = UIColor.black { didSet { self.textField.clearButtonColor = self.clearButtonColor } }
-    
-    // keyboardType: Set textField's keyboard type
-    open var keyboardType: UIKeyboardType = UIKeyboardType.default {
-        didSet {
-            self.textField.keyboardType = self.keyboardType
-        }
-    }
-    
-    open var shouldHaveAlternativeColors: Bool = false
-        
     // MARK: - Initializers
 
     public required init(automaticallyAdjustsColorStyle: Bool) {
@@ -146,6 +146,8 @@ open class SFTextField: SFDisplayNode {
         setPlaceHolder()
     }
     
+    // MARK: - SFDisplayNodeColorStyle
+    
     open override func updateColors() {
         
         if self.automaticallyAdjustsColorStyle == true {
@@ -164,11 +166,7 @@ open class SFTextField: SFDisplayNode {
             
             self.textColor = self.colorStyle.getMainColor()
             
-            if self.shouldHaveAlternativeColors == false {
-                textField.backgroundColor = self.colorStyle.getTextFieldColor()
-            } else {
-                textField.backgroundColor = self.colorStyle.getTextFieldAlternativeColor()
-            }
+            self.textField.backgroundColor = self.shouldHaveAlternativeColors == false ? self.colorStyle.getTextFieldColor() : self.colorStyle.getTextFieldAlternativeColor()
             
             updateSubNodesColors()
         }
@@ -176,6 +174,8 @@ open class SFTextField: SFDisplayNode {
 }
 
 extension SFTextField {
+    
+    // MARK: - Instance Methods
     
     // setPlaceHolder: Set the NSAttributedString for the placeholder automatically
     open func setPlaceHolder() {
@@ -220,6 +220,8 @@ extension SFTextField {
 }
 
 extension SFTextField: SFTextContainer {
+    
+    // MARK: - Instance Methods
     
     open func setAttributedText() {
         let paragraphStyle = NSMutableParagraphStyle()

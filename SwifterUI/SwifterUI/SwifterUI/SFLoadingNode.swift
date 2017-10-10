@@ -39,6 +39,8 @@ open class SFLoadingNode: SFDisplayNode {
         return activityNodeLayout
     }
     
+    // MARK: - SFDisplayNodeColorStyle
+    
     open override func updateColors() {
         if self.automaticallyAdjustsColorStyle == true {
             backgroundColor = UIColor.clear

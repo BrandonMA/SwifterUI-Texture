@@ -9,12 +9,16 @@
 import AsyncDisplayKit
 
 public protocol SFColorController: SFColorStyleProtocol {
+    
+    // MARK: - Instance Properties
         
     // statusBarStyle: This enables preferredStatusBarStyle changes on the go, without needing to
     var statusBarStyle: UIStatusBarStyle { get set }
     
     // automaticallyTintNavigationBar: This should be set the same as automaticallyAdjustsColorStyle when initializing, but you can disable it so navigation bar color is not changed
     var automaticallyTintNavigationBar: Bool { get set }
+    
+    // MARK: - Instance Methods
         
     // handleColorStyleCheck: Update colors and start a listener
     func handleColorStyleCheck()

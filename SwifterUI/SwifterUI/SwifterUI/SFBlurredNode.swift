@@ -10,13 +10,19 @@ import AsyncDisplayKit
 
 public protocol SFBlurredNode {
     
+    // MARK: - Instance Properties
+    
     // effect: UIVisualEffect that is going to be used as background
     var effect: UIVisualEffect? { get set }
+    
+    // MARK: - Instance Methods
     
     func setEffect()
 }
 
 extension SFBlurredNode where Self: ASDisplayNode {
+    
+    // MARK: - Instance Methods
     
     // Please add if self.setEffect != nil { setEffect() } to layout() function so this is called, if you don't do this the effect is going to have an incorrect size
     public func setEffect() {

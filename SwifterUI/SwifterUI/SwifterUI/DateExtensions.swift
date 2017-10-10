@@ -9,6 +9,9 @@
 import Foundation
 
 public extension Date {
+    
+    // MARK: - Static Methods
+    
     public static func today(with format: String) -> String {
         let date = Date()
         let formatter = DateFormatter()

@@ -9,10 +9,15 @@
 import AsyncDisplayKit
 
 public protocol SFTextDisplayer: SFTextContainer {
+    
+    // MARK: - Instance Methods
+    
     func updateTextColor()
 }
 
 extension SFTextDisplayer where Self: SFDisplayNodeColorStyle {
+    
+    // MARK: - Instance Methods
     
     public func updateTextColor() {
         // If extraAttributes are bigger than 0 then check for each attribute inside the array

@@ -12,6 +12,8 @@ import AVKit
 
 open class SFVideoPlayer: SFDisplayNode {
     
+    // MARK: - Instance Properties
+    
     public var videoView: UIView? = nil {
         didSet {
             Dispatch.addAsyncTask(to: DispatchLevel.main) {
@@ -30,6 +32,8 @@ open class SFVideoPlayer: SFDisplayNode {
     
     private var youtubeURL: URL? = nil
     
+    // MARK: - Initializers
+    
     public required init(automaticallyAdjustsColorStyle: Bool) {
         super.init(automaticallyAdjustsColorStyle: automaticallyAdjustsColorStyle)
     }
@@ -43,6 +47,8 @@ open class SFVideoPlayer: SFDisplayNode {
         self.init(automaticallyAdjustsColorStyle: automaticallyAdjustsColorStyle)
         self.youtubeURL = url
     }
+    
+    // MARK: - Instance Methods
     
     open override func layout() {
         super.layout()

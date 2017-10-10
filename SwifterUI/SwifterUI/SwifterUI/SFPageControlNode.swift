@@ -47,6 +47,8 @@ public class SFPageControlNode: SFDisplayNode {
     }
     
     // MARK: - Instance Methods
+    
+    // MARK: - SFDisplayNodeColorStyle
 
     override open func updateColors() {
         if self.automaticallyAdjustsColorStyle == true {

@@ -10,6 +10,8 @@ import AsyncDisplayKit
 
 public extension UIViewController {
     
+    // MARK: - Instance Methods
+    
     // showErrorAlert: Shows an alert with the alerts you added
     // - Parameters:
     //    title: Title of the alert you want to present

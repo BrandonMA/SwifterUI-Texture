@@ -12,12 +12,6 @@ open class SFDisplayNode: ASDisplayNode, SFGradientNode, SFBlurredNode, SFDispla
     
     // MARK: - Instance Properties
     
-    open var automaticallyAdjustsColorStyle: Bool = false
-    
-    open var gradient: SFGradient? { didSet { self.setGradient() } }
-    
-    open var effect: UIVisualEffect? { didSet { self.setEffect() } }
-        
     // isLoading: If you used addLoadingNode, set true or false to show a SFLoadingNode()
     open var isLoading = false
     
@@ -27,6 +21,22 @@ open class SFDisplayNode: ASDisplayNode, SFGradientNode, SFBlurredNode, SFDispla
         node.alpha = 0.0
         return node
     }()
+    
+    // MARK: - SFDisplayNodeColorStyle
+    
+    open var automaticallyAdjustsColorStyle: Bool = false
+    
+    open var shouldHaveAlternativeColors: Bool = false
+    
+    // MARK: - SFGradientNode
+    
+    open var gradient: SFGradient? { didSet { self.setGradient() } }
+    
+    // MARK: - SFBlurredNode
+    
+    open var effect: UIVisualEffect? { didSet { self.setEffect() } }
+    
+    // MARK: - SFAnimatable
     
     open lazy var animator: SFAnimator = SFAnimator(with: self)
     
@@ -92,9 +102,15 @@ open class SFDisplayNode: ASDisplayNode, SFGradientNode, SFBlurredNode, SFDispla
         }
     }
     
+    // MARK: - SFDisplayNodeColorStyle
+    
     open func updateColors() {
         if self.automaticallyAdjustsColorStyle == true {
-            self.backgroundColor = self.colorStyle.getBackgroundColor()
+            if self.effect != nil {
+                self.backgroundColor = UIColor.clear
+            } else {
+                self.backgroundColor = self.shouldHaveAlternativeColors == false ? self.colorStyle.getBackgroundColor() : self.colorStyle.getAlternativeBackgroundColor()
+            }
             self.loadingNode.updateColors()
             updateSubNodesColors()
         }
