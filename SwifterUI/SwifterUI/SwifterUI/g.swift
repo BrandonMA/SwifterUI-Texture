@@ -106,6 +106,8 @@ open class SFTextField: SFDisplayNode {
             self.textField.keyboardType = self.keyboardType
         }
     }
+    
+    open var shouldHaveAlternativeColors: Bool = false
         
     // MARK: - Initializers
 
@@ -154,8 +156,6 @@ open class SFTextField: SFDisplayNode {
                 clearButtonColor = self.colorStyle.getDetailColor().withAlphaComponent(0.3)
             }
             
-            textField.backgroundColor = self.colorStyle.getTextFieldColor()
-            
             textFieldTintColor = self.colorStyle.getInteractiveColor()
             
             textField.keyboardAppearance = self.colorStyle.getKeyboardAppearence()
@@ -163,6 +163,12 @@ open class SFTextField: SFDisplayNode {
             placeholderColor = self.colorStyle.getPlaceholderColor()
             
             self.textColor = self.colorStyle.getMainColor()
+            
+            if self.shouldHaveAlternativeColors == false {
+                textField.backgroundColor = self.colorStyle.getTextFieldColor()
+            } else {
+                textField.backgroundColor = self.colorStyle.getTextFieldAlternativeColor()
+            }
             
             updateSubNodesColors()
         }

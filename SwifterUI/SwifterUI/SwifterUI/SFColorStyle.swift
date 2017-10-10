@@ -128,6 +128,13 @@ public enum SFColorStyle: Int {
         }
     }
     
+    public func getTextFieldAlternativeColor() -> UIColor {
+        switch self {
+        case .light: return SFAssets.whiteTextField
+        case .dark: return SFAssets.black
+        }
+    }
+    
     // getSearchImage: return a search icon with the correct color
     public func getSearchImage() -> UIImage {
         switch self {

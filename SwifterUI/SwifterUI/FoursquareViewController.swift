@@ -32,7 +32,8 @@ class FoursquareNode: SFDisplayNode {
         tableNode.style.width = ASDimension(unit: ASDimensionUnit.fraction, value: 1)
         tableNode.style.flexGrow = 1.0
         let ratioLayout = ASRatioLayoutSpec(ratio: 9/16, child: mapNode)
-        let stackLayout = ASStackLayoutSpec(direction: ASStackLayoutDirection.vertical, spacing: 0, justifyContent: ASStackLayoutJustifyContent.start, alignItems: ASStackLayoutAlignItems.start, children: [ratioLayout, searchBar, tableNode])
+        let searchBarLayout = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16), child: searchBar)
+        let stackLayout = ASStackLayoutSpec(direction: ASStackLayoutDirection.vertical, spacing: 0, justifyContent: ASStackLayoutJustifyContent.start, alignItems: ASStackLayoutAlignItems.start, children: [ratioLayout, searchBarLayout, tableNode])
         return stackLayout
     }
 }
@@ -59,7 +60,7 @@ class FoursquareCell: SFCellNode {
     
 }
 
-class FoursquareViewController: SFViewController<FoursquareNode>, CLLocationManagerDelegate, ASTableDataSource {
+class FoursquareViewController: SFViewController<FoursquareNode>, CLLocationManagerDelegate, ASTableDataSource, ASTableDelegate {
     
     var baseString = "https://api.foursquare.com/v2/venues/search?"
     var clientID = "4HLMJ1HSGPVF4CC11PCJNUYV2U0AAIDJLCAMOL535MNXNZQ3"
@@ -70,6 +71,7 @@ class FoursquareViewController: SFViewController<FoursquareNode>, CLLocationMana
     init() {
         super.init(SFNode: FoursquareNode(), automaticallyAdjustsColorStyle: true)
         self.SFNode.tableNode.dataSource = self
+        self.SFNode.tableNode.delegate = self
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -78,7 +80,6 @@ class FoursquareViewController: SFViewController<FoursquareNode>, CLLocationMana
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
@@ -126,7 +127,7 @@ class FoursquareViewController: SFViewController<FoursquareNode>, CLLocationMana
                         })
                         
                         Dispatch.addAsyncTask(to: DispatchLevel.main, handler: {
-                            self.SFNode.tableNode.reloadSections(IndexSet(integer: 0), with: UITableViewRowAnimation.fade)
+                            self.SFNode.tableNode.reloadSections(IndexSet(integer: 0), with: UITableViewRowAnimation.automatic)
                             self.SFNode.mapNode.annotations = annotations
                         })
                     }
@@ -172,6 +173,12 @@ class FoursquareViewController: SFViewController<FoursquareNode>, CLLocationMana
             return cell
         }
         return block
+    }
+    
+    func tableNode(_ tableNode: ASTableNode, willDisplayRowWith node: ASCellNode) {
+        guard let node = node as? FoursquareCell else { return }
+        node.animator.animation = .slideInLeft
+        node.animator.startAnimation()
     }
 }
 

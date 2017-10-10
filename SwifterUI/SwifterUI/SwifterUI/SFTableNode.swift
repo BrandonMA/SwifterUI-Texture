@@ -64,7 +64,7 @@ open class SFTableNode: ASTableNode, SFDisplayNodeColorStyle, SFAnimatable {
         if self.automaticallyAdjustsColorStyle == true {
             updateSubNodesColors()
             self.refreshControl?.tintColor = self.colorStyle.getDetailColor()
-            self.backgroundColor = self.colorStyle.getAlternativeBackgroundColor()
+            self.backgroundColor = self.colorStyle.getBackgroundColor()
             self.separatorColor = self.colorStyle.getSeparatorColor()
             
             // This is going to loop through every section inside the table node and reload it with the correct color style on the main thread

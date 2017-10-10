@@ -48,7 +48,7 @@
 		42D1307A1F54B31A00BCA109 /* SFTextContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D130791F54B31A00BCA109 /* SFTextContainer.swift */; };
 		42D9D66B1F20CECB00918013 /* SFLoadingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D9D66A1F20CECB00918013 /* SFLoadingNode.swift */; };
 		42D9D66D1F20CF1E00918013 /* SFButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D9D66C1F20CF1E00918013 /* SFButtonNode.swift */; };
-		42D9D6711F20D26E00918013 /* SFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D9D6701F20D26E00918013 /* SFTextField.swift */; };
+		42D9D6711F20D26E00918013 /* g.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D9D6701F20D26E00918013 /* g.swift */; };
 		42D9D6731F20D39F00918013 /* SFSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D9D6721F20D39F00918013 /* SFSearchBar.swift */; };
 		42D9D67A1F20D6C500918013 /* SFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D9D6791F20D6C500918013 /* SFViewController.swift */; };
 		42D9D67C1F20D80400918013 /* SFTableNodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D9D67B1F20D80400918013 /* SFTableNodeController.swift */; };
@@ -153,7 +153,7 @@
 		42D130791F54B31A00BCA109 /* SFTextContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFTextContainer.swift; path = SwifterUI/SFTextContainer.swift; sourceTree = "<group>"; };
 		42D9D66A1F20CECB00918013 /* SFLoadingNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFLoadingNode.swift; path = SwifterUI/SFLoadingNode.swift; sourceTree = "<group>"; };
 		42D9D66C1F20CF1E00918013 /* SFButtonNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFButtonNode.swift; path = SwifterUI/SFButtonNode.swift; sourceTree = "<group>"; };
-		42D9D6701F20D26E00918013 /* SFTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFTextField.swift; path = SwifterUI/SFTextField.swift; sourceTree = "<group>"; };
+		42D9D6701F20D26E00918013 /* g.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = g.swift; path = SwifterUI/g.swift; sourceTree = "<group>"; };
 		42D9D6721F20D39F00918013 /* SFSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFSearchBar.swift; path = SwifterUI/SFSearchBar.swift; sourceTree = "<group>"; };
 		42D9D6791F20D6C500918013 /* SFViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFViewController.swift; path = SwifterUI/SFViewController.swift; sourceTree = "<group>"; };
 		42D9D67B1F20D80400918013 /* SFTableNodeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFTableNodeController.swift; path = SwifterUI/SFTableNodeController.swift; sourceTree = "<group>"; };
@@ -238,7 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				424A5E611F5B067100EFBFB3 /* SFTextFieldView.swift */,
-				42D9D6701F20D26E00918013 /* SFTextField.swift */,
+				42D9D6701F20D26E00918013 /* g.swift */,
 			);
 			name = SFTextField;
 			sourceTree = "<group>";
@@ -833,7 +833,7 @@
 				42DED2F31F4A1C370093F89C /* SFSignUpNodeController.swift in Sources */,
 				42E554911F76A91D00355D63 /* SFTextDisplayer.swift in Sources */,
 				421C2A0D1F249A850099762A /* MeetupFeedCellNode.swift in Sources */,
-				42D9D6711F20D26E00918013 /* SFTextField.swift in Sources */,
+				42D9D6711F20D26E00918013 /* g.swift in Sources */,
 				4204F28F1F65ACEE003D9D86 /* SFMessage.swift in Sources */,
 				425D1BF11F7FF7D500A5081B /* FoursquareViewController.swift in Sources */,
 				42D9D6731F20D39F00918013 /* SFSearchBar.swift in Sources */,

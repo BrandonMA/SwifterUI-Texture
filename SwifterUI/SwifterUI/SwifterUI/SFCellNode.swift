@@ -46,7 +46,7 @@ open class SFCellNode: ASCellNode, SFGradientNode, SFBlurredNode, SFDisplayNodeC
     
     open func updateColors() {
         if automaticallyAdjustsColorStyle == true {
-            self.backgroundColor = self.colorStyle.getBackgroundColor()
+            self.backgroundColor = self.colorStyle.getAlternativeBackgroundColor()
             updateSubNodesColors()
         }
     }

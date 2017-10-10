@@ -70,23 +70,19 @@ open class SFSearchBar: SFDisplayNode {
     // layoutSpecThatFits: Layout all subnodes
     open override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         
-        textField.style.flexBasis = self.cancelButtonShouldBeVisible == true ? ASDimension(unit: ASDimensionUnit.points, value: constrainedSize.max.width - 126) : ASDimension(unit: ASDimensionUnit.points, value: constrainedSize.max.width - 32) // If cancel button is visible then textField should be smaller, if not then make it bigger
+        textField.style.flexBasis = self.cancelButtonShouldBeVisible == true ? ASDimension(unit: ASDimensionUnit.points, value: constrainedSize.max.width - 94) : ASDimension(unit: ASDimensionUnit.points, value: constrainedSize.max.width) // If cancel button is visible then textField should be smaller, if not then make it bigger
         
         textField.style.height = ASDimension(unit: ASDimensionUnit.points, value: 44)
         
-        let stackLayout = ASStackLayoutSpec(direction: ASStackLayoutDirection.horizontal, spacing: 16, justifyContent: ASStackLayoutJustifyContent.start, alignItems: ASStackLayoutAlignItems.center, children: [textField, cancelButton])
+        let stackLayout = ASStackLayoutSpec(direction: ASStackLayoutDirection.horizontal, spacing: 16, justifyContent: ASStackLayoutJustifyContent.start, alignItems: ASStackLayoutAlignItems.center, children: [textField, cancelButton, getStackSeparator(with: self.cancelButtonShouldBeVisible == true ? 16 : 0)])
         
         return stackLayout
     }
     
     open override func updateColors() {
-        
         if self.automaticallyAdjustsColorStyle == true {
-            
-            backgroundColor = self.colorStyle.getBackgroundColor()
-            
+            backgroundColor = UIColor.clear
             textField.lefImage = self.colorStyle.getSearchImage()
-            
             updateSubNodesColors()
         }
     }

@@ -9,7 +9,7 @@
 import AsyncDisplayKit
 
 // minimumBrighness: Global variable to indicate minimum level of brightness for dark mode
-public var minimumBrighness: CGFloat = 0.30
+public var minimumBrighness: CGFloat = 0.99
 
 public protocol SFColorStyleProtocol {
     
