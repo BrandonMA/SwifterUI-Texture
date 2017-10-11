@@ -18,8 +18,8 @@ class VideoPlayerNodeExample: SFDisplayNode {
     lazy var bottomButton: SFButtonNode = {
         let button = SFButtonNode(automaticallyAdjustsColorStyle: self.automaticallyAdjustsColorStyle)
         button.font = UIFont.boldSystemFont(ofSize: 22)
-        button.backgroundColor = UIColor.red
         button.text = "Hola"
+        button.shouldHaveAlternativeColors = true
         button.cornerRadius = 10
         return button
     }()
@@ -35,10 +35,13 @@ class VideoPlayerNodeExample: SFDisplayNode {
     
 }
 
-class VideoPlayerControllerExample: SFViewController<VideoPlayerNodeExample> {
+class VideoPlayerControllerExample: SFViewController<VideoPlayerNodeExample>, SFVideoPlayerDelegate {
     
     init() {
         super.init(SFNode: VideoPlayerNodeExample(), automaticallyAdjustsColorStyle: true)
+        self.SFNode.videoNode.delegate = self
+        guard let url = URL(string: "https://www.youtube.com/watch?v=_pMCjZSvvxE") else { return }
+        self.SFNode.videoNode.youtubeURL = url
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -47,14 +50,10 @@ class VideoPlayerControllerExample: SFViewController<VideoPlayerNodeExample> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let path = Bundle.main.path(forResource: "video", ofType:"mp4") else { return }
-        self.SFNode.videoNode.load(videoURL: URL(fileURLWithPath: path), parentController: self)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         self.SFNode.videoNode.animator.animation = .scaleIn
         self.SFNode.bottomButton.animator.animation = .slideInBottom
         self.SFNode.videoNode.animator.delay = 0.3
@@ -64,7 +63,7 @@ class VideoPlayerControllerExample: SFViewController<VideoPlayerNodeExample> {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.SFNode.videoNode.animator.startAnimation()
-         self.SFNode.bottomButton.animator.startAnimation()
+        self.SFNode.bottomButton.animator.startAnimation()
     }
 }
 

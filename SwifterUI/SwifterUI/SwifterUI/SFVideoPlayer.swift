@@ -7,30 +7,17 @@
 //
 
 import AsyncDisplayKit
-import YouTubePlayer
 import AVKit
 
 open class SFVideoPlayer: SFDisplayNode {
     
     // MARK: - Instance Properties
     
-    public var videoView: UIView? = nil {
-        didSet {
-            Dispatch.addAsyncTask(to: DispatchLevel.main) {
-                self.layout()
-            }
-        }
-    }
-    
-    public var youtubeView: YouTubePlayerView? = nil {
-        didSet {
-            Dispatch.addAsyncTask(to: DispatchLevel.main) {
-                self.layout()
-            }
-        }
-    }
-    
-    private var youtubeURL: URL? = nil
+    private var videoNode: SFPlayerContainerNode? = nil
+    private var youtubeNode: SFYoutubeNode? = nil
+    open var url: URL? = nil { didSet { prepareVideoNode() } }
+    open var youtubeURL: URL? = nil { didSet { prepareYoutubeNode() } }
+    weak var delegate: SFVideoPlayerDelegate? = nil
     
     // MARK: - Initializers
     
@@ -38,58 +25,45 @@ open class SFVideoPlayer: SFDisplayNode {
         super.init(automaticallyAdjustsColorStyle: automaticallyAdjustsColorStyle)
     }
     
-    public convenience init(with videoView: UIView, automaticallyAdjustsColorStyle: Bool) {
-        self.init(automaticallyAdjustsColorStyle: automaticallyAdjustsColorStyle)
-        self.videoView = videoView
-    }
-    
-    public convenience init(with url: URL?, automaticallyAdjustsColorStyle: Bool) {
-        self.init(automaticallyAdjustsColorStyle: automaticallyAdjustsColorStyle)
-        self.youtubeURL = url
-    }
-    
     // MARK: - Instance Methods
     
-    open override func layout() {
-        super.layout()
-        layoutVideoView()
-    }
-    
-    open func layoutVideoView() {
-        guard let videoView = self.videoView != nil ? self.videoView : self.youtubeView else { return }
-        videoView.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(videoView)
-        NSLayoutConstraint.activate([
-            videoView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: videoView == self.youtubeView ? 20:0),
-            videoView.rightAnchor.constraint(equalTo: self.view.rightAnchor),
-            videoView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-            videoView.leftAnchor.constraint(equalTo: self.view.leftAnchor)
-            ])
-    }
-    
-    open func load(youtubeURL url: URL) {
-        self.youtubeURL = url
-        if let youtubeURL = self.youtubeURL {
-            Dispatch.addAsyncTask(to: DispatchLevel.main, handler: {
-                self.youtubeView = YouTubePlayerView()
-                self.youtubeView?.loadVideoURL(youtubeURL)
-            })
-        }
-    }
-    
-    open func load(videoURL url: URL, parentController: UIViewController) {
-        let player = AVPlayer(url: url)
+    open override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         
+        var node: ASDisplayNode
+        
+        if let videoNode = self.videoNode {
+            node = videoNode
+        } else if let youtubeNode = self.youtubeNode {
+            node = youtubeNode
+        } else {
+            return ASLayoutSpec()
+        }
+        
+        node.style.preferredLayoutSize = ASLayoutSize(width: ASDimension(unit: ASDimensionUnit.fraction, value: 1), height: ASDimension(unit: ASDimensionUnit.fraction, value: 1))
+        
+        return ASInsetLayoutSpec(insets: UIEdgeInsets(top: node == self.youtubeNode ? 20 : 0, left: 0, bottom: 0, right: 0), child: ASRelativeLayoutSpec(horizontalPosition: ASRelativeLayoutSpecPosition.start, verticalPosition: ASRelativeLayoutSpecPosition.start, sizingOption: ASRelativeLayoutSpecSizingOption.minimumSize, child: node))
+    }
+        
+    func prepareVideoNode() {
+        guard let url = self.url else { return }
         let controller = AVPlayerViewController()
+        let player = AVPlayer(url: url)
         controller.player = player
         controller.allowsPictureInPicturePlayback = true
         controller.entersFullScreenWhenPlaybackBegins = true
-        controller.didMove(toParentViewController: parentController)
-        
-        parentController.addChildViewController(controller)
-        self.videoView = controller.view
+        delegate?.prepare(mediaController: controller)
+        self.videoNode = SFPlayerContainerNode(videoView: controller.view, automaticallyAdjustsColorStyle: true)
+        self.transitionLayout(withAnimation: true, shouldMeasureAsync: true, measurementCompletion: nil)
     }
     
+    func prepareYoutubeNode() {
+        self.youtubeNode = SFYoutubeNode(automaticallyAdjustsColorStyle: self.automaticallyAdjustsColorStyle)
+        if let youtubeURL = self.youtubeURL {
+            Dispatch.addAsyncTask(to: DispatchLevel.main, handler: {
+                self.youtubeNode?.youtubeView.loadVideoURL(youtubeURL)
+            })
+        }
+    }
 }
 
 

@@ -74,7 +74,7 @@ open class SFButtonNode: ASButtonNode, SFGradientNode, SFBlurredNode, SFDisplayN
     
     open func updateColors() {
         if self.automaticallyAdjustsColorStyle == true {
-            if self.shouldHaveAlternativeColors == true {
+            if self.shouldHaveAlternativeColors == false {
                 self.textColor = colorStyle.getInteractiveColor()
                 self.tintColor = colorStyle.getInteractiveColor()
                 self.backgroundColor = UIColor.clear

@@ -53,5 +53,10 @@
 	<string>Tu ubicación es necesaria para buscar lugares cerca de ti</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Tu ubicación es necesaria para buscar lugares cerca de ti</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>
