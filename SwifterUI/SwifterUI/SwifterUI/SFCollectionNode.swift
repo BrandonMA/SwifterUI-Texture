@@ -12,6 +12,18 @@ open class SFCollectionNode: ASCollectionNode, SFDisplayNodeColorStyle, SFAnimat
     
     // MARK: - Instance Properties
     
+    var showsVerticalScrollIndicator: Bool = true {
+        didSet {
+            self.view.showsVerticalScrollIndicator = self.showsVerticalScrollIndicator
+        }
+    }
+    
+    var showsHorizontalScrollIndicator: Bool = true {
+        didSet {
+            self.view.showsHorizontalScrollIndicator = self.showsHorizontalScrollIndicator
+        }
+    }
+    
     // MARK: - SFDisplayNodeColorStyle
     
     open var automaticallyAdjustsColorStyle: Bool = false

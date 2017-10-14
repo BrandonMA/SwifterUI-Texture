@@ -45,6 +45,10 @@
 		42CDF99A1F65830000B41DC6 /* SFChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CDF9991F65830000B41DC6 /* SFChatController.swift */; };
 		42CEA6F71F4B503100310E64 /* SFAppleMusicLikePresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CEA6F61F4B503100310E64 /* SFAppleMusicLikePresentationController.swift */; };
 		42D1307A1F54B31A00BCA109 /* SFTextContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D130791F54B31A00BCA109 /* SFTextContainer.swift */; };
+		42D800541F92D41E00C89730 /* PitchPerfectNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D800531F92D41E00C89730 /* PitchPerfectNode.swift */; };
+		42D800561F92D42A00C89730 /* FoursquareNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D800551F92D42A00C89730 /* FoursquareNode.swift */; };
+		42D800581F92D44300C89730 /* FoursquareCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D800571F92D44300C89730 /* FoursquareCell.swift */; };
+		42D8005A1F92D6D600C89730 /* PitchPerfectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D800591F92D6D600C89730 /* PitchPerfectController.swift */; };
 		42D9D66B1F20CECB00918013 /* SFLoadingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D9D66A1F20CECB00918013 /* SFLoadingNode.swift */; };
 		42D9D66D1F20CF1E00918013 /* SFButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D9D66C1F20CF1E00918013 /* SFButtonNode.swift */; };
 		42D9D6711F20D26E00918013 /* SFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D9D6701F20D26E00918013 /* SFTextField.swift */; };
@@ -56,8 +60,6 @@
 		42DCD5D51F8EC6DC009B8A9F /* SFYoutubeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DCD5D41F8EC6DC009B8A9F /* SFYoutubeNode.swift */; };
 		42DCD5D71F8EC706009B8A9F /* SFPlayerContainerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DCD5D61F8EC706009B8A9F /* SFPlayerContainerNode.swift */; };
 		42DCD5D91F8EC764009B8A9F /* SFVideoPlayerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DCD5D81F8EC764009B8A9F /* SFVideoPlayerDelegate.swift */; };
-		42DDDE901F81D852004F776C /* VideoPlayerExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DDDE8F1F81D852004F776C /* VideoPlayerExample.swift */; };
-		42DDDE921F81DB83004F776C /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 42DDDE911F81DB83004F776C /* video.mp4 */; };
 		42DDDE941F81E26E004F776C /* SFVideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DDDE931F81E26E004F776C /* SFVideoPlayer.swift */; };
 		42DED2F31F4A1C370093F89C /* SFSignUpNodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DED2F21F4A1C370093F89C /* SFSignUpNodeController.swift */; };
 		42DFF0381F64BB8D005B6076 /* SFChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DFF0371F64BB8C005B6076 /* SFChatCell.swift */; };
@@ -150,6 +152,10 @@
 		42CDF9991F65830000B41DC6 /* SFChatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFChatController.swift; path = SwifterUI/SFChatController.swift; sourceTree = "<group>"; };
 		42CEA6F61F4B503100310E64 /* SFAppleMusicLikePresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFAppleMusicLikePresentationController.swift; path = SwifterUI/SFAppleMusicLikePresentationController.swift; sourceTree = "<group>"; };
 		42D130791F54B31A00BCA109 /* SFTextContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFTextContainer.swift; path = SwifterUI/SFTextContainer.swift; sourceTree = "<group>"; };
+		42D800531F92D41E00C89730 /* PitchPerfectNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitchPerfectNode.swift; sourceTree = "<group>"; };
+		42D800551F92D42A00C89730 /* FoursquareNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoursquareNode.swift; sourceTree = "<group>"; };
+		42D800571F92D44300C89730 /* FoursquareCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoursquareCell.swift; sourceTree = "<group>"; };
+		42D800591F92D6D600C89730 /* PitchPerfectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitchPerfectController.swift; sourceTree = "<group>"; };
 		42D9D66A1F20CECB00918013 /* SFLoadingNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFLoadingNode.swift; path = SwifterUI/SFLoadingNode.swift; sourceTree = "<group>"; };
 		42D9D66C1F20CF1E00918013 /* SFButtonNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFButtonNode.swift; path = SwifterUI/SFButtonNode.swift; sourceTree = "<group>"; };
 		42D9D6701F20D26E00918013 /* SFTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFTextField.swift; path = SwifterUI/SFTextField.swift; sourceTree = "<group>"; };
@@ -161,8 +167,6 @@
 		42DCD5D41F8EC6DC009B8A9F /* SFYoutubeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFYoutubeNode.swift; path = SwifterUI/SFYoutubeNode.swift; sourceTree = "<group>"; };
 		42DCD5D61F8EC706009B8A9F /* SFPlayerContainerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFPlayerContainerNode.swift; path = SwifterUI/SFPlayerContainerNode.swift; sourceTree = "<group>"; };
 		42DCD5D81F8EC764009B8A9F /* SFVideoPlayerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFVideoPlayerDelegate.swift; path = SwifterUI/SFVideoPlayerDelegate.swift; sourceTree = "<group>"; };
-		42DDDE8F1F81D852004F776C /* VideoPlayerExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerExample.swift; sourceTree = "<group>"; };
-		42DDDE911F81DB83004F776C /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.mp4; sourceTree = "<group>"; };
 		42DDDE931F81E26E004F776C /* SFVideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFVideoPlayer.swift; path = SwifterUI/SFVideoPlayer.swift; sourceTree = "<group>"; };
 		42DED2F21F4A1C370093F89C /* SFSignUpNodeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFSignUpNodeController.swift; path = SwifterUI/SFSignUpNodeController.swift; sourceTree = "<group>"; };
 		42DFF0371F64BB8C005B6076 /* SFChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFChatCell.swift; path = SwifterUI/SFChatCell.swift; sourceTree = "<group>"; };
@@ -256,7 +260,9 @@
 		429C3AB61F819F8900A22E78 /* Foursquare Example */ = {
 			isa = PBXGroup;
 			children = (
+				42D800551F92D42A00C89730 /* FoursquareNode.swift */,
 				425D1BEF1F7FF7D500A5081B /* FoursquareViewController.swift */,
+				42D800571F92D44300C89730 /* FoursquareCell.swift */,
 				425D1BEE1F7FF7D500A5081B /* FoursquareModel.swift */,
 			);
 			name = "Foursquare Example";
@@ -333,6 +339,15 @@
 			name = Protocols;
 			sourceTree = "<group>";
 		};
+		42D800521F92BFD700C89730 /* PitchPerfect */ = {
+			isa = PBXGroup;
+			children = (
+				42D800531F92D41E00C89730 /* PitchPerfectNode.swift */,
+				42D800591F92D6D600C89730 /* PitchPerfectController.swift */,
+			);
+			name = PitchPerfect;
+			sourceTree = "<group>";
+		};
 		42D9D6781F20D6A800918013 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -350,9 +365,9 @@
 		42D9D67D1F20D8EA00918013 /* Examples */ = {
 			isa = PBXGroup;
 			children = (
+				42D800521F92BFD700C89730 /* PitchPerfect */,
 				429C3AB61F819F8900A22E78 /* Foursquare Example */,
 				421C2A0F1F249A880099762A /* Meetup Example */,
-				42DDDE8F1F81D852004F776C /* VideoPlayerExample.swift */,
 			);
 			name = Examples;
 			sourceTree = "<group>";
@@ -370,7 +385,6 @@
 		42F0F5C11F1F4939003DE859 = {
 			isa = PBXGroup;
 			children = (
-				42DDDE911F81DB83004F776C /* video.mp4 */,
 				42F0F5CC1F1F4939003DE859 /* SwifterUI */,
 				42F0F5E11F1F4939003DE859 /* SwifterUITests */,
 				42F0F5EC1F1F4939003DE859 /* SwifterUIUITests */,
@@ -639,7 +653,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42DDDE921F81DB83004F776C /* video.mp4 in Resources */,
 				42F0F5D81F1F4939003DE859 /* LaunchScreen.storyboard in Resources */,
 				42F0F5D51F1F4939003DE859 /* Assets.xcassets in Resources */,
 			);
@@ -840,10 +853,14 @@
 				42DDDE941F81E26E004F776C /* SFVideoPlayer.swift in Sources */,
 				424A5E621F5B067200EFBFB3 /* SFTextFieldView.swift in Sources */,
 				42B50AE81F65D044003E3E1A /* SFChatNode.swift in Sources */,
+				42D800581F92D44300C89730 /* FoursquareCell.swift in Sources */,
+				42D800561F92D42A00C89730 /* FoursquareNode.swift in Sources */,
 				42DED2F31F4A1C370093F89C /* SFSignUpNodeController.swift in Sources */,
 				42E554911F76A91D00355D63 /* SFTextDisplayer.swift in Sources */,
 				421C2A0D1F249A850099762A /* MeetupFeedCellNode.swift in Sources */,
 				42D9D6711F20D26E00918013 /* SFTextField.swift in Sources */,
+				42D8005A1F92D6D600C89730 /* PitchPerfectController.swift in Sources */,
+				42D800541F92D41E00C89730 /* PitchPerfectNode.swift in Sources */,
 				4204F28F1F65ACEE003D9D86 /* SFMessage.swift in Sources */,
 				425D1BF11F7FF7D500A5081B /* FoursquareViewController.swift in Sources */,
 				42D9D6731F20D39F00918013 /* SFSearchBar.swift in Sources */,
@@ -876,7 +893,6 @@
 				42D9D66B1F20CECB00918013 /* SFLoadingNode.swift in Sources */,
 				42F0F61B1F1F96C1003DE859 /* SFCellNode.swift in Sources */,
 				42D9D67C1F20D80400918013 /* SFTableNodeController.swift in Sources */,
-				42DDDE901F81D852004F776C /* VideoPlayerExample.swift in Sources */,
 				424A5E6A1F5B069B00EFBFB3 /* SFDeviceProtocol.swift in Sources */,
 				4202F7BE1F4900000009BD33 /* UIColorExtensions.swift in Sources */,
 				42E3EA321F604323008596E2 /* SFCollectionNode.swift in Sources */,

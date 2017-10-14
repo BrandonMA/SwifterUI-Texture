@@ -72,17 +72,17 @@ open class SFAnimator {
             finalAlpha = self.animation == .zoomIn ? 1.0 : 0.0
             scaleX = 1.5
             scaleY = 1.5
-            duration = 0.6
+            duration = 0.7
         case .scaleIn, .scaleOut:
             initialAlpha = self.animation == .scaleIn ? 0.0 : 1.0
             finalAlpha = self.animation == .scaleIn ? 1.0 : 0.0
             scaleX = 0.1
             scaleY = 0.1
-            duration = 0.6
+            duration = 0.7
         case .fadeIn, .fadeOut:
             initialAlpha = self.animation == .fadeIn ? 0.0 : 1.0
             finalAlpha = self.animation == .fadeIn ? 1.0 : 0.0
-            duration = 0.6
+            duration = 0.7
         case .slideInRight, .slideInLeft, .slideInTop, .slideInBottom, .slideOutRight, .slideOutLeft, .slideOutTop, .slideOutBottom:
             guard let node = self.node else {
                 print("node does not exist")
