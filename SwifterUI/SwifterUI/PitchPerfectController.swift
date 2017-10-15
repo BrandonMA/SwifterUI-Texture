@@ -10,6 +10,8 @@ import AsyncDisplayKit
 
 class PitchPerfectController: SFViewController<PitchPerfectNode> {
     
+    // MARK: - Initializers
+    
     init() {
         super.init(SFNode: PitchPerfectNode(automaticallyAdjustsColorStyle: true), automaticallyAdjustsColorStyle: true)
         self.SFNode.recordButton.addTarget(self, action: #selector(recordButtonDidTouch), forControlEvents: ASControlNodeEvent.touchUpInside)
@@ -20,6 +22,8 @@ class PitchPerfectController: SFViewController<PitchPerfectNode> {
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Instance Methods
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -41,12 +45,14 @@ class PitchPerfectController: SFViewController<PitchPerfectNode> {
         self.SFNode.recordingLabel.text = "Stop recording"
         self.SFNode.transitionLayout(withAnimation: true, shouldMeasureAsync: true, measurementCompletion: nil)
         self.SFNode.stopButton.isEnabled = true
+        self.SFNode.recordButton.isEnabled = false
     }
     
     @objc func stopButtonDidTouch() {
         self.SFNode.recordingLabel.text = "Tap to record"
         self.SFNode.transitionLayout(withAnimation: true, shouldMeasureAsync: true, measurementCompletion: nil)
         self.SFNode.stopButton.isEnabled = false
+        self.SFNode.recordButton.isEnabled = true
     }
     
 }

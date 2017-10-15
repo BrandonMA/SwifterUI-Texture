@@ -37,15 +37,15 @@ open class SFChatController: SFViewController<SFChatNode>, ASCollectionDataSourc
     
     // MARK: - Instance Methods
     
-    open override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        self.deregisterFromKeyboardNotifications()
-    }
-
     open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.SFNode.collectionNode.scrollDown(section: 0)
         registerForKeyboardNotifications()
+    }
+    
+    open override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.deregisterFromKeyboardNotifications()
     }
     
     @objc open func keyboardWillShow(notification: NSNotification) {
@@ -71,6 +71,40 @@ open class SFChatController: SFViewController<SFChatNode>, ASCollectionDataSourc
         imagePickerController.allowsEditing = true
         imagePickerController.mediaTypes = [kUTTypeImage as String]
         present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    // registerForKeyboardNotifications: Adding notifies on keyboard appearing
+    open func registerForKeyboardNotifications(){
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    // deregisterFromKeyboardNotifications: Removing notifies on keyboard appearing
+    open func deregisterFromKeyboardNotifications(){
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    open func updateKeyboardHeight(notification: NSNotification) {
+        if let keyboardFrame: NSValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            self.SFNode.keyboardHeight = keyboardRectangle.height
+        }
+    }
+    
+    open func send(message: String) {
+        let message = SFMessage(image: nil, text: message)
+        self.messages.append(message)
+        self.SFNode.bottomBar.textField.text = ""
+        self.SFNode.collectionNode.insertLastItem(section: 0)
+        self.SFNode.collectionNode.scrollDown(section: 0)
+    }
+    
+    open func send(image: UIImage?) {
+        let message = SFMessage(image: image, text: nil)
+        self.messages.append(message)
+        self.SFNode.collectionNode.insertLastItem(section: 0)
+        self.SFNode.collectionNode.scrollDown(section: 0)
     }
     
     // MARK: - ASCollectionDataSource
@@ -137,44 +171,6 @@ open class SFChatController: SFViewController<SFChatNode>, ASCollectionDataSourc
         self.SFNode.collectionNode.invalidateCalculatedLayout()
     }
 }
-
-extension SFChatController {
-    
-    // registerForKeyboardNotifications: Adding notifies on keyboard appearing
-    open func registerForKeyboardNotifications(){
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-    }
-    
-    // deregisterFromKeyboardNotifications: Removing notifies on keyboard appearing
-    open func deregisterFromKeyboardNotifications(){
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-    }
-    
-    open func updateKeyboardHeight(notification: NSNotification) {
-        if let keyboardFrame: NSValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
-            let keyboardRectangle = keyboardFrame.cgRectValue
-            self.SFNode.keyboardHeight = keyboardRectangle.height
-        }
-    }
-    
-    open func send(message: String) {
-        let message = SFMessage(image: nil, text: message)
-        self.messages.append(message)
-        self.SFNode.bottomBar.textField.text = ""
-        self.SFNode.collectionNode.insertLastItem(section: 0)
-        self.SFNode.collectionNode.scrollDown(section: 0)
-    }
-    
-    open func send(image: UIImage?) {
-        let message = SFMessage(image: image, text: nil)
-        self.messages.append(message)
-        self.SFNode.collectionNode.insertLastItem(section: 0)
-        self.SFNode.collectionNode.scrollDown(section: 0)
-    }
-}
-
 
 
 

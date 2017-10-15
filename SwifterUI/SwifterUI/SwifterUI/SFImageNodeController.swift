@@ -29,6 +29,8 @@ class SFImageZoomNodeController: SFViewController<SFImageZoomNode>, UIScrollView
         SFNode.layout(withSize: self.view.bounds.size)
     }
     
+    // MARK: - UIScrollViewDelegate
+    
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
         
         SFNode.updateConstraintsForSize(self.view.bounds.size)

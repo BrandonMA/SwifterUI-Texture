@@ -10,6 +10,8 @@ import AsyncDisplayKit
 
 class FoursquareNode: SFDisplayNode {
     
+    // MARK: - Instance Properties
+    
     lazy var mapNode: ASMapNode = {
         let mapNode = ASMapNode()
         mapNode.isLiveMap = true
@@ -27,6 +29,8 @@ class FoursquareNode: SFDisplayNode {
         tableNode.allowsSelection = false
         return tableNode
     }()
+    
+    // MARK: - Instance Methods
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         tableNode.style.width = ASDimension(unit: ASDimensionUnit.fraction, value: 1)

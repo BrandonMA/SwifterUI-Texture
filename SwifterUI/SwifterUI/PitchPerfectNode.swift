@@ -10,6 +10,8 @@ import AsyncDisplayKit
 
 class PitchPerfectNode: SFDisplayNode {
     
+    // MARK: - Instance Properties
+    
     lazy var recordButton: SFButtonNode = {
         let button = SFButtonNode(automaticallyAdjustsColorStyle: false)
         button.backgroundColor = UIColor.clear
@@ -30,6 +32,8 @@ class PitchPerfectNode: SFDisplayNode {
         button.setBackgroundImage(UIImage(named: "Stop"), for: UIControlState.normal)
         return button
     }()
+    
+    // MARK: - Instance Methods
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         recordButton.style.preferredLayoutSize = ASLayoutSize(width: ASDimension(unit: ASDimensionUnit.points, value: 128), height: ASDimension(unit: ASDimensionUnit.points, value: 128))

@@ -10,6 +10,8 @@ import AsyncDisplayKit
 
 class FoursquareCell: SFCellNode {
     
+    // MARK: - Instance Properties
+    
     lazy var titleLabel: SFLabelNode = {
         let label = SFLabelNode(automaticallyAdjustsColorStyle: self.automaticallyAdjustsColorStyle)
         label.font = UIFont.boldSystemFont(ofSize: 20)
@@ -22,6 +24,8 @@ class FoursquareCell: SFCellNode {
         label.isLayerBacked = true
         return label
     }()
+    
+    // MARK: - Instance Methods
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         let stackLayout = ASStackLayoutSpec(direction: ASStackLayoutDirection.vertical, spacing: 8, justifyContent: ASStackLayoutJustifyContent.start, alignItems: ASStackLayoutAlignItems.start, children: [titleLabel, subtitleLabel])

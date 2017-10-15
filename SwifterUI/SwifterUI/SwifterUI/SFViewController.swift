@@ -131,6 +131,8 @@ open class SFViewController<SFNodeType: SFColorStyleProtocol>: ASViewController<
         }
     }
     
+    // MARK: - SFColorController
+    
     open func updateColors() {
         if self.automaticallyAdjustsColorStyle == true {
             Dispatch.addAsyncTask(to: DispatchLevel.main) {

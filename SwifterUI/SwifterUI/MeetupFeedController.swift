@@ -9,7 +9,7 @@
 import UIKit
 import AsyncDisplayKit
 
-class MeetupFeedController: SFTableNodeController, UINavigationControllerDelegate{
+class MeetupFeedController: SFTableNodeController, UINavigationControllerDelegate, MeetupFeedDataManagerDelegate {
     
     // MARK: Instance Properties
 
@@ -21,52 +21,41 @@ class MeetupFeedController: SFTableNodeController, UINavigationControllerDelegat
     // MARK: Initializers
     
     init() {
+        super.init(SFTableNode: SFTableNode(), automaticallyAdjustsColorStyle: true)
         
-        let newNode = SFTableNode()
-        
-        newNode.shouldHaveRefreshControl = true
-        
-        super.init(SFTableNode: newNode, automaticallyAdjustsColorStyle: true)
-        
-        self.shouldHaveSearchBar = true
-                
         self.meetUpFeedDataManager = MeetupFeedDataManager(meetupService: meetUpService, locationService: locationService)
+        self.meetUpFeedDataManager.delegate = self
         
         self.SFNode.allowsSelection = true
         self.SFNode.isUserInteractionEnabled = true
-        
-        self.meetUpFeedDataManager.searchForGroupNearby { (groups, error) in
-            
-            if let error = error {
-                print(error.localizedDescription)
-                
-            } else if let groups = groups {
-                
-                self.groups = groups
-                
-                let indexSet = IndexSet(integer: 0)
-                                
-                Dispatch.addAsyncTask(to: DispatchLevel.main, handler: {
-                    self.SFNode.reloadSections(indexSet, with: UITableViewRowAnimation.automatic)
-                    self.updateColors()
-                })
-                
-            } else {
-                print("unkown error")
-            }
-        }
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(stopRefreshing))
-        self.navigationItem.title = "Prueba"
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.navigationController?.delegate = self
     }
     
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Instance Methods
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationController?.delegate = self
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(stopRefreshing))
+        self.navigationItem.title = "Prueba"
+    }
+    
+    @objc func stopRefreshing() {
+        self.SFNode.endRefreshing()
+    }
+    
+    // MARK: - MeetupFeedDataManagerDelegate
+    
+    func didFinishDownload(groups: [Group]) {
+        self.groups = groups
+        let indexSet = IndexSet(integer: 0)
+        Dispatch.addAsyncTask(to: DispatchLevel.main, handler: {
+            self.SFNode.reloadSections(indexSet, with: UITableViewRowAnimation.automatic)
+            self.updateColors()
+        })
     }
     
     // MARK: - UINavigationControllerDelegate
@@ -120,12 +109,6 @@ class MeetupFeedController: SFTableNodeController, UINavigationControllerDelegat
         UIView.animate(withDuration: 1.0) {
             node.frame = window.bounds
         }
-    }
-    
-    // MARK: - Instance Methods
-    
-    @objc func stopRefreshing() {
-        self.SFNode.endRefreshing()
     }
 
 }

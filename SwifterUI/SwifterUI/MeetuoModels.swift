@@ -56,7 +56,7 @@ final class MeetupService {
         guard let url = URL(string: "\(baseUrl)find/groups?&lat=\(latitude)&lon=\(longitude)&page=10&key=\(APIKEY)") else {
             fatalError()
         }
-        print(url)
+        
         session.dataTask(with: url) { (data, response, error) in
             
             Dispatch.addAsyncTask(to: DispatchLevel.main, handler: { 
@@ -75,21 +75,26 @@ final class MeetupService {
     }
 }
 
+protocol MeetupFeedDataManagerDelegate: class {
+    func didFinishDownload(groups: [Group])
+}
+
 // MARK: MeetupFeedDataManager Class
 
 final class MeetupFeedDataManager {
     
     fileprivate var meetupService: MeetupService?
     fileprivate var locationService: LocationService?
+    weak var delegate: MeetupFeedDataManagerDelegate? = nil
     
     init(meetupService: MeetupService, locationService: LocationService) {
         self.meetupService = meetupService
         self.locationService = locationService
+        self.searchForGroupNearby()
     }
     
     func organizerItemFromJSONDictionary(entry: JSON) -> Organizer? {
         guard let name = entry["name"] as? String, let photo = entry["photo"] as? JSON, let thumbUrl = photo["thumb_link"] as? String else { return nil }
-        
         return Organizer(name: name, thumbUrl: URL(string: thumbUrl))
     }
     
@@ -114,19 +119,19 @@ final class MeetupFeedDataManager {
         return group
     }
     
-    func searchForGroupNearby(completion: @escaping (_ groups: [Group]?, _ error: Error?) -> ()) {
+    func searchForGroupNearby() {
         
         let coordinate = locationService?.coordinate
         
         meetupService?.fetchMeetupGroupInLocation(latitude: coordinate!.latitude, longitude: coordinate!.longitude, completion: { (results, error) in
             
-            guard error == nil else { completion(nil, error); return }
+            if error != nil { fatalError() }
             
             guard let results = results else { fatalError() }
             
             let groups = results.flatMap(self.groupItemFromJSONDictionary)
             
-            completion(groups, nil)
+            self.delegate?.didFinishDownload(groups: groups)
         })
     }
 }
