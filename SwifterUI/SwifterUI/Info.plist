@@ -53,6 +53,8 @@
 	<string>Tu ubicación es necesaria para buscar lugares cerca de ti</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Tu ubicación es necesaria para buscar lugares cerca de ti</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Allow us to record your voice to change your pitch</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>

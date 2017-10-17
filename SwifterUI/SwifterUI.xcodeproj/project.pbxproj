@@ -38,6 +38,8 @@
 		42A680031F54B3E100EDBAAE /* SFPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A680021F54B3E100EDBAAE /* SFPresentationController.swift */; };
 		42A680051F54B3F300EDBAAE /* SFDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A680041F54B3F200EDBAAE /* SFDismissButton.swift */; };
 		42A680071F54B40600EDBAAE /* SFPageControlNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A680061F54B40600EDBAAE /* SFPageControlNode.swift */; };
+		42B33ABB1F94E0CC00777AD4 /* SFAnimationCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B33ABA1F94E0CC00777AD4 /* SFAnimationCurve.swift */; };
+		42B33ABD1F94E12C00777AD4 /* SFAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B33ABC1F94E12C00777AD4 /* SFAnimations.swift */; };
 		42B50AE81F65D044003E3E1A /* SFChatNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B50AE71F65D044003E3E1A /* SFChatNode.swift */; };
 		42B708991F6624150012DFCD /* SFChatBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B708981F6624150012DFCD /* SFChatBar.swift */; };
 		42B7089B1F6624390012DFCD /* SFChatContainerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7089A1F6624390012DFCD /* SFChatContainerNode.swift */; };
@@ -145,6 +147,8 @@
 		42A680021F54B3E100EDBAAE /* SFPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFPresentationController.swift; path = SwifterUI/SFPresentationController.swift; sourceTree = "<group>"; };
 		42A680041F54B3F200EDBAAE /* SFDismissButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFDismissButton.swift; path = SwifterUI/SFDismissButton.swift; sourceTree = "<group>"; };
 		42A680061F54B40600EDBAAE /* SFPageControlNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFPageControlNode.swift; path = SwifterUI/SFPageControlNode.swift; sourceTree = "<group>"; };
+		42B33ABA1F94E0CC00777AD4 /* SFAnimationCurve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFAnimationCurve.swift; path = SwifterUI/SFAnimationCurve.swift; sourceTree = "<group>"; };
+		42B33ABC1F94E12C00777AD4 /* SFAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFAnimations.swift; path = SwifterUI/SFAnimations.swift; sourceTree = "<group>"; };
 		42B50AE71F65D044003E3E1A /* SFChatNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFChatNode.swift; path = SwifterUI/SFChatNode.swift; sourceTree = "<group>"; };
 		42B708981F6624150012DFCD /* SFChatBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFChatBar.swift; path = SwifterUI/SFChatBar.swift; sourceTree = "<group>"; };
 		42B7089A1F6624390012DFCD /* SFChatContainerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFChatContainerNode.swift; path = SwifterUI/SFChatContainerNode.swift; sourceTree = "<group>"; };
@@ -292,6 +296,7 @@
 			isa = PBXGroup;
 			children = (
 				42F4BD561F7B347A00C11B8E /* SFAnimator.swift */,
+				42B33ABC1F94E12C00777AD4 /* SFAnimations.swift */,
 				42F4BD4E1F7AB08600C11B8E /* Presentation */,
 				42F4BD4F1F7AB08D00C11B8E /* Transition */,
 			);
@@ -317,6 +322,7 @@
 				4202F7BB1F48FFF70009BD33 /* SFDevice.swift */,
 				4204F28E1F65ACEE003D9D86 /* SFMessage.swift */,
 				429F9EF71F7F15F1003AEDE1 /* SFAnimationType.swift */,
+				42B33ABA1F94E0CC00777AD4 /* SFAnimationCurve.swift */,
 				42CEA6F91F4B509200310E64 /* SFGradient */,
 			);
 			name = Models;
@@ -864,6 +870,7 @@
 				4204F28F1F65ACEE003D9D86 /* SFMessage.swift in Sources */,
 				425D1BF11F7FF7D500A5081B /* FoursquareViewController.swift in Sources */,
 				42D9D6731F20D39F00918013 /* SFSearchBar.swift in Sources */,
+				42B33ABB1F94E0CC00777AD4 /* SFAnimationCurve.swift in Sources */,
 				42D1307A1F54B31A00BCA109 /* SFTextContainer.swift in Sources */,
 				42F4BD551F7AFFA300C11B8E /* SFZoomTransition.swift in Sources */,
 				42F0F6121F1F7FE0003DE859 /* SFColorStyleProtocol.swift in Sources */,
@@ -910,6 +917,7 @@
 				42DFF0381F64BB8D005B6076 /* SFChatCell.swift in Sources */,
 				42F0F6151F1F8114003DE859 /* SFDisplayNode.swift in Sources */,
 				4202F7BC1F48FFF70009BD33 /* SFDevice.swift in Sources */,
+				42B33ABD1F94E12C00777AD4 /* SFAnimations.swift in Sources */,
 				42F0F5CE1F1F4939003DE859 /* AppDelegate.swift in Sources */,
 				424A5E681F5B069400EFBFB3 /* SFColorController.swift in Sources */,
 				42F0F6251F1FA405003DE859 /* SFActivityNode.swift in Sources */,

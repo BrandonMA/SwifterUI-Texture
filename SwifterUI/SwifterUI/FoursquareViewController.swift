@@ -40,7 +40,6 @@ class FoursquareViewController: SFViewController<FoursquareNode>, CLLocationMana
         super.viewWillAppear(animated)
         self.SFNode.searchBar.animator.animation = .scaleIn
         self.SFNode.searchBar.animator.delay = 0.3
-        self.SFNode.searchBar.animator.damping = 0.7
         self.SFNode.searchBar.animator.startAnimation()
     }
     

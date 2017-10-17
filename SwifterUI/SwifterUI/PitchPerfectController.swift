@@ -7,8 +7,13 @@
 //
 
 import AsyncDisplayKit
+import AVFoundation
 
 class PitchPerfectController: SFViewController<PitchPerfectNode> {
+    
+    // MARK: - Instance Properties
+    
+    var audioRecorder: AVAudioRecorder!
     
     // MARK: - Initializers
     
@@ -28,10 +33,8 @@ class PitchPerfectController: SFViewController<PitchPerfectNode> {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.SFNode.recordButton.animator.animation = .slideInTop
-        self.SFNode.recordButton.animator.damping = 0.7
-        self.SFNode.recordingLabel.animator.animation = .fadeIn
+        self.SFNode.recordingLabel.animator.animation = .fadePopUp
         self.SFNode.stopButton.animator.animation = .slideInBottom
-        self.SFNode.stopButton.animator.damping = 0.7
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -43,16 +46,57 @@ class PitchPerfectController: SFViewController<PitchPerfectNode> {
     
     @objc func recordButtonDidTouch() {
         self.SFNode.recordingLabel.text = "Stop recording"
-        self.SFNode.transitionLayout(withAnimation: true, shouldMeasureAsync: true, measurementCompletion: nil)
         self.SFNode.stopButton.isEnabled = true
         self.SFNode.recordButton.isEnabled = false
+        self.SFNode.recordButton.animator.animation = .popUp
+        self.SFNode.recordButton.animator.startAnimation()
+//        prepareAudioRecorder()
     }
     
     @objc func stopButtonDidTouch() {
         self.SFNode.recordingLabel.text = "Tap to record"
-        self.SFNode.transitionLayout(withAnimation: true, shouldMeasureAsync: true, measurementCompletion: nil)
         self.SFNode.stopButton.isEnabled = false
         self.SFNode.recordButton.isEnabled = true
+        self.SFNode.stopButton.animator.animation = .shake
+        self.SFNode.stopButton.animator.startAnimation()
+//        stopAudioRecorder()
+    }
+    
+    func prepareAudioRecorder() {
+        
+        let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask, true)[0] as String
+        let recordingName = "recordedVoice.wav"
+        guard let filePath = URL(string: "\(dirPath)/\(recordingName)") else { fatalError() }
+        let session = AVAudioSession.sharedInstance()
+
+//        do {
+//            try session.setCategory(AVAudioSessionCategoryPlayAndRecord, with:AVAudioSessionCategoryOptions.defaultToSpeaker)
+//            try audioRecorder = AVAudioRecorder(url: filePath, settings: [:])
+//        } catch let error { print(error.localizedDescription) }
+//
+//        audioRecorder.isMeteringEnabled = true
+//        audioRecorder.prepareToRecord()
+//        audioRecorder.record()
+    }
+    
+    func stopAudioRecorder() {
+        audioRecorder.stop()
+        let session = AVAudioSession.sharedInstance()
+        do { try session.setActive(false)
+        } catch let error { print(error.localizedDescription) }
     }
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
