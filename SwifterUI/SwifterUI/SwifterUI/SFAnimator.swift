@@ -108,7 +108,7 @@ open class SFAnimator {
             
             initialFrame = node.frame
             finalFrame = node.frame
-            damping = 0.6
+            damping = 0.5
             
             if self.animation == .slideInRight || self.animation == .fadeInRight {
                 initialFrame.origin.x = maxWidth + initialFrame.size.width
@@ -155,12 +155,14 @@ open class SFAnimator {
     
     open func startAnimation() {
         
-        Dispatch.addAsyncTask(to: DispatchLevel.main) {
+        Dispatch.addAsyncTask(to: .main) {
             switch self.animation {
+                
             case .zoomIn, .zoomOut: self.zoomOrScale()
             case .scaleIn, .scaleOut: self.zoomOrScale()
             case .fadeIn, .fadeOut: self.fade()
         case .slideInRight, .slideInLeft, .slideInTop, .slideInBottom, .slideOutRight, .slideOutLeft, .slideOutTop, .slideOutBottom, .fadeInRight, .fadeInLeft, .fadeInTop, .fadeInBottom, .fadeOutRight, .fadeOutLeft, .fadeOutTop, .fadeOutBottom: self.slide()
+                
             case .popDown, .popUp, .fadePopDown, .fadePopUp:
                 self.loadAnimationPresets()
                 self.pop()

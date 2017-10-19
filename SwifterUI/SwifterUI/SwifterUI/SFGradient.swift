@@ -72,7 +72,7 @@ public struct SFGradient {
     //   height: vertical lenght of your layer
     //   handler: return the async generated image
     public func getGradientImage(width: CGFloat, height: CGFloat, handler: @escaping (UIImage?) -> ()) {
-        Dispatch.addAsyncTask(to: DispatchLevel.background) { 
+        Dispatch.addAsyncTask(to: .background) { 
             handler(self.getGradientImage(width: width, height: height)) // Calls getGradientImage on the background so it doesn't affect UI performance
         }
     }

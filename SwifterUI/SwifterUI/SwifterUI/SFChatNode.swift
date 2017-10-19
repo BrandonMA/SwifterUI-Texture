@@ -33,12 +33,12 @@ open class SFChatNode: SFDisplayNode {
     
     open override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         
-        collectionNode.style.width = ASDimension(unit: ASDimensionUnit.fraction, value: 1)
+        collectionNode.style.width = ASDimension(unit: .fraction, value: 1)
         collectionNode.style.flexGrow = 1
         
-        bottomBar.style.width = ASDimension(unit: ASDimensionUnit.fraction, value: 1)
+        bottomBar.style.width = ASDimension(unit: .fraction, value: 1)
         
-        let stackLayout = ASStackLayoutSpec(direction: ASStackLayoutDirection.vertical, spacing: 0, justifyContent: ASStackLayoutJustifyContent.start, alignItems: ASStackLayoutAlignItems.start, children: [collectionNode, bottomBar])
+        let stackLayout = ASStackLayoutSpec(direction: .vertical, spacing: 0, justifyContent: .start, alignItems: .start, children: [collectionNode, bottomBar])
 
         return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 0, bottom: keyboardHeight, right: 0), child: stackLayout)
         

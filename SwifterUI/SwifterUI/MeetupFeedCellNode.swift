@@ -55,20 +55,20 @@ class MeetupFeedCellNode: SFCellNode {
         
         organizerNameTextNode.style.flexShrink = 1.0
         locationLabelNode.style.flexShrink = 1.0
-        locationLabelNode.style.width = ASDimension(unit: ASDimensionUnit.points, value: 200)
+        locationLabelNode.style.width = ASDimension(unit: .points, value: 200)
         
-        let headerTextNodesLayout = ASStackLayoutSpec(direction: ASStackLayoutDirection.vertical, spacing: 4, justifyContent: ASStackLayoutJustifyContent.start, alignItems: ASStackLayoutAlignItems.start, children: [organizerNameTextNode, locationLabelNode])
+        let headerTextNodesLayout = ASStackLayoutSpec(direction: .vertical, spacing: 4, justifyContent: .start, alignItems: ASStackLayoutAlignItems.start, children: [organizerNameTextNode, locationLabelNode])
         
         let spacer = ASLayoutSpec()
         spacer.style.flexGrow = 1.0
         
-        let headerLayout = ASStackLayoutSpec(direction: ASStackLayoutDirection.horizontal, spacing: 8, justifyContent: ASStackLayoutJustifyContent.start, alignItems: ASStackLayoutAlignItems.center, children: [organizerAvatarImageNode, headerTextNodesLayout, spacer, timeIntervalSincePost])
+        let headerLayout = ASStackLayoutSpec(direction: .horizontal, spacing: 8, justifyContent: .start, alignItems: ASStackLayoutAlignItems.center, children: [organizerAvatarImageNode, headerTextNodesLayout, spacer, timeIntervalSincePost])
         
         let headerLayoutWithInsets = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8), child: headerLayout)
         
         let photoImageNodeAspectRatioLayout = ASRatioLayoutSpec(ratio: 9/16, child: photoImageNode)
         
-        let finalLayout = ASStackLayoutSpec(direction: ASStackLayoutDirection.vertical, spacing: 0, justifyContent: ASStackLayoutJustifyContent.start, alignItems: ASStackLayoutAlignItems.stretch, children: [headerLayoutWithInsets, photoImageNodeAspectRatioLayout])
+        let finalLayout = ASStackLayoutSpec(direction: .vertical, spacing: 0, justifyContent: .start, alignItems: .stretch, children: [headerLayoutWithInsets, photoImageNodeAspectRatioLayout])
         
         return finalLayout
         

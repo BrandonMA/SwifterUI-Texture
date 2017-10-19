@@ -9,16 +9,16 @@
 import AsyncDisplayKit
 import AVFoundation
 
-class PitchPerfectController: SFViewController<PitchPerfectNode> {
+class PitchPerfectController: SFViewController<PitchPerfectNode>, AVAudioRecorderDelegate {
     
     // MARK: - Instance Properties
     
-    var audioRecorder: AVAudioRecorder!
+    var audioRecorder: AVAudioRecorder?
     
     // MARK: - Initializers
     
     init() {
-        super.init(SFNode: PitchPerfectNode(automaticallyAdjustsColorStyle: true), automaticallyAdjustsColorStyle: true)
+        super.init(SFNode: PitchPerfectNode(), automaticallyAdjustsColorStyle: true)
         self.SFNode.recordButton.addTarget(self, action: #selector(recordButtonDidTouch), forControlEvents: ASControlNodeEvent.touchUpInside)
         self.SFNode.stopButton.addTarget(self, action: #selector(stopButtonDidTouch), forControlEvents: ASControlNodeEvent.touchUpInside)
         self.SFNode.stopButton.isEnabled = false
@@ -29,6 +29,11 @@ class PitchPerfectController: SFViewController<PitchPerfectNode> {
     }
     
     // MARK: - Instance Methods
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationController?.navigationBar.isTranslucent = false
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -50,16 +55,16 @@ class PitchPerfectController: SFViewController<PitchPerfectNode> {
         self.SFNode.recordButton.isEnabled = false
         self.SFNode.recordButton.animator.animation = .popUp
         self.SFNode.recordButton.animator.startAnimation()
-//        prepareAudioRecorder()
+        prepareAudioRecorder()
     }
     
     @objc func stopButtonDidTouch() {
         self.SFNode.recordingLabel.text = "Tap to record"
         self.SFNode.stopButton.isEnabled = false
         self.SFNode.recordButton.isEnabled = true
-        self.SFNode.stopButton.animator.animation = .shake
+        self.SFNode.stopButton.animator.animation = .popUp
         self.SFNode.stopButton.animator.startAnimation()
-//        stopAudioRecorder()
+        stopAudioRecorder()
     }
     
     func prepareAudioRecorder() {
@@ -69,21 +74,48 @@ class PitchPerfectController: SFViewController<PitchPerfectNode> {
         guard let filePath = URL(string: "\(dirPath)/\(recordingName)") else { fatalError() }
         let session = AVAudioSession.sharedInstance()
 
-//        do {
-//            try session.setCategory(AVAudioSessionCategoryPlayAndRecord, with:AVAudioSessionCategoryOptions.defaultToSpeaker)
-//            try audioRecorder = AVAudioRecorder(url: filePath, settings: [:])
-//        } catch let error { print(error.localizedDescription) }
-//
-//        audioRecorder.isMeteringEnabled = true
-//        audioRecorder.prepareToRecord()
-//        audioRecorder.record()
+        Dispatch.addAsyncTask(to: DispatchLevel.background) {
+            // Start AVAudioSession on background thread to not stop UI
+            do {
+                try session.setCategory(AVAudioSessionCategoryPlayAndRecord, with: .defaultToSpeaker)
+                try self.audioRecorder = AVAudioRecorder(url: filePath, settings: [:])
+            } catch let error { print(error.localizedDescription) }
+            
+            // Prepare audioRecorder
+            self.audioRecorder?.delegate = self
+            self.audioRecorder?.isMeteringEnabled = true
+            self.audioRecorder?.prepareToRecord()
+            
+            // Start recording on main thread once the AVAudioSession is ready
+            Dispatch.addAsyncTask(to: .main, handler: {
+                self.audioRecorder?.record()
+            })
+        }
     }
     
     func stopAudioRecorder() {
-        audioRecorder.stop()
-        let session = AVAudioSession.sharedInstance()
-        do { try session.setActive(false)
-        } catch let error { print(error.localizedDescription) }
+        
+        // Stop recording on main thread
+        audioRecorder?.stop()
+        
+        Dispatch.addAsyncTask(to: .background) {
+            // Once recording has been completed, stop the AVAudioSession on background thread
+            let session = AVAudioSession.sharedInstance()
+            do { try session.setActive(false)
+            } catch let error { print(error.localizedDescription) }
+        }
+    }
+    
+    // MARK: - AVAudioRecorderDelegate
+    
+    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+        if flag == true {
+            let controller = PitchPerfectEditorController(with: recorder.url)
+            self.navigationController?.pushViewController(controller, animated: true)
+        } else {
+            self.showErrorAlert(title: "Error al grabar", errorDescription: "No se a podido guardar la grabación", actions: [])
+        }
+        
     }
     
 }

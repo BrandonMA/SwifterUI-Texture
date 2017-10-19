@@ -33,11 +33,11 @@ class FoursquareNode: SFDisplayNode {
     // MARK: - Instance Methods
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-        tableNode.style.width = ASDimension(unit: ASDimensionUnit.fraction, value: 1)
+        tableNode.style.width = ASDimension(unit: .fraction, value: 1)
         tableNode.style.flexGrow = 1.0
         let ratioLayout = ASRatioLayoutSpec(ratio: 9/16, child: mapNode)
         let searchBarLayout = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16), child: searchBar)
-        let stackLayout = ASStackLayoutSpec(direction: ASStackLayoutDirection.vertical, spacing: 0, justifyContent: ASStackLayoutJustifyContent.start, alignItems: ASStackLayoutAlignItems.start, children: [ratioLayout, searchBarLayout, tableNode])
+        let stackLayout = ASStackLayoutSpec(direction: .vertical, spacing: 0, justifyContent: .start, alignItems: .start, children: [ratioLayout, searchBarLayout, tableNode])
         return stackLayout
     }
 }

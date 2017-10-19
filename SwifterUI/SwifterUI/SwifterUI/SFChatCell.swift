@@ -40,7 +40,7 @@ open class SFChatCell: SFCellNode {
     open override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         self.textContainerNode.style.maxWidth = ASDimension(unit: ASDimensionUnit.fraction, value: 2/3)
         self.imageContainerNode.style.maxWidth = ASDimension(unit: ASDimensionUnit.fraction, value: 2/3)
-        return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 12, bottom: 12, right: 12), child: ASRelativeLayoutSpec(horizontalPosition: self.sender == .me ? .end : .start, verticalPosition: ASRelativeLayoutSpecPosition.start, sizingOption: ASRelativeLayoutSpecSizingOption.minimumSize, child: self.imageContainerNode.imageNode.image != nil ? self.imageContainerNode : self.textContainerNode))
+        return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 12, bottom: 12, right: 12), child: ASRelativeLayoutSpec(horizontalPosition: self.sender == .me ? .end : .start, verticalPosition: .start, sizingOption: .minimumSize, child: self.imageContainerNode.imageNode.image != nil ? self.imageContainerNode : self.textContainerNode))
     }
     
     open override func updateColors() {

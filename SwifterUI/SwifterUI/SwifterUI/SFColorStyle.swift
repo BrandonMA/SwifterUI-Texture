@@ -19,8 +19,8 @@ public enum SFColorStyle: Int {
     // getNavigationBarStyle: return the corresponding UIBarStyle
     public func getNavigationBarStyle() -> UIBarStyle {
         switch self {
-        case .light: return UIBarStyle.default
-        case .dark: return UIBarStyle.black
+        case .light: return .default
+        case .dark: return .black
         }
     }
     
@@ -83,24 +83,24 @@ public enum SFColorStyle: Int {
     // getCorrectEffect: return the corresponding UIBlurEffect
     public func getCorrectEffect() -> UIBlurEffect {
         switch self {
-        case .light: return UIBlurEffect(style: UIBlurEffectStyle.light)
-        case .dark: return UIBlurEffect(style: UIBlurEffectStyle.dark)
+        case .light: return UIBlurEffect(style: .light)
+        case .dark: return UIBlurEffect(style: .dark)
         }
     }
     
     // getActivityIndicatorStyle: return the corresponding UIActivityIndicatorViewStyle for a FluidActivityIndicator
     public func getActivityIndicatorStyle() -> UIActivityIndicatorViewStyle {
         switch self {
-        case .light: return UIActivityIndicatorViewStyle.gray
-        case .dark: return UIActivityIndicatorViewStyle.white
+        case .light: return .gray
+        case .dark: return .white
         }
     }
     
     // getStatusBarStyle: return the corresponding UIStatusBarStyle
     public func getStatusBarStyle() -> UIStatusBarStyle {
         switch self {
-        case .light: return UIStatusBarStyle.default
-        case .dark: return UIStatusBarStyle.lightContent
+        case .light: return .default
+        case .dark: return .lightContent
         }
     }
     
@@ -153,8 +153,8 @@ public enum SFColorStyle: Int {
     
     public func getScrollIndicatorStyle() -> UIScrollViewIndicatorStyle {
         switch self {
-        case .light: return UIScrollViewIndicatorStyle.black
-        case .dark: return UIScrollViewIndicatorStyle.white
+        case .light: return .black
+        case .dark: return .white
         }
     }
 }

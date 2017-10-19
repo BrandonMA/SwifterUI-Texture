@@ -22,11 +22,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        loginController.signUpController = SFSignUpNodeController(automaticallyAdjustsColorStyle: true)
 //        window?.rootViewController = loginController
         
-        window?.rootViewController = ASNavigationController(rootViewController: MeetupFeedController())
+//        window?.rootViewController = ASNavigationController(rootViewController: MeetupFeedController())
         
 //        window?.rootViewController = FoursquareViewController()
         
-//        window?.rootViewController = PitchPerfectController()
+        window?.rootViewController = ASNavigationController(rootViewController: PitchPerfectController())
         
         window?.makeKeyAndVisible()
         

@@ -84,9 +84,9 @@ open class SFViewController<SFNodeType: SFColorStyleProtocol>: ASViewController<
         self.automaticallyTintNavigationBar = automaticallyAdjustsColorStyle
         
         self.node.layoutSpecBlock = { node, constrainedSize in
-            self.SFNode.style.preferredLayoutSize = ASLayoutSize(width: ASDimension(unit: ASDimensionUnit.points, value: constrainedSize.max.width), height: ASDimension(unit: ASDimensionUnit.points, value: constrainedSize.max.height))
+            self.SFNode.style.preferredLayoutSize = ASLayoutSize(width: ASDimension(unit: .points, value: constrainedSize.max.width), height: ASDimension(unit: .points, value: constrainedSize.max.height))
             
-            return ASCenterLayoutSpec(horizontalPosition: ASRelativeLayoutSpecPosition.start, verticalPosition: ASRelativeLayoutSpecPosition.start, sizingOption: ASRelativeLayoutSpecSizingOption.minimumSize, child: self.SFNode)
+            return ASCenterLayoutSpec(horizontalPosition: .start, verticalPosition: .start, sizingOption: .minimumSize, child: self.SFNode)
         }
         
         handleColorStyleCheck()

@@ -157,11 +157,11 @@ open class SFLoginNode: SFDisplayNode {
     
     open override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         
-        logoImageNode.style.preferredLayoutSize = deviceType == .ipad ? ASLayoutSize(width: ASDimension(unit: ASDimensionUnit.points, value: 256), height: ASDimension(unit: ASDimensionUnit.points, value: 256)) : ASLayoutSize(width: ASDimension(unit: ASDimensionUnit.points, value: deviceType == .iphone ? 96 : 128), height: ASDimension(unit: ASDimensionUnit.points, value: deviceType == .iphone ? 96 : 128))
+        logoImageNode.style.preferredLayoutSize = deviceType == .ipad ? ASLayoutSize(width: ASDimension(unit: .points, value: 256), height: ASDimension(unit: .points, value: 256)) : ASLayoutSize(width: ASDimension(unit: .points, value: deviceType == .iphone ? 96 : 128), height: ASDimension(unit: .points, value: deviceType == .iphone ? 96 : 128))
         
-        signInButton.style.preferredLayoutSize = ASLayoutSize(width: ASDimension(unit: ASDimensionUnit.fraction, value: 1), height: ASDimension(unit: ASDimensionUnit.points, value: 44))
+        signInButton.style.preferredLayoutSize = ASLayoutSize(width: ASDimension(unit: .fraction, value: 1), height: ASDimension(unit: .points, value: 44))
         
-        let bottomButtonsLayoutSize = ASLayoutSize(width: ASDimension(unit: ASDimensionUnit.points, value: 52), height: ASDimension(unit: ASDimensionUnit.points, value: 52))
+        let bottomButtonsLayoutSize = ASLayoutSize(width: ASDimension(unit: .points, value: 52), height: ASDimension(unit: .points, value: 52))
         
         googleButton.style.preferredLayoutSize = bottomButtonsLayoutSize
         facebookButton.style.preferredLayoutSize = bottomButtonsLayoutSize
@@ -170,13 +170,13 @@ open class SFLoginNode: SFDisplayNode {
         let multiplier: CGFloat = deviceType == .iphone ? 1.0 : 1.5
         let separators: [ASLayoutSpec] = [getStackSeparator(with: 16 * multiplier), getStackSeparator(with: 16 * multiplier), getStackSeparator(with: 16), getStackSeparator(with: 16 * multiplier), getStackSeparator(), getStackSeparator(with: 16)]
         
-        let buttonStack = ASStackLayoutSpec(direction: ASStackLayoutDirection.horizontal, spacing: 16, justifyContent: ASStackLayoutJustifyContent.center, alignItems: ASStackLayoutAlignItems.center, children: [])
+        let buttonStack = ASStackLayoutSpec(direction: .horizontal, spacing: 16, justifyContent: .center, alignItems: .center, children: [])
         
         if self.shouldHaveGoogleButton == true { buttonStack.children?.append(self.googleButton) }
         if self.shouldHaveFacebookButton == true { buttonStack.children?.append(self.facebookButton) }
         if self.shouldHaveTwitterButton == true { buttonStack.children?.append(self.twitterButton) }
         
-        let stackLayout = ASStackLayoutSpec(direction: ASStackLayoutDirection.vertical, spacing: 0, justifyContent: ASStackLayoutJustifyContent.center, alignItems: ASStackLayoutAlignItems.center, children: [logoImageNode, separators[0], titleLabelNode, separators[1], emailTextField, separators[2], passwordTextField, separators[3], signInButton, separators[4], buttonStack, separators[5], signUpButton])
+        let stackLayout = ASStackLayoutSpec(direction: .vertical, spacing: 0, justifyContent: .center, alignItems: .center, children: [logoImageNode, separators[0], titleLabelNode, separators[1], emailTextField, separators[2], passwordTextField, separators[3], signInButton, separators[4], buttonStack, separators[5], signUpButton])
         
         return addLoadingNode(to: ASInsetLayoutSpec(insets: UIEdgeInsets(top: deviceType == .iphone ? 52 : 64, left: deviceType == .ipad ? 128 : 16, bottom: 16, right: deviceType == .ipad ? 128 : 16), child: stackLayout))
     }

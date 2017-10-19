@@ -44,14 +44,14 @@ open class SFChatBar: SFDisplayNode {
     
     open override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         
-        imageButton.style.height = ASDimension(unit: ASDimensionUnit.points, value: 24)
-        imageButton.style.width = ASDimension(unit: ASDimensionUnit.points, value: 32)
+        imageButton.style.height = ASDimension(unit: .points, value: 24)
+        imageButton.style.width = ASDimension(unit: .points, value: 32)
         
         textField.style.flexGrow = 1.0
         textField.style.flexShrink = 1.0
         textField.style.height = ASDimension(unit: ASDimensionUnit.points, value: 40)
         
-        let stackLayout = ASStackLayoutSpec(direction: ASStackLayoutDirection.horizontal, spacing: 16, justifyContent: ASStackLayoutJustifyContent.start, alignItems: ASStackLayoutAlignItems.center, children: [imageButton, textField, sendButton])
+        let stackLayout = ASStackLayoutSpec(direction: .horizontal, spacing: 16, justifyContent: .start, alignItems: .center, children: [imageButton, textField, sendButton])
         
         return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16), child: stackLayout)
     }
@@ -60,7 +60,7 @@ open class SFChatBar: SFDisplayNode {
         if self.automaticallyAdjustsColorStyle == true {
             super.updateColors()
             SFAssets.imageOfCameraIcon.tint(color: self.colorStyle.getPlaceholderColor(), alpha: 1, handler: { (image) in
-                Dispatch.addAsyncTask(to: DispatchLevel.main, handler: {
+                Dispatch.addAsyncTask(to: .main, handler: {
                     self.imageButton.image = image
                 })
             })

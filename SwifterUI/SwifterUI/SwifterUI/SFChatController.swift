@@ -22,9 +22,9 @@ open class SFChatController: SFViewController<SFChatNode>, ASCollectionDataSourc
         
         SFNode.collectionNode.dataSource = self
         SFNode.bottomBar.textField.textField.delegate = self
-        SFNode.bottomBar.imageButton.addTarget(self, action: #selector(imageButtonDidTouch), forControlEvents: ASControlNodeEvent.touchUpInside)
+        SFNode.bottomBar.imageButton.addTarget(self, action: #selector(imageButtonDidTouch), forControlEvents: .touchUpInside)
         SFNode.collectionNode.view.keyboardDismissMode = .interactive
-        SFNode.bottomBar.sendButton.addTarget(self, action: #selector(sendButtonDidTouch), forControlEvents: ASControlNodeEvent.touchUpInside)
+        SFNode.bottomBar.sendButton.addTarget(self, action: #selector(sendButtonDidTouch), forControlEvents: .touchUpInside)
     }
     
     required convenience public init(automaticallyAdjustsColorStyle: Bool) {

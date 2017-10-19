@@ -15,7 +15,8 @@ class PitchPerfectNode: SFDisplayNode {
     lazy var recordButton: SFButtonNode = {
         let button = SFButtonNode(automaticallyAdjustsColorStyle: false)
         button.backgroundColor = UIColor.clear
-        button.setBackgroundImage(UIImage(named: "Record"), for: UIControlState.normal)
+        button.setImage(UIImage(named: "Record"), for: .normal)
+        button.imageNode.contentMode = .scaleAspectFit
         return button
     }()
     
@@ -29,19 +30,19 @@ class PitchPerfectNode: SFDisplayNode {
     lazy var stopButton: SFButtonNode = {
         let button = SFButtonNode(automaticallyAdjustsColorStyle: false)
         button.backgroundColor = UIColor.clear
-        button.setBackgroundImage(UIImage(named: "Stop"), for: UIControlState.normal)
+        button.setImage(UIImage(named: "Stop"), for: .normal)
+        button.imageNode.contentMode = .scaleAspectFit
         return button
     }()
     
     // MARK: - Instance Methods
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-        recordButton.style.preferredLayoutSize = ASLayoutSize(width: ASDimension(unit: ASDimensionUnit.points, value: 128), height: ASDimension(unit: ASDimensionUnit.points, value: 128))
-        stopButton.style.preferredLayoutSize = ASLayoutSize(width: ASDimension(unit: ASDimensionUnit.points, value: 64), height: ASDimension(unit: ASDimensionUnit.points, value: 64))
-        let stack = ASStackLayoutSpec(direction: ASStackLayoutDirection.vertical, spacing: 32, justifyContent: ASStackLayoutJustifyContent.center, alignItems: ASStackLayoutAlignItems.center, children: [recordButton, recordingLabel, stopButton])
+        recordButton.style.preferredLayoutSize = ASLayoutSize(width: ASDimension(unit: .points, value: 80), height: ASDimension(unit: .points, value: 80))
+        stopButton.style.preferredLayoutSize = ASLayoutSize(width: ASDimension(unit: .points, value: 80), height: ASDimension(unit: .points, value: 80))
+        let stack = ASStackLayoutSpec(direction: .vertical, spacing: 32, justifyContent: .center, alignItems: .center, children: [recordButton, recordingLabel, stopButton])
         return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16), child: stack)
     }
-    
 }
 
 

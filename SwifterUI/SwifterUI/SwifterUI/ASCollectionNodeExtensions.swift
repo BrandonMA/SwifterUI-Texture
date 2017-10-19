@@ -14,7 +14,7 @@ public extension ASCollectionNode {
     
     public func scrollDown(section: Int) {
         if self.numberOfItems(inSection: section) > 0 {
-            self.scrollToItem(at: IndexPath(item: numberOfItems(inSection: section) - 1, section: section), at: UICollectionViewScrollPosition.bottom, animated: true)
+            self.scrollToItem(at: IndexPath(item: numberOfItems(inSection: section) - 1, section: section), at: .bottom, animated: true)
         }
     }
     

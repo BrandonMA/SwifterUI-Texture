@@ -119,7 +119,7 @@ class FoursquareViewController: SFViewController<FoursquareNode>, CLLocationMana
         }
         
         if self.filteredVenues.count != initialSize {
-            Dispatch.addAsyncTask(to: DispatchLevel.main, handler: {
+            Dispatch.addAsyncTask(to: .main, handler: {
                 self.SFNode.tableNode.reloadSections(IndexSet(integer: 0), with: UITableViewRowAnimation.automatic)
             })
         }
@@ -129,7 +129,7 @@ class FoursquareViewController: SFViewController<FoursquareNode>, CLLocationMana
         let initialSize = filteredVenues.count
         filteredVenues = self.manager.venues
         if self.filteredVenues.count != initialSize {
-            Dispatch.addAsyncTask(to: DispatchLevel.main, handler: {
+            Dispatch.addAsyncTask(to: .main, handler: {
                 self.SFNode.tableNode.reloadSections(IndexSet(integer: 0), with: UITableViewRowAnimation.automatic)
             })
         }
