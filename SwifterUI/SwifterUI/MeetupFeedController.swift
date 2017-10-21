@@ -95,14 +95,14 @@ class MeetupFeedController: SFTableNodeController, UINavigationControllerDelegat
     
     func tableNode(_ tableNode: ASTableNode, willDisplayRowWith node: ASCellNode) {
         guard let node = node as? MeetupFeedCellNode else { return }
-        node.animator.animation = .scaleIn
-        node.animator.startAnimation()
+//        node.animator.animation = .scaleIn
+        node.animator.start()
     }
     
     func tableNode(_ tableNode: ASTableNode, didSelectRowAt indexPath: IndexPath) {
         guard let node = tableNode.nodeForRow(at: indexPath) as? MeetupFeedCellNode else { return }
-        node.animator.animation = .shake
-        node.animator.startAnimation()
+//        node.animator.animation = .shake
+        node.animator.start()
 //        guard let window = UIApplication.shared.keyWindow else { return }
 //        var newFrame = tableNode.rectForRow(at: indexPath)
 //        newFrame = tableNode.convert(newFrame, to: tableNode.supernode)

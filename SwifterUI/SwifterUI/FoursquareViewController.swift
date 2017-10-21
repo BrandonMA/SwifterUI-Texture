@@ -38,9 +38,9 @@ class FoursquareViewController: SFViewController<FoursquareNode>, CLLocationMana
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.SFNode.searchBar.animator.animation = .scaleIn
+//        self.SFNode.searchBar.animator.animation = .scaleIn
         self.SFNode.searchBar.animator.delay = 0.3
-        self.SFNode.searchBar.animator.startAnimation()
+        self.SFNode.searchBar.animator.start()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -99,8 +99,8 @@ class FoursquareViewController: SFViewController<FoursquareNode>, CLLocationMana
     
     func tableNode(_ tableNode: ASTableNode, willDisplayRowWith node: ASCellNode) {
         guard let node = node as? FoursquareCell else { return }
-        node.animator.animation = .slideInLeft
-        node.animator.startAnimation()
+//        node.animator.animation = .slideInLeft
+        node.animator.start()
     }
     
     // MARK: - SFSearchBarDelegate

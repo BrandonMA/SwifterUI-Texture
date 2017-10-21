@@ -37,24 +37,24 @@ class PitchPerfectController: SFViewController<PitchPerfectNode>, AVAudioRecorde
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.SFNode.recordButton.animator.animation = .slideInTop
-        self.SFNode.recordingLabel.animator.animation = .fadePopUp
-        self.SFNode.stopButton.animator.animation = .slideInBottom
+        self.SFNode.recordButton.animator.animations = [.slideInTop]
+        self.SFNode.recordingLabel.animator.animations = [.popUp, .fadeIn]
+        self.SFNode.stopButton.animator.animations = [.slideInBottom]
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.SFNode.recordButton.animator.startAnimation()
-        self.SFNode.recordingLabel.animator.startAnimation()
-        self.SFNode.stopButton.animator.startAnimation()
+        self.SFNode.recordButton.animator.start()
+        self.SFNode.recordingLabel.animator.start()
+        self.SFNode.stopButton.animator.start()
     }
     
     @objc func recordButtonDidTouch() {
         self.SFNode.recordingLabel.text = "Stop recording"
         self.SFNode.stopButton.isEnabled = true
         self.SFNode.recordButton.isEnabled = false
-        self.SFNode.recordButton.animator.animation = .popUp
-        self.SFNode.recordButton.animator.startAnimation()
+        self.SFNode.recordButton.animator.animations = [.popUp]
+        self.SFNode.recordButton.animator.start()
         prepareAudioRecorder()
     }
     
@@ -62,8 +62,6 @@ class PitchPerfectController: SFViewController<PitchPerfectNode>, AVAudioRecorde
         self.SFNode.recordingLabel.text = "Tap to record"
         self.SFNode.stopButton.isEnabled = false
         self.SFNode.recordButton.isEnabled = true
-        self.SFNode.stopButton.animator.animation = .popUp
-        self.SFNode.stopButton.animator.startAnimation()
         stopAudioRecorder()
     }
     

@@ -32,7 +32,7 @@ open class SFCollectionNode: ASCollectionNode, SFDisplayNodeColorStyle, SFAnimat
     
     // MARK: - SFAnimatable
     
-    open lazy var animator: SFAnimator = SFAnimator(with: self, animation: SFAnimationType.none)
+    open lazy var animator: SFAnimator = SFAnimator(with: self, animations: [.none])
     
     // MARK: - Initializers
     

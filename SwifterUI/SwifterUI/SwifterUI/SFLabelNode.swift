@@ -39,7 +39,7 @@ open class SFLabelNode: ASTextNode, SFGradientNode, SFDisplayNodeColorStyle, SFT
     
     // MARK: - SFAnimatable
     
-    open lazy var animator: SFAnimator = SFAnimator(with: self, animation: SFAnimationType.none)
+    open lazy var animator: SFAnimator = SFAnimator(with: self, animations: [.none])
     
     // MARK: - Initializers
 

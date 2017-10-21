@@ -9,32 +9,22 @@
 import AsyncDisplayKit
 
 public enum SFAnimationType: String {
-    case zoomIn //
-    case zoomOut //
-    case scaleIn //
-    case scaleOut //
-    case fadeIn //
-    case fadeOut //
-    case fadeInRight //
-    case fadeInLeft //
-    case fadeInTop //
-    case fadeInBottom //
-    case fadeOutRight //
-    case fadeOutLeft //
-    case fadeOutTop //
-    case fadeOutBottom //
-    case fadePopDown //
-    case fadePopUp //
-    case slideInRight //
-    case slideInLeft //
-    case slideInTop //
-    case slideInBottom //
-    case slideOutRight //
-    case slideOutLeft //
-    case slideOutTop //
-    case slideOutBottom //
-    case popDown //
-    case popUp //
+    case zoomIn
+    case zoomOut
+    case scaleIn
+    case scaleOut
+    case fadeIn 
+    case fadeOut
+    case slideInRight
+    case slideInLeft
+    case slideInTop
+    case slideInBottom
+    case slideOutRight
+    case slideOutLeft
+    case slideOutTop
+    case slideOutBottom
+    case popDown
+    case popUp
     case shake
     case squeeze
     case wooble

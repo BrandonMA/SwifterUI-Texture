@@ -24,7 +24,7 @@ open class SFActivityNode: ASDisplayNode, SFDisplayNodeColorStyle, SFAnimatable 
     
     // MARK: - SFAnimatable
     
-    open lazy var animator: SFAnimator = SFAnimator(with: self, animation: SFAnimationType.none)
+    open lazy var animator: SFAnimator = SFAnimator(with: self, animations: [.none])
     
     // MARK: - Initializers
     

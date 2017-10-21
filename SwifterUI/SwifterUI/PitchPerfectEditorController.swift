@@ -19,6 +19,14 @@ class PitchPerfectEditorController: SFViewController<PitchPerfectEditorNode> {
     init(with fileURL: URL) {
         self.recordedAudioURL = fileURL
         super.init(SFNode: PitchPerfectEditorNode(), automaticallyAdjustsColorStyle: true)
+        
+        self.SFNode.slowButton.addTarget(self, action: #selector(slowButtonDidTouch), forControlEvents: .touchUpInside)
+        self.SFNode.fastButton.addTarget(self, action: #selector(fastButtonDidTouch), forControlEvents: .touchUpInside)
+        self.SFNode.highPitchButton.addTarget(self, action: #selector(highButtonDidTouch), forControlEvents: .touchUpInside)
+        self.SFNode.lowPitchButton.addTarget(self, action: #selector(lowButtonDidTouch), forControlEvents: .touchUpInside)
+        self.SFNode.echoPitchButton.addTarget(self, action: #selector(echoButtonDidTouch), forControlEvents: .touchUpInside)
+        self.SFNode.reverbPitchButton.addTarget(self, action: #selector(reverbButtonDidTouch), forControlEvents: .touchUpInside)
+        self.SFNode.stopButton.addTarget(self, action: #selector(stopButtonDidTouch), forControlEvents: .touchUpInside)
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -30,31 +38,70 @@ class PitchPerfectEditorController: SFViewController<PitchPerfectEditorNode> {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.SFNode.slowButton.animator.animation = .fadeInLeft
+        self.SFNode.slowButton.animator.animations = [.slideInLeft, .fadeIn]
         self.SFNode.slowButton.animator.delay = 0.3
-        self.SFNode.highPitchButton.animator.animation = .fadeInLeft
-        self.SFNode.highPitchButton.animator.delay = 0.3
-        self.SFNode.echoPitchButton.animator.animation = .fadeInLeft
-        self.SFNode.echoPitchButton.animator.delay = 0.3
-        self.SFNode.fastButton.animator.animation = .fadeInRight
+        self.SFNode.fastButton.animator.animations = [.slideInRight, .fadeIn]
         self.SFNode.fastButton.animator.delay = 0.3
-        self.SFNode.lowPitchButton.animator.animation = .fadeInRight
+        self.SFNode.highPitchButton.animator.animations = [.slideInLeft, .fadeIn]
+        self.SFNode.highPitchButton.animator.delay = 0.3
+        self.SFNode.lowPitchButton.animator.animations = [.slideInRight, .fadeIn]
         self.SFNode.lowPitchButton.animator.delay = 0.3
-        self.SFNode.reverbPitchButton.animator.animation = .fadeInRight
+        self.SFNode.echoPitchButton.animator.animations = [.slideInLeft, .fadeIn]
+        self.SFNode.echoPitchButton.animator.delay = 0.3
+        self.SFNode.reverbPitchButton.animator.animations = [.slideInRight, .fadeIn]
         self.SFNode.reverbPitchButton.animator.delay = 0.3
-        self.SFNode.stopButton.animator.animation = .fadeInBottom
+        self.SFNode.stopButton.animator.animations = [.slideInBottom, .fadeIn]
         self.SFNode.stopButton.animator.delay = 0.3
-        
-        self.SFNode.slowButton.animator.startAnimation()
-        self.SFNode.highPitchButton.animator.startAnimation()
-        self.SFNode.echoPitchButton.animator.startAnimation()
-        self.SFNode.fastButton.animator.startAnimation()
-        self.SFNode.lowPitchButton.animator.startAnimation()
-        self.SFNode.reverbPitchButton.animator.startAnimation()
-        self.SFNode.stopButton.animator.startAnimation()
+
+        self.SFNode.slowButton.animator.start()
+        self.SFNode.highPitchButton.animator.start()
+        self.SFNode.echoPitchButton.animator.start()
+        self.SFNode.fastButton.animator.start()
+        self.SFNode.lowPitchButton.animator.start()
+        self.SFNode.reverbPitchButton.animator.start()
+        self.SFNode.stopButton.animator.start()
     }
     
+    @objc func slowButtonDidTouch() {
+        self.SFNode.slowButton.animator.animations = [.popUp]
+        self.SFNode.slowButton.animator.start()
+    }
+
+    @objc func fastButtonDidTouch() {
+        self.SFNode.fastButton.animator.animations = [.popUp]
+        self.SFNode.fastButton.animator.start()
+    }
+
+    @objc func highButtonDidTouch() {
+        self.SFNode.highPitchButton.animator.animations = [.popUp]
+        self.SFNode.highPitchButton.animator.start()
+    }
+
+    @objc func lowButtonDidTouch() {
+        self.SFNode.lowPitchButton.animator.animations = [.popUp]
+        self.SFNode.lowPitchButton.animator.start()
+    }
+
+    @objc func echoButtonDidTouch() {
+        self.SFNode.echoPitchButton.animator.animations = [.popUp]
+        self.SFNode.echoPitchButton.animator.start()
+    }
+
+    @objc func reverbButtonDidTouch() {
+        self.SFNode.reverbPitchButton.animator.animations = [.popUp]
+        self.SFNode.reverbPitchButton.animator.start()
+    }
+
+    @objc func stopButtonDidTouch() {
+        self.SFNode.stopButton.animator.animations = [.popUp]
+        self.SFNode.stopButton.animator.start()
+    }
 }
+
+
+
+
+
 
 
 
