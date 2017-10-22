@@ -38,8 +38,12 @@ class FoursquareViewController: SFViewController<FoursquareNode>, CLLocationMana
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        self.SFNode.searchBar.animator.animation = .scaleIn
+        self.SFNode.searchBar.animator.animations = [SFScaleAnimation(type: .inside)]
         self.SFNode.searchBar.animator.delay = 0.3
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         self.SFNode.searchBar.animator.start()
     }
     
@@ -99,7 +103,7 @@ class FoursquareViewController: SFViewController<FoursquareNode>, CLLocationMana
     
     func tableNode(_ tableNode: ASTableNode, willDisplayRowWith node: ASCellNode) {
         guard let node = node as? FoursquareCell else { return }
-//        node.animator.animation = .slideInLeft
+        node.animator.animations = [SFSlideAnimation(direction: .left, type: .inside)]
         node.animator.start()
     }
     

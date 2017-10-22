@@ -10,6 +10,6 @@ import AsyncDisplayKit
 
 open class SFZoomTransition: SFTransition {
     public init(operation: UINavigationControllerOperation) {
-        super.init(animator: SFAnimator(animations: [.zoomIn]), operation: operation)
+        super.init(animator: SFAnimator(animations: [SFZoomAnimation(type: .inside)]), operation: operation)
     }
 }

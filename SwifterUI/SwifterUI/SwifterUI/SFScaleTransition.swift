@@ -10,6 +10,6 @@ import AsyncDisplayKit
 
 open class SFScaleTransition: SFTransition {
     public init(operation: UINavigationControllerOperation) {
-        super.init(animator: SFAnimator(animations: [.scaleIn]), operation: operation)
+        super.init(animator: SFAnimator(animations: [SFScaleAnimation(type: .inside)]), operation: operation)
     }
 }

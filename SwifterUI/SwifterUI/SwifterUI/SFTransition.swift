@@ -25,7 +25,7 @@ open class SFTransition: NSObject, UIViewControllerAnimatedTransitioning {
     
     open func animateTransition(using context: UIViewControllerContextTransitioning) {
         
-//        if operation == .pop { animator.reversed = true }
+        if operation == .pop { animator.inverted() }
         
         guard let animationVC = self.operation == .push ? context.viewController(forKey: .to) as? ASViewController : context.viewController(forKey: .from) as? ASViewController else { return }
         guard let toVC = context.viewController(forKey: .to) else { return }
@@ -38,8 +38,8 @@ open class SFTransition: NSObject, UIViewControllerAnimatedTransitioning {
             context.containerView.sendSubview(toBack: toVC.view)
         }
         
-        let completionBlock: (Bool) -> Void = { finished in
-            context.completeTransition(finished)
+        let completionBlock: () -> Void = {
+            context.completeTransition(true)
         }
         
         animator.animationCompletion = completionBlock

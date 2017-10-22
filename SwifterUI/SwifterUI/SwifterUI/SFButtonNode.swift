@@ -43,7 +43,7 @@ open class SFButtonNode: ASButtonNode, SFGradientNode, SFBlurredNode, SFDisplayN
     
     // MARK: - SFAnimatable
     
-    open lazy var animator: SFAnimator = SFAnimator(with: self, animations: [.none])
+    open lazy var animator: SFAnimator = SFAnimator(with: self, animations: [])
     
     // MARK: - Initializers
     

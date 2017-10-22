@@ -38,7 +38,7 @@ open class SFEditableTextNode: ASEditableTextNode, SFGradientNode, SFDisplayNode
     
     // MARK: - SFAnimatable
     
-    open lazy var animator: SFAnimator = SFAnimator(with: self, animations: [.none])
+    open lazy var animator: SFAnimator = SFAnimator(with: self, animations: [])
     
     // MARK: - Initializers
     

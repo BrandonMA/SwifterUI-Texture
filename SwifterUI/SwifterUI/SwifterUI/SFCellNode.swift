@@ -28,7 +28,7 @@ open class SFCellNode: ASCellNode, SFGradientNode, SFBlurredNode, SFDisplayNodeC
     
     // MARK: - SFAnimatable
     
-    open lazy var animator: SFAnimator = SFAnimator(with: self, animations: [.none])
+    open lazy var animator: SFAnimator = SFAnimator(with: self, animations: [])
     
     // MARK: - Initializers
     

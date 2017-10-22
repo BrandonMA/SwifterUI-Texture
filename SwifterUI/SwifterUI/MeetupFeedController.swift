@@ -61,7 +61,7 @@ class MeetupFeedController: SFTableNodeController, UINavigationControllerDelegat
     // MARK: - UINavigationControllerDelegate
     
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return SFZoomTransition(operation: operation)
+        return SFScaleTransition(operation: operation)
     }
     
     // MARK: - ASTableDataSource
@@ -95,14 +95,12 @@ class MeetupFeedController: SFTableNodeController, UINavigationControllerDelegat
     
     func tableNode(_ tableNode: ASTableNode, willDisplayRowWith node: ASCellNode) {
         guard let node = node as? MeetupFeedCellNode else { return }
-//        node.animator.animation = .scaleIn
+        node.animator.animations = [SFScaleAnimation(type: .inside)]
         node.animator.start()
     }
     
     func tableNode(_ tableNode: ASTableNode, didSelectRowAt indexPath: IndexPath) {
         guard let node = tableNode.nodeForRow(at: indexPath) as? MeetupFeedCellNode else { return }
-//        node.animator.animation = .shake
-        node.animator.start()
 //        guard let window = UIApplication.shared.keyWindow else { return }
 //        var newFrame = tableNode.rectForRow(at: indexPath)
 //        newFrame = tableNode.convert(newFrame, to: tableNode.supernode)
@@ -111,6 +109,9 @@ class MeetupFeedController: SFTableNodeController, UINavigationControllerDelegat
 //        UIView.animate(withDuration: 1.0) {
 //            node.frame = window.bounds
 //        }
+        guard let image = node.photoImageNode.image else { return }
+        let controller = SFImageZoomNodeController(withImage: image, automaticallyAdjustsColorStyle: true)
+        self.navigationController?.pushViewController(controller, animated: true)
     }
 
 }

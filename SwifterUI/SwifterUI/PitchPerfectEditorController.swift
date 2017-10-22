@@ -38,19 +38,19 @@ class PitchPerfectEditorController: SFViewController<PitchPerfectEditorNode> {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.SFNode.slowButton.animator.animations = [.slideInLeft, .fadeIn]
+        self.SFNode.slowButton.animator.animations = [SFSlideAnimation(direction: .left, type: .inside), SFFadeAnimation(type: .inside)]
         self.SFNode.slowButton.animator.delay = 0.3
-        self.SFNode.fastButton.animator.animations = [.slideInRight, .fadeIn]
+        self.SFNode.fastButton.animator.animations = [SFSlideAnimation(direction: .right, type: .inside), SFFadeAnimation(type: .inside)]
         self.SFNode.fastButton.animator.delay = 0.3
-        self.SFNode.highPitchButton.animator.animations = [.slideInLeft, .fadeIn]
+        self.SFNode.highPitchButton.animator.animations = [SFSlideAnimation(direction: .left, type: .inside), SFFadeAnimation(type: .inside)]
         self.SFNode.highPitchButton.animator.delay = 0.3
-        self.SFNode.lowPitchButton.animator.animations = [.slideInRight, .fadeIn]
+        self.SFNode.lowPitchButton.animator.animations = [SFSlideAnimation(direction: .right, type: .inside), SFFadeAnimation(type: .inside)]
         self.SFNode.lowPitchButton.animator.delay = 0.3
-        self.SFNode.echoPitchButton.animator.animations = [.slideInLeft, .fadeIn]
+        self.SFNode.echoPitchButton.animator.animations = [SFSlideAnimation(direction: .left, type: .inside), SFFadeAnimation(type: .inside)]
         self.SFNode.echoPitchButton.animator.delay = 0.3
-        self.SFNode.reverbPitchButton.animator.animations = [.slideInRight, .fadeIn]
+        self.SFNode.reverbPitchButton.animator.animations = [SFSlideAnimation(direction: .right, type: .inside), SFFadeAnimation(type: .inside)]
         self.SFNode.reverbPitchButton.animator.delay = 0.3
-        self.SFNode.stopButton.animator.animations = [.slideInBottom, .fadeIn]
+        self.SFNode.stopButton.animator.animations = [SFSlideAnimation(direction: .bottom, type: .inside), SFFadeAnimation(type: .inside)]
         self.SFNode.stopButton.animator.delay = 0.3
 
         self.SFNode.slowButton.animator.start()
@@ -63,37 +63,37 @@ class PitchPerfectEditorController: SFViewController<PitchPerfectEditorNode> {
     }
     
     @objc func slowButtonDidTouch() {
-        self.SFNode.slowButton.animator.animations = [.popUp]
+        self.SFNode.slowButton.animator.animations = [SFPopAnimation(type: .outside)]
         self.SFNode.slowButton.animator.start()
     }
 
     @objc func fastButtonDidTouch() {
-        self.SFNode.fastButton.animator.animations = [.popUp]
+        self.SFNode.fastButton.animator.animations = [SFPopAnimation(type: .outside)]
         self.SFNode.fastButton.animator.start()
     }
 
     @objc func highButtonDidTouch() {
-        self.SFNode.highPitchButton.animator.animations = [.popUp]
+        self.SFNode.highPitchButton.animator.animations = [SFPopAnimation(type: .outside)]
         self.SFNode.highPitchButton.animator.start()
     }
 
     @objc func lowButtonDidTouch() {
-        self.SFNode.lowPitchButton.animator.animations = [.popUp]
+        self.SFNode.lowPitchButton.animator.animations = [SFPopAnimation(type: .outside)]
         self.SFNode.lowPitchButton.animator.start()
     }
 
     @objc func echoButtonDidTouch() {
-        self.SFNode.echoPitchButton.animator.animations = [.popUp]
+        self.SFNode.echoPitchButton.animator.animations = [SFPopAnimation(type: .outside)]
         self.SFNode.echoPitchButton.animator.start()
     }
 
     @objc func reverbButtonDidTouch() {
-        self.SFNode.reverbPitchButton.animator.animations = [.popUp]
+        self.SFNode.reverbPitchButton.animator.animations = [SFPopAnimation(type: .outside)]
         self.SFNode.reverbPitchButton.animator.start()
     }
 
     @objc func stopButtonDidTouch() {
-        self.SFNode.stopButton.animator.animations = [.popUp]
+        self.SFNode.stopButton.animator.animations = [SFPopAnimation(type: .outside)]
         self.SFNode.stopButton.animator.start()
     }
 }
