@@ -71,6 +71,7 @@ class PitchPerfectEditorNode: SFDisplayNode {
     // MARK: - Instance Methods
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+        
         slowButton.style.preferredLayoutSize = ASLayoutSize(width: ASDimension(unit: .fraction, value: 1/2), height: ASDimension(unit: .fraction, value: 1))
         fastButton.style.preferredLayoutSize = ASLayoutSize(width: ASDimension(unit: .fraction, value: 1/2), height: ASDimension(unit: .fraction, value: 1))
         highPitchButton.style.preferredLayoutSize = ASLayoutSize(width: ASDimension(unit: .fraction, value: 1/2), height: ASDimension(unit: .fraction, value: 1))

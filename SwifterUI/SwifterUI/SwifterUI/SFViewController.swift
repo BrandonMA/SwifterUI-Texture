@@ -9,7 +9,7 @@
 import AsyncDisplayKit
 import AVKit
 
-open class SFViewController<SFNodeType: SFColorStyleProtocol>: ASViewController<ASDisplayNode> where SFNodeType: ASDisplayNode {
+open class SFViewController<SFNodeType: SFColorStyleProtocol>: ASViewController<ASDisplayNode>, SFAnimatableController where SFNodeType: ASDisplayNode {
     
     // MARK: - Instance Properties
     
@@ -104,6 +104,16 @@ open class SFViewController<SFNodeType: SFColorStyleProtocol>: ASViewController<
         handleSearchController()
     }
     
+    open override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        prepareAnimations()
+    }
+    
+    open override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        startAnimations()
+    }
+    
     // handleSearchController: Check if it should have a searchController or not
     open func handleSearchController() {
         if shouldHaveSearchBar == true {
@@ -128,6 +138,18 @@ open class SFViewController<SFNodeType: SFColorStyleProtocol>: ASViewController<
     @objc final func handleBrightnessChange() {
         if currentColorStyle != self.colorStyle || self.currentColorStyle == nil {
             updateColors()
+        }
+    }
+    
+    open func prepareAnimations() {
+        
+    }
+    
+    open func startAnimations() {
+        for subnode in self.SFNode.subnodes {
+            if let animatable = subnode as? SFAnimatable {
+                animatable.animator.start()
+            }
         }
     }
     

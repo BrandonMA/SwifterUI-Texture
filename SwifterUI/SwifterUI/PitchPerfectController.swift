@@ -19,8 +19,8 @@ class PitchPerfectController: SFViewController<PitchPerfectNode>, AVAudioRecorde
     
     init() {
         super.init(SFNode: PitchPerfectNode(), automaticallyAdjustsColorStyle: true)
-        self.SFNode.recordButton.addTarget(self, action: #selector(recordButtonDidTouch), forControlEvents: ASControlNodeEvent.touchUpInside)
-        self.SFNode.stopButton.addTarget(self, action: #selector(stopButtonDidTouch), forControlEvents: ASControlNodeEvent.touchUpInside)
+        self.SFNode.recordButton.addTarget(self, action: #selector(didTouch(button:)), forControlEvents: ASControlNodeEvent.touchUpInside)
+        self.SFNode.stopButton.addTarget(self, action: #selector(didTouch(button:)), forControlEvents: ASControlNodeEvent.touchUpInside)
         self.SFNode.stopButton.isEnabled = false
     }
     
@@ -35,38 +35,34 @@ class PitchPerfectController: SFViewController<PitchPerfectNode>, AVAudioRecorde
         self.navigationController?.navigationBar.isTranslucent = false
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        self.SFNode.recordButton.animator.animations = [SFScaleAnimation(type: .inside)]
-        self.SFNode.recordingLabel.animator.animations = [SFPopAnimation(type: .outside), SFFadeAnimation(type: .inside)]
+    override func prepareAnimations() {
+        self.SFNode.recordButton.animator.animations = [SFSlideAnimation(direction: .top, type: .inside)]
+        self.SFNode.recordingLabel.animator.animations = [SFFadeAnimation(type: .inside), SFPopAnimation(type: .outside)]
         self.SFNode.stopButton.animator.animations = [SFSlideAnimation(direction: .bottom, type: .inside)]
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        self.SFNode.recordButton.animator.start()
-        self.SFNode.recordingLabel.animator.start()
-        self.SFNode.stopButton.animator.start()
+    @objc func didTouch(button: SFButtonNode) {
+        
+        button.animator.animations = [SFPopAnimation(type: .outside)]
+        button.animator.start()
+        
+        if button == self.SFNode.recordButton {
+            self.SFNode.stopButton.isEnabled = true
+            self.SFNode.recordButton.isEnabled = false
+            self.SFNode.recordingLabel.text = "Stop recording"
+            startAudioRecorder()
+        } else if button == self.SFNode.stopButton {
+            self.SFNode.recordingLabel.text = "Tap to record"
+            self.SFNode.stopButton.isEnabled = false
+            self.SFNode.recordButton.isEnabled = true
+            stopAudioRecorder()
+        }
+        
+        self.SFNode.transitionLayout(withAnimation: true, shouldMeasureAsync: true, measurementCompletion: nil)
+        
     }
     
-    @objc func recordButtonDidTouch() {
-        self.SFNode.recordingLabel.text = "Stop recording"
-        self.SFNode.stopButton.isEnabled = true
-        self.SFNode.recordButton.isEnabled = false
-        self.SFNode.recordButton.animator.animations = [SFPopAnimation(type: .outside)]
-        self.SFNode.recordButton.animator.start()
-        prepareAudioRecorder()
-    }
-    
-    @objc func stopButtonDidTouch() {
-        self.SFNode.recordingLabel.text = "Tap to record"
-        self.SFNode.stopButton.isEnabled = false
-        self.SFNode.recordButton.isEnabled = true
-        stopAudioRecorder()
-    }
-    
-    func prepareAudioRecorder() {
+    func startAudioRecorder() {
         
         let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask, true)[0] as String
         let recordingName = "recordedVoice.wav"
@@ -114,7 +110,6 @@ class PitchPerfectController: SFViewController<PitchPerfectNode>, AVAudioRecorde
         } else {
             self.showErrorAlert(title: "Error al grabar", errorDescription: "No se a podido guardar la grabación", actions: [])
         }
-        
     }
     
 }

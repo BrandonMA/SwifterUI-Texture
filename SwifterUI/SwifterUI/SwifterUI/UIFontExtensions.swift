@@ -10,10 +10,10 @@ import UIKit
 
 public extension UIFont {
     
-    // MARK: - Static Methods
+    // MARK: - Static Properties
     
     // systemFont: Return system font with system font size
-    public static func systemFont() -> UIFont {
+    public static var systemFont: UIFont {
         return UIFont.systemFont(ofSize: UIFont.systemFontSize)
     }
     

@@ -24,9 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 //        window?.rootViewController = ASNavigationController(rootViewController: MeetupFeedController())
         
-        window?.rootViewController = FoursquareViewController()
+//        window?.rootViewController = FoursquareViewController()
         
-//        window?.rootViewController = ASNavigationController(rootViewController: PitchPerfectController())
+        window?.rootViewController = ASNavigationController(rootViewController: PitchPerfectController())
         
         window?.makeKeyAndVisible()
         

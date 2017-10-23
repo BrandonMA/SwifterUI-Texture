@@ -22,7 +22,7 @@ open class SFEditableTextNode: ASEditableTextNode, SFGradientNode, SFDisplayNode
     
     open var textColor: UIColor = UIColor.clear { didSet { setAttributedText() } }
     
-    open var font: UIFont = UIFont.systemFont() { didSet { setAttributedText() } }
+    open var font: UIFont = UIFont.systemFont { didSet { setAttributedText() } }
     
     open var text: String = "" { didSet { setAttributedText() } }
     

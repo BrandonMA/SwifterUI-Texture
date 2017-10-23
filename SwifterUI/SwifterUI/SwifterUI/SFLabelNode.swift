@@ -23,7 +23,7 @@ open class SFLabelNode: ASTextNode, SFGradientNode, SFDisplayNodeColorStyle, SFT
     
     open var textColor: UIColor = UIColor.clear { didSet { setAttributedText() } }
     
-    open var font: UIFont = UIFont.systemFont() { didSet { setAttributedText() } }
+    open var font: UIFont = UIFont.systemFont { didSet { setAttributedText() } }
     
     open var text: String = "" { didSet { setAttributedText() } }
     

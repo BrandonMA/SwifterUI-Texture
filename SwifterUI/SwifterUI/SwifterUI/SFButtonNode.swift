@@ -23,7 +23,7 @@ open class SFButtonNode: ASButtonNode, SFGradientNode, SFBlurredNode, SFDisplayN
     
     open var textColor: UIColor = UIColor.clear { didSet { setAttributedText() } }
     
-    open var font: UIFont = UIFont.systemFont() { didSet { setAttributedText() } }
+    open var font: UIFont = UIFont.systemFont { didSet { setAttributedText() } }
     
     open var text: String = "" { didSet { setAttributedText() } }
     

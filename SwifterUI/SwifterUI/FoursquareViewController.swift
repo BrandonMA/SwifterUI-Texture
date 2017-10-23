@@ -36,15 +36,9 @@ class FoursquareViewController: SFViewController<FoursquareNode>, CLLocationMana
     
     // MARK: - Instance Methods
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func prepareAnimations() {
         self.SFNode.searchBar.animator.animations = [SFScaleAnimation(type: .inside)]
         self.SFNode.searchBar.animator.delay = 0.3
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        self.SFNode.searchBar.animator.start()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
