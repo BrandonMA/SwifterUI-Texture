@@ -8,7 +8,7 @@
 
 import AsyncDisplayKit
 
-open class SFEditableTextNode: ASEditableTextNode, SFGradientNode, SFDisplayNodeColorStyle, SFTextDisplayer, SFAnimatable {
+open class SFEditableTextNode: ASEditableTextNode, SFGradientNode, SFNodeColorStyle, SFTextDisplayer, SFAnimatable {
     
     // MARK: - Instance Properties
     

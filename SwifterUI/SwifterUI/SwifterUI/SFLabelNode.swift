@@ -9,7 +9,7 @@
 import UIKit
 import AsyncDisplayKit
 
-open class SFLabelNode: ASTextNode, SFGradientNode, SFDisplayNodeColorStyle, SFTextDisplayer, SFAnimatable {
+open class SFLabelNode: ASTextNode, SFGradientNode, SFNodeColorStyle, SFTextDisplayer, SFAnimatable {
     
     // MARK: - Instance Properties
     

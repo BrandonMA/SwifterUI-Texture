@@ -43,7 +43,7 @@ class PitchPerfectController: SFViewController<PitchPerfectNode>, AVAudioRecorde
     
     @objc func didTouch(button: SFButtonNode) {
         
-        button.animator.animations = [SFPopAnimation(type: .outside)]
+        button.animator.animations = [SFWobbleAnimation()]
         button.animator.start()
         
         if button == self.SFNode.recordButton {

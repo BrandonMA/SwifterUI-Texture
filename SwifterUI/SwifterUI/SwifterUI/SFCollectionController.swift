@@ -17,14 +17,9 @@ open class SFCollectionController: SFViewController<SFCollectionNode>, ASCollect
     //   SFNode: Node that containts your UI
     //   automaticallyAdjustsColorStyle: Variable to know if a node should automatically update it's views or not
     public init(SFCollectionNode: SFCollectionNode, automaticallyAdjustsColorStyle: Bool) {
-        
         super.init(SFNode: SFCollectionNode, automaticallyAdjustsColorStyle: automaticallyAdjustsColorStyle)
-        
         self.SFNode.delegate = self
-        
         self.SFNode.dataSource = self
-                
-        self.node.backgroundColor = self.SFNode.backgroundColor
     }
     
     required public init?(coder aDecoder: NSCoder) {

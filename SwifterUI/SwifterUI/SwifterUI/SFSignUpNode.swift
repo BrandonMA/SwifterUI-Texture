@@ -146,7 +146,7 @@ open class SFSignUpNode: SFDisplayNode {
         stackLayout.children?.append(getStackSeparator())
         stackLayout.children?.append(buttonStack)
         
-        return addLoadingNode(to: ASInsetLayoutSpec(insets: UIEdgeInsets(top: deviceType == .iphone ? 12 : 16, left: deviceType == .ipad ? 128 : 16, bottom: 16, right: deviceType == .ipad ? 128 : 16), child: stackLayout))
+        return ASInsetLayoutSpec(insets: UIEdgeInsets(top: deviceType == .iphone ? 12 : 16, left: deviceType == .ipad ? 128 : 16, bottom: 16, right: deviceType == .ipad ? 128 : 16), child: stackLayout)
     }
     
     open override func updateColors() {

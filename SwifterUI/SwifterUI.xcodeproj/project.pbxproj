@@ -23,10 +23,10 @@
 		424059AF1F65EE0C00B98776 /* ASCollectionNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424059AE1F65EE0C00B98776 /* ASCollectionNodeExtensions.swift */; };
 		424A5E621F5B067200EFBFB3 /* SFTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424A5E611F5B067100EFBFB3 /* SFTextFieldView.swift */; };
 		424A5E641F5B068300EFBFB3 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424A5E631F5B068300EFBFB3 /* UIViewControllerExtensions.swift */; };
-		424A5E661F5B068D00EFBFB3 /* SFDisplayNodeColorStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424A5E651F5B068D00EFBFB3 /* SFDisplayNodeColorStyle.swift */; };
+		424A5E661F5B068D00EFBFB3 /* SFNodeColorStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424A5E651F5B068D00EFBFB3 /* SFNodeColorStyle.swift */; };
 		424A5E681F5B069400EFBFB3 /* SFColorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424A5E671F5B069400EFBFB3 /* SFColorController.swift */; };
 		424A5E6A1F5B069B00EFBFB3 /* SFDeviceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424A5E691F5B069B00EFBFB3 /* SFDeviceProtocol.swift */; };
-		425AA3641F79C6370060AC8C /* SFImageZoomNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425AA3631F79C6370060AC8C /* SFImageZoomNode.swift */; };
+		425AA3641F79C6370060AC8C /* SFImageViewerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425AA3631F79C6370060AC8C /* SFImageViewerNode.swift */; };
 		425D1BF01F7FF7D500A5081B /* FoursquareModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425D1BEE1F7FF7D500A5081B /* FoursquareModel.swift */; };
 		425D1BF11F7FF7D500A5081B /* FoursquareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425D1BEF1F7FF7D500A5081B /* FoursquareViewController.swift */; };
 		426CC2AA1F75D413002A9FC3 /* SFEditableTextNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426CC2A91F75D413002A9FC3 /* SFEditableTextNode.swift */; };
@@ -51,6 +51,12 @@
 		42B708991F6624150012DFCD /* SFChatBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B708981F6624150012DFCD /* SFChatBar.swift */; };
 		42B7089B1F6624390012DFCD /* SFChatContainerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7089A1F6624390012DFCD /* SFChatContainerNode.swift */; };
 		42BFCB661F6048D7003B75CC /* SFCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BFCB651F6048D7003B75CC /* SFCollectionController.swift */; };
+		42C41CD41FA5760800118F7D /* SFImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C41CD31FA5760800118F7D /* SFImageViewController.swift */; };
+		42C41CD61FA623BC00118F7D /* CGFloatExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C41CD51FA623BC00118F7D /* CGFloatExtensions.swift */; };
+		42C41CD81FA6252700118F7D /* SFPagerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C41CD71FA6252700118F7D /* SFPagerNode.swift */; };
+		42C41CDA1FA627B100118F7D /* SFPagerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C41CD91FA627B100118F7D /* SFPagerController.swift */; };
+		42C6FA0A1FA03DCB005B4175 /* SFFlipAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C6FA091FA03DCB005B4175 /* SFFlipAnimation.swift */; };
+		42C6FA0C1FA040A2005B4175 /* SFWobbleAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C6FA0B1FA040A2005B4175 /* SFWobbleAnimation.swift */; };
 		42CDF99A1F65830000B41DC6 /* SFChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CDF9991F65830000B41DC6 /* SFChatController.swift */; };
 		42CEA6F71F4B503100310E64 /* SFAppleMusicLikePresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CEA6F61F4B503100310E64 /* SFAppleMusicLikePresentationController.swift */; };
 		42D1307A1F54B31A00BCA109 /* SFTextContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D130791F54B31A00BCA109 /* SFTextContainer.swift */; };
@@ -65,7 +71,7 @@
 		42D9D6731F20D39F00918013 /* SFSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D9D6721F20D39F00918013 /* SFSearchBar.swift */; };
 		42D9D67A1F20D6C500918013 /* SFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D9D6791F20D6C500918013 /* SFViewController.swift */; };
 		42D9D67C1F20D80400918013 /* SFTableNodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D9D67B1F20D80400918013 /* SFTableNodeController.swift */; };
-		42DC289A1F76B9FA00896D87 /* SFImageNodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DC28991F76B9FA00896D87 /* SFImageNodeController.swift */; };
+		42DC289A1F76B9FA00896D87 /* SFImageViewerNodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DC28991F76B9FA00896D87 /* SFImageViewerNodeController.swift */; };
 		42DC289C1F76BC1E00896D87 /* SFScrollNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DC289B1F76BC1E00896D87 /* SFScrollNode.swift */; };
 		42DCD5D51F8EC6DC009B8A9F /* SFYoutubeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DCD5D41F8EC6DC009B8A9F /* SFYoutubeNode.swift */; };
 		42DCD5D71F8EC706009B8A9F /* SFPlayerContainerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DCD5D61F8EC706009B8A9F /* SFPlayerContainerNode.swift */; };
@@ -140,10 +146,10 @@
 		424059AE1F65EE0C00B98776 /* ASCollectionNodeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ASCollectionNodeExtensions.swift; path = SwifterUI/ASCollectionNodeExtensions.swift; sourceTree = "<group>"; };
 		424A5E611F5B067100EFBFB3 /* SFTextFieldView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFTextFieldView.swift; path = SwifterUI/SFTextFieldView.swift; sourceTree = "<group>"; };
 		424A5E631F5B068300EFBFB3 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewControllerExtensions.swift; path = SwifterUI/UIViewControllerExtensions.swift; sourceTree = "<group>"; };
-		424A5E651F5B068D00EFBFB3 /* SFDisplayNodeColorStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFDisplayNodeColorStyle.swift; path = SwifterUI/SFDisplayNodeColorStyle.swift; sourceTree = "<group>"; };
+		424A5E651F5B068D00EFBFB3 /* SFNodeColorStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFNodeColorStyle.swift; path = SwifterUI/SFNodeColorStyle.swift; sourceTree = "<group>"; };
 		424A5E671F5B069400EFBFB3 /* SFColorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFColorController.swift; path = SwifterUI/SFColorController.swift; sourceTree = "<group>"; };
 		424A5E691F5B069B00EFBFB3 /* SFDeviceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFDeviceProtocol.swift; path = SwifterUI/SFDeviceProtocol.swift; sourceTree = "<group>"; };
-		425AA3631F79C6370060AC8C /* SFImageZoomNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFImageZoomNode.swift; path = SwifterUI/SFImageZoomNode.swift; sourceTree = "<group>"; };
+		425AA3631F79C6370060AC8C /* SFImageViewerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFImageViewerNode.swift; path = SwifterUI/SFImageViewerNode.swift; sourceTree = "<group>"; };
 		425D1BEE1F7FF7D500A5081B /* FoursquareModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoursquareModel.swift; sourceTree = "<group>"; };
 		425D1BEF1F7FF7D500A5081B /* FoursquareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoursquareViewController.swift; sourceTree = "<group>"; };
 		426CC2A91F75D413002A9FC3 /* SFEditableTextNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFEditableTextNode.swift; path = SwifterUI/SFEditableTextNode.swift; sourceTree = "<group>"; };
@@ -168,6 +174,12 @@
 		42B708981F6624150012DFCD /* SFChatBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFChatBar.swift; path = SwifterUI/SFChatBar.swift; sourceTree = "<group>"; };
 		42B7089A1F6624390012DFCD /* SFChatContainerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFChatContainerNode.swift; path = SwifterUI/SFChatContainerNode.swift; sourceTree = "<group>"; };
 		42BFCB651F6048D7003B75CC /* SFCollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFCollectionController.swift; path = SwifterUI/SFCollectionController.swift; sourceTree = "<group>"; };
+		42C41CD31FA5760800118F7D /* SFImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFImageViewController.swift; sourceTree = "<group>"; };
+		42C41CD51FA623BC00118F7D /* CGFloatExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CGFloatExtensions.swift; path = SwifterUI/CGFloatExtensions.swift; sourceTree = "<group>"; };
+		42C41CD71FA6252700118F7D /* SFPagerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFPagerNode.swift; path = SwifterUI/SFPagerNode.swift; sourceTree = "<group>"; };
+		42C41CD91FA627B100118F7D /* SFPagerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFPagerController.swift; path = SwifterUI/SFPagerController.swift; sourceTree = "<group>"; };
+		42C6FA091FA03DCB005B4175 /* SFFlipAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFFlipAnimation.swift; path = SwifterUI/SFFlipAnimation.swift; sourceTree = "<group>"; };
+		42C6FA0B1FA040A2005B4175 /* SFWobbleAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFWobbleAnimation.swift; path = SwifterUI/SFWobbleAnimation.swift; sourceTree = "<group>"; };
 		42CDF9991F65830000B41DC6 /* SFChatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFChatController.swift; path = SwifterUI/SFChatController.swift; sourceTree = "<group>"; };
 		42CEA6F61F4B503100310E64 /* SFAppleMusicLikePresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFAppleMusicLikePresentationController.swift; path = SwifterUI/SFAppleMusicLikePresentationController.swift; sourceTree = "<group>"; };
 		42D130791F54B31A00BCA109 /* SFTextContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFTextContainer.swift; path = SwifterUI/SFTextContainer.swift; sourceTree = "<group>"; };
@@ -182,7 +194,7 @@
 		42D9D6721F20D39F00918013 /* SFSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFSearchBar.swift; path = SwifterUI/SFSearchBar.swift; sourceTree = "<group>"; };
 		42D9D6791F20D6C500918013 /* SFViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFViewController.swift; path = SwifterUI/SFViewController.swift; sourceTree = "<group>"; };
 		42D9D67B1F20D80400918013 /* SFTableNodeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFTableNodeController.swift; path = SwifterUI/SFTableNodeController.swift; sourceTree = "<group>"; };
-		42DC28991F76B9FA00896D87 /* SFImageNodeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFImageNodeController.swift; path = SwifterUI/SFImageNodeController.swift; sourceTree = "<group>"; };
+		42DC28991F76B9FA00896D87 /* SFImageViewerNodeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFImageViewerNodeController.swift; path = SwifterUI/SFImageViewerNodeController.swift; sourceTree = "<group>"; };
 		42DC289B1F76BC1E00896D87 /* SFScrollNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFScrollNode.swift; path = SwifterUI/SFScrollNode.swift; sourceTree = "<group>"; };
 		42DCD5D41F8EC6DC009B8A9F /* SFYoutubeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFYoutubeNode.swift; path = SwifterUI/SFYoutubeNode.swift; sourceTree = "<group>"; };
 		42DCD5D61F8EC706009B8A9F /* SFPlayerContainerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFPlayerContainerNode.swift; path = SwifterUI/SFPlayerContainerNode.swift; sourceTree = "<group>"; };
@@ -258,6 +270,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		42164C771F9F7F7700798ED5 /* SFAnimations */ = {
+			isa = PBXGroup;
+			children = (
+				427664F01F9BA61D00542CEE /* SFAnimation.swift */,
+				427664F21F9BA88200542CEE /* SFFadeAnimation.swift */,
+				427664F41F9BAB1100542CEE /* SFZoomAnimation.swift */,
+				42A6DBFA1F9BF24D00A05C61 /* SFScaleAnimation.swift */,
+				42A6DBFC1F9BF74C00A05C61 /* SFSlideAnimation.swift */,
+				42A6DBFE1F9BFBF300A05C61 /* SFPopAnimation.swift */,
+				42A6DC001F9BFCAF00A05C61 /* SFShakeAnimation.swift */,
+				42C6FA091FA03DCB005B4175 /* SFFlipAnimation.swift */,
+				42C6FA0B1FA040A2005B4175 /* SFWobbleAnimation.swift */,
+			);
+			name = SFAnimations;
+			sourceTree = "<group>";
+		};
 		421BA3F41F570A21008E176D /* SFTextField */ = {
 			isa = PBXGroup;
 			children = (
@@ -311,14 +339,9 @@
 		42CEA6F81F4B504F00310E64 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				42F4BD4E1F7AB08600C11B8E /* Presentation */,
 				42F4BD561F7B347A00C11B8E /* SFAnimator.swift */,
-				427664F01F9BA61D00542CEE /* SFAnimation.swift */,
-				427664F21F9BA88200542CEE /* SFFadeAnimation.swift */,
-				427664F41F9BAB1100542CEE /* SFZoomAnimation.swift */,
-				42A6DBFA1F9BF24D00A05C61 /* SFScaleAnimation.swift */,
-				42A6DBFC1F9BF74C00A05C61 /* SFSlideAnimation.swift */,
-				42A6DBFE1F9BFBF300A05C61 /* SFPopAnimation.swift */,
-				42A6DC001F9BFCAF00A05C61 /* SFShakeAnimation.swift */,
+				42164C771F9F7F7700798ED5 /* SFAnimations */,
 				42F4BD4F1F7AB08D00C11B8E /* Transition */,
 			);
 			name = Animations;
@@ -353,7 +376,7 @@
 			children = (
 				42F0F6111F1F7FE0003DE859 /* SFColorStyleProtocol.swift */,
 				424A5E671F5B069400EFBFB3 /* SFColorController.swift */,
-				424A5E651F5B068D00EFBFB3 /* SFDisplayNodeColorStyle.swift */,
+				424A5E651F5B068D00EFBFB3 /* SFNodeColorStyle.swift */,
 				42D130791F54B31A00BCA109 /* SFTextContainer.swift */,
 				42E554901F76A91D00355D63 /* SFTextDisplayer.swift */,
 				424A5E691F5B069B00EFBFB3 /* SFDeviceProtocol.swift */,
@@ -383,11 +406,11 @@
 				42D9D6791F20D6C500918013 /* SFViewController.swift */,
 				42D9D67B1F20D80400918013 /* SFTableNodeController.swift */,
 				42BFCB651F6048D7003B75CC /* SFCollectionController.swift */,
+				42C41CD91FA627B100118F7D /* SFPagerController.swift */,
 				421C2A101F24AA610099762A /* SFLoginNodeController.swift */,
 				42DED2F21F4A1C370093F89C /* SFSignUpNodeController.swift */,
 				42CDF9991F65830000B41DC6 /* SFChatController.swift */,
-				42DC28991F76B9FA00896D87 /* SFImageNodeController.swift */,
-				42F4BD4E1F7AB08600C11B8E /* Presentation */,
+				42DC28991F76B9FA00896D87 /* SFImageViewerNodeController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -398,6 +421,7 @@
 				42D800521F92BFD700C89730 /* PitchPerfect */,
 				429C3AB61F819F8900A22E78 /* Foursquare Example */,
 				421C2A0F1F249A880099762A /* Meetup Example */,
+				42C41CD31FA5760800118F7D /* SFImageViewController.swift */,
 			);
 			name = Examples;
 			sourceTree = "<group>";
@@ -489,6 +513,7 @@
 				4202F7BD1F4900000009BD33 /* UIColorExtensions.swift */,
 				424059AE1F65EE0C00B98776 /* ASCollectionNodeExtensions.swift */,
 				42F4BD4C1F7A9B1300C11B8E /* DateExtensions.swift */,
+				42C41CD51FA623BC00118F7D /* CGFloatExtensions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -499,6 +524,7 @@
 				42F0F6141F1F8114003DE859 /* SFDisplayNode.swift */,
 				42F0F6181F1F95D1003DE859 /* SFTableNode.swift */,
 				42E3EA311F604323008596E2 /* SFCollectionNode.swift */,
+				42C41CD71FA6252700118F7D /* SFPagerNode.swift */,
 				42DC289B1F76BC1E00896D87 /* SFScrollNode.swift */,
 				42F0F61A1F1F96C1003DE859 /* SFCellNode.swift */,
 				42F0F6241F1FA405003DE859 /* SFActivityNode.swift */,
@@ -507,7 +533,7 @@
 				426CC2A91F75D413002A9FC3 /* SFEditableTextNode.swift */,
 				42D9D66C1F20CF1E00918013 /* SFButtonNode.swift */,
 				42A680041F54B3F200EDBAAE /* SFDismissButton.swift */,
-				425AA3631F79C6370060AC8C /* SFImageZoomNode.swift */,
+				425AA3631F79C6370060AC8C /* SFImageViewerNode.swift */,
 				421BA3F41F570A21008E176D /* SFTextField */,
 				42D9D6721F20D39F00918013 /* SFSearchBar.swift */,
 				42A680061F54B40600EDBAAE /* SFPageControlNode.swift */,
@@ -876,6 +902,7 @@
 				42DCD5D91F8EC764009B8A9F /* SFVideoPlayerDelegate.swift in Sources */,
 				42D9D66D1F20CF1E00918013 /* SFButtonNode.swift in Sources */,
 				42A6DBFD1F9BF74C00A05C61 /* SFSlideAnimation.swift in Sources */,
+				42C6FA0C1FA040A2005B4175 /* SFWobbleAnimation.swift in Sources */,
 				42F0F60A1F1F7A0F003DE859 /* Dispatch.swift in Sources */,
 				42B708991F6624150012DFCD /* SFChatBar.swift in Sources */,
 				42BFCB661F6048D7003B75CC /* SFCollectionController.swift in Sources */,
@@ -886,6 +913,7 @@
 				424A5E621F5B067200EFBFB3 /* SFTextFieldView.swift in Sources */,
 				42B50AE81F65D044003E3E1A /* SFChatNode.swift in Sources */,
 				42D800581F92D44300C89730 /* FoursquareCell.swift in Sources */,
+				42C41CD61FA623BC00118F7D /* CGFloatExtensions.swift in Sources */,
 				42A6DBFF1F9BFBF300A05C61 /* SFPopAnimation.swift in Sources */,
 				42D800561F92D42A00C89730 /* FoursquareNode.swift in Sources */,
 				427664F51F9BAB1100542CEE /* SFZoomAnimation.swift in Sources */,
@@ -895,6 +923,7 @@
 				42D9D6711F20D26E00918013 /* SFTextField.swift in Sources */,
 				42D8005A1F92D6D600C89730 /* PitchPerfectController.swift in Sources */,
 				42D800541F92D41E00C89730 /* PitchPerfectNode.swift in Sources */,
+				42C41CD81FA6252700118F7D /* SFPagerNode.swift in Sources */,
 				4204F28F1F65ACEE003D9D86 /* SFMessage.swift in Sources */,
 				425D1BF11F7FF7D500A5081B /* FoursquareViewController.swift in Sources */,
 				42D9D6731F20D39F00918013 /* SFSearchBar.swift in Sources */,
@@ -909,8 +938,9 @@
 				42F0F6081F1F79DA003DE859 /* UIImageExtensions.swift in Sources */,
 				421C2A181F24B4240099762A /* LocalizedString.swift in Sources */,
 				42F0F60C1F1F7A50003DE859 /* SFGradient.swift in Sources */,
-				42DC289A1F76B9FA00896D87 /* SFImageNodeController.swift in Sources */,
+				42DC289A1F76B9FA00896D87 /* SFImageViewerNodeController.swift in Sources */,
 				42A6DC011F9BFCAF00A05C61 /* SFShakeAnimation.swift in Sources */,
+				42C6FA0A1FA03DCB005B4175 /* SFFlipAnimation.swift in Sources */,
 				42A680031F54B3E100EDBAAE /* SFPresentationController.swift in Sources */,
 				42F0F61D1F1F97E3003DE859 /* SFLabelNode.swift in Sources */,
 				421C2A111F24AA610099762A /* SFLoginNodeController.swift in Sources */,
@@ -920,15 +950,16 @@
 				42095E581F5B74FF00909BEB /* SFGradientNode.swift in Sources */,
 				42CEA6F71F4B503100310E64 /* SFAppleMusicLikePresentationController.swift in Sources */,
 				42B7089B1F6624390012DFCD /* SFChatContainerNode.swift in Sources */,
-				425AA3641F79C6370060AC8C /* SFImageZoomNode.swift in Sources */,
+				425AA3641F79C6370060AC8C /* SFImageViewerNode.swift in Sources */,
 				429F9EF61F7F15CF003AEDE1 /* SFAnimatable.swift in Sources */,
 				42F0F6071F1F79DA003DE859 /* UIFontExtensions.swift in Sources */,
 				42DCD5D51F8EC6DC009B8A9F /* SFYoutubeNode.swift in Sources */,
 				424059AF1F65EE0C00B98776 /* ASCollectionNodeExtensions.swift in Sources */,
 				42F0F6061F1F79DA003DE859 /* StringExtensions.swift in Sources */,
 				42A6DBFB1F9BF24D00A05C61 /* SFScaleAnimation.swift in Sources */,
-				424A5E661F5B068D00EFBFB3 /* SFDisplayNodeColorStyle.swift in Sources */,
+				424A5E661F5B068D00EFBFB3 /* SFNodeColorStyle.swift in Sources */,
 				421C2A151F24AAA10099762A /* SFLoginNode.swift in Sources */,
+				42C41CDA1FA627B100118F7D /* SFPagerController.swift in Sources */,
 				42D9D66B1F20CECB00918013 /* SFLoadingNode.swift in Sources */,
 				42F0F61B1F1F96C1003DE859 /* SFCellNode.swift in Sources */,
 				42D9D67C1F20D80400918013 /* SFTableNodeController.swift in Sources */,
@@ -938,6 +969,7 @@
 				425D1BF01F7FF7D500A5081B /* FoursquareModel.swift in Sources */,
 				4212E5721F4A2625006FD5A9 /* SFPresentationManager.swift in Sources */,
 				427664F31F9BA88200542CEE /* SFFadeAnimation.swift in Sources */,
+				42C41CD41FA5760800118F7D /* SFImageViewController.swift in Sources */,
 				421C2A0E1F249A850099762A /* MeetuoModels.swift in Sources */,
 				424A5E641F5B068300EFBFB3 /* UIViewControllerExtensions.swift in Sources */,
 				42F0F5FD1F1F7979003DE859 /* SFAssets.swift in Sources */,

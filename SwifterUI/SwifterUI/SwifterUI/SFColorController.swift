@@ -8,7 +8,7 @@
 
 import AsyncDisplayKit
 
-public protocol SFColorController: SFColorStyleProtocol {
+public protocol SFControllerColorStyle: SFColorStyleProtocol {
     
     // MARK: - Instance Properties
         

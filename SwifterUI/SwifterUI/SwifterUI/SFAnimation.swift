@@ -31,9 +31,9 @@ open class SFAnimation {
     // MARK: - Instance Properties
     
     open weak var node: ASDisplayNode? = nil { didSet { self.load() } }
-    weak var delegate: SFAnimationDelegate? = nil
+    open weak var delegate: SFAnimationDelegate? = nil
     open var direction: SFAnimationDirection { didSet { self.load() } }
-    var type: SFAnimationType { didSet { self.load() } }
+    open var type: SFAnimationType { didSet { self.load() } }
     open var delay: TimeInterval = 0
     open var duration: TimeInterval = 1
     open var damping: CGFloat = 1
@@ -52,7 +52,7 @@ open class SFAnimation {
     
     // MARK: - Initializers
     
-    init(with node: ASDisplayNode? = nil, direction: SFAnimation.SFAnimationDirection = .none, type: SFAnimationType = .none) {
+    public init(with node: ASDisplayNode? = nil, direction: SFAnimation.SFAnimationDirection = .none, type: SFAnimationType = .none) {
         self.type = type
         self.node = node
         self.direction = direction

@@ -26,7 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 //        window?.rootViewController = FoursquareViewController()
         
-        window?.rootViewController = ASNavigationController(rootViewController: PitchPerfectController())
+//        window?.rootViewController = ASNavigationController(rootViewController: PitchPerfectController())
+        
+        window?.rootViewController = SFImageGalleryController(with: [UIImage(named: "icon")!,UIImage(named: "icon")!,UIImage(named: "icon")!])
         
         window?.makeKeyAndVisible()
         

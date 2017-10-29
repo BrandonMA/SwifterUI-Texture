@@ -9,7 +9,7 @@
 import AsyncDisplayKit
 import UIKit
 
-open class SFButtonNode: ASButtonNode, SFGradientNode, SFBlurredNode, SFDisplayNodeColorStyle, SFAnimatable {
+open class SFButtonNode: ASButtonNode, SFGradientNode, SFBlurredNode, SFNodeColorStyle, SFAnimatable {
     
     // MARK: - Instance Properties
     

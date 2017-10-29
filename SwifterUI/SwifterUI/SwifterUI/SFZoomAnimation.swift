@@ -28,9 +28,9 @@ open class SFZoomAnimation: SFAnimation {
         node.view.center = CGPoint(x: initialFrame.size.width / 2, y: initialFrame.size.height / 2)
         node.view.transform = CGAffineTransform(scaleX: self.initialScaleX, y: self.initialScaleY)
         UIView.animate(withDuration: self.duration, delay: self.delay, usingSpringWithDamping: self.damping, initialSpringVelocity: self.velocity, options: [self.animationCurve.getAnimationOptions(), .allowUserInteraction], animations: {
-            node.alpha = self.finalAlpha
             node.view.center = CGPoint(x: self.initialFrame.size.width / 2, y: self.initialFrame.size.height / 2)
             node.view.transform = CGAffineTransform(scaleX: self.finalScaleX, y: self.finalScaleY)
+            node.alpha = self.finalAlpha
         }, completion: { finished in
             self.delegate?.didFinishAnimation()
         })

@@ -10,6 +10,12 @@ import AsyncDisplayKit
 
 public extension ASDisplayNode {
     
+    // MARK: - Instance Properties
+    
+    public var orientation: UIDeviceOrientation {
+        return UIDevice.current.orientation
+    }
+    
     // MARK: - Instance Methods
     
     // getStackSeparator: Return a separator for ASStackLayout with flexGrow and flexShrink enabled

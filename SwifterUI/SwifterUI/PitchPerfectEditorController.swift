@@ -59,22 +59,24 @@ class PitchPerfectEditorController: SFViewController<PitchPerfectEditorNode> {
         button.animator.animations = [SFPopAnimation(type: .outside)]
         button.animator.start()
         
-        if button == self.SFNode.slowButton {
-            playSound(rate: 0.5)
-        } else if button == self.SFNode.fastButton {
-            playSound(rate: 1.5)
-        } else if button == self.SFNode.highPitchButton {
-            playSound(pitch: 1000)
-        } else if button == self.SFNode.lowPitchButton {
-            playSound(pitch: -1000)
-        } else if button == self.SFNode.echoPitchButton {
-            playSound(echo: true)
-        } else if button == self.SFNode.reverbPitchButton {
-            playSound(reverb: true)
-        } else if button == self.SFNode.stopButton {
-            stopAudio()
+        Dispatch.addAsyncTask(to: .background) {
+            self.stopAudio()
+            if button == self.SFNode.slowButton {
+                self.playSound(rate: 0.5)
+            } else if button == self.SFNode.fastButton {
+                self.playSound(rate: 1.5)
+            } else if button == self.SFNode.highPitchButton {
+                self.playSound(pitch: 1000)
+            } else if button == self.SFNode.lowPitchButton {
+                self.playSound(pitch: -1000)
+            } else if button == self.SFNode.echoPitchButton {
+                self.playSound(echo: true)
+            } else if button == self.SFNode.reverbPitchButton {
+                self.playSound(reverb: true)
+            } else if button == self.SFNode.stopButton {
+                self.stopAudio()
+            }
         }
-        
     }
     
     // MARK: - Audio Functions

@@ -8,7 +8,7 @@
 
 import AsyncDisplayKit
 
-open class SFImageZoomNode: SFScrollNode {
+open class SFImageViewerNode: SFScrollNode {
     
     // MARK: - Instance Properties
     

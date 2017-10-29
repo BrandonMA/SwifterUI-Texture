@@ -8,7 +8,7 @@
 
 import AsyncDisplayKit
 
-open class SFScrollNode: ASScrollNode, SFDisplayNodeColorStyle, SFAnimatable {
+open class SFScrollNode: ASScrollNode, SFNodeColorStyle, SFAnimatable {
     
     // MARK: - Instance Properties
     

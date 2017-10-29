@@ -8,19 +8,12 @@
 
 import AsyncDisplayKit
 
-open class SFDisplayNode: ASDisplayNode, SFGradientNode, SFBlurredNode, SFDisplayNodeColorStyle, SFAnimatable {
+open class SFDisplayNode: ASDisplayNode, SFGradientNode, SFBlurredNode, SFNodeColorStyle, SFAnimatable {
     
     // MARK: - Instance Properties
     
     // isLoading: If you used addLoadingNode, set true or false to show a SFLoadingNode()
     open var isLoading = false
-    
-    open lazy var loadingNode: SFLoadingNode = {
-        let node = SFLoadingNode()
-        node.updateColors()
-        node.alpha = 0.0
-        return node
-    }()
     
     // MARK: - SFDisplayNodeColorStyle
     
@@ -59,28 +52,6 @@ open class SFDisplayNode: ASDisplayNode, SFGradientNode, SFBlurredNode, SFDispla
         automaticallyManagesSubnodes = true
     }
     
-    // addLoadingNode: Adds a loadingNode to your custom layout
-    // - Parameters:
-    //   layout: your custom layout where it's added the loadingNode
-    open func addLoadingNode(to layout: ASLayoutSpec) -> ASLayoutSpec {
-        return ASOverlayLayoutSpec(child: layout, overlay: loadingNode)
-    }
-    
-    open func startLoading() {
-        handle(loading: true)
-    }
-    
-    open func stopLoading() {
-        handle(loading: false)
-    }
-    
-    private func handle(loading: Bool) {
-        self.isLoading = loading
-        Dispatch.addAsyncTask(to: DispatchLevel.main) {
-            self.transitionLayout(withAnimation: true, shouldMeasureAsync: false, measurementCompletion: nil)
-        }
-    }
-    
     open override func layout() {
         super.layout()
         if self.gradient != nil { setGradient() }
@@ -89,16 +60,12 @@ open class SFDisplayNode: ASDisplayNode, SFGradientNode, SFBlurredNode, SFDispla
 
     open override func animateLayoutTransition(_ context: ASContextTransitioning) {
         for node in self.subnodes {
-            if node == self.loadingNode {
-                UIView.animate(withDuration: 0.3, animations: { self.loadingNode.alpha = self.isLoading == true ? 1.0 : 0.0 })
-            } else {
-                node.frame = context.initialFrame(for: node)
-                UIView.animate(withDuration: 0.3, animations: {
-                    node.frame = context.finalFrame(for: node)
-                }, completion: { (finished) in
-                    context.completeTransition(finished)
-                })
-            }
+            node.frame = context.initialFrame(for: node)
+            UIView.animate(withDuration: 0.3, animations: {
+                node.frame = context.finalFrame(for: node)
+            }, completion: { (finished) in
+                context.completeTransition(finished)
+            })
         }
     }
     
@@ -111,7 +78,6 @@ open class SFDisplayNode: ASDisplayNode, SFGradientNode, SFBlurredNode, SFDispla
             } else {
                 self.backgroundColor = self.shouldHaveAlternativeColors == false ? self.colorStyle.getBackgroundColor() : self.colorStyle.getAlternativeBackgroundColor()
             }
-            self.loadingNode.updateColors()
             updateSubNodesColors()
         }
     }

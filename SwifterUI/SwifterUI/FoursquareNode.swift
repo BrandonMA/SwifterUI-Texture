@@ -26,7 +26,6 @@ class FoursquareNode: SFDisplayNode {
     
     lazy var tableNode: SFTableNode = {
         let tableNode = SFTableNode(automaticallyAdjustsColorStyle: self.automaticallyAdjustsColorStyle)
-        tableNode.allowsSelection = false
         return tableNode
     }()
     
@@ -36,6 +35,11 @@ class FoursquareNode: SFDisplayNode {
         tableNode.style.width = ASDimension(unit: .fraction, value: 1)
         tableNode.style.flexGrow = 1.0
         let ratioLayout = ASRatioLayoutSpec(ratio: 9/16, child: mapNode)
+        
+        if self.orientation.isLandscape {
+            ratioLayout.ratio = 1/3
+        }
+        
         let searchBarLayout = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16), child: searchBar)
         let stackLayout = ASStackLayoutSpec(direction: .vertical, spacing: 0, justifyContent: .start, alignItems: .start, children: [ratioLayout, searchBarLayout, tableNode])
         return stackLayout

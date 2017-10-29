@@ -40,6 +40,11 @@ open class SFViewController<SFNodeType: SFColorStyleProtocol>: ASViewController<
         return self.statusBarIsHidden
     }
     
+    // shouldAutorotate: Override shouldAutorotate with a dynamic way to set it
+    open override var shouldAutorotate: Bool {
+        return self.autorotate
+    }
+    
     // statusBarStyle: Dynamic way to change preferredStatusBarStyle, use this instead of override preferredStatusBarStyle
     open var statusBarStyle: UIStatusBarStyle = .default {
         didSet {
@@ -53,6 +58,9 @@ open class SFViewController<SFNodeType: SFColorStyleProtocol>: ASViewController<
             self.setNeedsStatusBarAppearanceUpdate()
         }
     }
+    
+    // autorotate: Dynamic way to set shouldAutorotate
+    open var autorotate: Bool = true
     
     // shouldHaveSearchBar: Indicates if it should have a search bar available or not
     open var shouldHaveSearchBar: Bool = false
@@ -153,6 +161,28 @@ open class SFViewController<SFNodeType: SFColorStyleProtocol>: ASViewController<
         }
     }
     
+    open func showLoadingNode() {
+        let node = SFLoadingNode(automaticallyAdjustsColorStyle: self.automaticallyAdjustsColorStyle)
+        node.frame = self.SFNode.frame
+        node.animator.animations = [SFFadeAnimation(type: .inside)]
+        self.SFNode.addSubnode(node)
+        node.animator.start()
+        self.autorotate = false
+    }
+    
+    open func hideLoadingNode() {
+        for subnode in self.SFNode.subnodes {
+            if let node = subnode as? SFLoadingNode {
+                node.animator.inverted()
+                node.animator.animationCompletion = {
+                    self.autorotate = true
+                    node.removeFromSupernode()
+                }
+                node.animator.start()
+            }
+        }
+    }
+    
     // MARK: - SFColorController
     
     open func updateColors() {
@@ -190,7 +220,7 @@ open class SFViewController<SFNodeType: SFColorStyleProtocol>: ASViewController<
     }
 }
 
-extension SFViewController: SFColorController {
+extension SFViewController: SFControllerColorStyle {
     
     open func handleColorStyleCheck() {
         if automaticallyAdjustsColorStyle == true {

@@ -21,7 +21,7 @@ class MeetupFeedController: SFTableNodeController, UINavigationControllerDelegat
     // MARK: Initializers
     
     init() {
-        super.init(SFTableNode: SFTableNode(), automaticallyAdjustsColorStyle: true)
+        super.init(automaticallyAdjustsColorStyle: true)
         
         self.meetUpFeedDataManager = MeetupFeedDataManager(meetupService: meetUpService, locationService: locationService)
         self.meetUpFeedDataManager.delegate = self
@@ -110,7 +110,7 @@ class MeetupFeedController: SFTableNodeController, UINavigationControllerDelegat
 //            node.frame = window.bounds
 //        }
         guard let image = node.photoImageNode.image else { return }
-        let controller = SFImageZoomNodeController(withImage: image, automaticallyAdjustsColorStyle: true)
+        let controller = SFImageViewerNodeController(withImage: image, automaticallyAdjustsColorStyle: true)
         self.navigationController?.pushViewController(controller, animated: true)
     }
 

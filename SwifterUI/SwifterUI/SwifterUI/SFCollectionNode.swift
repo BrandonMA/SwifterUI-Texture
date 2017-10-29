@@ -8,7 +8,7 @@
 
 import AsyncDisplayKit
 
-open class SFCollectionNode: ASCollectionNode, SFDisplayNodeColorStyle, SFAnimatable {
+open class SFCollectionNode: ASCollectionNode, SFNodeColorStyle, SFAnimatable {
     
     // MARK: - Instance Properties
     

@@ -31,7 +31,7 @@ public extension UIImage {
     }
     
     public func tint(color: UIColor, alpha: CGFloat, handler: @escaping (UIImage?) -> ()) {
-        Dispatch.addAsyncTask(to: DispatchLevel.background) {
+        Dispatch.addAsyncTask(to: .background) {
             handler(self.tint(color: color, alpha: alpha))
         }
     }

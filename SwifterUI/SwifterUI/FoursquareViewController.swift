@@ -37,7 +37,7 @@ class FoursquareViewController: SFViewController<FoursquareNode>, CLLocationMana
     // MARK: - Instance Methods
     
     override func prepareAnimations() {
-        self.SFNode.searchBar.animator.animations = [SFScaleAnimation(type: .inside)]
+        self.SFNode.searchBar.animator.animations = [SFZoomAnimation(type: .inside)]
         self.SFNode.searchBar.animator.delay = 0.3
     }
     
@@ -84,8 +84,10 @@ class FoursquareViewController: SFViewController<FoursquareNode>, CLLocationMana
     }
     
     func tableNode(_ tableNode: ASTableNode, nodeBlockForRowAt indexPath: IndexPath) -> ASCellNodeBlock {
+        
+        let venue = self.filteredVenues[indexPath.row]
+        
         let block: ASCellNodeBlock = {
-            let venue = self.filteredVenues[indexPath.row]
             let cell = FoursquareCell(automaticallyAdjustsColorStyle: self.automaticallyAdjustsColorStyle)
             cell.titleLabel.text = venue.name
             cell.subtitleLabel.text = "\(venue.location.address)"
@@ -99,6 +101,14 @@ class FoursquareViewController: SFViewController<FoursquareNode>, CLLocationMana
         guard let node = node as? FoursquareCell else { return }
         node.animator.animations = [SFSlideAnimation(direction: .left, type: .inside)]
         node.animator.start()
+    }
+    
+    func tableNode(_ tableNode: ASTableNode, didSelectRowAt indexPath: IndexPath) {
+        self.showLoadingNode()
+        tableNode.deselectRow(at: indexPath, animated: true)
+        Dispatch.delay(by: 3.0, dispatchLevel: .main) {
+            self.hideLoadingNode()
+        }
     }
     
     // MARK: - SFSearchBarDelegate

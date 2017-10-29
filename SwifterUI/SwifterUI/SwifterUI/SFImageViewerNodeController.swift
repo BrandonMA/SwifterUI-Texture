@@ -8,12 +8,12 @@
 
 import AsyncDisplayKit
 
-class SFImageZoomNodeController: SFViewController<SFImageZoomNode>, UIScrollViewDelegate {
+class SFImageViewerNodeController: SFViewController<SFImageViewerNode>, UIScrollViewDelegate {
     
     // MARK: - Initializers
         
     init(withImage image: UIImage, automaticallyAdjustsColorStyle: Bool) {
-        super.init(SFNode: SFImageZoomNode(automaticallyAdjustsColorStyle: automaticallyAdjustsColorStyle), automaticallyAdjustsColorStyle: automaticallyAdjustsColorStyle)
+        super.init(SFNode: SFImageViewerNode(automaticallyAdjustsColorStyle: automaticallyAdjustsColorStyle), automaticallyAdjustsColorStyle: automaticallyAdjustsColorStyle)
         SFNode.view.delegate = self
         SFNode.image = image
     }

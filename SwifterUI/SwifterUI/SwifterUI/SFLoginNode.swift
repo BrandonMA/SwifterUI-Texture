@@ -178,7 +178,7 @@ open class SFLoginNode: SFDisplayNode {
         
         let stackLayout = ASStackLayoutSpec(direction: .vertical, spacing: 0, justifyContent: .center, alignItems: .center, children: [logoImageNode, separators[0], titleLabelNode, separators[1], emailTextField, separators[2], passwordTextField, separators[3], signInButton, separators[4], buttonStack, separators[5], signUpButton])
         
-        return addLoadingNode(to: ASInsetLayoutSpec(insets: UIEdgeInsets(top: deviceType == .iphone ? 52 : 64, left: deviceType == .ipad ? 128 : 16, bottom: 16, right: deviceType == .ipad ? 128 : 16), child: stackLayout))
+        return ASInsetLayoutSpec(insets: UIEdgeInsets(top: deviceType == .iphone ? 52 : 64, left: deviceType == .ipad ? 128 : 16, bottom: 16, right: deviceType == .ipad ? 128 : 16), child: stackLayout)
     }
 }
 

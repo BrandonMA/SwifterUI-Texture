@@ -16,15 +16,11 @@ open class SFTableNodeController: SFViewController<SFTableNode>, ASTableDataSour
     // - Parameters:
     //   SFNode: Node that containts your UI
     //   automaticallyAdjustsColorStyle: Variable to know if a node should automatically update it's views or not
-    public init(SFTableNode: SFTableNode, automaticallyAdjustsColorStyle: Bool) {
-        
+    public init(SFTableNode: SFTableNode = SFTableNode(), automaticallyAdjustsColorStyle: Bool) {
         super.init(SFNode: SFTableNode, automaticallyAdjustsColorStyle: automaticallyAdjustsColorStyle)
-        
+        self.SFNode.automaticallyAdjustsColorStyle = automaticallyAdjustsColorStyle
         self.SFNode.delegate = self
-        
         self.SFNode.dataSource = self
-        
-        self.node.backgroundColor = self.SFNode.backgroundColor
     }
     
     required public init?(coder aDecoder: NSCoder) {

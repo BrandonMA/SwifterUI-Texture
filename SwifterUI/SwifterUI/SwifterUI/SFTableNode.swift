@@ -8,7 +8,7 @@
 
 import AsyncDisplayKit
 
-open class SFTableNode: ASTableNode, SFDisplayNodeColorStyle, SFAnimatable {
+open class SFTableNode: ASTableNode, SFNodeColorStyle, SFAnimatable {
     
     // MARK: - Instance Properties
     
