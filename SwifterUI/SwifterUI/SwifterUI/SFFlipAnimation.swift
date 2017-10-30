@@ -10,18 +10,18 @@ import AsyncDisplayKit
 
 open class SFFlipAnimation: SFAnimation {
     
-    enum SFFlipType {
+    public enum SFFlipType {
         case x
         case y
     }
     
     // MARK: - Instance Properties
     
-    var flipType: SFFlipType
+    open var flipType: SFFlipType
     
     // MARK: - Initializers
     
-    init(with node: SFDisplayNode? = nil, flipType: SFFlipType = .x) {
+    public init(with node: SFDisplayNode? = nil, flipType: SFFlipType = .x) {
         self.flipType = flipType
         super.init(with: node, direction: .none, type: .none)
     }

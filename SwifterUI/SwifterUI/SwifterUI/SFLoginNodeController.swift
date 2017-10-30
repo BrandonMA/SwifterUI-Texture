@@ -13,10 +13,6 @@ open class SFLoginNodeController: SFViewController<SFLoginNode> {
     
     // MARK: - Instance Properties
     
-    open override var shouldAutorotate: Bool {
-        return false
-    }
-    
     open var signUpController: SFSignUpNodeController? = nil
     
     // MARK: - Initializers
@@ -29,6 +25,7 @@ open class SFLoginNodeController: SFViewController<SFLoginNode> {
         super.init(SFNode: SFLoginNode(), automaticallyAdjustsColorStyle: automaticallyAdjustsColorStyle)
         SFNode.signInButton.addTarget(self, action: #selector(signInButtonDidTouch), forControlEvents: ASControlNodeEvent.touchUpInside)
         SFNode.signUpButton.addTarget(self, action: #selector(signUpButtonDidTouch), forControlEvents: ASControlNodeEvent.touchUpInside)
+        self.autorotate = false
     }
     
     required public init?(coder aDecoder: NSCoder) {

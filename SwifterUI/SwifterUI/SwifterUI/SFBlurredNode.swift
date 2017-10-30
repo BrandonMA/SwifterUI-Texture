@@ -20,7 +20,7 @@ public protocol SFBlurredNode {
     func setEffect()
 }
 
-extension SFBlurredNode where Self: ASDisplayNode {
+public extension SFBlurredNode where Self: ASDisplayNode {
     
     // MARK: - Instance Methods
     

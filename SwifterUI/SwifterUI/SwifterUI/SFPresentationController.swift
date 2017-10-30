@@ -44,7 +44,7 @@ open class SFPresentationController<SFPresentingNodeType>: UIPresentationControl
 
 extension SFPresentationController: SFColorStyleProtocol {
     
-    func automaticallyAdjustsColorStyleHandler() {
+    public func automaticallyAdjustsColorStyleHandler() {
         if self.automaticallyAdjustsColorStyle == true {
             NotificationCenter.default.addObserver(self, selector: #selector(handleBrightnessChange), name: .UIScreenBrightnessDidChange, object: nil)
         } else {

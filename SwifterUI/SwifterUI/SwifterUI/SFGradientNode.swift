@@ -21,7 +21,7 @@ public protocol SFGradientNode {
     
 }
 
-extension SFGradientNode where Self: ASDisplayNode {
+public extension SFGradientNode where Self: ASDisplayNode {
     
     // MARK: - Instance Methods
     

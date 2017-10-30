@@ -173,7 +173,7 @@ open class SFTextField: SFDisplayNode {
     }
 }
 
-extension SFTextField {
+public extension SFTextField {
     
     // MARK: - Instance Methods
     

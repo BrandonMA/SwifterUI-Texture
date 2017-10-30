@@ -15,7 +15,7 @@ public protocol SFVideoPlayerDelegate: class {
     func prepare(mediaController: UIViewController)
 }
 
-extension SFVideoPlayerDelegate where Self: UIViewController {
+public extension SFVideoPlayerDelegate where Self: UIViewController {
     
     // MARK: - Instance Methods
     

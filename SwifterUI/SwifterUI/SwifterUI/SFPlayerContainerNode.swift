@@ -12,11 +12,11 @@ open class SFPlayerContainerNode: SFDisplayNode {
     
     // MARK: - Instance Properties
     
-    var videoView: UIView
+    open var videoView: UIView
     
     // MARK: - Initializers
     
-    init(videoView: UIView, automaticallyAdjustsColorStyle: Bool) {
+    public init(videoView: UIView, automaticallyAdjustsColorStyle: Bool) {
         self.videoView = videoView
         super.init(automaticallyAdjustsColorStyle: automaticallyAdjustsColorStyle)
         self.setViewBlock { () -> UIView in

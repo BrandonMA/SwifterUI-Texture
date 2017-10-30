@@ -149,10 +149,12 @@ open class SFViewController<SFNodeType: SFColorStyleProtocol>: ASViewController<
         }
     }
     
+    // prepareAnimations: All animations implemented with an SFAnimator should be declared here
     open func prepareAnimations() {
         
     }
     
+    // startAnimations: Called automatically to begin all SFAnimations
     open func startAnimations() {
         for subnode in self.SFNode.subnodes {
             if let animatable = subnode as? SFAnimatable {
@@ -195,7 +197,7 @@ open class SFViewController<SFNodeType: SFColorStyleProtocol>: ASViewController<
                     
                     // Once your SFNode is updated your main node(the one that comes with ASViewController) changes it's color to the correct one. This is make at the end because the main node should never be visible.
                     self.node.backgroundColor = self.SFNode.backgroundColor
-                    
+                                        
                     if self.automaticallyTintNavigationBar == true {
                         self.navigationController?.navigationBar.barStyle = self.colorStyle.getNavigationBarStyle()
                         self.navigationController?.navigationBar.tintColor = self.colorStyle.getInteractiveColor()

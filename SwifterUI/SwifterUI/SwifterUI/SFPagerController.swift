@@ -28,11 +28,11 @@ open class SFPagerController: SFViewController<SFPagerNode>, ASPagerDataSource {
     
     // MARK: - ASPagerDataSource
     
-    public func numberOfPages(in pagerNode: ASPagerNode) -> Int {
+    open func numberOfPages(in pagerNode: ASPagerNode) -> Int {
         return 0
     }
     
-    public func pagerNode(_ pagerNode: ASPagerNode, nodeAt index: Int) -> ASCellNode {
+    open func pagerNode(_ pagerNode: ASPagerNode, nodeAt index: Int) -> ASCellNode {
         let node = ASCellNode(viewControllerBlock: { () -> UIViewController in
             return SFViewController<SFDisplayNode>(SFNode: SFDisplayNode(), automaticallyAdjustsColorStyle: self.automaticallyAdjustsColorStyle)
         }, didLoad: nil)

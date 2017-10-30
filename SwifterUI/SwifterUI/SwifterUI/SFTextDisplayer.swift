@@ -15,7 +15,7 @@ public protocol SFTextDisplayer: SFTextContainer {
     func updateTextColor()
 }
 
-extension SFTextDisplayer where Self: SFNodeColorStyle {
+public extension SFTextDisplayer where Self: SFNodeColorStyle {
     
     // MARK: - Instance Methods
     

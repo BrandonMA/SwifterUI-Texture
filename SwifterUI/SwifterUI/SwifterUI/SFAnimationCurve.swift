@@ -8,7 +8,7 @@
 
 import AsyncDisplayKit
 
-// This code has been partially taken from https://github.com/MengTo/Spring, if you are using UIKit I really encourage you to use it
+// This code has been partially taken from https://github.com/MengTo/Spring, if you are using UIKit I really encourage you to use Spring
 
 public enum SFAnimationCurve: String {
     case easeIn
@@ -41,7 +41,7 @@ public enum SFAnimationCurve: String {
     case easeOutBack
     case easeInOutBack
     
-    func getTimingFunction() -> CAMediaTimingFunction {
+    public func getTimingFunction() -> CAMediaTimingFunction {
         switch self {
         case .easeIn: return CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
         case .easeOut: return CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
@@ -75,7 +75,7 @@ public enum SFAnimationCurve: String {
         }
     }
     
-    func getAnimationOptions() -> UIViewAnimationOptions {
+    public func getAnimationOptions() -> UIViewAnimationOptions {
         switch self {
         case .easeIn: return UIViewAnimationOptions.curveEaseIn
         case .easeOut: return UIViewAnimationOptions.curveEaseOut

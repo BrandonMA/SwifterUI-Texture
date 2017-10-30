@@ -17,7 +17,7 @@ open class SFVideoPlayer: SFDisplayNode {
     private var youtubeNode: SFYoutubeNode? = nil
     open var url: URL? = nil { didSet { prepareVideoNode() } }
     open var youtubeURL: URL? = nil { didSet { prepareYoutubeNode() } }
-    weak var delegate: SFVideoPlayerDelegate? = nil
+    open weak var delegate: SFVideoPlayerDelegate? = nil
     
     // MARK: - Initializers
     
@@ -44,7 +44,7 @@ open class SFVideoPlayer: SFDisplayNode {
         return ASInsetLayoutSpec(insets: UIEdgeInsets(top: node == self.youtubeNode ? 20 : 0, left: 0, bottom: 0, right: 0), child: ASRelativeLayoutSpec(horizontalPosition: ASRelativeLayoutSpecPosition.start, verticalPosition: ASRelativeLayoutSpecPosition.start, sizingOption: ASRelativeLayoutSpecSizingOption.minimumSize, child: node))
     }
         
-    func prepareVideoNode() {
+    open func prepareVideoNode() {
         guard let url = self.url else { return }
         let controller = AVPlayerViewController()
         let player = AVPlayer(url: url)
@@ -56,7 +56,7 @@ open class SFVideoPlayer: SFDisplayNode {
         self.transitionLayout(withAnimation: true, shouldMeasureAsync: true, measurementCompletion: nil)
     }
     
-    func prepareYoutubeNode() {
+    open func prepareYoutubeNode() {
         self.youtubeNode = SFYoutubeNode(automaticallyAdjustsColorStyle: self.automaticallyAdjustsColorStyle)
         if let youtubeURL = self.youtubeURL {
             Dispatch.addAsyncTask(to: DispatchLevel.main, handler: {

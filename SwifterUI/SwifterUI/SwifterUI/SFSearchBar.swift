@@ -74,7 +74,7 @@ open class SFSearchBar: SFDisplayNode {
     }
     
     // didType: Called whenever the user type or delete something
-    @objc func didType() {
+    @objc open func didType() {
         delegate?.didType(searchBar: self, text: self.textField.text)
     }
     

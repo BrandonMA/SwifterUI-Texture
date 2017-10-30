@@ -51,7 +51,7 @@ public protocol SFTextContainer: class {
     
 }
 
-extension SFTextContainer {
+public extension SFTextContainer {
     
     // MARK: - Instance Properties
     

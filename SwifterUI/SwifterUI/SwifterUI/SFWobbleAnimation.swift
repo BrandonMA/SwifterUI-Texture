@@ -12,7 +12,7 @@ open class SFWobbleAnimation: SFAnimation {
     
     // MARK: - Instance Properties
     
-    var rotation: CGFloat = 0.3
+    open var rotation: CGFloat = 0.3
     
     // MARK: - Instance Methods
     

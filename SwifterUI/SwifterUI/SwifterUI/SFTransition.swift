@@ -10,14 +10,20 @@ import AsyncDisplayKit
 
 open class SFTransition: NSObject, UIViewControllerAnimatedTransitioning {
     
+    // MARK: - Instance Properties
+    
     open var animator: SFAnimator
     open var operation: UINavigationControllerOperation
+    
+    // MARK: - Initializers
     
     public init(animator: SFAnimator, operation: UINavigationControllerOperation) {
         self.animator = animator
         self.operation = operation
         super.init()
     }
+    
+    // MARK: - Instance Methods
     
     open func transitionDuration(using context: UIViewControllerContextTransitioning?) -> TimeInterval {
         return animator.duration

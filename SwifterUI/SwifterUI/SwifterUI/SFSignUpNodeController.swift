@@ -11,13 +11,9 @@ import AsyncDisplayKit
 
 open class SFSignUpNodeController: SFViewController<SFSignUpNode>, SFAppleMusicLikeDismissProtocol {
 
-    public var initialPoint: CGFloat = 0
-    
     // MARK: - Instance Properties
     
-    open override var shouldAutorotate: Bool {
-        return false
-    }
+    public var initialPoint: CGFloat = 0
     
     // MARK: - Initializers
     
@@ -29,6 +25,7 @@ open class SFSignUpNodeController: SFViewController<SFSignUpNode>, SFAppleMusicL
         super.init(SFNode: SFSignUpNode(), automaticallyAdjustsColorStyle: automaticallyAdjustsColorStyle)
         self.SFNode.dismissButton.addTarget(self, action: #selector(dismissButtonDidTouch), forControlEvents: ASControlNodeEvent.touchUpInside)
         self.SFNode.signUpButton.addTarget(self, action: #selector(signUpButtonDidTouch), forControlEvents: ASControlNodeEvent.touchUpInside)
+        self.autorotate = false
     }
     
     required public init?(coder aDecoder: NSCoder) {

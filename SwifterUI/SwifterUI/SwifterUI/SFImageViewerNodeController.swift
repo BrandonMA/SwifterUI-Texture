@@ -8,30 +8,34 @@
 
 import AsyncDisplayKit
 
-class SFImageViewerNodeController: SFViewController<SFImageViewerNode>, UIScrollViewDelegate {
+open class SFImageViewerNodeController: SFViewController<SFImageViewerNode>, UIScrollViewDelegate {
     
     // MARK: - Initializers
         
-    init(withImage image: UIImage, automaticallyAdjustsColorStyle: Bool) {
+    public init(with image: UIImage, automaticallyAdjustsColorStyle: Bool) {
         super.init(SFNode: SFImageViewerNode(automaticallyAdjustsColorStyle: automaticallyAdjustsColorStyle), automaticallyAdjustsColorStyle: automaticallyAdjustsColorStyle)
         SFNode.view.delegate = self
         SFNode.image = image
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - Instance Methods
     
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
+    open override func viewDidLoad() {
+        super.viewDidLoad()
         SFNode.layout(withSize: self.view.bounds.size)
+    }
+    
+    open override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        self.SFNode.layout(withSize: size)
     }
     
     // MARK: - UIScrollViewDelegate
     
-    func scrollViewDidZoom(_ scrollView: UIScrollView) {
+    open func scrollViewDidZoom(_ scrollView: UIScrollView) {
         
         SFNode.updateConstraintsForSize(self.view.bounds.size)
         
@@ -44,7 +48,7 @@ class SFImageViewerNodeController: SFViewController<SFImageViewerNode>, UIScroll
         }
     }
     
-    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+    open func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return SFNode.imageView
     }
 }

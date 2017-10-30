@@ -110,7 +110,7 @@ class MeetupFeedController: SFTableNodeController, UINavigationControllerDelegat
 //            node.frame = window.bounds
 //        }
         guard let image = node.photoImageNode.image else { return }
-        let controller = SFImageViewerNodeController(withImage: image, automaticallyAdjustsColorStyle: true)
+        let controller = SFImageViewerNodeController(with: image, automaticallyAdjustsColorStyle: true)
         self.navigationController?.pushViewController(controller, animated: true)
     }
 

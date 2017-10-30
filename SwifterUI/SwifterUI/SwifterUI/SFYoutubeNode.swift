@@ -13,7 +13,7 @@ open class SFYoutubeNode: SFDisplayNode {
     
     // MARK: - Instance Properties
     
-    public var youtubeView: YouTubePlayerView
+    open var youtubeView: YouTubePlayerView
     
     // MARK: - Initializers
     

@@ -12,13 +12,13 @@ open class SFCollectionNode: ASCollectionNode, SFNodeColorStyle, SFAnimatable {
     
     // MARK: - Instance Properties
     
-    var showsVerticalScrollIndicator: Bool = true {
+    open var showsVerticalScrollIndicator: Bool = true {
         didSet {
             self.view.showsVerticalScrollIndicator = self.showsVerticalScrollIndicator
         }
     }
     
-    var showsHorizontalScrollIndicator: Bool = true {
+    open var showsHorizontalScrollIndicator: Bool = true {
         didSet {
             self.view.showsHorizontalScrollIndicator = self.showsHorizontalScrollIndicator
         }
