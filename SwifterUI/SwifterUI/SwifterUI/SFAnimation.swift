@@ -52,7 +52,7 @@ open class SFAnimation {
     
     // MARK: - Initializers
     
-    public init(with node: ASDisplayNode? = nil, direction: SFAnimation.SFAnimationDirection = .none, type: SFAnimationType = .none) {
+    public init(with node: ASDisplayNode? = nil, direction: SFAnimationDirection = .none, type: SFAnimationType = .none) {
         self.type = type
         self.node = node
         self.direction = direction

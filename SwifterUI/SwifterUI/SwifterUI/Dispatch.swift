@@ -20,11 +20,11 @@ public enum DispatchLevel {
     // dispatchQueue: correspondent DispatchQueue
     public var dispatchQueue: DispatchQueue {
         switch self {
-        case .main: return DispatchQueue.main
-        case .userInteractive: return DispatchQueue.global(qos: .userInteractive)
-        case .userInitiated: return DispatchQueue.global(qos: .userInitiated)
-        case .utility: return DispatchQueue.global(qos: .utility)
-        case .background: return DispatchQueue.global(qos: .background)
+        case .main: return .main
+        case .userInteractive: return .global(qos: .userInteractive)
+        case .userInitiated: return .global(qos: .userInitiated)
+        case .utility: return .global(qos: .utility)
+        case .background: return .global(qos: .background)
         }
     }
 }
@@ -41,7 +41,7 @@ public struct Dispatch {
     //   handler: Action to be executed after the delay
     public static func delay(by seconds: Double, dispatchLevel: DispatchLevel = .background, handler: @escaping () -> Void) {
         // Create a DispatchTime in seconds since now + the number of seconds added
-        dispatchLevel.dispatchQueue.asyncAfter(deadline: DispatchTime.now() + seconds, execute: handler) // Add the action to be executed after the delay to the corresponding DispatchQueue
+        dispatchLevel.dispatchQueue.asyncAfter(deadline: .now() + seconds, execute: handler) // Add the action to be executed after the delay to the corresponding DispatchQueue
     }
     
     // addAsyncTask: Add an action to a dispatch queue asynchronously

@@ -29,4 +29,17 @@ public extension UIColor {
     public static func random(alpha: CGFloat = 1.0) -> UIColor {
         return UIColor(red: .random(), green: .random(), blue: .random(), alpha: alpha)
     }
+    
+    public static func hexValue(r: CGFloat, g: CGFloat, b: CGFloat) -> String {
+        return String(format:"%02X", Int(r)) + String(format:"%02X", Int(g)) + String(format:"%02X", Int(b))
+    }
 }
+
+
+
+
+
+
+
+
+

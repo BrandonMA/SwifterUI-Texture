@@ -157,6 +157,14 @@ public enum SFColorStyle: Int {
         case .dark: return .white
         }
     }
+    
+    // getSliderColor: return the correct color for a SFSlider
+    public func getSliderColor() -> UIColor {
+        switch self {
+        case .light: return SFAssets.lightGray
+        case .dark: return SFAssets.white
+        }
+    }
 }
 
 

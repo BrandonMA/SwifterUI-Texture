@@ -60,10 +60,12 @@ open class SFCollectionNode: ASCollectionNode, SFNodeColorStyle, SFAnimatable {
             self.backgroundColor = self.shouldHaveAlternativeColors == false ? self.colorStyle.getBackgroundColor() : self.colorStyle.getAlternativeBackgroundColor()
             
             // This is going to loop through every section inside the table node and reload it with the correct color style on the main thread
-            for i in 0...self.numberOfSections - 1 {
-                for j in 0...self.numberOfItems(inSection: i) {
-                    guard let cell = self.nodeForItem(at: IndexPath(row: j, section: i)) as? SFCellNode else { return }
-                    cell.updateColors()
+            if self.numberOfSections > 0 {
+                for i in 0...self.numberOfSections - 1 {
+                    for j in 0...self.numberOfItems(inSection: i) {
+                        guard let cell = self.nodeForItem(at: IndexPath(row: j, section: i)) as? SFCellNode else { return }
+                        cell.updateColors()
+                    }
                 }
             }
         }

@@ -81,10 +81,12 @@ open class SFTableNode: ASTableNode, SFNodeColorStyle, SFAnimatable {
             self.separatorColor = self.colorStyle.getSeparatorColor()
             
             // This is going to loop through every section inside the table node and reload it with the correct color style on the main thread
-            for i in 0...self.numberOfSections - 1 {
-                for j in 0...self.numberOfRows(inSection: i) {
-                    guard let cell = self.nodeForRow(at: IndexPath(row: j, section: i)) as? SFCellNode else { return }
-                    cell.updateColors()
+            if self.numberOfSections > 0 {
+                for i in 0...self.numberOfSections - 1 {
+                    for j in 0...self.numberOfRows(inSection: i) {
+                        guard let cell = self.nodeForRow(at: IndexPath(row: j, section: i)) as? SFCellNode else { return }
+                        cell.updateColors()
+                    }
                 }
             }
         }

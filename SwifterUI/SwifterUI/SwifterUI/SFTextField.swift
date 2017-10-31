@@ -12,6 +12,14 @@ open class SFTextField: SFDisplayNode {
     
     // MARK: - Instance Properties
     
+    weak var delegate: UITextFieldDelegate? {
+        get {
+            return self.textField.delegate
+        } set(newValue) {
+            self.textField.delegate = newValue
+        }
+    }
+    
     // textField: Backing UITextField for your node
     open let textField: SFTextFieldView
     

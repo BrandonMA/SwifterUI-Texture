@@ -69,7 +69,7 @@ class PitchPerfectController: SFViewController<PitchPerfectNode>, AVAudioRecorde
         guard let filePath = URL(string: "\(dirPath)/\(recordingName)") else { fatalError() }
         let session = AVAudioSession.sharedInstance()
 
-        Dispatch.addAsyncTask(to: DispatchLevel.background) {
+        Dispatch.addAsyncTask(to: .background) {
             // Start AVAudioSession on background thread to not stop UI
             do {
                 try session.setCategory(AVAudioSessionCategoryPlayAndRecord, with: .defaultToSpeaker)

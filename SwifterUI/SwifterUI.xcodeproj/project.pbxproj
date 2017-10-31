@@ -20,6 +20,8 @@
 		421C2A111F24AA610099762A /* SFLoginNodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421C2A101F24AA610099762A /* SFLoginNodeController.swift */; };
 		421C2A151F24AAA10099762A /* SFLoginNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421C2A141F24AAA10099762A /* SFLoginNode.swift */; };
 		421C2A181F24B4240099762A /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421C2A171F24B4240099762A /* LocalizedString.swift */; };
+		4227C52E1FA77837002F0288 /* ColorPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4227C52D1FA77837002F0288 /* ColorPickerController.swift */; };
+		4227C5301FA77DC5002F0288 /* SFSliderNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4227C52F1FA77DC5002F0288 /* SFSliderNode.swift */; };
 		424059AF1F65EE0C00B98776 /* ASCollectionNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424059AE1F65EE0C00B98776 /* ASCollectionNodeExtensions.swift */; };
 		424A5E621F5B067200EFBFB3 /* SFTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424A5E611F5B067100EFBFB3 /* SFTextFieldView.swift */; };
 		424A5E641F5B068300EFBFB3 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424A5E631F5B068300EFBFB3 /* UIViewControllerExtensions.swift */; };
@@ -143,6 +145,8 @@
 		421C2A141F24AAA10099762A /* SFLoginNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFLoginNode.swift; path = SwifterUI/SFLoginNode.swift; sourceTree = "<group>"; };
 		421C2A171F24B4240099762A /* LocalizedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocalizedString.swift; path = SwifterUI/LocalizedString.swift; sourceTree = "<group>"; };
 		421C2A1E1F2533200099762A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		4227C52D1FA77837002F0288 /* ColorPickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerController.swift; sourceTree = "<group>"; };
+		4227C52F1FA77DC5002F0288 /* SFSliderNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFSliderNode.swift; path = SwifterUI/SFSliderNode.swift; sourceTree = "<group>"; };
 		424059AE1F65EE0C00B98776 /* ASCollectionNodeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ASCollectionNodeExtensions.swift; path = SwifterUI/ASCollectionNodeExtensions.swift; sourceTree = "<group>"; };
 		424A5E611F5B067100EFBFB3 /* SFTextFieldView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFTextFieldView.swift; path = SwifterUI/SFTextFieldView.swift; sourceTree = "<group>"; };
 		424A5E631F5B068300EFBFB3 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewControllerExtensions.swift; path = SwifterUI/UIViewControllerExtensions.swift; sourceTree = "<group>"; };
@@ -422,6 +426,7 @@
 				42D800521F92BFD700C89730 /* PitchPerfect */,
 				429C3AB61F819F8900A22E78 /* Foursquare Example */,
 				421C2A0F1F249A880099762A /* Meetup Example */,
+				4227C52D1FA77837002F0288 /* ColorPickerController.swift */,
 			);
 			name = Examples;
 			sourceTree = "<group>";
@@ -534,6 +539,7 @@
 				42D9D66C1F20CF1E00918013 /* SFButtonNode.swift */,
 				42A680041F54B3F200EDBAAE /* SFDismissButton.swift */,
 				425AA3631F79C6370060AC8C /* SFImageViewerNode.swift */,
+				4227C52F1FA77DC5002F0288 /* SFSliderNode.swift */,
 				421BA3F41F570A21008E176D /* SFTextField */,
 				42D9D6721F20D39F00918013 /* SFSearchBar.swift */,
 				42A680061F54B40600EDBAAE /* SFPageControlNode.swift */,
@@ -914,6 +920,7 @@
 				424A5E621F5B067200EFBFB3 /* SFTextFieldView.swift in Sources */,
 				42B50AE81F65D044003E3E1A /* SFChatNode.swift in Sources */,
 				42D800581F92D44300C89730 /* FoursquareCell.swift in Sources */,
+				4227C52E1FA77837002F0288 /* ColorPickerController.swift in Sources */,
 				42C41CD61FA623BC00118F7D /* CGFloatExtensions.swift in Sources */,
 				42A6DBFF1F9BFBF300A05C61 /* SFPopAnimation.swift in Sources */,
 				42D800561F92D42A00C89730 /* FoursquareNode.swift in Sources */,
@@ -979,6 +986,7 @@
 				42F4BD571F7B347A00C11B8E /* SFAnimator.swift in Sources */,
 				421C2A0C1F249A850099762A /* MeetupFeedController.swift in Sources */,
 				42DFF0381F64BB8D005B6076 /* SFChatCell.swift in Sources */,
+				4227C5301FA77DC5002F0288 /* SFSliderNode.swift in Sources */,
 				42F0F6151F1F8114003DE859 /* SFDisplayNode.swift in Sources */,
 				4202F7BC1F48FFF70009BD33 /* SFDevice.swift in Sources */,
 				42F0F5CE1F1F4939003DE859 /* AppDelegate.swift in Sources */,

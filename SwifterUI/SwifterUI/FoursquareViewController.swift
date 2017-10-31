@@ -97,12 +97,6 @@ class FoursquareViewController: SFViewController<FoursquareNode>, CLLocationMana
         return block
     }
     
-    func tableNode(_ tableNode: ASTableNode, willDisplayRowWith node: ASCellNode) {
-        guard let node = node as? FoursquareCell else { return }
-        node.animator.animations = [SFSlideAnimation(direction: .left, type: .inside)]
-        node.animator.start()
-    }
-    
     func tableNode(_ tableNode: ASTableNode, didSelectRowAt indexPath: IndexPath) {
         self.showLoadingNode()
         tableNode.deselectRow(at: indexPath, animated: true)
