@@ -19,7 +19,7 @@ open class SFZoomAnimation: SFAnimation {
         finalScaleY = self.type == .inside ? 1.0 : 1.5
         initialAlpha = self.type == .inside ? 0.0 : 1.0
         finalAlpha = self.type == .inside ? 1.0 : 0.0
-        duration = 0.6
+        duration = 0.5
     }
     
     open override func start() {

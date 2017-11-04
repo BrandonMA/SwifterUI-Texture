@@ -19,6 +19,6 @@ open class SFScaleAnimation: SFZoomAnimation {
         finalScaleY = self.type == .inside ? 1.0 : 0.01
         initialAlpha = self.type == .inside ? 0.0 : 1.0
         finalAlpha = self.type == .inside ? 1.0 : 0.0
-        self.duration = 0.6
+        self.duration = 0.5
     }
 }

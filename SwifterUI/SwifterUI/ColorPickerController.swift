@@ -124,7 +124,11 @@ class ColorPickerController: SFViewController<ColorPickerNode>, UITextFieldDeleg
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         if let text = textField.text {
-            self.SFNode.colorNode.backgroundColor = UIColor(hex: text)
+            let color = UIColor(hex: text)
+            self.SFNode.colorNode.backgroundColor = color
+            self.SFNode.redColorSlider.slider.setValue(Float(color.getRed()), animated: true)
+            self.SFNode.greenColorSlider.slider.setValue(Float(color.getGreen()), animated: true)
+            self.SFNode.blueColorSlider.slider.setValue(Float(color.getBlue()), animated: true)
         }
         
         textField.resignFirstResponder()

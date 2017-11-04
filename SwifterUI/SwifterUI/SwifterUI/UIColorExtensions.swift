@@ -12,7 +12,8 @@ public extension UIColor {
     
     // MARK: - Initializers
     
-     public convenience init(r: CGFloat, g: CGFloat, b: CGFloat, alpha: CGFloat = 1) {
+    // init: Instead of the init method provided by apple that is values between 1 and 0, this one use 255-0.
+    public convenience init(r: CGFloat, g: CGFloat, b: CGFloat, alpha: CGFloat = 1) {
         self.init(red: r/255, green: g/255, blue: b/255, alpha: alpha)
     }
     
@@ -30,8 +31,28 @@ public extension UIColor {
         return UIColor(red: .random(), green: .random(), blue: .random(), alpha: alpha)
     }
     
+    // hexValue: You need to provide 255 values to use this function
     public static func hexValue(r: CGFloat, g: CGFloat, b: CGFloat) -> String {
         return String(format:"%02X", Int(r)) + String(format:"%02X", Int(g)) + String(format:"%02X", Int(b))
+    }
+    
+    // MARK: - Instance Methods
+    public func getRed() -> CGFloat {
+        var red: CGFloat = 0
+        self.getRed(&red, green: nil, blue: nil, alpha: nil)
+        return red * 255
+    }
+    
+    public func getGreen() -> CGFloat {
+        var green: CGFloat = 0
+        self.getRed(nil, green: &green, blue: nil, alpha: nil)
+        return green * 255
+    }
+    
+    public func getBlue() -> CGFloat {
+        var blue: CGFloat = 0
+        self.getRed(nil, green: nil, blue: &blue, alpha: nil)
+        return blue * 255
     }
 }
 

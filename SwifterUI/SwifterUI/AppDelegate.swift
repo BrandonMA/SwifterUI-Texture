@@ -24,13 +24,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 //        window?.rootViewController = ASNavigationController(rootViewController: MeetupFeedController())
         
-//        window?.rootViewController = FoursquareViewController()
+        window?.rootViewController = FoursquareViewController()
         
 //        window?.rootViewController = ASNavigationController(rootViewController: PitchPerfectController())
         
 //        window?.rootViewController = SFImageGalleryController(with: [UIImage(named: "icon")!,UIImage(named: "icon")!,UIImage(named: "icon")!])
         
-        window?.rootViewController = ColorPickerController()
+//        window?.rootViewController = ColorPickerController()
         
         
         window?.makeKeyAndVisible()

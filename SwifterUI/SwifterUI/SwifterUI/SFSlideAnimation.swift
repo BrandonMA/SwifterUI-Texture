@@ -19,7 +19,7 @@ open class SFSlideAnimation: SFAnimation {
         
         initialFrame = node.frame
         finalFrame = node.frame
-        damping = 0.6
+        damping = 0.5
         
         if direction == .right && type == .inside {
             initialFrame.origin.x = maxWidth + initialFrame.size.width

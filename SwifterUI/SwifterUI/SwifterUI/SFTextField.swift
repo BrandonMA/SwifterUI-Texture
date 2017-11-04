@@ -154,48 +154,17 @@ open class SFTextField: SFDisplayNode {
         setPlaceHolder()
     }
     
-    // MARK: - SFDisplayNodeColorStyle
-    
-    open override func updateColors() {
-        
-        if self.automaticallyAdjustsColorStyle == true {
-            
-            if #available(iOS 11.0, *) {
-                clearButtonColor = self.colorStyle.getDetailColor()
-            } else {
-                clearButtonColor = self.colorStyle.getDetailColor().withAlphaComponent(0.3)
-            }
-            
-            textFieldTintColor = self.colorStyle.getInteractiveColor()
-            
-            textField.keyboardAppearance = self.colorStyle.getKeyboardAppearence()
-            
-            placeholderColor = self.colorStyle.getPlaceholderColor()
-            
-            self.textColor = self.colorStyle.getMainColor()
-            
-            self.textField.backgroundColor = self.shouldHaveAlternativeColors == false ? self.colorStyle.getTextFieldColor() : self.colorStyle.getTextFieldAlternativeColor()
-            
-            updateSubNodesColors()
-        }
-    }
-}
-
-public extension SFTextField {
-    
-    // MARK: - Instance Methods
-    
     // setPlaceHolder: Set the NSAttributedString for the placeholder automatically
     open func setPlaceHolder() {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = self.aligment
         self.textField.attributedPlaceholder = NSAttributedString(string: self.placeholder,
-                                                           attributes: [
-                                                            NSAttributedStringKey.foregroundColor: self.placeholderColor,
-                                                            NSAttributedStringKey.font: self.font,
-                                                            NSAttributedStringKey.paragraphStyle: paragraphStyle])
+                                                                  attributes: [
+                                                                    NSAttributedStringKey.foregroundColor: self.placeholderColor,
+                                                                    NSAttributedStringKey.font: self.font,
+                                                                    NSAttributedStringKey.paragraphStyle: paragraphStyle])
     }
-
+    
     // addLeftView: Add a view at the left side of your textField
     open func addLeftView() {
         
@@ -224,6 +193,32 @@ public extension SFTextField {
     // endEditing: Convenience method to access the textField's one
     open func endEditing(force: Bool) {
         self.textField.endEditing(force)
+    }
+    
+    // MARK: - SFDisplayNodeColorStyle
+    
+    open override func updateColors() {
+        
+        if self.automaticallyAdjustsColorStyle == true {
+            
+            if #available(iOS 11.0, *) {
+                clearButtonColor = self.colorStyle.getDetailColor()
+            } else {
+                clearButtonColor = self.colorStyle.getDetailColor().withAlphaComponent(0.3)
+            }
+            
+            textFieldTintColor = self.colorStyle.getInteractiveColor()
+            
+            textField.keyboardAppearance = self.colorStyle.getKeyboardAppearence()
+            
+            placeholderColor = self.colorStyle.getPlaceholderColor()
+            
+            self.textColor = self.colorStyle.getMainColor()
+            
+            self.textField.backgroundColor = self.shouldHaveAlternativeColors == false ? self.colorStyle.getTextFieldColor() : self.colorStyle.getTextFieldAlternativeColor()
+            
+            updateSubNodesColors()
+        }
     }
 }
 
