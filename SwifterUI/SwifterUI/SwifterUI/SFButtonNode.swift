@@ -39,6 +39,8 @@ open class SFButtonNode: ASButtonNode, SFGradientNode, SFBlurredNode, SFNodeColo
     
     // MARK: - SFBlurredNode
     
+    open var shouldHaveBackgroundBlur: Bool = false
+    
     open var effect: UIVisualEffect? { didSet { self.setEffect() } }
     
     // MARK: - SFAnimatable
@@ -74,18 +76,22 @@ open class SFButtonNode: ASButtonNode, SFGradientNode, SFBlurredNode, SFNodeColo
     
     open func updateColors() {
         if self.automaticallyAdjustsColorStyle == true {
+            
+            if self.shouldHaveBackgroundBlur == true {
+                self.effect = self.colorStyle.getCorrectEffect()
+            }
+            
+            self.backgroundColor = UIColor.clear
+            
             if self.shouldHaveAlternativeColors == false {
                 self.textColor = colorStyle.getInteractiveColor()
                 self.tintColor = colorStyle.getInteractiveColor()
-                self.backgroundColor = UIColor.clear
             } else {
                 self.textColor = colorStyle.getMainColor()
                 self.tintColor = colorStyle.getMainColor()
-                self.backgroundColor = colorStyle.getBackgroundColor()
             }
         }
     }
-    
 }
 
 extension SFButtonNode: SFTextContainer {

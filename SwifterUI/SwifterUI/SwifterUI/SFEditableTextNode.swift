@@ -59,8 +59,6 @@ open class SFEditableTextNode: ASEditableTextNode, SFGradientNode, SFNodeColorSt
         updateColors()
         automaticallyManagesSubnodes = true
         setAttributedText()
-        self.textView.isEditable = false
-        self.textView.isSelectable = false
     }
     
     // MARK: - SFDisplayNodeColorStyle

@@ -84,7 +84,6 @@ open class SFAnimator: SFAnimationDelegate {
     }
     
     open func restart() {
-        delay = 0
         currentAnimationIndex = 0
         animationCompletion = {}
     }

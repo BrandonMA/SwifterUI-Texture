@@ -14,6 +14,7 @@
 		420620091F5B74CA006C0C01 /* SFBlurredNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420620081F5B74CA006C0C01 /* SFBlurredNode.swift */; };
 		42095E581F5B74FF00909BEB /* SFGradientNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42095E571F5B74FF00909BEB /* SFGradientNode.swift */; };
 		4212E5721F4A2625006FD5A9 /* SFPresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4212E5711F4A2625006FD5A9 /* SFPresentationManager.swift */; };
+		42163F941FAD5DCE0041092C /* ColorPickerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42163F931FAD5DCE0041092C /* ColorPickerNode.swift */; };
 		421C2A0C1F249A850099762A /* MeetupFeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421C2A091F249A850099762A /* MeetupFeedController.swift */; };
 		421C2A0D1F249A850099762A /* MeetupFeedCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421C2A0A1F249A850099762A /* MeetupFeedCellNode.swift */; };
 		421C2A0E1F249A850099762A /* MeetuoModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421C2A0B1F249A850099762A /* MeetuoModels.swift */; };
@@ -138,6 +139,7 @@
 		420620081F5B74CA006C0C01 /* SFBlurredNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFBlurredNode.swift; path = SwifterUI/SFBlurredNode.swift; sourceTree = "<group>"; };
 		42095E571F5B74FF00909BEB /* SFGradientNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFGradientNode.swift; path = SwifterUI/SFGradientNode.swift; sourceTree = "<group>"; };
 		4212E5711F4A2625006FD5A9 /* SFPresentationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFPresentationManager.swift; path = SwifterUI/SFPresentationManager.swift; sourceTree = "<group>"; };
+		42163F931FAD5DCE0041092C /* ColorPickerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerNode.swift; sourceTree = "<group>"; };
 		421C2A091F249A850099762A /* MeetupFeedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetupFeedController.swift; sourceTree = "<group>"; };
 		421C2A0A1F249A850099762A /* MeetupFeedCellNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetupFeedCellNode.swift; sourceTree = "<group>"; };
 		421C2A0B1F249A850099762A /* MeetuoModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetuoModels.swift; sourceTree = "<group>"; };
@@ -274,6 +276,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		42163F921FAD5DBA0041092C /* Color Picker */ = {
+			isa = PBXGroup;
+			children = (
+				4227C52D1FA77837002F0288 /* ColorPickerController.swift */,
+				42163F931FAD5DCE0041092C /* ColorPickerNode.swift */,
+			);
+			name = "Color Picker";
+			sourceTree = "<group>";
+		};
 		42164C771F9F7F7700798ED5 /* SFAnimations */ = {
 			isa = PBXGroup;
 			children = (
@@ -423,10 +434,10 @@
 		42D9D67D1F20D8EA00918013 /* Examples */ = {
 			isa = PBXGroup;
 			children = (
+				42163F921FAD5DBA0041092C /* Color Picker */,
 				42D800521F92BFD700C89730 /* PitchPerfect */,
 				429C3AB61F819F8900A22E78 /* Foursquare Example */,
 				421C2A0F1F249A880099762A /* Meetup Example */,
-				4227C52D1FA77837002F0288 /* ColorPickerController.swift */,
 			);
 			name = Examples;
 			sourceTree = "<group>";
@@ -531,6 +542,7 @@
 				42E3EA311F604323008596E2 /* SFCollectionNode.swift */,
 				42C41CD71FA6252700118F7D /* SFPagerNode.swift */,
 				42DC289B1F76BC1E00896D87 /* SFScrollNode.swift */,
+				4227C52F1FA77DC5002F0288 /* SFSliderNode.swift */,
 				42F0F61A1F1F96C1003DE859 /* SFCellNode.swift */,
 				42F0F6241F1FA405003DE859 /* SFActivityNode.swift */,
 				42D9D66A1F20CECB00918013 /* SFLoadingNode.swift */,
@@ -539,7 +551,6 @@
 				42D9D66C1F20CF1E00918013 /* SFButtonNode.swift */,
 				42A680041F54B3F200EDBAAE /* SFDismissButton.swift */,
 				425AA3631F79C6370060AC8C /* SFImageViewerNode.swift */,
-				4227C52F1FA77DC5002F0288 /* SFSliderNode.swift */,
 				421BA3F41F570A21008E176D /* SFTextField */,
 				42D9D6721F20D39F00918013 /* SFSearchBar.swift */,
 				42A680061F54B40600EDBAAE /* SFPageControlNode.swift */,
@@ -950,6 +961,7 @@
 				42A6DC011F9BFCAF00A05C61 /* SFShakeAnimation.swift in Sources */,
 				42C6FA0A1FA03DCB005B4175 /* SFFlipAnimation.swift in Sources */,
 				42A680031F54B3E100EDBAAE /* SFPresentationController.swift in Sources */,
+				42163F941FAD5DCE0041092C /* ColorPickerNode.swift in Sources */,
 				42F0F61D1F1F97E3003DE859 /* SFLabelNode.swift in Sources */,
 				421C2A111F24AA610099762A /* SFLoginNodeController.swift in Sources */,
 				42A680071F54B40600EDBAAE /* SFPageControlNode.swift in Sources */,

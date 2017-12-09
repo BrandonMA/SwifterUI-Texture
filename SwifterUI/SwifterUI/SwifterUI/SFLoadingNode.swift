@@ -31,22 +31,15 @@ open class SFLoadingNode: SFDisplayNode {
     
     // MARK: - Instance Methods
     
+    open override func didLoad() {
+        self.shouldHaveBackgroundBlur = true
+        super.didLoad()
+    }
+
     // layoutSpecThatFits: Layout all subnodes
     override open func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-        
-        let activityNodeLayout = ASCenterLayoutSpec(horizontalPosition: ASRelativeLayoutSpecPosition.center, verticalPosition: ASRelativeLayoutSpecPosition.center, sizingOption: ASRelativeLayoutSpecSizingOption.minimumSize, child: activityNode)
-        
+        let activityNodeLayout = ASCenterLayoutSpec(horizontalPosition: .center, verticalPosition: .center, sizingOption: .minimumSize, child: activityNode)
         return activityNodeLayout
-    }
-    
-    // MARK: - SFDisplayNodeColorStyle
-    
-    open override func updateColors() {
-        if self.automaticallyAdjustsColorStyle == true {
-            backgroundColor = UIColor.clear
-            effect = self.colorStyle.getCorrectEffect()
-            updateSubNodesColors()
-        }
     }
 }
 

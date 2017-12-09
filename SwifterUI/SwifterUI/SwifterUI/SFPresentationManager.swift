@@ -16,7 +16,7 @@ public enum SFPresentationDirection: String {
     case bottom
 }
 
-// SFAnimationType: Indicates the animation that is going to be used
+// SFPresentationType: Indicates the animation that is going to be used
 public enum SFPresentationType: String {
     
     case appleMusicLike
@@ -49,7 +49,6 @@ open class SFPresentationManager<SFPresentingNodeType>: NSObject, UIViewControll
     // MARK: - Instance Methods
     
     public func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-        
         switch self.animation {
         case .appleMusicLike:
             return SFAppleMusicLikePresentationController<SFPresentingNodeType>(presented: presented, presenting: presenting)

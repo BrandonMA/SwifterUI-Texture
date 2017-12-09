@@ -18,20 +18,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         
-//        let loginController = SFLoginNodeController(automaticallyAdjustsColorStyle: true)
-//        loginController.signUpController = SFSignUpNodeController(automaticallyAdjustsColorStyle: true)
-//        window?.rootViewController = loginController
+        let loginController = SFLoginNodeController(automaticallyAdjustsColorStyle: true)
+        loginController.signUpController = SFSignUpNodeController(automaticallyAdjustsColorStyle: true)
+        window?.rootViewController = loginController
         
 //        window?.rootViewController = ASNavigationController(rootViewController: MeetupFeedController())
         
-        window?.rootViewController = FoursquareViewController()
+//        window?.rootViewController = FoursquareViewController()
         
 //        window?.rootViewController = ASNavigationController(rootViewController: PitchPerfectController())
         
 //        window?.rootViewController = SFImageGalleryController(with: [UIImage(named: "icon")!,UIImage(named: "icon")!,UIImage(named: "icon")!])
         
 //        window?.rootViewController = ColorPickerController()
-        
         
         window?.makeKeyAndVisible()
         

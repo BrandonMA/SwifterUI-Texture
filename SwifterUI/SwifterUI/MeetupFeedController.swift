@@ -101,14 +101,6 @@ class MeetupFeedController: SFTableNodeController, UINavigationControllerDelegat
     
     func tableNode(_ tableNode: ASTableNode, didSelectRowAt indexPath: IndexPath) {
         guard let node = tableNode.nodeForRow(at: indexPath) as? MeetupFeedCellNode else { return }
-//        guard let window = UIApplication.shared.keyWindow else { return }
-//        var newFrame = tableNode.rectForRow(at: indexPath)
-//        newFrame = tableNode.convert(newFrame, to: tableNode.supernode)
-//        node.frame = newFrame
-//        window.addSubnode(node)
-//        UIView.animate(withDuration: 1.0) {
-//            node.frame = window.bounds
-//        }
         guard let image = node.photoImageNode.image else { return }
         let controller = SFImageViewerNodeController(with: image, automaticallyAdjustsColorStyle: true)
         self.navigationController?.pushViewController(controller, animated: true)

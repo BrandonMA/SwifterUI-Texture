@@ -12,6 +12,9 @@ public protocol SFBlurredNode {
     
     // MARK: - Instance Properties
     
+    // shouldHaveBackgroundBlur: Property used to know if a background blur should be added instead of a color
+    var shouldHaveBackgroundBlur: Bool { get set }
+    
     // effect: UIVisualEffect that is going to be used as background
     var effect: UIVisualEffect? { get set }
     
@@ -28,6 +31,7 @@ public extension SFBlurredNode where Self: ASDisplayNode {
     public func setEffect() {
         if self.frame.width != 0 && self.frame.height != 0 {
             if let effect = self.effect {
+                
                 let effectView = UIVisualEffectView(effect: effect)
                 effectView.frame = self.bounds
                 effectView.isUserInteractionEnabled = false

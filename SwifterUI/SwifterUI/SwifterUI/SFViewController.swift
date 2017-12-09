@@ -15,6 +15,8 @@ open class SFViewController<SFNodeType: SFColorStyleProtocol>: ASViewController<
     
     open var currentColorStyle: SFColorStyle? = nil
     
+    open var id: String = "SFViewController"
+    
     // SFNode: Node that you are going to be using to build your UI
     open var SFNode: SFNodeType
     

@@ -35,7 +35,7 @@ open class SFPresentationController<SFPresentingNodeType>: UIPresentationControl
         
     }
     
-    // handleBrightnessChange: Because of the way protocols work, you need to declare an extra @objc function to call updateColors() because it is not an @objc and a notificion can't keep track of it
+    // handleBrightnessChange: Because of the way protocols work, you need to declare an extra @objc function to call updateColors() because it is not an @objc and a notification can't keep track of it
     @objc final func handleBrightnessChange() {
         updateColors()
     }

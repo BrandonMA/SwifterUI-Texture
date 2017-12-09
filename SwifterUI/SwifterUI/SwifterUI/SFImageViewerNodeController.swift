@@ -11,7 +11,7 @@ import AsyncDisplayKit
 open class SFImageViewerNodeController: SFViewController<SFImageViewerNode>, UIScrollViewDelegate {
     
     // MARK: - Initializers
-        
+    
     public init(with image: UIImage, automaticallyAdjustsColorStyle: Bool) {
         super.init(SFNode: SFImageViewerNode(automaticallyAdjustsColorStyle: automaticallyAdjustsColorStyle), automaticallyAdjustsColorStyle: automaticallyAdjustsColorStyle)
         SFNode.view.delegate = self
@@ -27,10 +27,18 @@ open class SFImageViewerNodeController: SFViewController<SFImageViewerNode>, UIS
     open override func viewDidLoad() {
         super.viewDidLoad()
         SFNode.layout(withSize: self.view.bounds.size)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: SFAssets.imageOfShareIcon, style: .plain, target: self, action: #selector(shareImage(sender:)))
     }
     
     open override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         self.SFNode.layout(withSize: size)
+    }
+    
+    @objc func shareImage(sender: ASButtonNode) {
+        let image = SFNode.image
+        let activityController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        activityController.popoverPresentationController?.sourceView = sender.view
+        self.present(activityController, animated: true, completion: nil)
     }
     
     // MARK: - UIScrollViewDelegate

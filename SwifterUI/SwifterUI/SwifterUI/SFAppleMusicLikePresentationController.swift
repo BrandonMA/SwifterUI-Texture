@@ -33,15 +33,12 @@ extension SFAppleMusicLikeDismissProtocol where Self: UIViewController {
         if gesture.state == .began {
             initialPoint = gesture.location(in: window).y // Set the initialPoint to the correct value
         } else  if gesture.state == .changed {
-
-            if currentPoint > initialPoint { // if current point is bigger(under) the initial point, then...
-                self.view.frame.origin.y += currentPoint - initialPoint // then increase the y value by the difference between those two points
-                initialPoint = currentPoint // and set the new value of initialPoint
-                if self.view.frame.origin.y > 120 {
-                    dismiss(animated: true, completion: nil)
-                }
+            let distance =  currentPoint - initialPoint // Calculate distance between initial point and new position
+            self.view.frame.origin.y += distance
+            initialPoint = currentPoint // and set the new value of initialPoint
+            if self.view.frame.origin.y > 120 {
+                dismiss(animated: true, completion: nil)
             }
-
         } else if gesture.state == .ended {
             if self.view.frame.origin.y < 120 { // if self.view is less than 120 then take it back to the correct place
                 UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 0, options: [], animations: {
@@ -62,6 +59,7 @@ open class SFAppleMusicLikePresentationController<SFPresentingNodeType>: SFPrese
     open override func updateColors() {
         if self.automaticallyAdjustsColorStyle == true {
             if let controller = self.presentingViewController as? SFViewController<SFPresentingNodeType> {
+                controller.SFNode.updateColors()
                 controller.SFNode.backgroundColor = self.colorStyle.getSeparatorColor()
             }
         }

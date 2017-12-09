@@ -24,6 +24,8 @@ open class SFCellNode: ASCellNode, SFGradientNode, SFBlurredNode, SFNodeColorSty
     
     // MARK: - SFBlurredNode
     
+    open var shouldHaveBackgroundBlur: Bool = false
+    
     open var effect: UIVisualEffect?
     
     // MARK: - SFAnimatable
@@ -58,11 +60,16 @@ open class SFCellNode: ASCellNode, SFGradientNode, SFBlurredNode, SFNodeColorSty
     
     open func updateColors() {
         if automaticallyAdjustsColorStyle == true {
+            if self.shouldHaveBackgroundBlur == true {
+                self.effect = self.colorStyle.getCorrectEffect()
+            }
+            
             if self.effect != nil {
                 self.backgroundColor = UIColor.clear
             } else {
                 self.backgroundColor = self.shouldHaveAlternativeColors == false ? self.colorStyle.getBackgroundColor() : self.colorStyle.getAlternativeBackgroundColor()
             }
+            
             updateSubNodesColors()
         }
     }
