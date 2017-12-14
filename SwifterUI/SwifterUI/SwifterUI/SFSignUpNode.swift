@@ -113,6 +113,10 @@ open class SFSignUpNode: SFDisplayNode {
     
     // MARK: - Instance Methods
     
+    open override func layoutDidFinish() {
+        super.layoutDidFinish()
+    }
+    
     open override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         
         dismissButton.style.preferredLayoutSize = ASLayoutSize(width: ASDimension(unit: ASDimensionUnit.fraction, value: 1), height: ASDimension(unit: ASDimensionUnit.points, value: 12))

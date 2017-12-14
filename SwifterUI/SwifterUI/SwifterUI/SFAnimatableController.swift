@@ -9,6 +9,12 @@
 import Foundation
 
 public protocol SFAnimatableController {
+    
+    // MARK: - Instance Methods
+    
+    // prepareAnimations: All animations implemented with an SFAnimator should be declared here
     func prepareAnimations()
+    
+    // startAnimations: Called automatically to begin all SFAnimations
     func startAnimations()
 }

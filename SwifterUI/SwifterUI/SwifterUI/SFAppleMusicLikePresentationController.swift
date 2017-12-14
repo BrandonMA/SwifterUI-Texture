@@ -54,24 +54,35 @@ extension SFAppleMusicLikeDismissProtocol where Self: UIViewController {
 
 open class SFAppleMusicLikePresentationController<SFPresentingNodeType>: SFPresentationController<SFPresentingNodeType> where SFPresentingNodeType: SFDisplayNode {
     
+    lazy var dimmingView: UIView = {
+        let view = UIView()
+        view.alpha = 0
+        view.backgroundColor = self.colorStyle == .light ? UIColor.black : UIColor.white
+        return view
+    }()
+    
     // MARK: - Instance Methods
     
     open override func updateColors() {
+        dimmingView.backgroundColor = self.colorStyle == .light ? UIColor.black : UIColor.white
         if self.automaticallyAdjustsColorStyle == true {
             if let controller = self.presentingViewController as? SFViewController<SFPresentingNodeType> {
                 controller.SFNode.updateColors()
-                controller.SFNode.backgroundColor = self.colorStyle.getSeparatorColor()
             }
         }
     }
     
     override open func presentationTransitionWillBegin() {
-                
+        
+        self.dimmingView.frame = self.presentingViewController.view.frame
+        self.presentingViewController.view.addSubview(self.dimmingView)
+        self.presentedView?.roundTop(radius: 16)
+        
         UIView.animate(withDuration: 0.25) {
+            self.dimmingView.alpha = 0.30
             self.presentingViewController.view.clipsToBounds = true
             self.presentingViewController.view.layer.cornerRadius = 16
             self.presentingViewController.view.frame.origin.y += 20
-            self.presentedView?.layer.cornerRadius = 16
             
             if let controller = self.presentingViewController as? SFViewController<SFPresentingNodeType> {
                 if controller.automaticallyAdjustsColorStyle == true {
@@ -94,11 +105,14 @@ open class SFAppleMusicLikePresentationController<SFPresentingNodeType>: SFPrese
             }
         }
         
-        UIView.animate(withDuration: 0.25) {
+        UIView.animate(withDuration: 0.25, animations: {
+            self.dimmingView.alpha = 0
             self.presentingViewController.view.layer.cornerRadius = 0
-            self.presentedView?.layer.cornerRadius = 0
             self.presentingViewController.view.frame.origin.y -= 20
+        }) { (finished) in
+            self.dimmingView.removeFromSuperview()
         }
+        
     }
     
     override open func containerViewWillLayoutSubviews() {

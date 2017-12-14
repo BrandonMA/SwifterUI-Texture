@@ -36,6 +36,7 @@
 		427664F11F9BA61D00542CEE /* SFAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427664F01F9BA61D00542CEE /* SFAnimation.swift */; };
 		427664F31F9BA88200542CEE /* SFFadeAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427664F21F9BA88200542CEE /* SFFadeAnimation.swift */; };
 		427664F51F9BAB1100542CEE /* SFZoomAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427664F41F9BAB1100542CEE /* SFZoomAnimation.swift */; };
+		4284FC541FE321470054494F /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4284FC531FE321470054494F /* UIViewExtensions.swift */; };
 		428970081F96C8460011A815 /* PitchPerfectEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428970071F96C8460011A815 /* PitchPerfectEditorController.swift */; };
 		429B186E1F4A02CE006BE483 /* SFSignUpNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429B186D1F4A02CE006BE483 /* SFSignUpNode.swift */; };
 		429F9EF21F7E8594003AEDE1 /* SFScaleTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429F9EF11F7E8594003AEDE1 /* SFScaleTransition.swift */; };
@@ -162,6 +163,7 @@
 		427664F01F9BA61D00542CEE /* SFAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFAnimation.swift; path = SwifterUI/SFAnimation.swift; sourceTree = "<group>"; };
 		427664F21F9BA88200542CEE /* SFFadeAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFFadeAnimation.swift; path = SwifterUI/SFFadeAnimation.swift; sourceTree = "<group>"; };
 		427664F41F9BAB1100542CEE /* SFZoomAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFZoomAnimation.swift; path = SwifterUI/SFZoomAnimation.swift; sourceTree = "<group>"; };
+		4284FC531FE321470054494F /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIViewExtensions.swift; path = SwifterUI/UIViewExtensions.swift; sourceTree = "<group>"; };
 		428970071F96C8460011A815 /* PitchPerfectEditorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitchPerfectEditorController.swift; sourceTree = "<group>"; };
 		429B186D1F4A02CE006BE483 /* SFSignUpNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFSignUpNode.swift; path = SwifterUI/SFSignUpNode.swift; sourceTree = "<group>"; };
 		429F9EF11F7E8594003AEDE1 /* SFScaleTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFScaleTransition.swift; path = SwifterUI/SFScaleTransition.swift; sourceTree = "<group>"; };
@@ -530,6 +532,7 @@
 				424059AE1F65EE0C00B98776 /* ASCollectionNodeExtensions.swift */,
 				42F4BD4C1F7A9B1300C11B8E /* DateExtensions.swift */,
 				42C41CD51FA623BC00118F7D /* CGFloatExtensions.swift */,
+				4284FC531FE321470054494F /* UIViewExtensions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -911,6 +914,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				42F0F6101F1F7B9C003DE859 /* SFColorStyle.swift in Sources */,
+				4284FC541FE321470054494F /* UIViewExtensions.swift in Sources */,
 				42DCD5D71F8EC706009B8A9F /* SFPlayerContainerNode.swift in Sources */,
 				42F4BD4D1F7A9B1300C11B8E /* DateExtensions.swift in Sources */,
 				42A680051F54B3F300EDBAAE /* SFDismissButton.swift in Sources */,

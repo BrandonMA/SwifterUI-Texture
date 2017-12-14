@@ -151,20 +151,6 @@ open class SFViewController<SFNodeType: SFColorStyleProtocol>: ASViewController<
         }
     }
     
-    // prepareAnimations: All animations implemented with an SFAnimator should be declared here
-    open func prepareAnimations() {
-        
-    }
-    
-    // startAnimations: Called automatically to begin all SFAnimations
-    open func startAnimations() {
-        for subnode in self.SFNode.subnodes {
-            if let animatable = subnode as? SFAnimatable {
-                animatable.animator.start()
-            }
-        }
-    }
-    
     open func showLoadingNode() {
         let node = SFLoadingNode(automaticallyAdjustsColorStyle: self.automaticallyAdjustsColorStyle)
         node.frame = self.SFNode.frame
@@ -183,6 +169,20 @@ open class SFViewController<SFNodeType: SFColorStyleProtocol>: ASViewController<
                     node.removeFromSupernode()
                 }
                 node.animator.start()
+            }
+        }
+    }
+    
+    // MARK: - SFAnimatableController
+    
+    open func prepareAnimations() {
+        
+    }
+    
+    open func startAnimations() {
+        for subnode in self.SFNode.subnodes {
+            if let animatable = subnode as? SFAnimatable {
+                animatable.animator.start()
             }
         }
     }
