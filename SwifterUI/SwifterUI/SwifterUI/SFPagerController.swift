@@ -12,10 +12,6 @@ open class SFPagerController: SFViewController<SFPagerNode>, ASPagerDataSource {
     
     // MARK: - Initializers
     
-    // Initialize your SFViewController with a SFNode
-    // - Parameters:
-    //   SFNode: Node that containts your UI
-    //   automaticallyAdjustsColorStyle: Variable to know if a node should automatically update it's views or not
     public init(SFPagerNode: SFPagerNode = SFPagerNode(), automaticallyAdjustsColorStyle: Bool) {
         super.init(SFNode: SFPagerNode, automaticallyAdjustsColorStyle: automaticallyAdjustsColorStyle)
         self.SFNode.automaticallyAdjustsColorStyle = automaticallyAdjustsColorStyle

@@ -12,10 +12,6 @@ open class SFCollectionController: SFViewController<SFCollectionNode>, ASCollect
     
     // MARK: - Initializers
     
-    // Initialize your SFViewController with a SFNode
-    // - Parameters:
-    //   SFNode: Node that containts your UI
-    //   automaticallyAdjustsColorStyle: Variable to know if a node should automatically update it's views or not
     public init(SFCollectionNode: SFCollectionNode, automaticallyAdjustsColorStyle: Bool) {
         super.init(SFNode: SFCollectionNode, automaticallyAdjustsColorStyle: automaticallyAdjustsColorStyle)
         self.SFNode.delegate = self

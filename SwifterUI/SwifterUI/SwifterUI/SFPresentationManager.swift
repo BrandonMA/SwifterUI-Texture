@@ -6,7 +6,7 @@
 //  Copyright © 2017 Brandon Maldonado Alonso. All rights reserved.
 //
 
-import UIKit
+import AsyncDisplayKit
 
 // SFPresentationDirection: Represent the direction of the animation
 public enum SFPresentationDirection: String {
@@ -19,11 +19,11 @@ public enum SFPresentationDirection: String {
 // SFPresentationType: Indicates the animation that is going to be used
 public enum SFPresentationType: String {
     
-    case appleMusicLike
+    case appleMusic
     
     public func predefinedDirection() -> SFPresentationDirection {
         switch self {
-        case .appleMusicLike: return .bottom
+        case .appleMusic: return .bottom
         }
     }
 }
@@ -50,8 +50,8 @@ open class SFPresentationManager<SFPresentingNodeType>: NSObject, UIViewControll
     
     public func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
         switch self.animation {
-        case .appleMusicLike:
-            return SFAppleMusicLikePresentationController<SFPresentingNodeType>(presented: presented, presenting: presenting)
+        case .appleMusic:
+            return SFAppleMusicPresentationController<SFPresentingNodeType>(presented: presented, presenting: presenting)
         }
     }
     

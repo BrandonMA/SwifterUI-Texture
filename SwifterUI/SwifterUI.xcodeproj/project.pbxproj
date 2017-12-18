@@ -10,18 +10,15 @@
 		38DA73C369B48DD7AF3979D6 /* Pods_SwifterUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BBCD62DDBC8D77D25901F55 /* Pods_SwifterUI.framework */; };
 		4202F7BC1F48FFF70009BD33 /* SFDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4202F7BB1F48FFF70009BD33 /* SFDevice.swift */; };
 		4202F7BE1F4900000009BD33 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4202F7BD1F4900000009BD33 /* UIColorExtensions.swift */; };
+		420371461FE3427700C63C24 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420371451FE3427700C63C24 /* ViewController.swift */; };
+		420371481FE3429900C63C24 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420371471FE3429900C63C24 /* Node.swift */; };
+		4203714A1FE343AE00C63C24 /* SFPopNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420371491FE343AE00C63C24 /* SFPopNode.swift */; };
 		4204F28F1F65ACEE003D9D86 /* SFMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4204F28E1F65ACEE003D9D86 /* SFMessage.swift */; };
 		420620091F5B74CA006C0C01 /* SFBlurredNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420620081F5B74CA006C0C01 /* SFBlurredNode.swift */; };
 		42095E581F5B74FF00909BEB /* SFGradientNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42095E571F5B74FF00909BEB /* SFGradientNode.swift */; };
+		420DE33D1FE7336100E98F0F /* SFPopBarNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420DE33C1FE7336100E98F0F /* SFPopBarNode.swift */; };
 		4212E5721F4A2625006FD5A9 /* SFPresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4212E5711F4A2625006FD5A9 /* SFPresentationManager.swift */; };
-		42163F941FAD5DCE0041092C /* ColorPickerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42163F931FAD5DCE0041092C /* ColorPickerNode.swift */; };
-		421C2A0C1F249A850099762A /* MeetupFeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421C2A091F249A850099762A /* MeetupFeedController.swift */; };
-		421C2A0D1F249A850099762A /* MeetupFeedCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421C2A0A1F249A850099762A /* MeetupFeedCellNode.swift */; };
-		421C2A0E1F249A850099762A /* MeetuoModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421C2A0B1F249A850099762A /* MeetuoModels.swift */; };
-		421C2A111F24AA610099762A /* SFLoginNodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421C2A101F24AA610099762A /* SFLoginNodeController.swift */; };
-		421C2A151F24AAA10099762A /* SFLoginNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421C2A141F24AAA10099762A /* SFLoginNode.swift */; };
 		421C2A181F24B4240099762A /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421C2A171F24B4240099762A /* LocalizedString.swift */; };
-		4227C52E1FA77837002F0288 /* ColorPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4227C52D1FA77837002F0288 /* ColorPickerController.swift */; };
 		4227C5301FA77DC5002F0288 /* SFSliderNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4227C52F1FA77DC5002F0288 /* SFSliderNode.swift */; };
 		424059AF1F65EE0C00B98776 /* ASCollectionNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424059AE1F65EE0C00B98776 /* ASCollectionNodeExtensions.swift */; };
 		424A5E621F5B067200EFBFB3 /* SFTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424A5E611F5B067100EFBFB3 /* SFTextFieldView.swift */; };
@@ -30,19 +27,14 @@
 		424A5E681F5B069400EFBFB3 /* SFColorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424A5E671F5B069400EFBFB3 /* SFColorController.swift */; };
 		424A5E6A1F5B069B00EFBFB3 /* SFDeviceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424A5E691F5B069B00EFBFB3 /* SFDeviceProtocol.swift */; };
 		425AA3641F79C6370060AC8C /* SFImageViewerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425AA3631F79C6370060AC8C /* SFImageViewerNode.swift */; };
-		425D1BF01F7FF7D500A5081B /* FoursquareModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425D1BEE1F7FF7D500A5081B /* FoursquareModel.swift */; };
-		425D1BF11F7FF7D500A5081B /* FoursquareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425D1BEF1F7FF7D500A5081B /* FoursquareViewController.swift */; };
 		426CC2AA1F75D413002A9FC3 /* SFEditableTextNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426CC2A91F75D413002A9FC3 /* SFEditableTextNode.swift */; };
 		427664F11F9BA61D00542CEE /* SFAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427664F01F9BA61D00542CEE /* SFAnimation.swift */; };
 		427664F31F9BA88200542CEE /* SFFadeAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427664F21F9BA88200542CEE /* SFFadeAnimation.swift */; };
 		427664F51F9BAB1100542CEE /* SFZoomAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427664F41F9BAB1100542CEE /* SFZoomAnimation.swift */; };
 		4284FC541FE321470054494F /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4284FC531FE321470054494F /* UIViewExtensions.swift */; };
-		428970081F96C8460011A815 /* PitchPerfectEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428970071F96C8460011A815 /* PitchPerfectEditorController.swift */; };
-		429B186E1F4A02CE006BE483 /* SFSignUpNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429B186D1F4A02CE006BE483 /* SFSignUpNode.swift */; };
 		429F9EF21F7E8594003AEDE1 /* SFScaleTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429F9EF11F7E8594003AEDE1 /* SFScaleTransition.swift */; };
 		429F9EF41F7F139A003AEDE1 /* SFFadeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429F9EF31F7F1399003AEDE1 /* SFFadeTransition.swift */; };
 		429F9EF61F7F15CF003AEDE1 /* SFAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429F9EF51F7F15CF003AEDE1 /* SFAnimatable.swift */; };
-		42A16DDD1F9863EB00BD7A0B /* PitchPerfectEditorNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A16DDC1F9863EB00BD7A0B /* PitchPerfectEditorNode.swift */; };
 		42A680031F54B3E100EDBAAE /* SFPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A680021F54B3E100EDBAAE /* SFPresentationController.swift */; };
 		42A680051F54B3F300EDBAAE /* SFDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A680041F54B3F200EDBAAE /* SFDismissButton.swift */; };
 		42A680071F54B40600EDBAAE /* SFPageControlNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A680061F54B40600EDBAAE /* SFPageControlNode.swift */; };
@@ -51,24 +43,16 @@
 		42A6DBFF1F9BFBF300A05C61 /* SFPopAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A6DBFE1F9BFBF300A05C61 /* SFPopAnimation.swift */; };
 		42A6DC011F9BFCAF00A05C61 /* SFShakeAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A6DC001F9BFCAF00A05C61 /* SFShakeAnimation.swift */; };
 		42B33ABB1F94E0CC00777AD4 /* SFAnimationCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B33ABA1F94E0CC00777AD4 /* SFAnimationCurve.swift */; };
-		42B50AE81F65D044003E3E1A /* SFChatNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B50AE71F65D044003E3E1A /* SFChatNode.swift */; };
-		42B708991F6624150012DFCD /* SFChatBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B708981F6624150012DFCD /* SFChatBar.swift */; };
-		42B7089B1F6624390012DFCD /* SFChatContainerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7089A1F6624390012DFCD /* SFChatContainerNode.swift */; };
 		42BFCB661F6048D7003B75CC /* SFCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BFCB651F6048D7003B75CC /* SFCollectionController.swift */; };
 		42C41CD61FA623BC00118F7D /* CGFloatExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C41CD51FA623BC00118F7D /* CGFloatExtensions.swift */; };
 		42C41CD81FA6252700118F7D /* SFPagerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C41CD71FA6252700118F7D /* SFPagerNode.swift */; };
 		42C41CDA1FA627B100118F7D /* SFPagerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C41CD91FA627B100118F7D /* SFPagerController.swift */; };
 		42C6FA0A1FA03DCB005B4175 /* SFFlipAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C6FA091FA03DCB005B4175 /* SFFlipAnimation.swift */; };
 		42C6FA0C1FA040A2005B4175 /* SFWobbleAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C6FA0B1FA040A2005B4175 /* SFWobbleAnimation.swift */; };
-		42CDF99A1F65830000B41DC6 /* SFChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CDF9991F65830000B41DC6 /* SFChatController.swift */; };
 		42CEA6F71F4B503100310E64 /* SFAppleMusicLikePresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CEA6F61F4B503100310E64 /* SFAppleMusicLikePresentationController.swift */; };
 		42D1307A1F54B31A00BCA109 /* SFTextContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D130791F54B31A00BCA109 /* SFTextContainer.swift */; };
 		42D15C2A1FA6D47000A8735F /* SFImageGalleryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D15C291FA6D47000A8735F /* SFImageGalleryController.swift */; };
 		42D645C81F9D9AE20091E100 /* SFAnimatableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D645C71F9D9AE20091E100 /* SFAnimatableController.swift */; };
-		42D800541F92D41E00C89730 /* PitchPerfectNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D800531F92D41E00C89730 /* PitchPerfectNode.swift */; };
-		42D800561F92D42A00C89730 /* FoursquareNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D800551F92D42A00C89730 /* FoursquareNode.swift */; };
-		42D800581F92D44300C89730 /* FoursquareCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D800571F92D44300C89730 /* FoursquareCell.swift */; };
-		42D8005A1F92D6D600C89730 /* PitchPerfectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D800591F92D6D600C89730 /* PitchPerfectController.swift */; };
 		42D9D66B1F20CECB00918013 /* SFLoadingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D9D66A1F20CECB00918013 /* SFLoadingNode.swift */; };
 		42D9D66D1F20CF1E00918013 /* SFButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D9D66C1F20CF1E00918013 /* SFButtonNode.swift */; };
 		42D9D6711F20D26E00918013 /* SFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D9D6701F20D26E00918013 /* SFTextField.swift */; };
@@ -81,8 +65,6 @@
 		42DCD5D71F8EC706009B8A9F /* SFPlayerContainerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DCD5D61F8EC706009B8A9F /* SFPlayerContainerNode.swift */; };
 		42DCD5D91F8EC764009B8A9F /* SFVideoPlayerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DCD5D81F8EC764009B8A9F /* SFVideoPlayerDelegate.swift */; };
 		42DDDE941F81E26E004F776C /* SFVideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DDDE931F81E26E004F776C /* SFVideoPlayer.swift */; };
-		42DED2F31F4A1C370093F89C /* SFSignUpNodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DED2F21F4A1C370093F89C /* SFSignUpNodeController.swift */; };
-		42DFF0381F64BB8D005B6076 /* SFChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DFF0371F64BB8C005B6076 /* SFChatCell.swift */; };
 		42E3EA321F604323008596E2 /* SFCollectionNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E3EA311F604323008596E2 /* SFCollectionNode.swift */; };
 		42E554911F76A91D00355D63 /* SFTextDisplayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E554901F76A91D00355D63 /* SFTextDisplayer.swift */; };
 		42F0F5CE1F1F4939003DE859 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F0F5CD1F1F4939003DE859 /* AppDelegate.swift */; };
@@ -109,6 +91,8 @@
 		42F4BD531F7AFE2F00C11B8E /* SFTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F4BD521F7AFE2F00C11B8E /* SFTransition.swift */; };
 		42F4BD551F7AFFA300C11B8E /* SFZoomTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F4BD541F7AFFA300C11B8E /* SFZoomTransition.swift */; };
 		42F4BD571F7B347A00C11B8E /* SFAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F4BD561F7B347A00C11B8E /* SFAnimator.swift */; };
+		42F882351FE3B61B00CDB988 /* SFAppleMusicPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F882341FE3B61B00CDB988 /* SFAppleMusicPresentable.swift */; };
+		42F882371FE3BC0100CDB988 /* SFPopNodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F882361FE3BC0100CDB988 /* SFPopNodeController.swift */; };
 		C6C23A3C641B4DF6D9640F7E /* Pods_SwifterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90264F3A98E625104F40CDBD /* Pods_SwifterUITests.framework */; };
 		F4F745F6BEDAE6270BE57791 /* Pods_SwifterUIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9294A2360459178886F8ED1 /* Pods_SwifterUIUITests.framework */; };
 /* End PBXBuildFile section */
@@ -136,19 +120,16 @@
 		21611C7ED58EA05FC395F942 /* Pods-SwifterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwifterUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwifterUITests/Pods-SwifterUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4202F7BB1F48FFF70009BD33 /* SFDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFDevice.swift; path = SwifterUI/SFDevice.swift; sourceTree = "<group>"; };
 		4202F7BD1F4900000009BD33 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorExtensions.swift; path = SwifterUI/UIColorExtensions.swift; sourceTree = "<group>"; };
+		420371451FE3427700C63C24 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		420371471FE3429900C63C24 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
+		420371491FE343AE00C63C24 /* SFPopNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFPopNode.swift; path = SwifterUI/SFPopNode.swift; sourceTree = "<group>"; };
 		4204F28E1F65ACEE003D9D86 /* SFMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFMessage.swift; path = SwifterUI/SFMessage.swift; sourceTree = "<group>"; };
 		420620081F5B74CA006C0C01 /* SFBlurredNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFBlurredNode.swift; path = SwifterUI/SFBlurredNode.swift; sourceTree = "<group>"; };
 		42095E571F5B74FF00909BEB /* SFGradientNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFGradientNode.swift; path = SwifterUI/SFGradientNode.swift; sourceTree = "<group>"; };
+		420DE33C1FE7336100E98F0F /* SFPopBarNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFPopBarNode.swift; path = SwifterUI/SFPopBarNode.swift; sourceTree = "<group>"; };
 		4212E5711F4A2625006FD5A9 /* SFPresentationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFPresentationManager.swift; path = SwifterUI/SFPresentationManager.swift; sourceTree = "<group>"; };
-		42163F931FAD5DCE0041092C /* ColorPickerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerNode.swift; sourceTree = "<group>"; };
-		421C2A091F249A850099762A /* MeetupFeedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetupFeedController.swift; sourceTree = "<group>"; };
-		421C2A0A1F249A850099762A /* MeetupFeedCellNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetupFeedCellNode.swift; sourceTree = "<group>"; };
-		421C2A0B1F249A850099762A /* MeetuoModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetuoModels.swift; sourceTree = "<group>"; };
-		421C2A101F24AA610099762A /* SFLoginNodeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFLoginNodeController.swift; path = SwifterUI/SFLoginNodeController.swift; sourceTree = "<group>"; };
-		421C2A141F24AAA10099762A /* SFLoginNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFLoginNode.swift; path = SwifterUI/SFLoginNode.swift; sourceTree = "<group>"; };
 		421C2A171F24B4240099762A /* LocalizedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocalizedString.swift; path = SwifterUI/LocalizedString.swift; sourceTree = "<group>"; };
 		421C2A1E1F2533200099762A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		4227C52D1FA77837002F0288 /* ColorPickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerController.swift; sourceTree = "<group>"; };
 		4227C52F1FA77DC5002F0288 /* SFSliderNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFSliderNode.swift; path = SwifterUI/SFSliderNode.swift; sourceTree = "<group>"; };
 		424059AE1F65EE0C00B98776 /* ASCollectionNodeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ASCollectionNodeExtensions.swift; path = SwifterUI/ASCollectionNodeExtensions.swift; sourceTree = "<group>"; };
 		424A5E611F5B067100EFBFB3 /* SFTextFieldView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFTextFieldView.swift; path = SwifterUI/SFTextFieldView.swift; sourceTree = "<group>"; };
@@ -157,19 +138,14 @@
 		424A5E671F5B069400EFBFB3 /* SFColorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFColorController.swift; path = SwifterUI/SFColorController.swift; sourceTree = "<group>"; };
 		424A5E691F5B069B00EFBFB3 /* SFDeviceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFDeviceProtocol.swift; path = SwifterUI/SFDeviceProtocol.swift; sourceTree = "<group>"; };
 		425AA3631F79C6370060AC8C /* SFImageViewerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFImageViewerNode.swift; path = SwifterUI/SFImageViewerNode.swift; sourceTree = "<group>"; };
-		425D1BEE1F7FF7D500A5081B /* FoursquareModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoursquareModel.swift; sourceTree = "<group>"; };
-		425D1BEF1F7FF7D500A5081B /* FoursquareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoursquareViewController.swift; sourceTree = "<group>"; };
 		426CC2A91F75D413002A9FC3 /* SFEditableTextNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFEditableTextNode.swift; path = SwifterUI/SFEditableTextNode.swift; sourceTree = "<group>"; };
 		427664F01F9BA61D00542CEE /* SFAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFAnimation.swift; path = SwifterUI/SFAnimation.swift; sourceTree = "<group>"; };
 		427664F21F9BA88200542CEE /* SFFadeAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFFadeAnimation.swift; path = SwifterUI/SFFadeAnimation.swift; sourceTree = "<group>"; };
 		427664F41F9BAB1100542CEE /* SFZoomAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFZoomAnimation.swift; path = SwifterUI/SFZoomAnimation.swift; sourceTree = "<group>"; };
 		4284FC531FE321470054494F /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIViewExtensions.swift; path = SwifterUI/UIViewExtensions.swift; sourceTree = "<group>"; };
-		428970071F96C8460011A815 /* PitchPerfectEditorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitchPerfectEditorController.swift; sourceTree = "<group>"; };
-		429B186D1F4A02CE006BE483 /* SFSignUpNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFSignUpNode.swift; path = SwifterUI/SFSignUpNode.swift; sourceTree = "<group>"; };
 		429F9EF11F7E8594003AEDE1 /* SFScaleTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFScaleTransition.swift; path = SwifterUI/SFScaleTransition.swift; sourceTree = "<group>"; };
 		429F9EF31F7F1399003AEDE1 /* SFFadeTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFFadeTransition.swift; path = SwifterUI/SFFadeTransition.swift; sourceTree = "<group>"; };
 		429F9EF51F7F15CF003AEDE1 /* SFAnimatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFAnimatable.swift; path = SwifterUI/SFAnimatable.swift; sourceTree = "<group>"; };
-		42A16DDC1F9863EB00BD7A0B /* PitchPerfectEditorNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitchPerfectEditorNode.swift; sourceTree = "<group>"; };
 		42A680021F54B3E100EDBAAE /* SFPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFPresentationController.swift; path = SwifterUI/SFPresentationController.swift; sourceTree = "<group>"; };
 		42A680041F54B3F200EDBAAE /* SFDismissButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFDismissButton.swift; path = SwifterUI/SFDismissButton.swift; sourceTree = "<group>"; };
 		42A680061F54B40600EDBAAE /* SFPageControlNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFPageControlNode.swift; path = SwifterUI/SFPageControlNode.swift; sourceTree = "<group>"; };
@@ -178,24 +154,16 @@
 		42A6DBFE1F9BFBF300A05C61 /* SFPopAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFPopAnimation.swift; path = SwifterUI/SFPopAnimation.swift; sourceTree = "<group>"; };
 		42A6DC001F9BFCAF00A05C61 /* SFShakeAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFShakeAnimation.swift; path = SwifterUI/SFShakeAnimation.swift; sourceTree = "<group>"; };
 		42B33ABA1F94E0CC00777AD4 /* SFAnimationCurve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFAnimationCurve.swift; path = SwifterUI/SFAnimationCurve.swift; sourceTree = "<group>"; };
-		42B50AE71F65D044003E3E1A /* SFChatNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFChatNode.swift; path = SwifterUI/SFChatNode.swift; sourceTree = "<group>"; };
-		42B708981F6624150012DFCD /* SFChatBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFChatBar.swift; path = SwifterUI/SFChatBar.swift; sourceTree = "<group>"; };
-		42B7089A1F6624390012DFCD /* SFChatContainerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFChatContainerNode.swift; path = SwifterUI/SFChatContainerNode.swift; sourceTree = "<group>"; };
 		42BFCB651F6048D7003B75CC /* SFCollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFCollectionController.swift; path = SwifterUI/SFCollectionController.swift; sourceTree = "<group>"; };
 		42C41CD51FA623BC00118F7D /* CGFloatExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CGFloatExtensions.swift; path = SwifterUI/CGFloatExtensions.swift; sourceTree = "<group>"; };
 		42C41CD71FA6252700118F7D /* SFPagerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFPagerNode.swift; path = SwifterUI/SFPagerNode.swift; sourceTree = "<group>"; };
 		42C41CD91FA627B100118F7D /* SFPagerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFPagerController.swift; path = SwifterUI/SFPagerController.swift; sourceTree = "<group>"; };
 		42C6FA091FA03DCB005B4175 /* SFFlipAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFFlipAnimation.swift; path = SwifterUI/SFFlipAnimation.swift; sourceTree = "<group>"; };
 		42C6FA0B1FA040A2005B4175 /* SFWobbleAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFWobbleAnimation.swift; path = SwifterUI/SFWobbleAnimation.swift; sourceTree = "<group>"; };
-		42CDF9991F65830000B41DC6 /* SFChatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFChatController.swift; path = SwifterUI/SFChatController.swift; sourceTree = "<group>"; };
 		42CEA6F61F4B503100310E64 /* SFAppleMusicLikePresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFAppleMusicLikePresentationController.swift; path = SwifterUI/SFAppleMusicLikePresentationController.swift; sourceTree = "<group>"; };
 		42D130791F54B31A00BCA109 /* SFTextContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFTextContainer.swift; path = SwifterUI/SFTextContainer.swift; sourceTree = "<group>"; };
 		42D15C291FA6D47000A8735F /* SFImageGalleryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFImageGalleryController.swift; path = SwifterUI/SFImageGalleryController.swift; sourceTree = "<group>"; };
 		42D645C71F9D9AE20091E100 /* SFAnimatableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFAnimatableController.swift; path = SwifterUI/SFAnimatableController.swift; sourceTree = "<group>"; };
-		42D800531F92D41E00C89730 /* PitchPerfectNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitchPerfectNode.swift; sourceTree = "<group>"; };
-		42D800551F92D42A00C89730 /* FoursquareNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoursquareNode.swift; sourceTree = "<group>"; };
-		42D800571F92D44300C89730 /* FoursquareCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoursquareCell.swift; sourceTree = "<group>"; };
-		42D800591F92D6D600C89730 /* PitchPerfectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitchPerfectController.swift; sourceTree = "<group>"; };
 		42D9D66A1F20CECB00918013 /* SFLoadingNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFLoadingNode.swift; path = SwifterUI/SFLoadingNode.swift; sourceTree = "<group>"; };
 		42D9D66C1F20CF1E00918013 /* SFButtonNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFButtonNode.swift; path = SwifterUI/SFButtonNode.swift; sourceTree = "<group>"; };
 		42D9D6701F20D26E00918013 /* SFTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFTextField.swift; path = SwifterUI/SFTextField.swift; sourceTree = "<group>"; };
@@ -208,8 +176,6 @@
 		42DCD5D61F8EC706009B8A9F /* SFPlayerContainerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFPlayerContainerNode.swift; path = SwifterUI/SFPlayerContainerNode.swift; sourceTree = "<group>"; };
 		42DCD5D81F8EC764009B8A9F /* SFVideoPlayerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFVideoPlayerDelegate.swift; path = SwifterUI/SFVideoPlayerDelegate.swift; sourceTree = "<group>"; };
 		42DDDE931F81E26E004F776C /* SFVideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFVideoPlayer.swift; path = SwifterUI/SFVideoPlayer.swift; sourceTree = "<group>"; };
-		42DED2F21F4A1C370093F89C /* SFSignUpNodeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFSignUpNodeController.swift; path = SwifterUI/SFSignUpNodeController.swift; sourceTree = "<group>"; };
-		42DFF0371F64BB8C005B6076 /* SFChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFChatCell.swift; path = SwifterUI/SFChatCell.swift; sourceTree = "<group>"; };
 		42E3EA311F604323008596E2 /* SFCollectionNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFCollectionNode.swift; path = SwifterUI/SFCollectionNode.swift; sourceTree = "<group>"; };
 		42E554901F76A91D00355D63 /* SFTextDisplayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFTextDisplayer.swift; path = SwifterUI/SFTextDisplayer.swift; sourceTree = "<group>"; };
 		42F0F5CA1F1F4939003DE859 /* SwifterUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwifterUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -242,6 +208,8 @@
 		42F4BD521F7AFE2F00C11B8E /* SFTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFTransition.swift; path = SwifterUI/SFTransition.swift; sourceTree = "<group>"; };
 		42F4BD541F7AFFA300C11B8E /* SFZoomTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFZoomTransition.swift; path = SwifterUI/SFZoomTransition.swift; sourceTree = "<group>"; };
 		42F4BD561F7B347A00C11B8E /* SFAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFAnimator.swift; path = SwifterUI/SFAnimator.swift; sourceTree = "<group>"; };
+		42F882341FE3B61B00CDB988 /* SFAppleMusicPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFAppleMusicPresentable.swift; path = SwifterUI/SFAppleMusicPresentable.swift; sourceTree = "<group>"; };
+		42F882361FE3BC0100CDB988 /* SFPopNodeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFPopNodeController.swift; path = SwifterUI/SFPopNodeController.swift; sourceTree = "<group>"; };
 		6BBCD62DDBC8D77D25901F55 /* Pods_SwifterUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwifterUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90264F3A98E625104F40CDBD /* Pods_SwifterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwifterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8C7C6B369E0CEC5C2BA93F4 /* Pods-SwifterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwifterUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwifterUITests/Pods-SwifterUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -278,18 +246,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		42163F921FAD5DBA0041092C /* Color Picker */ = {
+		420DE33B1FE7335100E98F0F /* SFPopNode */ = {
 			isa = PBXGroup;
 			children = (
-				4227C52D1FA77837002F0288 /* ColorPickerController.swift */,
-				42163F931FAD5DCE0041092C /* ColorPickerNode.swift */,
+				420371491FE343AE00C63C24 /* SFPopNode.swift */,
+				420DE33C1FE7336100E98F0F /* SFPopBarNode.swift */,
 			);
-			name = "Color Picker";
+			name = SFPopNode;
 			sourceTree = "<group>";
 		};
 		42164C771F9F7F7700798ED5 /* SFAnimations */ = {
 			isa = PBXGroup;
 			children = (
+				42F4BD561F7B347A00C11B8E /* SFAnimator.swift */,
 				427664F01F9BA61D00542CEE /* SFAnimation.swift */,
 				427664F21F9BA88200542CEE /* SFFadeAnimation.swift */,
 				427664F41F9BAB1100542CEE /* SFZoomAnimation.swift */,
@@ -312,53 +281,11 @@
 			name = SFTextField;
 			sourceTree = "<group>";
 		};
-		421C2A0F1F249A880099762A /* Meetup Example */ = {
-			isa = PBXGroup;
-			children = (
-				421C2A091F249A850099762A /* MeetupFeedController.swift */,
-				421C2A0A1F249A850099762A /* MeetupFeedCellNode.swift */,
-				421C2A0B1F249A850099762A /* MeetuoModels.swift */,
-			);
-			name = "Meetup Example";
-			sourceTree = "<group>";
-		};
-		429C3AB61F819F8900A22E78 /* Foursquare Example */ = {
-			isa = PBXGroup;
-			children = (
-				42D800551F92D42A00C89730 /* FoursquareNode.swift */,
-				425D1BEF1F7FF7D500A5081B /* FoursquareViewController.swift */,
-				42D800571F92D44300C89730 /* FoursquareCell.swift */,
-				425D1BEE1F7FF7D500A5081B /* FoursquareModel.swift */,
-			);
-			name = "Foursquare Example";
-			sourceTree = "<group>";
-		};
-		42B7089C1F66244E0012DFCD /* ChatKit */ = {
-			isa = PBXGroup;
-			children = (
-				42B50AE71F65D044003E3E1A /* SFChatNode.swift */,
-				42B708981F6624150012DFCD /* SFChatBar.swift */,
-				42B7089A1F6624390012DFCD /* SFChatContainerNode.swift */,
-				42DFF0371F64BB8C005B6076 /* SFChatCell.swift */,
-			);
-			name = ChatKit;
-			sourceTree = "<group>";
-		};
-		42B7089E1F6624750012DFCD /* LoginKit */ = {
-			isa = PBXGroup;
-			children = (
-				421C2A141F24AAA10099762A /* SFLoginNode.swift */,
-				429B186D1F4A02CE006BE483 /* SFSignUpNode.swift */,
-			);
-			name = LoginKit;
-			sourceTree = "<group>";
-		};
 		42CEA6F81F4B504F00310E64 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
-				42F4BD4E1F7AB08600C11B8E /* Presentation */,
-				42F4BD561F7B347A00C11B8E /* SFAnimator.swift */,
 				42164C771F9F7F7700798ED5 /* SFAnimations */,
+				42F4BD4E1F7AB08600C11B8E /* Presentation */,
 				42F4BD4F1F7AB08D00C11B8E /* Transition */,
 			);
 			name = Animations;
@@ -402,19 +329,9 @@
 				429F9EF51F7F15CF003AEDE1 /* SFAnimatable.swift */,
 				42D645C71F9D9AE20091E100 /* SFAnimatableController.swift */,
 				42DCD5D81F8EC764009B8A9F /* SFVideoPlayerDelegate.swift */,
+				42F882341FE3B61B00CDB988 /* SFAppleMusicPresentable.swift */,
 			);
 			name = Protocols;
-			sourceTree = "<group>";
-		};
-		42D800521F92BFD700C89730 /* PitchPerfect */ = {
-			isa = PBXGroup;
-			children = (
-				42D800531F92D41E00C89730 /* PitchPerfectNode.swift */,
-				42D800591F92D6D600C89730 /* PitchPerfectController.swift */,
-				42A16DDC1F9863EB00BD7A0B /* PitchPerfectEditorNode.swift */,
-				428970071F96C8460011A815 /* PitchPerfectEditorController.swift */,
-			);
-			name = PitchPerfect;
 			sourceTree = "<group>";
 		};
 		42D9D6781F20D6A800918013 /* Controllers */ = {
@@ -424,24 +341,11 @@
 				42D9D67B1F20D80400918013 /* SFTableNodeController.swift */,
 				42BFCB651F6048D7003B75CC /* SFCollectionController.swift */,
 				42C41CD91FA627B100118F7D /* SFPagerController.swift */,
-				421C2A101F24AA610099762A /* SFLoginNodeController.swift */,
-				42DED2F21F4A1C370093F89C /* SFSignUpNodeController.swift */,
-				42CDF9991F65830000B41DC6 /* SFChatController.swift */,
 				42DC28991F76B9FA00896D87 /* SFImageViewerNodeController.swift */,
 				42D15C291FA6D47000A8735F /* SFImageGalleryController.swift */,
+				42F882361FE3BC0100CDB988 /* SFPopNodeController.swift */,
 			);
 			name = Controllers;
-			sourceTree = "<group>";
-		};
-		42D9D67D1F20D8EA00918013 /* Examples */ = {
-			isa = PBXGroup;
-			children = (
-				42163F921FAD5DBA0041092C /* Color Picker */,
-				42D800521F92BFD700C89730 /* PitchPerfect */,
-				429C3AB61F819F8900A22E78 /* Foursquare Example */,
-				421C2A0F1F249A880099762A /* Meetup Example */,
-			);
-			name = Examples;
 			sourceTree = "<group>";
 		};
 		42DCD5DA1F8EC83D009B8A9F /* VideoKit */ = {
@@ -480,7 +384,8 @@
 			isa = PBXGroup;
 			children = (
 				42F0F5CD1F1F4939003DE859 /* AppDelegate.swift */,
-				42D9D67D1F20D8EA00918013 /* Examples */,
+				420371451FE3427700C63C24 /* ViewController.swift */,
+				420371471FE3429900C63C24 /* Node.swift */,
 				42F0F5FB1F1F7969003DE859 /* SwifterUI */,
 				42F0F5D41F1F4939003DE859 /* Assets.xcassets */,
 				42F0F5D61F1F4939003DE859 /* LaunchScreen.storyboard */,
@@ -554,12 +459,11 @@
 				42D9D66C1F20CF1E00918013 /* SFButtonNode.swift */,
 				42A680041F54B3F200EDBAAE /* SFDismissButton.swift */,
 				425AA3631F79C6370060AC8C /* SFImageViewerNode.swift */,
+				420DE33B1FE7335100E98F0F /* SFPopNode */,
 				421BA3F41F570A21008E176D /* SFTextField */,
 				42D9D6721F20D39F00918013 /* SFSearchBar.swift */,
 				42A680061F54B40600EDBAAE /* SFPageControlNode.swift */,
 				42DCD5DA1F8EC83D009B8A9F /* VideoKit */,
-				42B7089E1F6624750012DFCD /* LoginKit */,
-				42B7089C1F66244E0012DFCD /* ChatKit */,
 			);
 			name = Nodes;
 			sourceTree = "<group>";
@@ -914,6 +818,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				42F0F6101F1F7B9C003DE859 /* SFColorStyle.swift in Sources */,
+				42F882351FE3B61B00CDB988 /* SFAppleMusicPresentable.swift in Sources */,
 				4284FC541FE321470054494F /* UIViewExtensions.swift in Sources */,
 				42DCD5D71F8EC706009B8A9F /* SFPlayerContainerNode.swift in Sources */,
 				42F4BD4D1F7A9B1300C11B8E /* DateExtensions.swift in Sources */,
@@ -922,33 +827,24 @@
 				42DC289C1F76BC1E00896D87 /* SFScrollNode.swift in Sources */,
 				42DCD5D91F8EC764009B8A9F /* SFVideoPlayerDelegate.swift in Sources */,
 				42D9D66D1F20CF1E00918013 /* SFButtonNode.swift in Sources */,
+				420DE33D1FE7336100E98F0F /* SFPopBarNode.swift in Sources */,
 				42A6DBFD1F9BF74C00A05C61 /* SFSlideAnimation.swift in Sources */,
 				42D15C2A1FA6D47000A8735F /* SFImageGalleryController.swift in Sources */,
 				42C6FA0C1FA040A2005B4175 /* SFWobbleAnimation.swift in Sources */,
 				42F0F60A1F1F7A0F003DE859 /* Dispatch.swift in Sources */,
-				42B708991F6624150012DFCD /* SFChatBar.swift in Sources */,
+				42F882371FE3BC0100CDB988 /* SFPopNodeController.swift in Sources */,
 				42BFCB661F6048D7003B75CC /* SFCollectionController.swift in Sources */,
 				42F0F6191F1F95D1003DE859 /* SFTableNode.swift in Sources */,
-				42A16DDD1F9863EB00BD7A0B /* PitchPerfectEditorNode.swift in Sources */,
 				42D9D67A1F20D6C500918013 /* SFViewController.swift in Sources */,
 				42DDDE941F81E26E004F776C /* SFVideoPlayer.swift in Sources */,
 				424A5E621F5B067200EFBFB3 /* SFTextFieldView.swift in Sources */,
-				42B50AE81F65D044003E3E1A /* SFChatNode.swift in Sources */,
-				42D800581F92D44300C89730 /* FoursquareCell.swift in Sources */,
-				4227C52E1FA77837002F0288 /* ColorPickerController.swift in Sources */,
 				42C41CD61FA623BC00118F7D /* CGFloatExtensions.swift in Sources */,
 				42A6DBFF1F9BFBF300A05C61 /* SFPopAnimation.swift in Sources */,
-				42D800561F92D42A00C89730 /* FoursquareNode.swift in Sources */,
 				427664F51F9BAB1100542CEE /* SFZoomAnimation.swift in Sources */,
-				42DED2F31F4A1C370093F89C /* SFSignUpNodeController.swift in Sources */,
 				42E554911F76A91D00355D63 /* SFTextDisplayer.swift in Sources */,
-				421C2A0D1F249A850099762A /* MeetupFeedCellNode.swift in Sources */,
 				42D9D6711F20D26E00918013 /* SFTextField.swift in Sources */,
-				42D8005A1F92D6D600C89730 /* PitchPerfectController.swift in Sources */,
-				42D800541F92D41E00C89730 /* PitchPerfectNode.swift in Sources */,
 				42C41CD81FA6252700118F7D /* SFPagerNode.swift in Sources */,
 				4204F28F1F65ACEE003D9D86 /* SFMessage.swift in Sources */,
-				425D1BF11F7FF7D500A5081B /* FoursquareViewController.swift in Sources */,
 				42D9D6731F20D39F00918013 /* SFSearchBar.swift in Sources */,
 				427664F11F9BA61D00542CEE /* SFAnimation.swift in Sources */,
 				42B33ABB1F94E0CC00777AD4 /* SFAnimationCurve.swift in Sources */,
@@ -956,7 +852,6 @@
 				42D645C81F9D9AE20091E100 /* SFAnimatableController.swift in Sources */,
 				42F4BD551F7AFFA300C11B8E /* SFZoomTransition.swift in Sources */,
 				42F0F6121F1F7FE0003DE859 /* SFColorStyleProtocol.swift in Sources */,
-				429B186E1F4A02CE006BE483 /* SFSignUpNode.swift in Sources */,
 				420620091F5B74CA006C0C01 /* SFBlurredNode.swift in Sources */,
 				42F0F6081F1F79DA003DE859 /* UIImageExtensions.swift in Sources */,
 				421C2A181F24B4240099762A /* LocalizedString.swift in Sources */,
@@ -965,15 +860,12 @@
 				42A6DC011F9BFCAF00A05C61 /* SFShakeAnimation.swift in Sources */,
 				42C6FA0A1FA03DCB005B4175 /* SFFlipAnimation.swift in Sources */,
 				42A680031F54B3E100EDBAAE /* SFPresentationController.swift in Sources */,
-				42163F941FAD5DCE0041092C /* ColorPickerNode.swift in Sources */,
 				42F0F61D1F1F97E3003DE859 /* SFLabelNode.swift in Sources */,
-				421C2A111F24AA610099762A /* SFLoginNodeController.swift in Sources */,
 				42A680071F54B40600EDBAAE /* SFPageControlNode.swift in Sources */,
 				42F4BD531F7AFE2F00C11B8E /* SFTransition.swift in Sources */,
 				429F9EF41F7F139A003AEDE1 /* SFFadeTransition.swift in Sources */,
 				42095E581F5B74FF00909BEB /* SFGradientNode.swift in Sources */,
 				42CEA6F71F4B503100310E64 /* SFAppleMusicLikePresentationController.swift in Sources */,
-				42B7089B1F6624390012DFCD /* SFChatContainerNode.swift in Sources */,
 				425AA3641F79C6370060AC8C /* SFImageViewerNode.swift in Sources */,
 				429F9EF61F7F15CF003AEDE1 /* SFAnimatable.swift in Sources */,
 				42F0F6071F1F79DA003DE859 /* UIFontExtensions.swift in Sources */,
@@ -982,32 +874,28 @@
 				42F0F6061F1F79DA003DE859 /* StringExtensions.swift in Sources */,
 				42A6DBFB1F9BF24D00A05C61 /* SFScaleAnimation.swift in Sources */,
 				424A5E661F5B068D00EFBFB3 /* SFNodeColorStyle.swift in Sources */,
-				421C2A151F24AAA10099762A /* SFLoginNode.swift in Sources */,
+				4203714A1FE343AE00C63C24 /* SFPopNode.swift in Sources */,
 				42C41CDA1FA627B100118F7D /* SFPagerController.swift in Sources */,
 				42D9D66B1F20CECB00918013 /* SFLoadingNode.swift in Sources */,
 				42F0F61B1F1F96C1003DE859 /* SFCellNode.swift in Sources */,
 				42D9D67C1F20D80400918013 /* SFTableNodeController.swift in Sources */,
+				420371461FE3427700C63C24 /* ViewController.swift in Sources */,
 				424A5E6A1F5B069B00EFBFB3 /* SFDeviceProtocol.swift in Sources */,
 				4202F7BE1F4900000009BD33 /* UIColorExtensions.swift in Sources */,
 				42E3EA321F604323008596E2 /* SFCollectionNode.swift in Sources */,
-				425D1BF01F7FF7D500A5081B /* FoursquareModel.swift in Sources */,
 				4212E5721F4A2625006FD5A9 /* SFPresentationManager.swift in Sources */,
 				427664F31F9BA88200542CEE /* SFFadeAnimation.swift in Sources */,
-				421C2A0E1F249A850099762A /* MeetuoModels.swift in Sources */,
 				424A5E641F5B068300EFBFB3 /* UIViewControllerExtensions.swift in Sources */,
 				42F0F5FD1F1F7979003DE859 /* SFAssets.swift in Sources */,
-				42CDF99A1F65830000B41DC6 /* SFChatController.swift in Sources */,
 				42F0F60E1F1F7A73003DE859 /* SFGradientDirection.swift in Sources */,
 				426CC2AA1F75D413002A9FC3 /* SFEditableTextNode.swift in Sources */,
 				42F4BD571F7B347A00C11B8E /* SFAnimator.swift in Sources */,
-				421C2A0C1F249A850099762A /* MeetupFeedController.swift in Sources */,
-				42DFF0381F64BB8D005B6076 /* SFChatCell.swift in Sources */,
+				420371481FE3429900C63C24 /* Node.swift in Sources */,
 				4227C5301FA77DC5002F0288 /* SFSliderNode.swift in Sources */,
 				42F0F6151F1F8114003DE859 /* SFDisplayNode.swift in Sources */,
 				4202F7BC1F48FFF70009BD33 /* SFDevice.swift in Sources */,
 				42F0F5CE1F1F4939003DE859 /* AppDelegate.swift in Sources */,
 				424A5E681F5B069400EFBFB3 /* SFColorController.swift in Sources */,
-				428970081F96C8460011A815 /* PitchPerfectEditorController.swift in Sources */,
 				42F0F6251F1FA405003DE859 /* SFActivityNode.swift in Sources */,
 				429F9EF21F7E8594003AEDE1 /* SFScaleTransition.swift in Sources */,
 			);

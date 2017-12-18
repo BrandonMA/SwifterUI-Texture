@@ -20,7 +20,6 @@ open class SFActivityNode: SFDisplayNode {
     
     public required init(automaticallyAdjustsColorStyle: Bool) {
         
-        
         self.activityIndicatorView = UIActivityIndicatorView() // the new UIActivityIndicatorView as the activityIndicatorView
         
         self.activityIndicatorView.isHidden = false // By default activityIndicatorView is hidden but it must be true so it is changed here

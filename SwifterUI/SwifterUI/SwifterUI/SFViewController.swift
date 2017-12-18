@@ -172,7 +172,7 @@ open class SFViewController<SFNodeType: SFColorStyleProtocol>: ASViewController<
             }
         }
     }
-    
+
     // MARK: - SFAnimatableController
     
     open func prepareAnimations() {

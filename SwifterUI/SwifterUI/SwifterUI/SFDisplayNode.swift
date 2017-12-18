@@ -76,6 +76,8 @@ open class SFDisplayNode: ASDisplayNode, SFGradientNode, SFBlurredNode, SFNodeCo
     open func updateColors() {
         if self.automaticallyAdjustsColorStyle == true {
             
+            self.tintColor = self.colorStyle.getInteractiveColor()
+            
             if self.shouldHaveBackgroundBlur == true {
                 self.effect = self.colorStyle.getCorrectEffect()
             }

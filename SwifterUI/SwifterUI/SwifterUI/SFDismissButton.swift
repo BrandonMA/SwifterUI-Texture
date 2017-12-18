@@ -10,21 +10,41 @@ import AsyncDisplayKit
 
 open class SFDismissButton: SFButtonNode {
     
+    open override var tintColor: UIColor! {
+        didSet {
+            changeImage(to: self.tintColor)
+        }
+    }
+    
     // MARK: - Initializers
 
     required public init(automaticallyAdjustsColorStyle: Bool) {
         super.init(automaticallyAdjustsColorStyle: automaticallyAdjustsColorStyle)
+        self.setImage(SFAssets.imageOfArrowDown, for: .normal)
     }
     
     // MARK: - Instance Methods
+    
+    open func changeImage(to color: UIColor) {
+        SFAssets.imageOfArrowDown.tint(color: color, alpha: 1, handler: { (image) in
+            Dispatch.addAsyncTask(to: .main, handler: {
+                self.setImage(image, for: .normal)
+            })
+        })
+    }
 
     override open func updateColors() {
         if self.automaticallyAdjustsColorStyle == true {
-            SFAssets.imageOfArrowDown.tint(color: self.colorStyle.getDetailColor(), alpha: 1, handler: { (image) in
-                Dispatch.addAsyncTask(to: DispatchLevel.main, handler: {
-                    self.setImage(image, for: UIControlState.normal)
-                })
-            })
+            changeImage(to: self.colorStyle.getDetailColor())
         }
     }
 }
+
+
+
+
+
+
+
+
+

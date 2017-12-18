@@ -40,55 +40,11 @@ struct LocalizedString {
         return cancel[getBestMatchedLanguage()] ?? "Cancel"
     }
     
-    // getStart: Return start in the correct language
-    func getStart() -> String {
-        let start: LocalizedDictionary = ["en" : "Start", "es" : "Empezar"]
-        return start[getBestMatchedLanguage()] ?? "Start"
+    func getSave() -> String {
+        let done: LocalizedDictionary = ["en" : "Save", "es" : "Guardar"]
+        return done[getBestMatchedLanguage()] ?? "Done"
     }
     
-    // getUsername: Return username in the correct language
-    func getUsername() -> String {
-        let email: LocalizedDictionary = ["en" : "Username", "es" : "Nombre de usuario"]
-        return email[getBestMatchedLanguage()] ?? "Username"
-    }
-    
-    // getEmail: Return email in the correct language
-    func getEmail() -> String {
-        let email: LocalizedDictionary = ["en" : "Email", "es" : "Correo Electronico"]
-        return email[getBestMatchedLanguage()] ?? "Email"
-    }
-    
-    // getEmail: Return email in the correct language
-    func getPassword() -> String {
-        let password: LocalizedDictionary = ["en" : "Password", "es" : "Contraseña"]
-        return password[getBestMatchedLanguage()] ?? "Password"
-    }
-    
-    func getSignIn() -> String {
-        let text: LocalizedDictionary = ["en" : "Sign In", "es" : "Iniciar Sesión"]
-        return text[getBestMatchedLanguage()] ?? "Sign In"
-    }
-    
-    // getNewAccount: Return the text at the left side of the signUpButton in SFLoginNode
-    func getNewAccount() -> String {
-        let text: LocalizedDictionary = ["en" : "Don't have an account?", "es" : "¿No tienes cuenta?"]
-        return text[getBestMatchedLanguage()] ?? "Don't have an account?"
-    }
-    
-    func getSignUp() -> String {
-        let text: LocalizedDictionary = ["en" : "Sign Up", "es" : "Crear Cuenta"]
-        return text[getBestMatchedLanguage()] ?? "Sign Up"
-    }
-    
-    func getType() -> String {
-        let text: LocalizedDictionary = ["en" : "Type", "es" : "Escribe"]
-        return text[getBestMatchedLanguage()] ?? "Type"
-    }
-    
-    func getSend() -> String {
-        let text: LocalizedDictionary = ["en" : "Send", "es" : "Enviar"]
-        return text[getBestMatchedLanguage()] ?? "Send"
-    }
 }
 
 

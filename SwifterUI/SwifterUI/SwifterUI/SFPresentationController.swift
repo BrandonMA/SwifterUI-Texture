@@ -6,7 +6,6 @@
 //  Copyright © 2017 Brandon Maldonado Alonso. All rights reserved.
 //
 
-import UIKit
 import AsyncDisplayKit
 
 open class SFPresentationController<SFPresentingNodeType>: UIPresentationController where SFPresentingNodeType: SFDisplayNode {

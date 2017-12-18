@@ -6,53 +6,9 @@
 //  Copyright © 2017 Brandon Maldonado Alonso. All rights reserved.
 //
 
-import UIKit
 import AsyncDisplayKit
 
-public protocol SFAppleMusicLikeDismissProtocol: class {
-    
-    // MARK: - Instance Properties
-    
-    // initialPoint: Keep track of the initial point of the UIPanGestureRecognizer inside dismiss(with:) function, the initial value of this variable is not important, is constantly updated by dismiss(with:)
-    var initialPoint: CGFloat { get set }
-    
-    // MARK: - Instance Methods
-    
-    // didDragged: Gets called when the user drag the SFNode, also it is in charge of animating the changes
-    func dismiss(with gesture: UIPanGestureRecognizer)
-    
-}
-
-extension SFAppleMusicLikeDismissProtocol where Self: UIViewController {
-
-    public func dismiss(with gesture: UIPanGestureRecognizer) {
-
-        guard let window = UIApplication.shared.keyWindow else { fatalError() } // Get the current window, if you can't get it then something is wrong with the OS so crash
-        let currentPoint = gesture.location(in: window).y // Get the current point of the dragging gesture
-
-        if gesture.state == .began {
-            initialPoint = gesture.location(in: window).y // Set the initialPoint to the correct value
-        } else  if gesture.state == .changed {
-            let distance =  currentPoint - initialPoint // Calculate distance between initial point and new position
-            self.view.frame.origin.y += distance
-            initialPoint = currentPoint // and set the new value of initialPoint
-            if self.view.frame.origin.y > 120 {
-                dismiss(animated: true, completion: nil)
-            }
-        } else if gesture.state == .ended {
-            if self.view.frame.origin.y < 120 { // if self.view is less than 120 then take it back to the correct place
-                UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 0, options: [], animations: {
-                    self.view.frame.origin.y = 30
-                }, completion: nil)
-            } else { // if not then dismiss it
-                dismiss(animated: true, completion: nil)
-            }
-        }
-    }
-
-}
-
-open class SFAppleMusicLikePresentationController<SFPresentingNodeType>: SFPresentationController<SFPresentingNodeType> where SFPresentingNodeType: SFDisplayNode {
+open class SFAppleMusicPresentationController<SFPresentingNodeType>: SFPresentationController<SFPresentingNodeType> where SFPresentingNodeType: SFDisplayNode {
     
     lazy var dimmingView: UIView = {
         let view = UIView()
