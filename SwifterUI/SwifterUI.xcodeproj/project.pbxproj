@@ -264,8 +264,8 @@
 				427664F41F9BAB1100542CEE /* SFZoomAnimation.swift */,
 				42A6DBFA1F9BF24D00A05C61 /* SFScaleAnimation.swift */,
 				42A6DBFC1F9BF74C00A05C61 /* SFSlideAnimation.swift */,
-				42A6DBFE1F9BFBF300A05C61 /* SFPopAnimation.swift */,
 				42A6DC001F9BFCAF00A05C61 /* SFShakeAnimation.swift */,
+				42A6DBFE1F9BFBF300A05C61 /* SFPopAnimation.swift */,
 				42C6FA091FA03DCB005B4175 /* SFFlipAnimation.swift */,
 				42C6FA0B1FA040A2005B4175 /* SFWobbleAnimation.swift */,
 			);

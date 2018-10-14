@@ -8,8 +8,6 @@
 
 import AsyncDisplayKit
 
-// This code has been partially taken from https://github.com/MengTo/Spring, if you are using UIKit I really encourage you to use Spring
-
 public enum SFAnimationCurve: String {
     case easeIn
     case easeOut

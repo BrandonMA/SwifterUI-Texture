@@ -10,7 +10,6 @@ import UIKit
 
 // DispatchLevel: Enum for easier access to DispatchQueues types
 public enum DispatchLevel {
-    
     case main
     case userInteractive
     case userInitiated

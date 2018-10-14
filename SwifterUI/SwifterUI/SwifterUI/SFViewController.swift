@@ -226,12 +226,12 @@ open class SFViewController<SFNodeType: SFColorStyleProtocol>: ASViewController<
 
 extension SFViewController: SFControllerColorStyle {
     
-    open func handleColorStyleCheck() {
-        if automaticallyAdjustsColorStyle == true {
-            self.updateColors()
-            automaticallyAdjustsColorStyleHandler()
-        }
-    }
+//    open func handleColorStyleCheck() {
+//        if automaticallyAdjustsColorStyle == true {
+//            self.updateColors()
+//            automaticallyAdjustsColorStyleHandler()
+//        }
+//    }
     
     open func automaticallyAdjustsColorStyleHandler() {
         if self.automaticallyAdjustsColorStyle == true {
